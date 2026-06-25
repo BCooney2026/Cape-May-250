@@ -1,7 +1,7 @@
 {
-  "name": "Cooney Vacations",
-  "short_name": "Cooney",
-  "description": "Cooney Vacations hub",
+  "name": "Family Vacation",
+  "short_name": "Vacation",
+  "description": "Family Vacation hub",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#07192f",
