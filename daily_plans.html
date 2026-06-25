@@ -1,1 +1,212 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Daily Plans</title><link rel="stylesheet" href="style.css"></head><body><main class="wrap"><h2 class="section-title">Daily Plans</h2><section class="daily-row"><a class="card " href="pdfs/daily_plans/04_Friday_Arrival_250_Warmup.pdf"><span>Fri 7/3</span><b>Arrival + 250 Warm-Up</b></a><a class="card " href="pdfs/daily_plans/05_Saturday_America_250_Main_Event.pdf"><span>Sat 7/4</span><b>America 250 Main Event</b></a><a class="card " href="pdfs/daily_plans/06_Sunday_Victory_Lap.pdf"><span>Sun 7/5</span><b>Recovery + Victory Lap</b></a><a class="card " href="pdfs/daily_plans/07_Monday_Last_Full_Day.pdf"><span>Mon 7/6</span><b>Last Full Day</b></a><a class="card fire" href="pdfs/09_July_4_Backup_Fireworks_Playbook.pdf"><span>Backup 4th</span><b>Fireworks Fallback Ladder</b><p>Best to worst, plus what to avoid.</p></a><a class="card " href="index.html"><span>Back</span><b>Main Hub</b></a></section></main></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Daily Plans</title><link rel="stylesheet" href="style.css">
+
+
+
+<style id="cooney-music-css">
+:root{
+  --cm-red:#9f1d25;
+  --cm-red2:#7c1520;
+  --cm-navy:#12264a;
+  --cm-navy2:#081832;
+  --cm-cream:#fff7e6;
+  --cm-gold:#d3a347;
+  --cm-gold2:#f4d889;
+}
+.cooney-start-overlay{
+  position:fixed; inset:0; z-index:9999;
+  display:flex; align-items:center; justify-content:center; padding:24px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(244,216,137,.32), transparent 24%),
+    radial-gradient(circle at 88% 20%, rgba(255,255,255,.16), transparent 22%),
+    linear-gradient(135deg, rgba(8,24,50,.98), rgba(159,29,37,.95) 58%, rgba(122,21,32,.98));
+  color:#fff; text-align:center; overflow:hidden;
+}
+.cooney-start-overlay:before{
+  content:""; position:absolute; inset:-30px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.045) 0 8px, transparent 8px 18px);
+  opacity:.75; animation: cmDrift 18s linear infinite;
+}
+.cooney-start-overlay:after{
+  content:"250"; position:absolute; right:2vw; bottom:-3vw;
+  font-family:Georgia,serif; font-size:clamp(110px,30vw,310px); font-weight:900;
+  color:rgba(255,247,230,.08); letter-spacing:-.08em; pointer-events:none;
+}
+.cooney-start-card{
+  position:relative; z-index:1; max-width:620px;
+  border:2px solid rgba(244,216,137,.42);
+  border-radius:30px;
+  background:linear-gradient(180deg, rgba(255,247,230,.15), rgba(255,247,230,.07));
+  box-shadow:0 30px 90px rgba(0,0,0,.42), inset 0 0 0 1px rgba(255,255,255,.14);
+  padding:36px 28px 32px; backdrop-filter:blur(9px);
+}
+.flagman{
+  width:96px; height:96px; margin:0 auto 12px; position:relative;
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,.28));
+  animation: cmBob 2.8s ease-in-out infinite;
+}
+.flagman .head{
+  position:absolute; left:34px; top:4px; width:28px; height:28px;
+  background:#fff7e6; border-radius:50%; box-shadow:inset -5px -4px 0 rgba(211,163,71,.28);
+}
+.flagman .body{
+  position:absolute; left:38px; top:35px; width:21px; height:39px;
+  background:linear-gradient(180deg,#17315f,#081832); border-radius:12px 12px 6px 6px;
+}
+.flagman .leg1,.flagman .leg2{
+  position:absolute; top:70px; width:8px; height:22px; background:#fff7e6; border-radius:8px;
+}
+.flagman .leg1{left:39px; transform:rotate(8deg);}
+.flagman .leg2{left:52px; transform:rotate(-8deg);}
+.flagman .arm{
+  position:absolute; left:56px; top:36px; width:42px; height:8px;
+  background:#fff7e6; border-radius:8px; transform-origin:left center;
+  animation: cmWaveArm 1.15s ease-in-out infinite;
+}
+.flagman .pole{
+  position:absolute; left:88px; top:8px; width:4px; height:64px;
+  background:linear-gradient(180deg,#f7e7ae,#b7832f); border-radius:2px;
+  transform-origin:bottom center;
+  animation: cmPole 1.15s ease-in-out infinite;
+}
+.flagman .flag{
+  position:absolute; left:91px; top:9px; width:58px; height:38px;
+  background:
+    linear-gradient(#244678 0 53%, transparent 53%),
+    repeating-linear-gradient(to bottom,#c82333 0 5px,#fff 5px 10px);
+  border-radius:2px 9px 9px 2px;
+  clip-path:polygon(0 0,100% 7%,90% 50%,100% 93%,0 100%);
+  transform-origin:left center;
+  animation: cmFlagWave .85s ease-in-out infinite;
+  box-shadow:0 3px 10px rgba(0,0,0,.22);
+}
+.flagman .flag:after{
+  content:"★ ★"; position:absolute; left:5px; top:5px; font-size:8px; color:#fff; letter-spacing:1px;
+}
+.cooney-start-card h2{
+  font-size:clamp(34px,7vw,58px); line-height:.95; margin:0 0 14px;
+  font-family:Georgia, 'Times New Roman', serif; letter-spacing:.2px;
+  text-shadow:0 3px 14px rgba(0,0,0,.32);
+}
+.cooney-start-card p{
+  font-size:17px; line-height:1.45; margin:0 auto 24px; max-width:470px; color:#fff4d6;
+}
+.cooney-start-button{
+  appearance:none; border:0; border-radius:999px; padding:17px 26px;
+  font-weight:900; font-size:18px;
+  background:linear-gradient(135deg,var(--cm-gold2),var(--cm-gold));
+  color:#0b2244; box-shadow:0 12px 32px rgba(0,0,0,.33), inset 0 1px 0 rgba(255,255,255,.55);
+  cursor:pointer; position:relative; overflow:hidden;
+  animation: cmPulse 1.9s ease-in-out infinite;
+}
+.cooney-start-button:before{
+  content:""; position:absolute; top:0; bottom:0; left:-55%;
+  width:45%; background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  transform:skewX(-18deg); animation: cmShine 2.75s ease-in-out infinite;
+}
+.cooney-start-button span{position:relative; z-index:1;}
+.cooney-start-button:hover{transform:translateY(-1px);}
+.cooney-musicbar{
+  position:fixed; z-index:9998; left:14px; right:14px; bottom:14px;
+  display:none; align-items:center; gap:12px; border-radius:18px;
+  border:1px solid rgba(244,216,137,.38);
+  background:linear-gradient(135deg,rgba(18,38,74,.97),rgba(159,29,37,.95));
+  color:#fff; padding:10px 12px; box-shadow:0 14px 40px rgba(0,0,0,.32);
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+}
+.cooney-musicbar button{
+  border:0; border-radius:999px; padding:9px 13px; background:#fff7e6;
+  color:#12264a; font-weight:800; cursor:pointer;
+}
+.cooney-track{flex:1; min-width:0}
+.cooney-track strong{display:block; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.cooney-track span{display:block; font-size:12px; opacity:.82; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+@keyframes cmDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(34px,34px,0)}}
+@keyframes cmBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes cmWaveArm{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(-38deg)}}
+@keyframes cmPole{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(7deg)}}
+@keyframes cmFlagWave{0%,100%{transform:skewY(0deg) scaleX(1)}50%{transform:skewY(-6deg) scaleX(.96)}}
+@keyframes cmPulse{0%,100%{box-shadow:0 12px 32px rgba(0,0,0,.33),0 0 0 0 rgba(244,216,137,.38)}50%{box-shadow:0 12px 32px rgba(0,0,0,.33),0 0 0 10px rgba(244,216,137,0)}}
+@keyframes cmShine{0%{left:-55%}45%,100%{left:115%}}
+@media (max-width:520px){
+  .cooney-musicbar{left:10px;right:10px;bottom:10px}
+  .cooney-start-card{padding:28px 20px}
+  .cooney-start-button{width:100%}
+  .flagman{transform:scale(.9)}
+}
+</style>
+
+</head><body><main class="wrap"><h2 class="section-title">Daily Plans</h2><section class="daily-row"><a class="card " href="pdfs/daily_plans/04_Friday_Arrival_250_Warmup.pdf" target="_blank" rel="noopener"><span>Fri 7/3</span><b>Arrival + 250 Warm-Up</b></a><a class="card " href="pdfs/daily_plans/05_Saturday_America_250_Main_Event.pdf" target="_blank" rel="noopener"><span>Sat 7/4</span><b>America 250 Main Event</b></a><a class="card " href="pdfs/daily_plans/06_Sunday_Victory_Lap.pdf" target="_blank" rel="noopener"><span>Sun 7/5</span><b>Recovery + Victory Lap</b></a><a class="card " href="pdfs/daily_plans/07_Monday_Last_Full_Day.pdf" target="_blank" rel="noopener"><span>Mon 7/6</span><b>Last Full Day</b></a><a class="card fire" href="pdfs/09_July_4_Backup_Fireworks_Playbook.pdf" target="_blank" rel="noopener"><span>Backup 4th</span><b>Fireworks Fallback Ladder</b><p>Best to worst, plus what to avoid.</p></a><a class="card " href="index.html"><span>Back</span><b>Main Hub</b></a></section></main>
+
+
+
+<div class="cooney-start-overlay" id="cooneyStartOverlay">
+  <div class="cooney-start-card">
+    <div class="flagman" aria-hidden="true">
+      <div class="head"></div><div class="body"></div><div class="leg1"></div><div class="leg2"></div>
+      <div class="arm"></div><div class="pole"></div><div class="flag"></div>
+    </div>
+    <h2>Start the Celebration</h2>
+    <p>Tap once to kick off the Cooney Cape May 250 soundtrack. Keep this hub open and open the cards in new tabs to let the music ride.</p>
+    <button class="cooney-start-button" id="cooneyStartButton"><span>🇺🇸 Activate Vacation Mode</span></button>
+  </div>
+</div>
+<div class="cooney-musicbar" id="cooneyMusicbar">
+  <button id="cooneyPlayPause">Pause</button>
+  <div class="cooney-track">
+    <strong>Now Playing: “Vacation” — The Go-Go’s</strong>
+    <span>Cooney Cape May 250 Celebration Escape</span>
+  </div>
+</div>
+<audio id="cooneyAudio" src="assets/audio/vacation.m4a" preload="auto" loop></audio>
+<script id="cooney-music-js">
+(function(){
+  const audio = document.getElementById('cooneyAudio');
+  const overlay = document.getElementById('cooneyStartOverlay');
+  const start = document.getElementById('cooneyStartButton');
+  const bar = document.getElementById('cooneyMusicbar');
+  const playPause = document.getElementById('cooneyPlayPause');
+  if(!audio || !overlay || !start || !bar || !playPause) return;
+
+  function showBar(){ bar.style.display = 'flex'; }
+  function hideOverlay(){ overlay.style.display = 'none'; localStorage.setItem('cooneyCelebrationSeen','yes'); }
+  function updateButton(){ playPause.textContent = audio.paused ? 'Play' : 'Pause'; }
+
+  start.addEventListener('click', async function(){
+    try {
+      audio.currentTime = Number(localStorage.getItem('cooneyAudioTime') || 0);
+      await audio.play();
+    } catch(e) {
+      console.warn('Autoplay blocked until interaction/audio permissions allow it.', e);
+    }
+    hideOverlay(); showBar(); updateButton();
+  });
+
+  playPause.addEventListener('click', async function(){
+    if(audio.paused){
+      try { await audio.play(); } catch(e) { console.warn(e); }
+    } else {
+      audio.pause();
+    }
+    updateButton();
+  });
+
+  audio.addEventListener('timeupdate', function(){
+    try { localStorage.setItem('cooneyAudioTime', String(audio.currentTime)); } catch(e) {}
+  });
+  audio.addEventListener('play', updateButton);
+  audio.addEventListener('pause', updateButton);
+
+  document.querySelectorAll('a[href$=".pdf"], a[href$=".html"]').forEach(a => {
+    if(!a.href.endsWith('index.html')) { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
+  });
+
+  if(localStorage.getItem('cooneyCelebrationSeen') === 'yes'){
+    overlay.style.display = 'none';
+    showBar();
+    updateButton();
+  }
+})();
+</script>
+
+</body></html>
