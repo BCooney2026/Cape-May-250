@@ -2,152 +2,179 @@
 
 
 
+
+
+
 <style id="cooney-music-css">
 :root{
-  --cm-red:#9f1d25;
-  --cm-red2:#7c1520;
-  --cm-navy:#12264a;
-  --cm-navy2:#081832;
-  --cm-cream:#fff7e6;
-  --cm-gold:#d3a347;
-  --cm-gold2:#f4d889;
+  --cm-red:#9f1d25; --cm-red2:#7c1520; --cm-navy:#12264a; --cm-navy2:#081832;
+  --cm-cream:#fff7e6; --cm-gold:#d3a347; --cm-gold2:#f4d889;
+}
+.cooney-flag-bg{
+  position:fixed; inset:0; width:100vw; height:100vh; object-fit:cover; z-index:-3;
+  filter:saturate(1.08) contrast(1.06) brightness(.62);
+}
+.cooney-flag-bg-overlay{
+  position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,247,230,.20), transparent 26%),
+    linear-gradient(135deg, rgba(8,24,50,.58), rgba(159,29,37,.52) 62%, rgba(8,24,50,.72));
 }
 .cooney-start-overlay{
-  position:fixed; inset:0; z-index:9999;
-  display:flex; align-items:center; justify-content:center; padding:24px;
+  position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; padding:24px;
   background:
-    radial-gradient(circle at 18% 12%, rgba(244,216,137,.32), transparent 24%),
-    radial-gradient(circle at 88% 20%, rgba(255,255,255,.16), transparent 22%),
-    linear-gradient(135deg, rgba(8,24,50,.98), rgba(159,29,37,.95) 58%, rgba(122,21,32,.98));
+    radial-gradient(circle at 20% 8%, rgba(244,216,137,.30), transparent 24%),
+    linear-gradient(135deg, rgba(8,24,50,.94), rgba(159,29,37,.88) 60%, rgba(122,21,32,.94));
   color:#fff; text-align:center; overflow:hidden;
 }
 .cooney-start-overlay:before{
   content:""; position:absolute; inset:-30px;
-  background:
-    repeating-linear-gradient(45deg, rgba(255,255,255,.045) 0 8px, transparent 8px 18px);
-  opacity:.75; animation: cmDrift 18s linear infinite;
+  background:repeating-linear-gradient(45deg, rgba(255,255,255,.045) 0 8px, transparent 8px 18px);
+  opacity:.72; animation:cmDrift 18s linear infinite;
 }
 .cooney-start-overlay:after{
-  content:"250"; position:absolute; right:2vw; bottom:-3vw;
-  font-family:Georgia,serif; font-size:clamp(110px,30vw,310px); font-weight:900;
-  color:rgba(255,247,230,.08); letter-spacing:-.08em; pointer-events:none;
+  content:"250"; position:absolute; right:1vw; bottom:-3vw;
+  font-family:Georgia,serif; font-size:clamp(120px,30vw,320px); font-weight:900;
+  color:rgba(255,247,230,.075); letter-spacing:-.08em; pointer-events:none;
 }
 .cooney-start-card{
   position:relative; z-index:1; max-width:620px;
-  border:2px solid rgba(244,216,137,.42);
-  border-radius:30px;
-  background:linear-gradient(180deg, rgba(255,247,230,.15), rgba(255,247,230,.07));
+  border:2px solid rgba(244,216,137,.45); border-radius:30px;
+  background:linear-gradient(180deg, rgba(255,247,230,.16), rgba(255,247,230,.07));
   box-shadow:0 30px 90px rgba(0,0,0,.42), inset 0 0 0 1px rgba(255,255,255,.14);
-  padding:36px 28px 32px; backdrop-filter:blur(9px);
+  padding:34px 28px 32px; backdrop-filter:blur(9px);
 }
-.flagman{
-  width:96px; height:96px; margin:0 auto 12px; position:relative;
-  filter:drop-shadow(0 8px 14px rgba(0,0,0,.28));
-  animation: cmBob 2.8s ease-in-out infinite;
+.patriot-pup{
+  width:142px; height:132px; margin:0 auto 10px; position:relative;
+  filter:drop-shadow(0 12px 18px rgba(0,0,0,.28));
+  animation:cmPupBob 3s ease-in-out infinite;
 }
-.flagman .head{
-  position:absolute; left:34px; top:4px; width:28px; height:28px;
-  background:#fff7e6; border-radius:50%; box-shadow:inset -5px -4px 0 rgba(211,163,71,.28);
+.patriot-pup .body{
+  position:absolute; left:30px; top:54px; width:72px; height:48px; border-radius:38px 38px 30px 30px;
+  background:linear-gradient(135deg,#f7e1bf,#d7a87b);
 }
-.flagman .body{
-  position:absolute; left:38px; top:35px; width:21px; height:39px;
-  background:linear-gradient(180deg,#17315f,#081832); border-radius:12px 12px 6px 6px;
+.patriot-pup .head{
+  position:absolute; left:40px; top:22px; width:58px; height:54px; border-radius:50% 50% 45% 45%;
+  background:linear-gradient(135deg,#f8e4c8,#d39b6b);
 }
-.flagman .leg1,.flagman .leg2{
-  position:absolute; top:70px; width:8px; height:22px; background:#fff7e6; border-radius:8px;
+.patriot-pup .ear1,.patriot-pup .ear2{
+  position:absolute; top:27px; width:22px; height:42px; background:#8b5a3b; border-radius:50% 50% 58% 58%;
 }
-.flagman .leg1{left:39px; transform:rotate(8deg);}
-.flagman .leg2{left:52px; transform:rotate(-8deg);}
-.flagman .arm{
-  position:absolute; left:56px; top:36px; width:42px; height:8px;
-  background:#fff7e6; border-radius:8px; transform-origin:left center;
-  animation: cmWaveArm 1.15s ease-in-out infinite;
+.patriot-pup .ear1{left:28px; transform:rotate(18deg);}
+.patriot-pup .ear2{left:87px; transform:rotate(-18deg);}
+.patriot-pup .eye1,.patriot-pup .eye2{
+  position:absolute; top:44px; width:7px; height:7px; background:#1b1720; border-radius:50%;
 }
-.flagman .pole{
-  position:absolute; left:88px; top:8px; width:4px; height:64px;
-  background:linear-gradient(180deg,#f7e7ae,#b7832f); border-radius:2px;
-  transform-origin:bottom center;
-  animation: cmPole 1.15s ease-in-out infinite;
+.patriot-pup .eye1{left:58px}.patriot-pup .eye2{left:78px}
+.patriot-pup .nose{
+  position:absolute; left:67px; top:55px; width:10px; height:8px; background:#1b1720; border-radius:50% 50% 55% 55%;
 }
-.flagman .flag{
-  position:absolute; left:91px; top:9px; width:58px; height:38px;
+.patriot-pup .mouth-flag{
+  position:absolute; left:76px; top:58px; width:50px; height:6px; background:#9a6a38; border-radius:6px; transform:rotate(-7deg);
+}
+.patriot-pup .flag{
+  position:absolute; left:113px; top:30px; width:58px; height:39px;
   background:
     linear-gradient(#244678 0 53%, transparent 53%),
     repeating-linear-gradient(to bottom,#c82333 0 5px,#fff 5px 10px);
   border-radius:2px 9px 9px 2px;
-  clip-path:polygon(0 0,100% 7%,90% 50%,100% 93%,0 100%);
-  transform-origin:left center;
-  animation: cmFlagWave .85s ease-in-out infinite;
-  box-shadow:0 3px 10px rgba(0,0,0,.22);
+  clip-path:polygon(0 0,100% 8%,90% 50%,100% 92%,0 100%);
+  transform-origin:left center; animation:cmFlagWave .9s ease-in-out infinite;
+  box-shadow:0 5px 12px rgba(0,0,0,.25);
 }
-.flagman .flag:after{
+.patriot-pup .flag:after{
   content:"★ ★"; position:absolute; left:5px; top:5px; font-size:8px; color:#fff; letter-spacing:1px;
 }
-.cooney-start-card h2{
-  font-size:clamp(34px,7vw,58px); line-height:.95; margin:0 0 14px;
-  font-family:Georgia, 'Times New Roman', serif; letter-spacing:.2px;
-  text-shadow:0 3px 14px rgba(0,0,0,.32);
+.patriot-pup .tail{
+  position:absolute; left:14px; top:66px; width:32px; height:12px; background:#d7a87b; border-radius:999px;
+  transform-origin:right center; animation:cmTail 1.2s ease-in-out infinite;
 }
-.cooney-start-card p{
-  font-size:17px; line-height:1.45; margin:0 auto 24px; max-width:470px; color:#fff4d6;
+.patriot-pup .paw1,.patriot-pup .paw2{
+  position:absolute; top:94px; width:20px; height:12px; background:#f8e4c8; border-radius:50%;
+}
+.patriot-pup .paw1{left:47px}.patriot-pup .paw2{left:78px}
+.cooney-start-card h2{
+  font-size:clamp(34px,7vw,58px); line-height:.95; margin:0 0 24px;
+  font-family:Georgia,'Times New Roman',serif; letter-spacing:.2px;
+  text-shadow:0 3px 14px rgba(0,0,0,.32);
 }
 .cooney-start-button{
   appearance:none; border:0; border-radius:999px; padding:17px 26px;
   font-weight:900; font-size:18px;
   background:linear-gradient(135deg,var(--cm-gold2),var(--cm-gold));
   color:#0b2244; box-shadow:0 12px 32px rgba(0,0,0,.33), inset 0 1px 0 rgba(255,255,255,.55);
-  cursor:pointer; position:relative; overflow:hidden;
-  animation: cmPulse 1.9s ease-in-out infinite;
+  cursor:pointer; position:relative; overflow:hidden; animation:cmPulse 1.9s ease-in-out infinite;
 }
 .cooney-start-button:before{
-  content:""; position:absolute; top:0; bottom:0; left:-55%;
-  width:45%; background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
-  transform:skewX(-18deg); animation: cmShine 2.75s ease-in-out infinite;
+  content:""; position:absolute; top:0; bottom:0; left:-55%; width:45%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-18deg); animation:cmShine 2.75s ease-in-out infinite;
 }
 .cooney-start-button span{position:relative; z-index:1;}
 .cooney-start-button:hover{transform:translateY(-1px);}
 .cooney-musicbar{
-  position:fixed; z-index:9998; left:14px; right:14px; bottom:14px;
-  display:none; align-items:center; gap:12px; border-radius:18px;
-  border:1px solid rgba(244,216,137,.38);
+  position:fixed; z-index:9998; left:14px; right:14px; bottom:14px; display:none; align-items:center; gap:12px;
+  border-radius:18px; border:1px solid rgba(244,216,137,.38);
   background:linear-gradient(135deg,rgba(18,38,74,.97),rgba(159,29,37,.95));
   color:#fff; padding:10px 12px; box-shadow:0 14px 40px rgba(0,0,0,.32);
   font-family:system-ui,-apple-system,Segoe UI,sans-serif;
 }
-.cooney-musicbar button{
-  border:0; border-radius:999px; padding:9px 13px; background:#fff7e6;
-  color:#12264a; font-weight:800; cursor:pointer;
-}
+.cooney-musicbar button{border:0; border-radius:999px; padding:9px 13px; background:#fff7e6; color:#12264a; font-weight:800; cursor:pointer;}
 .cooney-track{flex:1; min-width:0}
 .cooney-track strong{display:block; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 .cooney-track span{display:block; font-size:12px; opacity:.82; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 @keyframes cmDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(34px,34px,0)}}
-@keyframes cmBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-@keyframes cmWaveArm{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(-38deg)}}
-@keyframes cmPole{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(7deg)}}
+@keyframes cmPupBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes cmFlagWave{0%,100%{transform:skewY(0deg) scaleX(1)}50%{transform:skewY(-6deg) scaleX(.96)}}
+@keyframes cmTail{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(18deg)}}
 @keyframes cmPulse{0%,100%{box-shadow:0 12px 32px rgba(0,0,0,.33),0 0 0 0 rgba(244,216,137,.38)}50%{box-shadow:0 12px 32px rgba(0,0,0,.33),0 0 0 10px rgba(244,216,137,0)}}
 @keyframes cmShine{0%{left:-55%}45%,100%{left:115%}}
 @media (max-width:520px){
   .cooney-musicbar{left:10px;right:10px;bottom:10px}
   .cooney-start-card{padding:28px 20px}
   .cooney-start-button{width:100%}
-  .flagman{transform:scale(.9)}
 }
+</style>
+
+
+<style id="cooney-video-layer-fix">
+/* Keeps the Pexels flag video visible behind the hub content */
+body{background:#07192f !important;}
+.cooney-flag-bg{
+  z-index:0 !important;
+  opacity:.82 !important;
+  pointer-events:none !important;
+}
+.cooney-flag-bg-overlay{
+  z-index:1 !important;
+  pointer-events:none !important;
+}
+body:before{
+  z-index:1 !important;
+}
+.wrap, main, header, .hero, .section-title, .grid, .daily-row, .card{
+  position:relative;
+  z-index:2;
+}
+.cooney-start-overlay{z-index:9999 !important;}
+.cooney-musicbar{z-index:9998 !important;}
 </style>
 
 </head><body><main class="wrap"><h2 class="section-title">Daily Plans</h2><section class="daily-row"><a class="card " href="pdfs/daily_plans/04_Friday_Arrival_250_Warmup.pdf" target="_blank" rel="noopener"><span>Fri 7/3</span><b>Arrival + 250 Warm-Up</b></a><a class="card " href="pdfs/daily_plans/05_Saturday_America_250_Main_Event.pdf" target="_blank" rel="noopener"><span>Sat 7/4</span><b>America 250 Main Event</b></a><a class="card " href="pdfs/daily_plans/06_Sunday_Victory_Lap.pdf" target="_blank" rel="noopener"><span>Sun 7/5</span><b>Recovery + Victory Lap</b></a><a class="card " href="pdfs/daily_plans/07_Monday_Last_Full_Day.pdf" target="_blank" rel="noopener"><span>Mon 7/6</span><b>Last Full Day</b></a><a class="card fire" href="pdfs/09_July_4_Backup_Fireworks_Playbook.pdf" target="_blank" rel="noopener"><span>Backup 4th</span><b>Fireworks Fallback Ladder</b><p>Best to worst, plus what to avoid.</p></a><a class="card " href="index.html"><span>Back</span><b>Main Hub</b></a></section></main>
 
 
 
+
+
+
 <div class="cooney-start-overlay" id="cooneyStartOverlay">
   <div class="cooney-start-card">
-    <div class="flagman" aria-hidden="true">
-      <div class="head"></div><div class="body"></div><div class="leg1"></div><div class="leg2"></div>
-      <div class="arm"></div><div class="pole"></div><div class="flag"></div>
+    <div class="patriot-pup" aria-hidden="true">
+      <div class="tail"></div><div class="body"></div><div class="ear1"></div><div class="ear2"></div>
+      <div class="head"></div><div class="eye1"></div><div class="eye2"></div><div class="nose"></div>
+      <div class="mouth-flag"></div><div class="flag"></div><div class="paw1"></div><div class="paw2"></div>
     </div>
     <h2>Start the Celebration</h2>
-    <p>Tap once to kick off the Cooney Cape May 250 soundtrack. Keep this hub open and open the cards in new tabs to let the music ride.</p>
     <button class="cooney-start-button" id="cooneyStartButton"><span>🇺🇸 Activate Vacation Mode</span></button>
   </div>
 </div>
@@ -167,44 +194,29 @@
   const bar = document.getElementById('cooneyMusicbar');
   const playPause = document.getElementById('cooneyPlayPause');
   if(!audio || !overlay || !start || !bar || !playPause) return;
-
   function showBar(){ bar.style.display = 'flex'; }
   function hideOverlay(){ overlay.style.display = 'none'; localStorage.setItem('cooneyCelebrationSeen','yes'); }
   function updateButton(){ playPause.textContent = audio.paused ? 'Play' : 'Pause'; }
-
   start.addEventListener('click', async function(){
     try {
       audio.currentTime = Number(localStorage.getItem('cooneyAudioTime') || 0);
       await audio.play();
-    } catch(e) {
-      console.warn('Autoplay blocked until interaction/audio permissions allow it.', e);
-    }
+    } catch(e) { console.warn('Audio waits for browser permission.', e); }
     hideOverlay(); showBar(); updateButton();
   });
-
   playPause.addEventListener('click', async function(){
-    if(audio.paused){
-      try { await audio.play(); } catch(e) { console.warn(e); }
-    } else {
-      audio.pause();
-    }
+    if(audio.paused){ try { await audio.play(); } catch(e) { console.warn(e); } }
+    else { audio.pause(); }
     updateButton();
   });
-
-  audio.addEventListener('timeupdate', function(){
-    try { localStorage.setItem('cooneyAudioTime', String(audio.currentTime)); } catch(e) {}
-  });
+  audio.addEventListener('timeupdate', function(){ try { localStorage.setItem('cooneyAudioTime', String(audio.currentTime)); } catch(e) {} });
   audio.addEventListener('play', updateButton);
   audio.addEventListener('pause', updateButton);
-
   document.querySelectorAll('a[href$=".pdf"], a[href$=".html"]').forEach(a => {
     if(!a.href.endsWith('index.html')) { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
   });
-
   if(localStorage.getItem('cooneyCelebrationSeen') === 'yes'){
-    overlay.style.display = 'none';
-    showBar();
-    updateButton();
+    overlay.style.display = 'none'; showBar(); updateButton();
   }
 })();
 </script>
