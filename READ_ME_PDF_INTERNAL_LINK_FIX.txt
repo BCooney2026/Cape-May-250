@@ -10,7 +10,7 @@ Verification report:
   "source_zip": "Cooney_Cape_May_250_Escape_LINKS_DEEP_FIX_PLUS1.zip",
   "playbook_url_used_for_pdf_internal_links": "https://vacation.cooneysparadise.com/pdfs/03_Bars_Restaurants_Playbook.pdf",
   "pdfs_with_links_or_changes": {
-    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v6.pdf": {
+    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v7.pdf": {
       "changed": 3,
       "all_links": [
         {
@@ -59,7 +59,7 @@ Verification report:
         }
       ]
     },
-    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v6.pdf": {
+    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v7.pdf": {
       "changed": 3,
       "all_links": [
         {
@@ -115,7 +115,7 @@ Verification report:
         }
       ]
     },
-    "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_VISIBLE_v6.pdf": {
+    "pdfs/daily_plans/06_Sunday_GOLF_CART_VICTORY_LAP_v7.pdf": {
       "changed": 3,
       "all_links": [
         {
@@ -164,7 +164,7 @@ Verification report:
         }
       ]
     },
-    "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_VISIBLE_v6.pdf": {
+    "pdfs/daily_plans/07_Monday_GOLF_CART_FREEDOM_v7.pdf": {
       "changed": 3,
       "all_links": [
         {
@@ -222,7 +222,7 @@ Verification report:
     }
   },
   "verification_after_patch": {
-    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v6.pdf": {
+    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v7.pdf": {
       "playbook_visible_links": [
         {
           "page": 1,
@@ -245,7 +245,7 @@ Verification report:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v6.pdf": {
+    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v7.pdf": {
       "playbook_visible_links": [
         {
           "page": 1,
@@ -268,7 +268,7 @@ Verification report:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_VISIBLE_v6.pdf": {
+    "pdfs/daily_plans/06_Sunday_GOLF_CART_VICTORY_LAP_v7.pdf": {
       "playbook_visible_links": [
         {
           "page": 1,
@@ -291,7 +291,7 @@ Verification report:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_VISIBLE_v6.pdf": {
+    "pdfs/daily_plans/07_Monday_GOLF_CART_FREEDOM_v7.pdf": {
       "playbook_visible_links": [
         {
           "page": 1,

@@ -9,11 +9,11 @@ Verification:
   "source_zip": "Cooney_Cape_May_250_Escape_PDF_INTERNAL_LINK_FIX.zip",
   "base_url": "https://vacation.cooneysparadise.com/",
   "patch_counts": {
-    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v6.pdf": 1,
-    "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_VISIBLE_v6.pdf": 1
+    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v7.pdf": 1,
+    "pdfs/daily_plans/07_Monday_GOLF_CART_FREEDOM_v7.pdf": 1
   },
   "verify_problem_files": {
-    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v6.pdf": {
+    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v7.pdf": {
       "exists": true,
       "links_after_patch": [
         {
@@ -37,7 +37,7 @@ Verification:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v6.pdf": {
+    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v7.pdf": {
       "exists": true,
       "links_after_patch": [
         {
@@ -67,7 +67,7 @@ Verification:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_VISIBLE_v6.pdf": {
+    "pdfs/daily_plans/07_Monday_GOLF_CART_FREEDOM_v7.pdf": {
       "exists": true,
       "links_after_patch": [
         {
