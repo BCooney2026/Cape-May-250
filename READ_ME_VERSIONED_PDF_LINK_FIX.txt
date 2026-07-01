@@ -8,20 +8,20 @@ Why this build exists:
 {
   "source_zip": "Cooney_Cape_May_250_Escape_ALL_PDF_LINKS_FIXED.zip",
   "renamed_daily_pdfs": {
-    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup.pdf": "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v5.pdf",
-    "pdfs/daily_plans/05_Saturday_America_250_Main_Event.pdf": "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v5.pdf",
-    "pdfs/daily_plans/06_Sunday_Victory_Lap.pdf": "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_v5.pdf",
-    "pdfs/daily_plans/07_Monday_Last_Full_Day.pdf": "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_v5.pdf"
+    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v6.pdf": "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v6.pdf",
+    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v6.pdf": "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v6.pdf",
+    "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_VISIBLE_v6.pdf": "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_VISIBLE_v6.pdf",
+    "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_VISIBLE_v6.pdf": "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_VISIBLE_v6.pdf"
   },
   "version": "v=pdf-links-v4",
   "patch_counts": {
-    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v5.pdf": 3,
-    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v5.pdf": 4,
-    "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_v5.pdf": 3,
-    "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_v5.pdf": 4
+    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v6.pdf": 3,
+    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v6.pdf": 4,
+    "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_VISIBLE_v6.pdf": 3,
+    "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_VISIBLE_v6.pdf": 4
   },
   "daily_pdf_verification": {
-    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v5.pdf": {
+    "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v6.pdf": {
       "exists": true,
       "link_count": 3,
       "links": [
@@ -46,7 +46,7 @@ Why this build exists:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v5.pdf": {
+    "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v6.pdf": {
       "exists": true,
       "link_count": 4,
       "links": [
@@ -77,7 +77,7 @@ Why this build exists:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_v5.pdf": {
+    "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_VISIBLE_v6.pdf": {
       "exists": true,
       "link_count": 3,
       "links": [
@@ -102,7 +102,7 @@ Why this build exists:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_v5.pdf": {
+    "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_VISIBLE_v6.pdf": {
       "exists": true,
       "link_count": 4,
       "links": [
@@ -136,16 +136,16 @@ Why this build exists:
   },
   "html_daily_pdf_links": {
     "daily_plans.html": [
-      "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v5.pdf",
-      "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v5.pdf",
-      "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_v5.pdf",
-      "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_v5.pdf"
+      "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v6.pdf",
+      "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v6.pdf",
+      "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_VISIBLE_v6.pdf",
+      "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_VISIBLE_v6.pdf"
     ],
     "index.html": [
-      "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v5.pdf",
-      "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v5.pdf",
-      "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_v5.pdf",
-      "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_v5.pdf"
+      "pdfs/daily_plans/04_Friday_Arrival_250_Warmup_LINKFIX_v6.pdf",
+      "pdfs/daily_plans/05_Saturday_America_250_Main_Event_LINKFIX_v6.pdf",
+      "pdfs/daily_plans/06_Sunday_Victory_Lap_GOLF_CART_VISIBLE_v6.pdf",
+      "pdfs/daily_plans/07_Monday_Last_Full_Day_GOLF_CART_ANDREA_VISIBLE_v6.pdf"
     ]
   }
 }
