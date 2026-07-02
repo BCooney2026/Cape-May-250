@@ -1,5 +1,3 @@
------> REDEPLOY
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -35,15 +33,60 @@ body { position:relative; isolation:isolate; }
 .video-fallback-note{display:none !important;}
 html.video-ok .av-bg-video, html.video-ok .ac-bg-video{ opacity:.96 !important; }
 </style>
+
+<style id="cooney-cape-may-video-method-v15">
+/* v15: use the EXACT Cape May-style background-video stacking method */
+html, body{min-height:100%;}
+body{
+  background:#07192f !important;
+  isolation:auto !important;
+  overflow-x:hidden !important;
+}
+.cooney-flag-bg,
+video.cooney-flag-bg,
+.cooney-local-video-bg{
+  position:fixed !important;
+  inset:0 !important;
+  width:100vw !important;
+  height:100vh !important;
+  min-width:100vw !important;
+  min-height:100vh !important;
+  object-fit:cover !important;
+  z-index:-10 !important;
+  opacity:.82 !important;
+  pointer-events:none !important;
+  filter:saturate(1.12) contrast(1.06) brightness(.66) !important;
+  transform:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:block !important;
+  background:#07192f !important;
+}
+.cooney-flag-bg-overlay,
+.cooney-local-video-overlay{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:-9 !important;
+  pointer-events:none !important;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,247,230,.16), transparent 26%),
+    linear-gradient(135deg, rgba(8,24,50,.56), rgba(7,56,74,.36) 52%, rgba(8,24,50,.68)) !important;
+}
+.wrap, main, header, .hero, .section-title, .grid, .daily-row, .card, .note, .note-card, .footer{
+  position:relative !important;
+  z-index:2 !important;
+}
+</style>
 </head>
 <body>
-<video id="cooneyAvalonBgVideo" class="av-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="">
-  <source src="/avalon.mp4" type="video/mp4">
+<video class="cooney-flag-bg cooney-local-video-bg" id="cooneyAvalonBgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto">
   <source src="avalon.mp4" type="video/mp4">
-  <source src="/avalon-bg-hd.mp4" type="video/mp4">
+  <source src="/avalon.mp4" type="video/mp4">
   <source src="avalon-bg-hd.mp4" type="video/mp4">
-  <source src="/assets/video/avalon-bg-hd.mp4" type="video/mp4">
-</video><div class="av-bg-overlay"></div>
+  <source src="/avalon-bg-hd.mp4" type="video/mp4">
+  <source src="assets/video/avalon-bg-hd.mp4" type="video/mp4">
+</video>
+<div class="cooney-flag-bg-overlay cooney-local-video-overlay"></div>
 <main class="wrap">
   <nav class="backbar"><a href="index.html">← Back to Vacation Mode</a><span class="pill">Avalon • 78th Block Zone • July 7-9</span></nav>
   <section class="hero"><div class="topicon">🌊🍹</div><div class="kicker">July 7-9, 2026</div><h1>Avalon Resort Reset</h1><p>ICONA is home base. Stone Harbor gets the first night. Wednesday is Dee’s beach day — with Brian and Amber close by, shaded, cooled off, and absolutely not trapped in the sand.</p><div class="badge">ICONA Avalon • Brian, Dee and Amber</div></section>
@@ -102,6 +145,22 @@ html.video-ok .av-bg-video, html.video-ok .ac-bg-video{ opacity:.96 !important; 
   video.addEventListener('canplay',()=>{ document.documentElement.classList.add('video-ok'); try{ video.play(); }catch(e){}; });
   video.addEventListener('error', trySrc);
   trySrc();
+})();
+</script>
+
+<script id="cooney-cape-video-play-v15">
+(function(){
+  const video = document.querySelector('video.cooney-flag-bg');
+  if(!video) return;
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.setAttribute('playsinline','');
+  video.setAttribute('webkit-playsinline','');
+  video.addEventListener('loadeddata',()=>document.documentElement.classList.add('cooney-bg-video-loaded'),{once:true});
+  video.addEventListener('canplay',()=>{document.documentElement.classList.add('cooney-bg-video-loaded'); try{video.play();}catch(e){};});
+  const p = video.play();
+  if(p && p.catch) p.catch(()=>{});
 })();
 </script>
 </body>
