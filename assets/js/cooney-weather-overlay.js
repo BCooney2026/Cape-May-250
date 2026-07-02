@@ -1,187 +1,85 @@
-/* Cooney Weather Overlay + Vacation Audio Controller - v24
-   SAFE PATCH: This script never writes to /assets/audio/ and never creates audio files.
-   Audio folder rule: keep your uploaded files in /assets/audio/ exactly as-is.
-
-   What this script does:
-   - Shows the funny weather overlay.
-   - Picks a weather mood: hot / rain / windy / perfect / cloudy / storm / cold.
-   - Randomly picks from however many tracks are listed for that mood.
-   - Does not repeat the same track back-to-back when another option exists.
-   - Uses ONE global audio player on the page.
-   - Activate starts/replaces exactly one song.
-   - Deactivate stops all music.
-   - Cleans up old/duplicate audio players so songs cannot stack.
+/* Cooney Weather Overlay + Safe Vacation Audio Controller
+   Version v25
+   - Loads weather from Open-Meteo without an API key
+   - Shows funny weather overlay on itinerary pages
+   - Selects weather music from assets/audio/*.m4a
+   - Uses ONE audio element only; prevents stacked songs
+   - Removes target=_blank from .html itinerary links so old-tab music does not keep playing behind the new page
 */
 (function () {
-  "use strict";
+  'use strict';
 
-  const CONFIG = window.COONEY_VACATION_CONFIG || {};
-  const PERIODS = [
-    { key: "morning", label: "Morning", start: 6, end: 12, emoji: "☕" },
-    { key: "afternoon", label: "Afternoon", start: 12, end: 18, emoji: "🌞" },
-    { key: "night", label: "Night", start: 18, end: 24, emoji: "🌙" }
-  ];
+  const CFG = window.COONEY_VACATION_CONFIG || {};
+  const PAGE_PATH = (window.location.pathname || '').toLowerCase();
+  const PAGE_NAME = PAGE_PATH.split('/').pop() || 'index.html';
+  const IS_HOME = PAGE_NAME === '' || PAGE_NAME === 'index.html';
 
-  const AUDIO_ID = "cooneyVacationAudioSingleton";
-  const BUTTON_SELECTORS = [
-    "#activateVacationMode",
-    "#vacationModeButton",
-    ".activateVacationMode",
-    ".vacation-mode-button",
-    "[data-vacation-mode-button]"
-  ];
-
-  window.COONEY_VACATION_MODE_ON = false;
-  window.COONEY_SELECTED_WEATHER_SONG = window.COONEY_SELECTED_WEATHER_SONG || null;
-  window.COONEY_SELECTED_WEATHER_MOOD = window.COONEY_SELECTED_WEATHER_MOOD || (CONFIG.defaultMood || "perfect");
+  const LOCATIONS = {
+    home: { label: 'Cape May Launch Weather', place: 'Cape May, NJ', lat: 38.9351, lon: -74.9060 },
+    cape: { label: 'Cape May Weather Check', place: 'Cape May, NJ', lat: 38.9351, lon: -74.9060 },
+    avalon: { label: 'Avalon Weather Check', place: 'Avalon, NJ', lat: 39.1012, lon: -74.7177 },
+    ac: { label: 'Atlantic City Weather Check', place: 'Atlantic City, NJ', lat: 39.3643, lon: -74.4229 }
+  };
 
   function pageKey() {
-    const last = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
-    return last || "index.html";
+    if (PAGE_NAME.includes('avalon')) return 'avalon';
+    if (PAGE_NAME.includes('atlantic')) return 'ac';
+    if (PAGE_NAME.includes('cape')) return 'cape';
+    return 'home';
   }
 
-  function getLocationConfig() {
-    const locs = CONFIG.locations || {};
-    return locs[pageKey()] || locs["index.html"] || { name: "Jersey Shore", latitude: 39.1012, longitude: -74.7177 };
-  }
+  const LOCATION = LOCATIONS[pageKey()] || LOCATIONS.home;
+  const COLD_BELOW_F = Number(CFG.coldBelowF || 60);
 
-  function pick(arr) {
-    return arr && arr.length ? arr[Math.floor(Math.random() * arr.length)] : "";
-  }
+  function $(sel) { return document.querySelector(sel); }
+  function $all(sel) { return Array.from(document.querySelectorAll(sel)); }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
 
-  function codeMeansRain(code) {
-    return [51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(Number(code));
-  }
-
-  function codeMeansStorm(code) {
-    return [95, 96, 99].includes(Number(code));
-  }
-
-  function codeMeansCloudy(code) {
-    return [2, 3, 45, 48].includes(Number(code));
-  }
-
-  function classifyMood(slot) {
-    const temp = Number.isFinite(slot.temp) ? slot.temp : 72;
-    const rain = Number.isFinite(slot.rain) ? slot.rain : 0;
-    const wind = Number.isFinite(slot.wind) ? slot.wind : 0;
-    const cloud = Number.isFinite(slot.cloud) ? slot.cloud : 0;
-    const code = Number.isFinite(slot.code) ? slot.code : 0;
-
-    const coldBelowF = Number(CONFIG.coldBelowF ?? 60);
-    const hotAtOrAboveF = Number(CONFIG.hotAtOrAboveF ?? 86);
-    const rainChanceAtOrAbove = Number(CONFIG.rainChanceAtOrAbove ?? 45);
-    const stormChanceAtOrAbove = Number(CONFIG.stormChanceAtOrAbove ?? 70);
-    const windyAtOrAboveMph = Number(CONFIG.windyAtOrAboveMph ?? 22);
-    const cloudyAtOrAbovePercent = Number(CONFIG.cloudyAtOrAbovePercent ?? 72);
-
-    if (codeMeansStorm(code) || rain >= stormChanceAtOrAbove) return "storm";
-    if (codeMeansRain(code) || rain >= rainChanceAtOrAbove) return "rain";
-    if (temp >= hotAtOrAboveF) return "hot";
-    if (temp < coldBelowF) return "cold";
-    if (wind >= windyAtOrAboveMph) return "windy";
-    if (codeMeansCloudy(code) || cloud >= cloudyAtOrAbovePercent) return "cloudy";
-    return "perfect";
-  }
-
-  function weatherLabel(code) {
-    code = Number(code);
-    if (codeMeansStorm(code)) return "Stormy";
-    if (codeMeansRain(code)) return "Rainy";
-    if ([71, 73, 75, 77, 85, 86].includes(code)) return "Snowy";
-    if ([45, 48].includes(code)) return "Foggy";
-    if ([2, 3].includes(code)) return "Cloudy";
-    if (code === 1) return "Mostly clear";
-    return "Clear";
-  }
-
-  function avg(nums) {
-    const clean = nums.filter(Number.isFinite);
-    return clean.length ? clean.reduce((a, b) => a + b, 0) / clean.length : null;
-  }
-
-  function max(nums) {
-    const clean = nums.filter(Number.isFinite);
-    return clean.length ? Math.max(...clean) : null;
-  }
-
-  function mostCommon(nums) {
-    const counts = new Map();
-    nums.filter(n => n !== null && n !== undefined && !Number.isNaN(n)).forEach(n => counts.set(n, (counts.get(n) || 0) + 1));
-    let best = null;
-    let bestCount = -1;
-    counts.forEach((count, val) => {
-      if (count > bestCount) {
-        best = val;
-        bestCount = count;
-      }
+  function safeText(value) {
+    return String(value == null ? '' : value).replace(/[<>&]/g, function (ch) {
+      return ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' })[ch];
     });
-    return best ?? 0;
   }
 
-  function fmtDate(d) {
-    return d.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" });
+  function normalizeSongList(category) {
+    const list = (CFG.weatherSongs && CFG.weatherSongs[category]) || [];
+    return list.map(function (item) {
+      if (typeof item === 'string') return item;
+      if (item && typeof item.file === 'string') return item.file;
+      return null;
+    }).filter(Boolean);
   }
 
-  function summarize(data) {
-    const h = data.hourly || {};
-    const rows = (h.time || []).map((t, i) => ({
-      date: new Date(t),
-      temp: Number(h.temperature_2m?.[i]),
-      rain: Number(h.precipitation_probability?.[i]),
-      wind: Number(h.wind_speed_10m?.[i]),
-      cloud: Number(h.cloud_cover?.[i]),
-      code: Number(h.weather_code?.[i])
-    }));
+  function pickTrack(category) {
+    let songs = normalizeSongList(category);
+    if (!songs.length && category !== 'perfect') songs = normalizeSongList('perfect');
+    if (!songs.length) songs = ['assets/audio/perfect-1.m4a'];
 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
-    const dates = [today, tomorrow];
-    const out = [];
-
-    dates.forEach(day => {
-      PERIODS.forEach(period => {
-        const periodRows = rows.filter(r => {
-          const rd = new Date(r.date);
-          rd.setHours(0, 0, 0, 0);
-          const hour = r.date.getHours();
-          return rd.getTime() === day.getTime() && hour >= period.start && hour < period.end;
-        });
-        if (!periodRows.length) return;
-        const slot = {
-          day: fmtDate(day),
-          period: period.label,
-          emoji: period.emoji,
-          temp: Math.round(avg(periodRows.map(r => r.temp)) ?? 0),
-          rain: Math.round(max(periodRows.map(r => r.rain)) ?? 0),
-          wind: Math.round(avg(periodRows.map(r => r.wind)) ?? 0),
-          cloud: Math.round(avg(periodRows.map(r => r.cloud)) ?? 0),
-          code: mostCommon(periodRows.map(r => r.code))
-        };
-        slot.mood = classifyMood(slot);
-        slot.condition = weatherLabel(slot.code);
-        out.push(slot);
-      });
-    });
-
-    return out.slice(0, 6);
+    const lastKey = 'cooney-last-track-' + category;
+    const lastTrack = localStorage.getItem(lastKey);
+    let choices = songs;
+    if (songs.length > 1) {
+      choices = songs.filter(function (song) { return song !== lastTrack; });
+      if (!choices.length) choices = songs;
+    }
+    const chosen = pick(choices);
+    localStorage.setItem(lastKey, chosen);
+    localStorage.setItem('cooney-selected-weather-category', category);
+    localStorage.setItem('cooney-selected-weather-track', chosen);
+    window.COONEY_SELECTED_WEATHER_CATEGORY = category;
+    window.COONEY_SELECTED_WEATHER_TRACK = chosen;
+    return chosen;
   }
 
-  function getAllAudioElements() {
-    return Array.from(document.querySelectorAll("audio"));
-  }
-
-  function getSingletonAudio() {
-    let audio = document.getElementById(AUDIO_ID);
+  function getAudio() {
+    let audio = document.getElementById('cooneyAudio');
     if (!audio) {
-      audio = new Audio();
-      audio.id = AUDIO_ID;
+      audio = document.createElement('audio');
+      audio.id = 'cooneyAudio';
+      audio.preload = 'auto';
       audio.loop = true;
-      audio.preload = "auto";
-      audio.setAttribute("playsinline", "");
-      audio.style.display = "none";
+      audio.style.display = 'none';
       document.body.appendChild(audio);
     }
     audio.loop = true;
@@ -189,360 +87,357 @@
     return audio;
   }
 
-  function stopAudioElement(audio) {
-    if (!audio) return;
-    try { audio.pause(); } catch (e) {}
-    try { audio.currentTime = 0; } catch (e) {}
-  }
-
-  function stopAllAudioExcept(exceptAudio) {
-    getAllAudioElements().forEach(audio => {
-      if (audio !== exceptAudio) stopAudioElement(audio);
+  function stopAllAudio(exceptAudio) {
+    $all('audio').forEach(function (a) {
+      if (exceptAudio && a === exceptAudio) return;
+      try { a.pause(); a.currentTime = 0; } catch (e) {}
     });
   }
 
-  function stopAllVacationAudio() {
-    getAllAudioElements().forEach(stopAudioElement);
-    if (window.COONEY_AUDIO) stopAudioElement(window.COONEY_AUDIO);
-    window.COONEY_VACATION_MODE_ON = false;
-    setVacationButtonState(false);
+  function announceStopOtherTabs() {
+    const payload = JSON.stringify({ ts: Date.now(), page: PAGE_NAME, cmd: 'stop-audio' });
+    try { localStorage.setItem('cooney-audio-command', payload); } catch (e) {}
+    try {
+      if (window.BroadcastChannel) {
+        const bc = new BroadcastChannel('cooney-vacation-audio');
+        bc.postMessage({ cmd: 'stop-audio', page: PAGE_NAME, ts: Date.now() });
+        setTimeout(function () { try { bc.close(); } catch (e) {} }, 250);
+      }
+    } catch (e) {}
   }
 
-  function normalizeTrack(track, mood, bucket) {
-    const base = CONFIG.audioBasePath || "assets/audio/";
-    const safeTrack = track || {};
-    const file = safeTrack.file || bucket?.file || "perfect-1.m4a";
-    return {
-      mood,
-      label: bucket?.label || mood,
-      file,
-      title: safeTrack.title || safeTrack.example || bucket?.label || mood,
-      artist: safeTrack.artist || "",
-      src: base + file
+  function installCrossTabAudioStop() {
+    window.addEventListener('storage', function (ev) {
+      if (ev.key === 'cooney-audio-command' && ev.newValue) stopAllAudio();
+    });
+    try {
+      if (window.BroadcastChannel) {
+        const bc = new BroadcastChannel('cooney-vacation-audio');
+        bc.onmessage = function (ev) {
+          if (ev.data && ev.data.cmd === 'stop-audio') stopAllAudio();
+        };
+      }
+    } catch (e) {}
+  }
+
+  function setAudioSource(trackPath) {
+    const audio = getAudio();
+    const absolute = new URL(trackPath, window.location.href).href;
+    stopAllAudio(audio);
+    if (audio.src !== absolute) {
+      try { audio.pause(); audio.currentTime = 0; } catch (e) {}
+      audio.src = trackPath;
+      audio.load();
+    }
+    audio.onerror = function () {
+      // Common repo typo protection: if Windy-2.m4a was uploaded with uppercase W, try it.
+      if ((trackPath || '').includes('windy-2.m4a')) {
+        audio.onerror = null;
+        audio.src = 'assets/audio/Windy-2.m4a';
+        try { audio.load(); } catch (e) {}
+      }
     };
+    updateNowPlaying(trackPath);
+    return audio;
   }
 
-  function songForMood(mood) {
-    const songs = CONFIG.weatherSongs || {};
-    const defaultMood = CONFIG.defaultMood || "perfect";
-    const bucket = songs[mood] || songs[defaultMood] || { label: "Perfect Vacation Mode", tracks: [{ file: "perfect-1.m4a" }] };
-    let candidates = Array.isArray(bucket.tracks) && bucket.tracks.length ? bucket.tracks.slice() : [{ file: bucket.file || "perfect-1.m4a" }];
-
-    const lastKey = "cooneyLastWeatherSong_" + mood;
-    let lastFile = "";
-    try { lastFile = localStorage.getItem(lastKey) || ""; } catch (e) {}
-
-    if (candidates.length > 1) {
-      const filtered = candidates.filter(track => track.file !== lastFile);
-      if (filtered.length) candidates = filtered;
+  async function playSelectedTrack() {
+    const track = window.COONEY_SELECTED_WEATHER_TRACK || localStorage.getItem('cooney-selected-weather-track') || pickTrack('perfect');
+    const audio = setAudioSource(track);
+    announceStopOtherTabs();
+    stopAllAudio(audio);
+    try {
+      audio.volume = 0.82;
+      await audio.play();
+      localStorage.setItem('cooneyVacationMode', 'active');
+      syncButtons(true);
+    } catch (err) {
+      console.warn('Cooney music could not start:', err);
     }
-
-    const chosen = candidates[Math.floor(Math.random() * candidates.length)] || candidates[0];
-    try { localStorage.setItem(lastKey, chosen.file || ""); } catch (e) {}
-
-    return normalizeTrack(chosen, mood, bucket);
   }
 
-  function setSelectedWeatherSong(song) {
-    if (!song || !song.src) return;
-    window.COONEY_SELECTED_WEATHER_SONG = song;
-    window.COONEY_SELECTED_WEATHER_MOOD = song.mood || CONFIG.defaultMood || "perfect";
-    try { localStorage.setItem("cooneySelectedWeatherSong", JSON.stringify(song)); } catch (e) {}
+  function stopVacationMusic() {
+    stopAllAudio();
+    announceStopOtherTabs();
+    localStorage.setItem('cooneyVacationMode', 'inactive');
+    syncButtons(false);
   }
 
-  function getSelectedSongOrPick() {
-    if (window.COONEY_SELECTED_WEATHER_SONG && window.COONEY_SELECTED_WEATHER_SONG.src) {
-      return window.COONEY_SELECTED_WEATHER_SONG;
+  function isVacationActive() {
+    return localStorage.getItem('cooneyVacationMode') === 'active';
+  }
+
+  function syncButtons(active) {
+    $all('#activateVacationMode, #cooneyOverlayActivate').forEach(function (btn) {
+      if (!btn) return;
+      if (btn.id === 'cooneyOverlayActivate' && active) return;
+      if (btn.id === 'activateVacationMode') {
+        btn.className = 'cooney-vacation-button' + (active ? ' deactivate' : '');
+        btn.innerHTML = active ? '<span>💩 🛑 Deactivate Vacation Mode (Loser)</span>' : '<span>🎉 Activate Vacation Mode</span>';
+      }
+    });
+    const pp = document.getElementById('cooneyPlayPause');
+    if (pp) pp.textContent = active ? 'Pause' : 'Play';
+    const bar = document.getElementById('cooneyMusicbar');
+    if (bar && active) bar.style.display = 'flex';
+  }
+
+  function updateNowPlaying(trackPath) {
+    const bar = document.getElementById('cooneyMusicbar');
+    if (!bar) return;
+    let label = bar.querySelector('.cooney-now-playing');
+    if (!label) {
+      label = document.createElement('span');
+      label.className = 'cooney-now-playing';
+      label.style.fontWeight = '800';
+      label.style.marginLeft = '8px';
+      bar.appendChild(label);
     }
-    const mood = window.COONEY_SELECTED_WEATHER_MOOD || CONFIG.defaultMood || "perfect";
-    const song = songForMood(mood);
-    setSelectedWeatherSong(song);
-    return song;
+    const cat = window.COONEY_SELECTED_WEATHER_CATEGORY || localStorage.getItem('cooney-selected-weather-category') || 'perfect';
+    const file = (trackPath || '').split('/').pop() || trackPath;
+    label.textContent = 'Weather track: ' + cat.toUpperCase() + ' • ' + file;
   }
 
-  function startVacationAudio(song) {
-    const chosen = song && song.src ? song : getSelectedSongOrPick();
-    const audio = getSingletonAudio();
+  function installAudioHijack() {
+    installCrossTabAudioStop();
 
-    // First kill everything else, including old Cape/homepage audio tags.
-    stopAllAudioExcept(audio);
-
-    const currentSrc = audio.getAttribute("src") || "";
-    const needsNewSource = !currentSrc || !currentSrc.endsWith(chosen.file);
-    if (needsNewSource) {
-      stopAudioElement(audio);
-      audio.setAttribute("src", chosen.src);
-      try { audio.load(); } catch (e) {}
-    }
-
-    audio.loop = true;
-    audio.volume = 0.85;
-
-    const playPromise = audio.play();
-    if (playPromise && typeof playPromise.catch === "function") {
-      playPromise.catch(err => console.warn("Vacation music could not start:", err));
-    }
-
-    window.COONEY_VACATION_MODE_ON = true;
-    setVacationButtonState(true);
-    return chosen;
-  }
-
-  function setVacationButtonState(isOn) {
-    const btn = findVacationButton();
-    if (!btn) return;
-    btn.classList.toggle("vacation-mode-active", !!isOn);
-    btn.classList.toggle("active", !!isOn);
-    btn.setAttribute("aria-pressed", isOn ? "true" : "false");
-    const text = isOn ? "Deactivate Vacation Mode" : "Activate Vacation Mode";
-    if (btn.tagName === "INPUT") btn.value = text;
-    else btn.textContent = text;
-  }
-
-  function findVacationButton() {
-    for (const selector of BUTTON_SELECTORS) {
-      const found = document.querySelector(selector);
-      if (found) return found;
-    }
-    return null;
-  }
-
-  function unlockLandingIfPresent() {
-    document.documentElement.classList.remove("prelaunch", "landing-locked", "vacation-locked");
-    document.body.classList.remove("prelaunch", "landing-locked", "vacation-locked");
-
-    const possibleLandingSelectors = [
-      "#landingOverlay",
-      "#prelaunchOverlay",
-      "#vacationLanding",
-      ".landing-overlay",
-      ".prelaunch-overlay",
-      ".vacation-landing",
-      ".start-screen"
-    ];
-
-    possibleLandingSelectors.forEach(selector => {
-      document.querySelectorAll(selector).forEach(el => {
-        el.classList.add("dismissed", "hidden");
-        el.style.pointerEvents = "none";
-        el.style.opacity = "0";
-        el.style.visibility = "hidden";
-        setTimeout(() => {
-          if (el && el.parentNode && (el.classList.contains("prelaunch-overlay") || el.id === "prelaunchOverlay")) {
-            // Keep it harmless even if the page expects the element to exist.
-            el.style.display = "none";
-          }
-        }, 500);
-      });
+    // Stop the old-tab music problem: itinerary HTML links must open in the SAME tab.
+    $all('a[href$=".html"]').forEach(function (a) {
+      a.removeAttribute('target');
+      a.removeAttribute('rel');
+      a.addEventListener('click', function () { stopVacationMusic(); }, { capture: true });
     });
 
-    const launcher = document.querySelector("#launcher, #destinationLauncher, .destination-launcher, .main-launcher, main");
-    if (launcher) {
-      launcher.style.pointerEvents = "auto";
-      launcher.style.opacity = launcher.style.opacity === "0" ? "1" : launcher.style.opacity;
-      launcher.style.visibility = "visible";
-    }
-  }
+    // PDF links can still open in new tabs.
+    $all('a[href$=".pdf"]').forEach(function (a) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener');
+    });
 
-  function fireVacationEffects() {
-    const effectNames = [
-      "launchVacationEmojiStorm",
-      "triggerVacationModeEffects",
-      "startVacationEmojiRain",
-      "createVacationEmojiRain",
-      "launchEmojiStorm",
-      "startEmojiStorm",
-      "vacationModeEffects"
-    ];
-
-    effectNames.forEach(name => {
-      if (typeof window[name] === "function") {
-        try { window[name](); } catch (e) { console.warn("Vacation effect failed:", name, e); }
+    // Make sure any play event kills duplicate audio tags.
+    document.addEventListener('play', function (ev) {
+      if (ev.target && ev.target.tagName === 'AUDIO') {
+        announceStopOtherTabs();
+        stopAllAudio(ev.target);
       }
+    }, true);
+
+    // Capture phase: set the correct weather song before the old Cape May button script plays.
+    ['activateVacationMode', 'cooneyOverlayActivate'].forEach(function (id) {
+      const btn = document.getElementById(id);
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        if (id === 'activateVacationMode' && isVacationActive()) {
+          // Let the old Cape May deactivation effects run, but kill audio first so nothing stacks.
+          stopVacationMusic();
+        } else {
+          const track = window.COONEY_SELECTED_WEATHER_TRACK || localStorage.getItem('cooney-selected-weather-track') || pickTrack('perfect');
+          setAudioSource(track);
+          announceStopOtherTabs();
+        }
+      }, { capture: true });
     });
   }
 
-  function buttonCurrentlySaysDeactivate(btn) {
-    const txt = ((btn && (btn.textContent || btn.value)) || "").toLowerCase();
-    return txt.includes("deactivate") || txt.includes("turn off") || txt.includes("stop");
+  function codeLabel(code) {
+    const c = Number(code);
+    if ([95, 96, 99].includes(c)) return 'Storms';
+    if ([61, 63, 65, 66, 67, 80, 81, 82].includes(c)) return 'Rain';
+    if ([51, 53, 55, 56, 57].includes(c)) return 'Drizzle';
+    if ([71, 73, 75, 77, 85, 86].includes(c)) return 'Snow';
+    if ([45, 48].includes(c)) return 'Fog';
+    if ([1, 2, 3].includes(c)) return c === 3 ? 'Cloudy' : 'Partly Cloudy';
+    return 'Clear';
   }
 
-  function handleVacationButtonClick(event) {
-    const btn = event.currentTarget || event.target;
-    const intendsToActivate = !buttonCurrentlySaysDeactivate(btn) && !window.COONEY_VACATION_MODE_ON;
+  function moodForPeriod(p) {
+    const code = Number(p.code || 0);
+    const temp = Number(p.tempF || 0);
+    const precip = Number(p.precip || 0);
+    const wind = Number(p.wind || 0);
+    const cloud = Number(p.cloud || 0);
+    if ([95, 96, 99].includes(code)) return 'storm';
+    if ([61, 63, 65, 66, 67, 80, 81, 82, 51, 53, 55, 56, 57].includes(code) || precip >= 45) return 'rain';
+    if (temp < COLD_BELOW_F) return 'cold';
+    if (temp >= 88) return 'hot';
+    if (wind >= 22) return 'windy';
+    if (cloud >= 70 || code === 3) return 'cloudy';
+    return 'perfect';
+  }
 
-    // Let existing page animation code fire first, then clean up audio stack immediately after.
-    setTimeout(() => {
-      if (intendsToActivate) {
-        unlockLandingIfPresent();
-        startVacationAudio(getSelectedSongOrPick());
-        fireVacationEffects();
-      } else {
-        stopAllVacationAudio();
+  function overallMood(periods) {
+    const moods = periods.map(moodForPeriod);
+    if (moods.includes('storm')) return 'storm';
+    if (moods.includes('rain')) return 'rain';
+    if (moods.includes('cold')) return 'cold';
+    if (moods.includes('hot')) return 'hot';
+    if (moods.includes('windy')) return 'windy';
+    if (moods.includes('cloudy')) return 'cloudy';
+    return 'perfect';
+  }
+
+  function periodFromHourly(hourly, dateISO, name, startHour, endHour) {
+    const rows = [];
+    for (let i = 0; i < hourly.time.length; i++) {
+      const t = hourly.time[i];
+      if (!t || !t.startsWith(dateISO + 'T')) continue;
+      const hour = Number(t.slice(11, 13));
+      if (hour >= startHour && hour <= endHour) {
+        rows.push({
+          tempF: Number(hourly.temperature_2m[i]),
+          precip: Number(hourly.precipitation_probability[i] || 0),
+          code: Number(hourly.weather_code[i] || 0),
+          cloud: Number(hourly.cloud_cover[i] || 0),
+          wind: Number(hourly.wind_speed_10m[i] || 0)
+        });
       }
-    }, 0);
-
-    // Extra cleanup passes catch delayed old audio scripts without killing our singleton.
-    setTimeout(() => {
-      if (window.COONEY_VACATION_MODE_ON) stopAllAudioExcept(getSingletonAudio());
-      else stopAllVacationAudio();
-    }, 150);
-
-    setTimeout(() => {
-      if (window.COONEY_VACATION_MODE_ON) stopAllAudioExcept(getSingletonAudio());
-      else stopAllVacationAudio();
-    }, 800);
+    }
+    if (!rows.length) return { name: name, tempF: 0, precip: 0, code: 0, cloud: 0, wind: 0, condition: 'Unavailable', mood: 'perfect' };
+    const avg = function (key) { return rows.reduce(function (sum, r) { return sum + Number(r[key] || 0); }, 0) / rows.length; };
+    const max = function (key) { return Math.max.apply(null, rows.map(function (r) { return Number(r[key] || 0); })); };
+    const severeCode = rows.map(function (r) { return r.code; }).sort(function (a, b) { return severity(b) - severity(a); })[0];
+    const p = {
+      name: name,
+      tempF: Math.round(avg('tempF')),
+      precip: Math.round(max('precip')),
+      code: severeCode,
+      cloud: Math.round(avg('cloud')),
+      wind: Math.round(max('wind')),
+      condition: codeLabel(severeCode)
+    };
+    p.mood = moodForPeriod(p);
+    return p;
   }
 
-  function bindVacationButton() {
-    const btn = findVacationButton();
-    if (!btn || btn.dataset.cooneyAudioControllerBound === "true") return;
-    btn.dataset.cooneyAudioControllerBound = "true";
-    btn.addEventListener("click", handleVacationButtonClick, false);
-    setVacationButtonState(false);
+  function severity(code) {
+    if ([95, 96, 99].includes(code)) return 100;
+    if ([80, 81, 82, 61, 63, 65, 66, 67].includes(code)) return 80;
+    if ([51, 53, 55, 56, 57].includes(code)) return 60;
+    if ([45, 48].includes(code)) return 40;
+    if (code === 3) return 30;
+    if ([1, 2].includes(code)) return 20;
+    return 10;
   }
 
-  function injectStyles() {
-    if (document.getElementById("cooney-weather-overlay-css")) return;
-    const css = document.createElement("style");
-    css.id = "cooney-weather-overlay-css";
-    css.textContent = `
-      .cooney-weather-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);z-index:2147483000;display:flex;align-items:center;justify-content:center;padding:18px;}
-      .cooney-weather-modal{width:min(960px,96vw);max-height:92vh;overflow:auto;border-radius:28px;background:linear-gradient(145deg,rgba(12,24,52,.97),rgba(20,36,76,.92));box-shadow:0 30px 90px rgba(0,0,0,.65);border:1px solid rgba(255,255,255,.20);color:white;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;position:relative;}
-      .cooney-weather-head{padding:24px 24px 14px;display:flex;gap:18px;justify-content:space-between;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,.14);}
-      .cooney-weather-kicker{letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:#ffd66b;font-weight:900;}
-      .cooney-weather-title{font-size:clamp(26px,4vw,44px);font-weight:1000;line-height:1;margin:6px 0 8px;}
-      .cooney-weather-sub{font-size:15px;color:rgba(255,255,255,.82);max-width:700px;}
-      .cooney-weather-close{appearance:none;border:0;border-radius:999px;padding:12px 16px;background:rgba(255,255,255,.15);color:white;font-weight:900;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);}
-      .cooney-weather-body{padding:18px 24px 24px;}
-      .cooney-weather-vibe{border-radius:22px;background:linear-gradient(135deg,rgba(255,214,107,.22),rgba(255,255,255,.08));padding:18px;margin-bottom:16px;border:1px solid rgba(255,214,107,.26);}
-      .cooney-weather-vibe b{display:block;font-size:20px;margin-bottom:6px;}
-      .cooney-weather-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
-      .cooney-weather-card{border-radius:20px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);padding:15px;min-height:135px;}
-      .cooney-weather-card .top{display:flex;justify-content:space-between;gap:8px;font-weight:900;font-size:14px;color:#ffd66b;}
-      .cooney-weather-card .temp{font-size:34px;font-weight:1000;margin-top:8px;}
-      .cooney-weather-card .meta{font-size:13px;line-height:1.45;color:rgba(255,255,255,.82);}
-      .cooney-weather-card .quip{margin-top:10px;font-size:13px;font-weight:800;color:white;}
-      .cooney-weather-foot{font-size:12px;color:rgba(255,255,255,.65);margin-top:14px;}
-      @media(max-width:760px){.cooney-weather-grid{grid-template-columns:1fr}.cooney-weather-head{flex-direction:column}.cooney-weather-close{align-self:flex-end}.cooney-weather-body{padding:14px}.cooney-weather-head{padding:18px}}
+  function todayTomorrowDates() {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const tomorrow = new Date(today.getTime() + 86400000);
+    const iso = function (d) {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + day;
+    };
+    return { today: iso(today), tomorrow: iso(tomorrow) };
+  }
+
+  async function fetchWeather() {
+    const url = 'https://api.open-meteo.com/v1/forecast'
+      + '?latitude=' + encodeURIComponent(LOCATION.lat)
+      + '&longitude=' + encodeURIComponent(LOCATION.lon)
+      + '&hourly=temperature_2m,precipitation_probability,weather_code,cloud_cover,wind_speed_10m'
+      + '&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch'
+      + '&forecast_days=3&timezone=auto';
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('Weather fetch failed: ' + res.status);
+    return res.json();
+  }
+
+  function installOverlayCSS() {
+    if (document.getElementById('cooney-weather-overlay-css')) return;
+    const style = document.createElement('style');
+    style.id = 'cooney-weather-overlay-css';
+    style.textContent = `
+      .cooney-weather-overlay{position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;padding:22px;background:radial-gradient(circle at top,rgba(255,255,255,.18),transparent 36%),rgba(0,0,0,.64);backdrop-filter:blur(8px)}
+      .cooney-weather-card{width:min(980px,96vw);max-height:90vh;overflow:auto;border-radius:28px;border:1px solid rgba(255,255,255,.24);background:linear-gradient(135deg,rgba(10,24,48,.96),rgba(88,21,36,.96));box-shadow:0 30px 90px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.18);color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;padding:24px;position:relative}
+      .cooney-weather-card h2{margin:0 0 6px;font-size:clamp(30px,5vw,58px);line-height:.95;text-transform:uppercase;letter-spacing:-.04em}.cooney-weather-card .place{font-weight:900;color:#ffe7a5;text-transform:uppercase;letter-spacing:.12em;font-size:13px}.cooney-weather-quip{font-size:clamp(18px,2.4vw,28px);font-weight:900;margin:16px 0;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18)}
+      .cooney-weather-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.cooney-weather-period{border-radius:18px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);padding:13px}.cooney-weather-period b{display:block;font-size:16px;color:#fff}.cooney-weather-period span{display:block;margin-top:6px;color:rgba(255,255,255,.86);font-size:14px;line-height:1.25}.cooney-weather-music{margin-top:16px;border-radius:18px;padding:13px 15px;background:rgba(0,0,0,.24);border:1px solid rgba(255,255,255,.15);font-weight:850}.cooney-weather-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.cooney-weather-actions button{border:0;border-radius:999px;padding:12px 18px;font-weight:1000;cursor:pointer;text-transform:uppercase}.cooney-weather-close{background:#ffe7a5;color:#13234a}.cooney-weather-snooze{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.22)!important}
+      @media(max-width:680px){.cooney-weather-grid{grid-template-columns:1fr}.cooney-weather-card{padding:20px;border-radius:22px}.cooney-weather-overlay{padding:12px}}
     `;
-    document.head.appendChild(css);
+    document.head.appendChild(style);
   }
 
-  function escapeHtml(value) {
-    return String(value ?? "").replace(/[&<>'"]/g, ch => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      "'": "&#39;",
-      "\"": "&quot;"
-    }[ch]));
+  function quipForMood(mood) {
+    const list = (CFG.quips && CFG.quips[mood]) || (CFG.quips && CFG.quips.perfect) || ['Vacation weather has entered the chat.'];
+    return pick(list);
   }
 
-  function renderOverlay(loc, slots) {
-    injectStyles();
-    const first = slots[0] || { mood: CONFIG.defaultMood || "perfect", temp: 72, rain: 0, wind: 5, condition: "Clear" };
-    const song = songForMood(first.mood);
-    setSelectedWeatherSong(song);
+  function showWeatherOverlay(periods, mood, track) {
+    if (IS_HOME) return; // Home page keeps the launch overlay clean but still gets weather-selected music.
+    installOverlayCSS();
+    const existing = document.getElementById('cooneyWeatherOverlay');
+    if (existing) existing.remove();
 
-    const quips = CONFIG.quips || {};
-    const headlineQuip = pick(quips[first.mood]) || "Vacation weather has entered the chat.";
-    const songLine = `${song.title || song.file}${song.artist ? " — " + song.artist : ""}`;
-
-    const backdrop = document.createElement("div");
-    backdrop.className = "cooney-weather-backdrop";
-    backdrop.innerHTML = `
-      <div class="cooney-weather-modal" role="dialog" aria-modal="true" aria-label="Weather vibe check">
-        <div class="cooney-weather-head">
-          <div>
-            <div class="cooney-weather-kicker">Weather Vibe Check</div>
-            <div class="cooney-weather-title">${escapeHtml(loc.name)}</div>
-            <div class="cooney-weather-sub">Morning, afternoon, night, then tomorrow again. The forecast picks the quip and arms Vacation Mode with the matching song. It will not play until you hit Activate.</div>
-          </div>
-          <button class="cooney-weather-close" type="button">Let me in</button>
+    const overlay = document.createElement('div');
+    overlay.id = 'cooneyWeatherOverlay';
+    overlay.className = 'cooney-weather-overlay';
+    overlay.innerHTML = `
+      <div class="cooney-weather-card" role="dialog" aria-modal="true" aria-label="Weather check">
+        <div class="place">${safeText(LOCATION.place)}</div>
+        <h2>Weather Check</h2>
+        <div class="cooney-weather-quip">${safeText(quipForMood(mood))}</div>
+        <div class="cooney-weather-grid">
+          ${periods.map(function (p) {
+            return `<div class="cooney-weather-period"><b>${safeText(p.name)}</b><span>${safeText(p.condition)} • ${safeText(p.tempF)}°F</span><span>Rain ${safeText(p.precip)}% • Wind ${safeText(p.wind)} mph</span></div>`;
+          }).join('')}
         </div>
-        <div class="cooney-weather-body">
-          <div class="cooney-weather-vibe">
-            <b>🎵 ${escapeHtml(song.label || first.mood)} → ${escapeHtml(songLine)}</b>
-            <div>${escapeHtml(headlineQuip)}</div>
-          </div>
-          <div class="cooney-weather-grid">
-            ${slots.map(slot => `
-              <div class="cooney-weather-card">
-                <div class="top"><span>${escapeHtml(slot.emoji)} ${escapeHtml(slot.day)}</span><span>${escapeHtml(slot.period)}</span></div>
-                <div class="temp">${escapeHtml(slot.temp)}°</div>
-                <div class="meta">${escapeHtml(slot.condition)} · Rain ${escapeHtml(slot.rain)}% · Wind ${escapeHtml(slot.wind)} mph</div>
-                <div class="quip">${escapeHtml(pick(quips[slot.mood]) || headlineQuip)}</div>
-              </div>
-            `).join("")}
-          </div>
-          <div class="cooney-weather-foot">Audio files stay in assets/audio/. This script only reads the filenames listed in assets/config/vacation-config.js.</div>
+        <div class="cooney-weather-music">🎵 Vacation Mode loaded: <b>${safeText(mood.toUpperCase())}</b> track • ${safeText((track || '').split('/').pop())}</div>
+        <div class="cooney-weather-actions">
+          <button class="cooney-weather-close" type="button">Bring on Vacation Mode</button>
+          <button class="cooney-weather-snooze" type="button">Close Weather</button>
         </div>
       </div>`;
-
-    const close = () => backdrop.remove();
-    backdrop.querySelector(".cooney-weather-close").addEventListener("click", close);
-    backdrop.addEventListener("click", e => { if (e.target === backdrop) close(); });
-    document.body.appendChild(backdrop);
+    document.body.appendChild(overlay);
+    overlay.querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener('click', function () { overlay.remove(); });
+    });
   }
 
-  async function loadWeatherAndShowOverlay() {
-    const loc = getLocationConfig();
-    const url = new URL("https://api.open-meteo.com/v1/forecast");
-    url.searchParams.set("latitude", String(loc.latitude));
-    url.searchParams.set("longitude", String(loc.longitude));
-    url.searchParams.set("hourly", "temperature_2m,precipitation_probability,weather_code,wind_speed_10m,cloud_cover");
-    url.searchParams.set("temperature_unit", "fahrenheit");
-    url.searchParams.set("wind_speed_unit", "mph");
-    url.searchParams.set("timezone", "auto");
-    url.searchParams.set("forecast_days", "3");
+  function fallbackWeatherSetup() {
+    const fallback = [{ name: 'Weather', tempF: 72, precip: 0, wind: 0, cloud: 0, code: 0, condition: 'Forecast Loading', mood: 'perfect' }];
+    const mood = 'perfect';
+    const track = pickTrack(mood);
+    setAudioSource(track);
+    if (!IS_HOME) showWeatherOverlay(fallback, mood, track);
+  }
 
+  async function initWeather() {
     try {
-      const response = await fetch(url.toString(), { cache: "no-store" });
-      if (!response.ok) throw new Error("Weather fetch failed: " + response.status);
-      const data = await response.json();
-      const slots = summarize(data);
-      renderOverlay(loc, slots);
+      const data = await fetchWeather();
+      const d = todayTomorrowDates();
+      const periods = [
+        periodFromHourly(data.hourly, d.today, 'Today Morning', 6, 11),
+        periodFromHourly(data.hourly, d.today, 'Today Afternoon', 12, 17),
+        periodFromHourly(data.hourly, d.today, 'Today Night', 18, 23),
+        periodFromHourly(data.hourly, d.tomorrow, 'Tomorrow Morning', 6, 11),
+        periodFromHourly(data.hourly, d.tomorrow, 'Tomorrow Afternoon', 12, 17),
+        periodFromHourly(data.hourly, d.tomorrow, 'Tomorrow Night', 18, 23)
+      ];
+      const mood = overallMood(periods);
+      const track = pickTrack(mood);
+      setAudioSource(track);
+      showWeatherOverlay(periods, mood, track);
     } catch (err) {
-      console.warn("Weather overlay failed, using fallback:", err);
-      const fallback = {
-        day: "Today",
-        period: "Vacation",
-        emoji: "🍹",
-        temp: 72,
-        rain: 0,
-        wind: 5,
-        cloud: 0,
-        code: 0,
-        mood: CONFIG.defaultMood || "perfect",
-        condition: "Clear"
-      };
-      renderOverlay(loc, [fallback]);
+      console.warn('Cooney weather overlay fallback:', err);
+      fallbackWeatherSetup();
     }
   }
 
   function init() {
-    getSingletonAudio();
-    bindVacationButton();
-    loadWeatherAndShowOverlay();
-
-    // Some pages build/replace the button after load. Re-bind safely.
-    setTimeout(bindVacationButton, 500);
-    setTimeout(bindVacationButton, 1500);
+    installAudioHijack();
+    initWeather();
+    // One more pass after the old inline scripts mutate links/buttons.
+    setTimeout(installAudioHijack, 250);
+    setTimeout(function () {
+      const track = window.COONEY_SELECTED_WEATHER_TRACK || localStorage.getItem('cooney-selected-weather-track');
+      if (track) setAudioSource(track);
+    }, 600);
   }
 
-  window.CooneyVacationAudio = {
-    start: startVacationAudio,
-    stop: stopAllVacationAudio,
-    pickSong: songForMood,
-    setSong: setSelectedWeatherSong,
-    getAudio: getSingletonAudio,
-    stopAllExcept: stopAllAudioExcept
-  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  window.COONEY_STOP_VACATION_MUSIC = stopVacationMusic;
+  window.COONEY_PLAY_SELECTED_WEATHER_TRACK = playSelectedTrack;
 })();

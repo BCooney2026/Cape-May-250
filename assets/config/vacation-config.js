@@ -1,139 +1,101 @@
-/* Cooney Vacation Weather + Music Config - v24
-   IMPORTANT: This file lists songs only. It does NOT contain audio files.
-   Your real audio files stay safely in /assets/audio/.
-
-   Use lowercase, hyphenated filenames:
-   hot-1.m4a, rain-2.m4a, storm-3.m4a, etc.
-
-   You can use ANY number of songs per category. Add/remove tracks below.
+/* Cooney Vacation Config
+   Edit this file any time. Do NOT put audio files in this config folder.
+   Audio files live in: assets/audio/
 */
 window.COONEY_VACATION_CONFIG = {
-  audioBasePath: "assets/audio/",
-  defaultMood: "perfect",
+  // Anything below this is vacation-cold. Because 59 degrees at the shore is nonsense.
   coldBelowF: 60,
-  hotAtOrAboveF: 86,
-  rainChanceAtOrAbove: 45,
-  stormChanceAtOrAbove: 70,
-  windyAtOrAboveMph: 22,
-  cloudyAtOrAbovePercent: 72,
 
+  // Music files you uploaded into assets/audio/. Add/remove as many as you want per category.
+  // Keep filenames lowercase, hyphenated, and exact: hot-1.m4a, rain-2.m4a, etc.
   weatherSongs: {
-    hot: {
-      label: "Hot as Hell Mode",
-      tracks: [
-        { file: "hot-1.m4a", title: "Heat Wave", artist: "Martha and the Vandellas" },
-        { file: "hot-2.m4a", title: "Hot Stuff", artist: "Donna Summer" },
-        { file: "hot-3.m4a", title: "The Heat Is On", artist: "Glenn Frey" }
-      ]
-    },
-    rain: {
-      label: "Rainy Day Mode",
-      tracks: [
-        { file: "rain-1.m4a", title: "Raindrops Keep Fallin' on My Head", artist: "B. J. Thomas" },
-        { file: "rain-2.m4a", title: "Have You Ever Seen the Rain", artist: "Creedence Clearwater Revival" },
-        { file: "rain-3.m4a", title: "I Love a Rainy Night", artist: "Eddie Rabbitt" }
-      ]
-    },
-    windy: {
-      label: "Windy Mode",
-      tracks: [
-        { file: "windy-1.m4a", title: "Against the Wind", artist: "Bob Seger" },
-        { file: "windy-2.m4a", title: "Windy", artist: "The Association" },
-        { file: "windy-3.m4a", title: "Ride Like the Wind", artist: "Christopher Cross" }
-      ]
-    },
-    perfect: {
-      label: "Perfect Vacation Mode",
-      tracks: [
-        { file: "perfect-1.m4a", title: "Vacation", artist: "The Go-Go's" },
-        { file: "perfect-2.m4a", title: "Lovely Day", artist: "Bill Withers" },
-        { file: "perfect-3.m4a", title: "Good Vibrations", artist: "The Beach Boys" },
-        { file: "perfect-4.m4a", title: "Here Comes the Sun", artist: "The Beatles" }
-      ]
-    },
-    cloudy: {
-      label: "Cloudy Mood Lighting Mode",
-      tracks: [
-        { file: "cloudy-1.m4a", title: "Ain't No Sunshine", artist: "Bill Withers" },
-        { file: "cloudy-2.m4a", title: "Cloudy", artist: "Simon & Garfunkel" },
-        { file: "cloudy-3.m4a", title: "No Rain", artist: "Blind Melon" }
-      ]
-    },
-    storm: {
-      label: "Storm Drama Mode",
-      tracks: [
-        { file: "storm-1.m4a", title: "Thunderstruck", artist: "AC/DC" },
-        { file: "storm-2.m4a", title: "Riders on the Storm", artist: "The Doors" },
-        { file: "storm-3.m4a", title: "Rock You Like a Hurricane", artist: "Scorpions" }
-      ]
-    },
-    cold: {
-      label: "Chilly Mode",
-      tracks: [
-        { file: "cold-1.m4a", title: "Cold as Ice", artist: "Foreigner" },
-        { file: "cold-2.m4a", title: "Ice Ice Baby", artist: "Vanilla Ice" },
-        { file: "cold-3.m4a", title: "Sweater Weather", artist: "The Neighbourhood" }
-      ]
-    }
-  },
-
-  locations: {
-    "cape_may.html": { name: "Cape May", latitude: 38.9351, longitude: -74.9060 },
-    "daily_plans.html": { name: "Cape May", latitude: 38.9351, longitude: -74.9060 },
-    "avalon.html": { name: "Avalon", latitude: 39.1012, longitude: -74.7177 },
-    "atlantic_city.html": { name: "Atlantic City", latitude: 39.3643, longitude: -74.4229 },
-    "index.html": { name: "Jersey Shore", latitude: 39.1012, longitude: -74.7177 }
+    hot: [
+      "assets/audio/hot-1.m4a",
+      "assets/audio/hot-2.m4a",
+      "assets/audio/hot-3.m4a"
+    ],
+    rain: [
+      "assets/audio/rain-1.m4a",
+      "assets/audio/rain-2.m4a",
+      "assets/audio/rain-3.m4a"
+    ],
+    windy: [
+      "assets/audio/windy-1.m4a",
+      "assets/audio/windy-2.m4a",
+      "assets/audio/windy-3.m4a"
+    ],
+    perfect: [
+      "assets/audio/perfect-1.m4a",
+      "assets/audio/perfect-2.m4a",
+      "assets/audio/perfect-3.m4a",
+      "assets/audio/perfect-4.m4a"
+    ],
+    cloudy: [
+      "assets/audio/cloudy-1.m4a",
+      "assets/audio/cloudy-2.m4a",
+      "assets/audio/cloudy-3.m4a"
+    ],
+    storm: [
+      "assets/audio/storm-1.m4a",
+      "assets/audio/storm-2.m4a",
+      "assets/audio/storm-3.m4a"
+    ],
+    cold: [
+      "assets/audio/cold-1.m4a",
+      "assets/audio/cold-2.m4a",
+      "assets/audio/cold-3.m4a"
+    ]
   },
 
   quips: {
     hot: [
-      "Hot enough to make the sidewalk ask for PTO.",
-      "The sun woke up and chose violence.",
-      "Hydrate like you owe your liver an apology.",
-      "This is not weather. This is a toaster with scenery.",
-      "Old enough to know better, hot enough to not care."
+      "Hot enough to make the asphalt file a complaint.",
+      "The sun is acting like it owns the place.",
+      "Hydrate like your liver has union representation.",
+      "Sunscreen today. Regret tomorrow is not the move.",
+      "This is not weather. This is a preheated oven with seagulls."
     ],
     rain: [
-      "Rain in the forecast because apparently the sky needed attention.",
-      "Bring an umbrella unless you enjoy looking like a wet hoagie.",
-      "The clouds are being dramatic little bastards.",
-      "Good day to drink indoors and call it culture.",
-      "Weather says: cute outfit, shame if something happened to it."
+      "Bring an umbrella unless wet-hoagie is the look today.",
+      "The sky woke up and chose drama.",
+      "Rain delay? No. Bar relocation strategy.",
+      "Clouds are leaking. Very professional.",
+      "Outdoor plans are now a suggestion, not a commitment."
     ],
     windy: [
-      "Windy enough to expose every bad hair decision.",
-      "Secure the napkins, hats, and Brian's patience.",
+      "Secure the hats, napkins, and Brian's last nerve.",
+      "Windy enough to audit everyone’s hair product choices.",
       "A light breeze with main-character energy.",
-      "If your drink has a garnish, say goodbye now.",
-      "Nature turned on the leaf blower."
+      "If the napkins survive, so do we.",
+      "Today’s forecast: dramatic flags and airborne receipts."
     ],
     perfect: [
       "This weather is suspiciously perfect. Do not question it.",
       "Vacation weather has entered the chat.",
-      "The sky understood the assignment.",
-      "Not too hot, not too cold, just right for poor decisions.",
-      "Old enough to know better, nice enough to ignore responsibility."
+      "Old enough to know better, nice enough to ignore responsibility.",
+      "This is the kind of forecast you brag about to people stuck at work.",
+      "No notes. The weather department finally did its job."
     ],
     cloudy: [
-      "Cloudy, but in a sexy mood-lighting kind of way.",
+      "Cloudy, but classy. Like the sky put on mood lighting.",
       "The sun is taking a union break.",
-      "Less squinting, more sipping.",
-      "The sky is wearing sweatpants today.",
-      "Clouds showed up, but they are not ruining the trip."
+      "Less squinting, more judging other people’s parking.",
+      "Not beach-ruining cloudy. More like dramatic preview cloudy.",
+      "The sky is wearing sweatpants today. Respect."
     ],
     storm: [
-      "The sky is throwing furniture. Stay flexible.",
-      "Storm drama detected. Find shelter with a bar program.",
-      "This is weather with a grudge.",
-      "Plan B is not failure. Plan B is cocktails under a roof.",
-      "Thunder heard there was a vacation and got jealous."
+      "The sky is about to throw furniture.",
+      "Thunder vibes. Maybe keep the golf cart dreams flexible.",
+      "This is not weather, it is a group chat argument overhead.",
+      "If it booms, we pivot indoors like professionals.",
+      "Storm plan: snacks, booze, shelter, zero hero behavior."
     ],
     cold: [
-      "A little chilly, but nobody packed emotional support fleece for nothing.",
-      "Cold enough to make beach chairs question their purpose.",
-      "Layer up and act like this was the plan.",
-      "Not freezing, just aggressively refreshing.",
-      "The weather is giving iced coffee in a sweatshirt."
+      "Under 60 at the shore is legally rude.",
+      "This is vacation, not a character-building exercise.",
+      "Cold enough to make shorts feel like a personal attack.",
+      "Layer up, complain loudly, proceed anyway.",
+      "The beach has betrayed us. Again."
     ]
   }
 };
