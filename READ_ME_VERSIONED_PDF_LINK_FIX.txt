@@ -8,20 +8,20 @@ Why this build exists:
 {
   "source_zip": "Cooney_Cape_May_250_Escape_ALL_PDF_LINKS_FIXED.zip",
   "renamed_daily_pdfs": {
-    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf": "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf",
-    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf": "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf",
-    "pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf": "pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf",
-    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf": "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf"
+    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf": "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf",
+    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf": "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf",
+    "pdfs/daily_plans/06_Sunday_DEPOT_CHARGE_POLISHED_v18.pdf": "pdfs/daily_plans/06_Sunday_DEPOT_CHARGE_POLISHED_v18.pdf",
+    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf": "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf"
   },
   "version": "v=pdf-links-v4",
   "patch_counts": {
-    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf": 3,
-    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf": 4,
-    "pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf": 3,
-    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf": 4
+    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf": 3,
+    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf": 4,
+    "pdfs/daily_plans/06_Sunday_DEPOT_CHARGE_POLISHED_v18.pdf": 3,
+    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf": 4
   },
   "daily_pdf_verification": {
-    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf": {
+    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf": {
       "exists": true,
       "link_count": 3,
       "links": [
@@ -46,7 +46,7 @@ Why this build exists:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf": {
+    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf": {
       "exists": true,
       "link_count": 4,
       "links": [
@@ -77,7 +77,7 @@ Why this build exists:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf": {
+    "pdfs/daily_plans/06_Sunday_DEPOT_CHARGE_POLISHED_v18.pdf": {
       "exists": true,
       "link_count": 3,
       "links": [
@@ -102,7 +102,7 @@ Why this build exists:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf": {
+    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf": {
       "exists": true,
       "link_count": 4,
       "links": [
@@ -136,16 +136,16 @@ Why this build exists:
   },
   "html_daily_pdf_links": {
     "daily_plans.html": [
-      "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf",
-      "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf",
-      "pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf",
-      "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf"
+      "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf",
+      "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf",
+      "pdfs/daily_plans/06_Sunday_DEPOT_CHARGE_POLISHED_v18.pdf",
+      "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf"
     ],
     "index.html": [
-      "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf",
-      "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf",
-      "pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf",
-      "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf"
+      "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf",
+      "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf",
+      "pdfs/daily_plans/06_Sunday_DEPOT_CHARGE_POLISHED_v18.pdf",
+      "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf"
     ]
   }
 }

@@ -9,11 +9,11 @@ Verification:
   "source_zip": "Cooney_Cape_May_250_Escape_PDF_INTERNAL_LINK_FIX.zip",
   "base_url": "https://vacation.cooneysparadise.com/",
   "patch_counts": {
-    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf": 1,
-    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf": 1
+    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf": 1,
+    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf": 1
   },
   "verify_problem_files": {
-    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf": {
+    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf": {
       "exists": true,
       "links_after_patch": [
         {
@@ -37,7 +37,7 @@ Verification:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf": {
+    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf": {
       "exists": true,
       "links_after_patch": [
         {
@@ -67,7 +67,7 @@ Verification:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf": {
+    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf": {
       "exists": true,
       "links_after_patch": [
         {

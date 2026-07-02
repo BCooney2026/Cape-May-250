@@ -1,113 +1,818 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cooney Full Trip Command Center</title>
-<style>
-:root {
-  --navy:#07192f; --red:#9f1d25; --gold:#c59a38; --cream:#fff7e6;
-  --teal:#2f8f9d; --purple:#7c3aed; --green:#4d7c0f; --ink:#061a36;
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Daily Plans</title><link rel="stylesheet" href="style.css">
+
+
+
+
+
+
+
+
+
+<style id="cooney-video-layer-fix">
+/* Keeps the Pexels flag video visible behind the hub content */
+body{background:#07192f !important;}
+.cooney-flag-bg{
+  z-index:0 !important;
+  opacity:.82 !important;
+  pointer-events:none !important;
 }
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--cream);color:var(--ink)}
-.hero{background:linear-gradient(135deg,#07192f,#0d3b4c 52%,#2c1047);color:white;padding:36px 18px 30px;border-bottom:6px solid var(--gold)}
-.wrap{max-width:1120px;margin:0 auto}
-.kicker{display:inline-block;background:var(--gold);color:#07192f;border-radius:999px;padding:7px 12px;font-weight:900;font-size:12px}
-h1{font-family:Georgia,serif;font-size:clamp(42px,8vw,92px);line-height:.9;margin:16px 0 10px;letter-spacing:-.05em}
-.hero p{font-size:clamp(17px,2.3vw,24px);max-width:920px;color:rgba(255,255,255,.86)}
-nav{position:sticky;top:0;background:rgba(7,25,47,.95);z-index:5;border-bottom:1px solid rgba(255,255,255,.12);padding:10px 12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 12px;font-weight:800;font-size:13px}
-.section{padding:28px 18px}
-h2{font-family:Georgia,serif;font-size:clamp(30px,5vw,58px);margin:0 0 18px;color:var(--navy)}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-.card{grid-column:span 6;background:white;border:1px solid #ead9b8;border-radius:18px;padding:18px;box-shadow:0 10px 28px rgba(7,25,47,.08);position:relative;overflow:hidden}
-.card.cape{border-left:8px solid var(--red)}
-.card.avalon{border-left:8px solid var(--teal)}
-.card.ac{border-left:8px solid var(--purple)}
-.card.home{border-left:8px solid var(--green)}
-.card h3{font-size:23px;margin:0 0 8px;color:var(--navy)}
-.card p{margin:0 0 12px;line-height:1.45}
-.btn{display:inline-block;background:var(--navy);color:white;text-decoration:none;border-radius:10px;padding:10px 12px;font-weight:900;margin:4px 6px 4px 0}
-.btn.gold{background:var(--gold);color:#07192f}
-.btn.red{background:var(--red)}
-.btn.teal{background:var(--teal)}
-.btn.purple{background:var(--purple)}
-.btn.green{background:var(--green)}
-.rule{background:#fff3c4;border-left:6px solid var(--gold);padding:14px 16px;border-radius:12px;margin:12px 0;line-height:1.45}
-.timeline{display:grid;gap:10px}
-.timeline div{background:white;border-left:6px solid var(--gold);padding:12px 14px;border-radius:12px;box-shadow:0 8px 20px rgba(7,25,47,.06)}
-.footer{padding:28px;text-align:center;color:#475569}
-@media(max-width:760px){.card{grid-column:span 12}}
+.cooney-flag-bg-overlay{
+  z-index:1 !important;
+  pointer-events:none !important;
+}
+body:before{
+  z-index:1 !important;
+}
+.wrap, main, header, .hero, .section-title, .grid, .daily-row, .card{
+  position:relative;
+  z-index:2;
+}
+.cooney-start-overlay{z-index:9999 !important;}
+.cooney-musicbar{z-index:9998 !important;}
 </style>
-</head>
-<body>
-<nav>
-<a href="#cape">Cape May</a><a href="#avalon">Avalon</a><a href="#ac">AC Finale</a><a href="#home">Home Recovery</a><a href="#allpdfs">All PDFs</a>
-</nav>
-<header class="hero">
-  <div class="wrap">
-    <span class="kicker">DAILY PLANS - USEFUL VERSION</span>
-    <h1>All Daily Plans</h1>
-    <p>The actual working plan: Cape May remains the main itinerary, Avalon/ICONA gets added for D's beach day, AC becomes the one-night neon finale, and Friday starts pool-bar recovery.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Family Vacation Home Screen Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Family Vacation">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#12264a">
+
+
+<style id="cooney-clean-vacation-css">
+:root{
+  --cv-navy:#081832; --cv-red:#9f1d25; --cv-gold:#d3a347; --cv-gold2:#fff0b8;
+}
+body{background:#07192f;}
+.cooney-start-overlay{
+  position:fixed; inset:0; z-index:10000; display:flex; align-items:center; justify-content:center; padding:24px;
+  background:
+    radial-gradient(circle at 20% 8%, rgba(244,216,137,.30), transparent 24%),
+    radial-gradient(circle at 82% 15%, rgba(255,255,255,.10), transparent 24%),
+    linear-gradient(135deg, rgba(8,24,50,.96), rgba(159,29,37,.90) 60%, rgba(122,21,32,.96));
+  color:#fff; text-align:center; overflow:hidden;
+}
+.cooney-start-overlay:before{
+  content:""; position:absolute; inset:-30px;
+  background:repeating-linear-gradient(45deg, rgba(255,255,255,.045) 0 8px, transparent 8px 18px);
+  opacity:.72; animation:cvDrift 18s linear infinite;
+}
+.cooney-start-overlay:after{
+  content:"250"; position:absolute; right:1vw; bottom:-3vw;
+  font-family:Georgia,serif; font-size:clamp(120px,30vw,320px); font-weight:900;
+  color:rgba(255,247,230,.075); letter-spacing:-.08em; pointer-events:none;
+}
+.cooney-start-card{
+  position:relative; z-index:1; width:min(620px, calc(100vw - 36px));
+  border:2px solid rgba(244,216,137,.45); border-radius:30px;
+  background:linear-gradient(180deg, rgba(255,247,230,.16), rgba(255,247,230,.07));
+  box-shadow:0 30px 90px rgba(0,0,0,.42), inset 0 0 0 1px rgba(255,255,255,.14);
+  padding:34px 28px 32px; backdrop-filter:blur(9px);
+}
+.cooney-start-card h2{
+  font-size:clamp(34px,7vw,58px); line-height:.95; margin:0 0 24px;
+  font-family:Georgia,'Times New Roman',serif; letter-spacing:.2px;
+  text-shadow:0 3px 14px rgba(0,0,0,.32);
+}
+.patriot-pup{width:142px;height:132px;margin:0 auto 10px;position:relative;filter:drop-shadow(0 12px 18px rgba(0,0,0,.28));animation:cvPupBob 3s ease-in-out infinite;}
+.patriot-pup .body{position:absolute;left:30px;top:54px;width:72px;height:48px;border-radius:38px 38px 30px 30px;background:linear-gradient(135deg,#f7e1bf,#d7a87b);}
+.patriot-pup .head{position:absolute;left:40px;top:22px;width:58px;height:54px;border-radius:50% 50% 45% 45%;background:linear-gradient(135deg,#f8e4c8,#d39b6b);}
+.patriot-pup .ear1,.patriot-pup .ear2{position:absolute;top:27px;width:22px;height:42px;background:#8b5a3b;border-radius:50% 50% 58% 58%;}
+.patriot-pup .ear1{left:28px;transform:rotate(18deg)}.patriot-pup .ear2{left:87px;transform:rotate(-18deg)}
+.patriot-pup .eye1,.patriot-pup .eye2{position:absolute;top:44px;width:7px;height:7px;background:#1b1720;border-radius:50%;}
+.patriot-pup .eye1{left:58px}.patriot-pup .eye2{left:78px}
+.patriot-pup .nose{position:absolute;left:67px;top:55px;width:10px;height:8px;background:#1b1720;border-radius:50% 50% 55% 55%;}
+.patriot-pup .mouth-flag{position:absolute;left:76px;top:58px;width:50px;height:6px;background:#9a6a38;border-radius:6px;transform:rotate(-7deg);}
+.patriot-pup .flag{position:absolute;left:113px;top:30px;width:58px;height:39px;background:linear-gradient(#244678 0 53%,transparent 53%),repeating-linear-gradient(to bottom,#c82333 0 5px,#fff 5px 10px);border-radius:2px 9px 9px 2px;clip-path:polygon(0 0,100% 8%,90% 50%,100% 92%,0 100%);transform-origin:left center;animation:cvFlagWave .9s ease-in-out infinite;box-shadow:0 5px 12px rgba(0,0,0,.25);}
+.patriot-pup .flag:after{content:"★ ★";position:absolute;left:5px;top:5px;font-size:8px;color:#fff;letter-spacing:1px;}
+.patriot-pup .tail{position:absolute;left:14px;top:66px;width:32px;height:12px;background:#d7a87b;border-radius:999px;transform-origin:right center;animation:cvTail 1.2s ease-in-out infinite;}
+.patriot-pup .paw1,.patriot-pup .paw2{position:absolute;top:94px;width:20px;height:12px;background:#f8e4c8;border-radius:50%;}
+.patriot-pup .paw1{left:47px}.patriot-pup .paw2{left:78px}
+.vacation-mode-launch{position:relative;z-index:6;display:flex;justify-content:center;margin:10px auto 18px;padding:0 14px;}
+.cooney-vacation-button{
+  appearance:none; border:3px solid rgba(255,244,196,.95); border-radius:18px; padding:16px 24px;
+  font-weight:1000; font-size:18px; text-transform:uppercase; letter-spacing:.03em; color:#fff;
+  text-shadow:0 2px 0 rgba(0,0,0,.45), 0 0 12px rgba(255,255,255,.35);
+  box-shadow:0 10px 0 rgba(0,0,0,.28),0 20px 34px rgba(0,0,0,.38),inset 0 2px 0 rgba(255,255,255,.42),inset 0 -10px 18px rgba(0,0,0,.18);
+  cursor:pointer; position:relative; overflow:hidden; min-width:min(440px,100%);
+  background:linear-gradient(180deg,#29b94d 0%,#0f8c30 48%,#07691f 100%);
+  animation:cvPulse 1.9s ease-in-out infinite;
+}
+.cooney-vacation-button:before{
+  content:""; position:absolute; top:0; bottom:0; left:-55%; width:45%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);
+  transform:skewX(-18deg); animation:cvShine 2.75s ease-in-out infinite;
+}
+.cooney-vacation-button span{position:relative;z-index:1;}
+.cooney-vacation-button.deactivate{
+  background:linear-gradient(180deg,#ff553e 0%,#c72022 50%,#7d0e16 100%);
+  animation:cvLoserWobble 2.4s ease-in-out infinite;
+}
+.cooney-party-layer{position:fixed; inset:0; z-index:9997; pointer-events:none; overflow:hidden;}
+.cooney-image-pop{position:fixed; inset:0; z-index:10050; display:none; align-items:center; justify-content:center; padding:18px; background:radial-gradient(circle at center,rgba(255,244,196,.16),transparent 28%),rgba(0,0,0,.72); pointer-events:none;}
+.cooney-image-pop.show{display:flex; animation:cvImageFade 3.15s ease forwards;}
+.cooney-image-pop img{width:min(94vw,1040px); max-height:82vh; object-fit:contain; border-radius:24px; box-shadow:0 30px 100px rgba(0,0,0,.78),0 0 0 5px rgba(255,244,196,.72),0 0 54px rgba(244,216,137,.78); transform:scale(.82); animation:cvImagePop 3.15s ease forwards;}
+.cooney-image-pop.deactivated{background:radial-gradient(circle at center,rgba(180,0,0,.14),transparent 30%),rgba(0,0,0,.78);}
+.cooney-image-pop.deactivated img{box-shadow:0 30px 100px rgba(0,0,0,.82),0 0 0 5px rgba(220,220,220,.45),0 0 54px rgba(255,0,0,.46);}
+.confetti-piece{position:absolute;top:-20px;width:10px;height:18px;border-radius:3px;opacity:.95;animation:cvConfettiFall linear forwards;}
+.party-balloon{position:absolute;bottom:-80px;width:38px;height:50px;border-radius:50% 50% 45% 45%;background:var(--balloon);box-shadow:inset -7px -9px 0 rgba(0,0,0,.14);animation:cvBalloonRise ease-out forwards;}
+.party-balloon:after{content:"";position:absolute;left:50%;top:48px;width:1px;height:55px;background:rgba(255,255,255,.7);}
+.firework{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff4c4;box-shadow:0 0 12px #fff4c4;animation:cvFireworkPop .95s ease-out forwards;}
+.firework i{position:absolute;left:2px;top:2px;width:4px;height:4px;border-radius:50%;background:var(--spark);transform:rotate(var(--angle)) translateX(0);animation:cvSparkFly .95s ease-out forwards;}
+.streamer{position:absolute;top:-70px;width:14px;height:110px;border-radius:10px;background:repeating-linear-gradient(45deg,var(--s1) 0 8px,var(--s2) 8px 16px);animation:cvStreamerDrop 1.9s ease-in forwards;opacity:.95;}
+.loser-piece{position:absolute;top:-30px;font-size:clamp(20px,4vw,34px);filter:drop-shadow(0 5px 10px rgba(0,0,0,.35));animation:cvLoserFall linear forwards;opacity:.95;}
+.gray-cloud{position:absolute;width:72px;height:40px;border-radius:999px;background:rgba(180,180,180,.85);box-shadow:20px -8px 0 rgba(155,155,155,.85),38px 4px 0 rgba(130,130,130,.85);animation:cvCloudFloat 3.8s ease-in forwards;}
+.gray-cloud:after{content:"";position:absolute;left:18px;top:42px;width:4px;height:28px;background:rgba(150,150,150,.75);box-shadow:16px 6px 0 rgba(150,150,150,.75),32px 0 0 rgba(150,150,150,.75);}
+.cooney-musicbar{position:fixed;z-index:9998;left:14px;right:14px;bottom:14px;display:none;align-items:center;gap:12px;border-radius:18px;border:1px solid rgba(244,216,137,.38);background:linear-gradient(135deg,rgba(18,38,74,.97),rgba(159,29,37,.95));color:#fff;padding:10px 12px;box-shadow:0 14px 40px rgba(0,0,0,.32);font-family:system-ui,-apple-system,Segoe UI,sans-serif;}
+.cooney-musicbar button{border:0;border-radius:999px;padding:9px 13px;background:#fff7e6;color:#12264a;font-weight:800;cursor:pointer;}
+.cooney-track{flex:1;min-width:0}.cooney-track strong{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cooney-track span{display:block;font-size:12px;opacity:.82;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vacation-toast,.loser-toast{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;}
+@keyframes cvDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(34px,34px,0)}}@keyframes cvPupBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}@keyframes cvFlagWave{0%,100%{transform:skewY(0deg) scaleX(1)}50%{transform:skewY(-6deg) scaleX(.96)}}@keyframes cvTail{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(18deg)}}@keyframes cvPulse{0%,100%{box-shadow:0 10px 0 rgba(0,0,0,.28),0 20px 34px rgba(0,0,0,.38),inset 0 2px 0 rgba(255,255,255,.42),inset 0 -10px 18px rgba(0,0,0,.18),0 0 0 0 rgba(244,216,137,.38)}50%{box-shadow:0 10px 0 rgba(0,0,0,.28),0 20px 34px rgba(0,0,0,.38),inset 0 2px 0 rgba(255,255,255,.42),inset 0 -10px 18px rgba(0,0,0,.18),0 0 0 9px rgba(244,216,137,0)}}@keyframes cvShine{0%{left:-55%}45%,100%{left:115%}}@keyframes cvLoserWobble{0%,100%{transform:rotate(0)}20%{transform:rotate(-1deg)}40%{transform:rotate(1deg)}60%{transform:rotate(-.6deg)}80%{transform:rotate(.6deg)}}@keyframes cvImageFade{0%{opacity:0}8%{opacity:1}82%{opacity:1}100%{opacity:0}}@keyframes cvImagePop{0%{transform:scale(.78) rotate(-1deg);opacity:0}12%{transform:scale(1.02) rotate(0);opacity:1}78%{transform:scale(1) rotate(0);opacity:1}100%{transform:scale(1.05) rotate(.4deg);opacity:0}}@keyframes cvConfettiFall{to{transform:translateY(110vh) rotate(900deg);opacity:.95}}@keyframes cvBalloonRise{0%{transform:translateY(0) translateX(0);opacity:0}12%{opacity:1}100%{transform:translateY(-115vh) translateX(var(--drift));opacity:.85}}@keyframes cvFireworkPop{0%{transform:scale(.2);opacity:1}100%{transform:scale(1.1);opacity:0}}@keyframes cvSparkFly{0%{transform:rotate(var(--angle)) translateX(0);opacity:1}100%{transform:rotate(var(--angle)) translateX(var(--distance));opacity:0}}@keyframes cvStreamerDrop{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:1}100%{transform:translateY(110vh) rotate(240deg);opacity:.9}}@keyframes cvLoserFall{to{transform:translateY(112vh) rotate(-520deg);opacity:.92}}@keyframes cvCloudFloat{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}100%{transform:translateY(44vh) translateX(var(--drift));opacity:0}}
+@media (max-width:520px){.cooney-start-card{padding:28px 20px}.cooney-vacation-button{font-size:16px;padding:15px 16px;width:100%}.cooney-image-pop img{width:96vw;max-height:76vh;border-radius:18px}.cooney-musicbar{left:10px;right:10px;bottom:10px}}
+</style>
+
+
+<style id="cooney-overlay-crop-final-css">
+/* Final overlay cleanup: clean poster image only, no mockup captions/footer, tight frame */
+.vacation-toast,
+.loser-toast{
+  display:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+.cooney-image-pop{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:10050 !important;
+  display:none;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:18px !important;
+  background:
+    radial-gradient(circle at center, rgba(255,244,196,.18), transparent 30%),
+    rgba(0,0,0,.74) !important;
+  pointer-events:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+.cooney-image-pop.show{
+  display:flex !important;
+  animation:cvImageOverlayFadeFinal 3.15s ease forwards !important;
+}
+.cooney-image-pop img{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:min(94vw, 980px) !important;
+  max-height:82vh !important;
+  object-fit:contain !important;
+  border-radius:24px !important;
+  border:3px solid rgba(255,244,196,.75) !important;
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.82),
+    0 0 0 4px rgba(255,244,196,.28),
+    0 0 56px rgba(244,216,137,.80) !important;
+  transform:scale(.82);
+  animation:cvImageOverlayPopFinal 3.15s ease forwards !important;
+}
+.cooney-image-pop.deactivated{
+  background:
+    radial-gradient(circle at center, rgba(160,0,0,.16), transparent 30%),
+    rgba(0,0,0,.80) !important;
+}
+.cooney-image-pop.deactivated img{
+  border-color:rgba(210,210,210,.62) !important;
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.86),
+    0 0 0 4px rgba(120,120,120,.25),
+    0 0 56px rgba(255,0,0,.48) !important;
+}
+@keyframes cvImageOverlayFadeFinal{
+  0%{opacity:0}
+  8%{opacity:1}
+  82%{opacity:1}
+  100%{opacity:0}
+}
+@keyframes cvImageOverlayPopFinal{
+  0%{transform:scale(.78) rotate(-1deg);opacity:0}
+  12%{transform:scale(1.02) rotate(0deg);opacity:1}
+  78%{transform:scale(1) rotate(0deg);opacity:1}
+  100%{transform:scale(1.05) rotate(.4deg);opacity:0}
+}
+@media (max-width:520px){
+  .cooney-image-pop{
+    padding:12px !important;
+  }
+  .cooney-image-pop img{
+    max-width:96vw !important;
+    max-height:76vh !important;
+    border-radius:18px !important;
+  }
+}
+</style>
+
+
+
+
+<style id="dee-emoji-rain-css">
+/* Verified emoji rain: independent falling paths, no horizontal-line clumping */
+.dee-emoji-rain-layer{
+  position:fixed;
+  inset:0;
+  z-index:10070;
+  pointer-events:none;
+  overflow:hidden;
+}
+.dee-emoji-drop{
+  position:absolute;
+  top:-80px;
+  left:var(--x);
+  font-size:var(--size);
+  line-height:1;
+  opacity:0;
+  text-shadow:0 6px 16px rgba(0,0,0,.55);
+  filter:drop-shadow(0 0 8px rgba(255,255,255,.28));
+  will-change:transform, opacity;
+  animation-name:deeEmojiFallFixed;
+  animation-duration:var(--dur);
+  animation-delay:var(--delay);
+  animation-timing-function:linear;
+  animation-fill-mode:forwards;
+}
+.dee-emoji-drop .emoji-face{
+  display:block;
+  animation-name:deeEmojiSpinFixed;
+  animation-duration:var(--spin);
+  animation-delay:var(--delay);
+  animation-timing-function:ease-in-out;
+  animation-fill-mode:forwards;
+}
+.dee-emoji-drop.swapped .emoji-face{
+  animation-name:deeEmojiPopSwapFixed;
+  animation-duration:.45s;
+  animation-delay:0s;
+  animation-timing-function:ease-out;
+  animation-fill-mode:both;
+}
+@keyframes deeEmojiFallFixed{
+  0%{
+    opacity:0;
+    transform:translate3d(0,-12vh,0) rotate(-10deg) scale(.85);
+  }
+  8%{
+    opacity:1;
+  }
+  48%{
+    opacity:1;
+    transform:translate3d(var(--drift1),48vh,0) rotate(8deg) scale(1.05);
+  }
+  100%{
+    opacity:0;
+    transform:translate3d(var(--drift2),116vh,0) rotate(26deg) scale(.9);
+  }
+}
+@keyframes deeEmojiSpinFixed{
+  0%{transform:rotate(-14deg) scale(.9);filter:brightness(.75) saturate(.75);}
+  48%{transform:rotate(8deg) scale(1.05);filter:brightness(1.15) saturate(1.15);}
+  100%{transform:rotate(20deg) scale(.95);filter:brightness(1.05) saturate(1.05);}
+}
+@keyframes deeEmojiPopSwapFixed{
+  0%{transform:scale(.55) rotate(-18deg);filter:brightness(.8) saturate(.8);}
+  55%{transform:scale(1.35) rotate(10deg);filter:brightness(1.75) saturate(1.65);}
+  100%{transform:scale(1) rotate(0deg);filter:brightness(1.15) saturate(1.15);}
+}
+</style>
+
+
+
+<style id="cooney-links-deep-fix-css">
+/* Flag video locked as background */
+.cooney-flag-bg,
+video.cooney-flag-bg,
+#cooneyFlagBg{
+  position:fixed !important;
+  inset:0 !important;
+  width:100vw !important;
+  height:100vh !important;
+  object-fit:cover !important;
+  z-index:-10 !important;
+  opacity:.72 !important;
+  pointer-events:none !important;
+  filter:saturate(1.08) contrast(1.05) brightness(.62) !important;
+  transform:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:block !important;
+}
+.cooney-flag-bg-overlay,
+#cooneyFlagBgOverlay{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:-9 !important;
+  pointer-events:none !important;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,247,230,.16), transparent 26%),
+    linear-gradient(135deg, rgba(8,24,50,.62), rgba(159,29,37,.48) 62%, rgba(8,24,50,.72)) !important;
+}
+body{background:#07192f !important;}
+
+/* On-page Playbook popup */
+.cooney-playbook-modal{
+  position:fixed;
+  inset:0;
+  z-index:11000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(5px);
+}
+.cooney-playbook-modal.show{display:flex;}
+.cooney-playbook-card{
+  width:min(94vw, 980px);
+  height:min(86vh, 760px);
+  background:#fff7e6;
+  border:3px solid rgba(211,163,71,.95);
+  border-radius:24px;
+  box-shadow:0 30px 100px rgba(0,0,0,.78),0 0 0 5px rgba(255,244,196,.25),0 0 48px rgba(244,216,137,.5);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.cooney-playbook-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 14px;
+  background:linear-gradient(135deg,#081832,#9f1d25);
+  color:#fff7e6;
+  border-bottom:2px solid rgba(211,163,71,.9);
+}
+.cooney-playbook-header strong{
+  font-family:Georgia,serif;
+  font-size:18px;
+}
+.cooney-playbook-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.cooney-playbook-open,
+.cooney-playbook-close{
+  border:0;
+  border-radius:999px;
+  padding:9px 13px;
+  font-weight:900;
+  cursor:pointer;
+}
+.cooney-playbook-open{
+  background:#fff7e6;
+  color:#12264a;
+  text-decoration:none;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+  font-size:13px;
+}
+.cooney-playbook-close{
+  background:#d3a347;
+  color:#081832;
+  font-size:15px;
+}
+.cooney-playbook-frame{
+  flex:1;
+  width:100%;
+  border:0;
+  background:#fff;
+}
+.cooney-playbook-fallback{
+  padding:18px;
+  color:#081832;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+  font-size:14px;
+  background:#fff7e6;
+}
+.cooney-playbook-fallback a{
+  color:#9f1d25;
+  font-weight:900;
+}
+@media (max-width:640px){
+  .cooney-playbook-card{
+    width:96vw;
+    height:82vh;
+    border-radius:18px;
+  }
+  .cooney-playbook-header strong{font-size:15px;}
+  .cooney-playbook-open{display:none;}
+}
+</style>
+
+</head><body><main class="wrap"><h2 class="section-title">Daily Plans</h2><section class="daily-row"><a class="card " href="pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf" target="_blank" rel="noopener"><span>Fri 7/3</span><b>Arrival + 250 Warm-Up</b></a><a class="card " href="pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf" target="_blank" rel="noopener"><span>Sat 7/4</span><b>America 250 Main Event</b></a><a class="card " href="pdfs/daily_plans/06_Sunday_DEPOT_CHARGE_POLISHED_v18.pdf" target="_blank" rel="noopener"><span>Sun 7/5</span><b>Recovery + Victory Lap</b></a><a class="card " href="pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf" target="_blank" rel="noopener"><span>Mon 7/6</span><b>Cape May Carts Pickup + Golf Cart Freedom</b></a><a class="card fire" href="pdfs/09_July_4_Backup_Fireworks_Playbook.pdf" target="_blank" rel="noopener"><span>Backup 4th</span><b>Fireworks Fallback Ladder</b><p>Best to worst, plus what to avoid.</p></a><a class="card " href="index.html"><span>Back</span><b>Main Hub</b></a></section></main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="cooney-start-overlay" id="cooneyStartOverlay">
+  <div class="cooney-start-card">
+    <div class="patriot-pup" aria-hidden="true">
+      <div class="tail"></div><div class="body"></div><div class="ear1"></div><div class="ear2"></div>
+      <div class="head"></div><div class="eye1"></div><div class="eye2"></div><div class="nose"></div>
+      <div class="mouth-flag"></div><div class="flag"></div><div class="paw1"></div><div class="paw2"></div>
+    </div>
+    <h2>Start the Celebration</h2>
+    <button class="cooney-vacation-button" id="cooneyOverlayActivate"><span>🇺🇸 Activate Vacation Mode</span></button>
   </div>
-</header>
+</div>
+<div class="cooney-party-layer" id="cooneyPartyLayer"></div>
+<div class="cooney-image-pop" id="cooneyActivatedImagePop">
+  <img src="assets/overlays/vacation-mode-activated.png" alt="Vacation Mode Activated">
+</div>
+<div class="cooney-image-pop deactivated" id="cooneyDeactivatedImagePop">
+  <img src="assets/overlays/vacation-mode-deactivated.png" alt="Vacation Mode Deactivated">
+</div>
+<div class="cooney-musicbar" id="cooneyMusicbar">
+  <button id="cooneyPlayPause">Pause</button>
+  <div class="cooney-track">
+    <strong>Now Playing: “Vacation” — The Go-Go’s</strong>
+    <span>Cooney Cape May 250 Celebration Escape</span>
+  </div>
+</div>
+<audio id="cooneyAudio" src="assets/audio/vacation.m4a" preload="auto" loop></audio>
+<script id="cooney-clean-vacation-js">
+(function(){
+  const overlay = document.getElementById('cooneyStartOverlay');
+  const overlayBtn = document.getElementById('cooneyOverlayActivate');
+  const mainBtn = document.getElementById('activateVacationMode');
+  const layer = document.getElementById('cooneyPartyLayer');
+  const audio = document.getElementById('cooneyAudio');
+  const bar = document.getElementById('cooneyMusicbar');
+  const playPause = document.getElementById('cooneyPlayPause');
+  const activePop = document.getElementById('cooneyActivatedImagePop');
+  const deadPop = document.getElementById('cooneyDeactivatedImagePop');
+  const colors = ['#c82333','#ffffff','#244678','#d3a347','#6ed3e7','#fff4c4'];
+  const loserBits = ['💩','😒','🧦','🥱','👎','🚫','😭','🧻','☔','💤','🤡'];
+  let active = localStorage.getItem('cooneyVacationMode') === 'active';
 
-<section class="section" id="cape">
-<div class="wrap">
-<h2>Chapter 1: Cape May 250</h2>
-<div class="rule"><b>This stays the main plan.</b> The detailed Cape May PDFs, golf-cart charge breaks, movement guidance, fireworks backup, bars/restaurants, and hidden gems are still the working core.</div>
-<div class="grid">
-  <div class="card cape"><h3>Friday 7/3</h3><p>Arrival, check-in, Washington Street Mall scout, first Cape May night.</p><a class="btn red" href="pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf">Open Friday PDF</a></div>
-  <div class="card cape"><h3>Saturday 7/4</h3><p>America 250 main event, Harry's reservation, fireworks strategy, no car chaos.</p><a class="btn red" href="pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf">Open Saturday PDF</a></div>
-  <div class="card cape"><h3>Sunday 7/5</h3><p>Depot golf cart day with planned charge break at Depot. No mystery outlets.</p><a class="btn red" href="pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf">Open Sunday PDF</a></div>
-  <div class="card cape"><h3>Monday 7/6</h3><p>Cape May Carts day with planned charge break at the rental place and Andrea only if available.</p><a class="btn red" href="pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf">Open Monday PDF</a></div>
-</div>
-</div>
-</section>
+  function rand(min,max){ return Math.random()*(max-min)+min; }
+  function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+  function clearLater(){ setTimeout(()=>{ if(layer) layer.innerHTML=''; }, 5400); }
 
-<section class="section" id="avalon">
-<div class="wrap">
-<h2>Chapter 2: ICONA Avalon Beach Reset</h2>
-<div class="rule"><b>Why this exists:</b> D wanted a real beach day. Avalon/ICONA gives her that, while Brian and Amber have the pool/bar/shade escape hatch.</div>
-<div class="grid">
-  <div class="card avalon"><h3>Tuesday 7/7</h3><p>Leave Cape May, check into ICONA, beach/pool soft launch, easy dinner.</p><a class="btn teal" href="pdfs/daily_plans/08_Tuesday_ICONA_AVALON_ARRIVAL_FULL_TRIP_v1.pdf">Open Tuesday PDF</a></div>
-  <div class="card avalon"><h3>Wednesday 7/8</h3><p>D's full Avalon beach day. Brian/Amber cameo, then pool/bar/shade survival plan.</p><a class="btn teal" href="pdfs/daily_plans/09_Wednesday_AVALON_BEACH_DAY_FULL_TRIP_v1.pdf">Open Wednesday PDF</a></div>
-</div>
-</div>
-</section>
+  function showPop(el){
+    if(!el) return;
+    el.classList.remove('show');
+    void el.offsetWidth;
+    el.classList.add('show');
+    setTimeout(()=>el.classList.remove('show'), 3200);
+  }
 
-<section class="section" id="ac">
-<div class="wrap">
-<h2>Chapter 3: AC Neon Finale</h2>
-<div class="grid">
-  <div class="card ac"><h3>Thursday 7/9</h3><p>Avalon checkout, roll to Atlantic City, park once, boardwalk/casino orientation, dinner, drinks, organized chaos.</p><a class="btn purple" href="pdfs/daily_plans/10_Thursday_AC_NEON_FINALE_FULL_TRIP_v1.pdf">Open Thursday PDF</a></div>
-  <div class="card ac"><h3>Movement Rule</h3><p>Park once. Walk/Jitney/Uber. Do not turn one AC night into a parking war.</p></div>
-</div>
-</div>
-</section>
+  function setButton(){
+    if(!mainBtn) return;
+    mainBtn.className = 'cooney-vacation-button' + (active ? ' deactivate' : '');
+    mainBtn.innerHTML = active ? '<span>💩 🛑 Deactivate Vacation Mode (Loser)</span>' : '<span>🎉 Activate Vacation Mode</span>';
+  }
 
-<section class="section" id="home">
-<div class="wrap">
-<h2>Chapter 4: Pool Bar Recovery</h2>
-<div class="grid">
-  <div class="card home"><h3>Friday 7/10</h3><p>Break out of AC, drive home, unload only what matters, activate pool-bar recovery mode.</p><a class="btn green" href="pdfs/daily_plans/11_Friday_POOL_BAR_RECOVERY_FULL_TRIP_v1.pdf">Open Friday PDF</a></div>
-  <div class="card home"><h3>Weekend Rule</h3><p>No productivity heroics. Pool bar recovery is the final chapter, not an afterthought.</p></div>
-</div>
-</div>
-</section>
+  function partyEffects(){
+    if(!layer) return;
+    layer.innerHTML='';
+    for(let i=0;i<95;i++){
+      const el=document.createElement('span'); el.className='confetti-piece';
+      el.style.left=rand(0,100)+'vw'; el.style.background=pick(colors);
+      el.style.animationDuration=rand(2.2,4.8)+'s'; el.style.animationDelay=rand(0,.7)+'s';
+      el.style.width=rand(6,13)+'px'; el.style.height=rand(10,22)+'px'; layer.appendChild(el);
+    }
+    for(let i=0;i<15;i++){
+      const el=document.createElement('span'); el.className='party-balloon';
+      el.style.left=rand(3,96)+'vw'; el.style.setProperty('--balloon', pick(['#c82333','#244678','#d3a347','#fff4c4','#6ed3e7']));
+      el.style.setProperty('--drift', rand(-80,80)+'px'); el.style.animationDuration=rand(4.2,6.4)+'s'; el.style.animationDelay=rand(0,1.1)+'s'; layer.appendChild(el);
+    }
+    function fw(x,y){
+      const f=document.createElement('span'); f.className='firework'; f.style.left=x+'vw'; f.style.top=y+'vh';
+      for(let i=0;i<22;i++){ const s=document.createElement('i'); s.style.setProperty('--angle',(i*(360/22))+'deg'); s.style.setProperty('--distance',rand(48,105)+'px'); s.style.setProperty('--spark',pick(colors)); f.appendChild(s); }
+      layer.appendChild(f);
+    }
+    [[18,24],[78,22],[50,18],[30,38],[68,40]].forEach((p,idx)=>setTimeout(()=>fw(p[0],p[1]), idx*260));
+    for(let i=0;i<16;i++){
+      const s=document.createElement('span'); s.className='streamer'; s.style.left=rand(0,100)+'vw';
+      s.style.setProperty('--s1', pick(['#c82333','#244678','#d3a347','#6ed3e7'])); s.style.setProperty('--s2', pick(['#fff4c4','#ffffff']));
+      s.style.animationDelay=rand(0,.9)+'s'; s.style.animationDuration=rand(1.7,2.8)+'s'; layer.appendChild(s);
+    }
+    clearLater();
+  }
 
-<section class="section" id="allpdfs">
-<div class="wrap">
-<h2>Useful Playbooks</h2>
-<div class="grid">
-  <div class="card"><h3>Bars & Restaurants</h3><p>Seat moves, food/drink options, backup plans.</p><a class="btn" href="pdfs/03_Bars_Restaurants_Playbook.pdf">Open Playbook</a></div>
-  <div class="card"><h3>Hidden Gems</h3><p>Good stops, scouting zones, lower-chaos moves.</p><a class="btn" href="pdfs/10_Hidden_Gems.pdf">Open Hidden Gems</a></div>
-  <div class="card"><h3>July 4 Backup</h3><p>Fireworks fallback logic.</p><a class="btn" href="pdfs/09_July_4_Backup_Fireworks_Playbook.pdf">Open Fireworks Backup</a></div>
-  <div class="card"><h3>Daily Plans Page</h3><p>Direct daily PDF page remains available.</p><a class="btn gold" href="daily_plans.html">Open Daily Plans</a></div>
+  function loserEffects(){
+    if(!layer) return;
+    layer.innerHTML='';
+    for(let i=0;i<80;i++){
+      const el=document.createElement('span'); el.className='loser-piece'; el.textContent=pick(loserBits);
+      el.style.left=rand(0,100)+'vw'; el.style.animationDuration=rand(2.1,4.6)+'s'; el.style.animationDelay=rand(0,.8)+'s'; layer.appendChild(el);
+    }
+    for(let i=0;i<8;i++){
+      const c=document.createElement('span'); c.className='gray-cloud'; c.style.left=rand(4,86)+'vw'; c.style.top=rand(-8,18)+'vh'; c.style.setProperty('--drift', rand(-80,80)+'px'); c.style.animationDelay=rand(0,.7)+'s'; layer.appendChild(c);
+    }
+    clearLater();
+  }
+
+  async function activate(){
+    active = true; localStorage.setItem('cooneyVacationMode','active'); setButton();
+    if(overlay) overlay.style.display='none';
+    if(audio){ try{ audio.currentTime = Number(localStorage.getItem('cooneyAudioTime') || 0); await audio.play(); } catch(e){ console.warn(e); } }
+    if(bar) bar.style.display='flex';
+    if(playPause) playPause.textContent = 'Pause';
+    partyEffects();
+    showPop(activePop);
+  }
+
+  function deactivate(){
+    active = false; localStorage.setItem('cooneyVacationMode','inactive'); setButton();
+    if(audio) audio.pause();
+    if(bar) bar.style.display='flex';
+    if(playPause) playPause.textContent = 'Play';
+    loserEffects();
+    showPop(deadPop);
+  }
+
+  if(overlayBtn) overlayBtn.addEventListener('click', activate);
+  if(mainBtn) mainBtn.addEventListener('click', function(e){ e.preventDefault(); active ? deactivate() : activate(); });
+  if(playPause) playPause.addEventListener('click', async function(){
+    if(!audio) return;
+    if(audio.paused){ try{ await audio.play(); active=true; localStorage.setItem('cooneyVacationMode','active'); setButton(); }catch(e){} }
+    else { audio.pause(); active=false; localStorage.setItem('cooneyVacationMode','inactive'); setButton(); }
+    playPause.textContent = audio.paused ? 'Play' : 'Pause';
+  });
+  if(audio){
+    audio.addEventListener('timeupdate', function(){ try{ localStorage.setItem('cooneyAudioTime', String(audio.currentTime)); }catch(e){} });
+  }
+  document.querySelectorAll('a[href$=".pdf"], a[href$=".html"]').forEach(a => {
+    if(!a.href.endsWith('index.html')) { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
+  });
+  if(localStorage.getItem('cooneyCelebrationSeen') === 'yes' || active){
+    if(overlay) overlay.style.display='none';
+  }
+  if(bar && active) bar.style.display='flex';
+  setButton();
+})();
+</script>
+
+
+<script id="cooney-overlay-crop-final-js">
+(function(){
+  function killOldToasts(){
+    document.querySelectorAll('.vacation-toast, .loser-toast').forEach(el => {
+      el.classList.remove('show');
+      el.style.display = 'none';
+      el.style.visibility = 'hidden';
+      el.style.opacity = '0';
+    });
+  }
+
+  window.cooneyShowActivatedOverlayImage = function(){
+    killOldToasts();
+    const el = document.getElementById('cooneyActivatedImagePop');
+    if(!el) return;
+    el.classList.remove('show');
+    void el.offsetWidth;
+    el.classList.add('show');
+    setTimeout(()=>el.classList.remove('show'), 3200);
+  };
+
+  window.cooneyShowDeactivatedOverlayImage = function(){
+    killOldToasts();
+    const el = document.getElementById('cooneyDeactivatedImagePop');
+    if(!el) return;
+    el.classList.remove('show');
+    void el.offsetWidth;
+    el.classList.add('show');
+    setTimeout(()=>el.classList.remove('show'), 3200);
+  };
+
+  killOldToasts();
+  const observer = new MutationObserver(killOldToasts);
+  observer.observe(document.documentElement, {subtree:true, attributes:true, attributeFilter:['class','style']});
+})();
+</script>
+
+
+
+<script id="dee-emoji-rain-js">
+(function(){
+  function pick(list){
+    return list[Math.floor(Math.random() * list.length)];
+  }
+
+  function removeExistingRain(){
+    document.querySelectorAll('.dee-emoji-rain-layer').forEach(layer => layer.remove());
+  }
+
+  function makeEmojiRain(mode){
+    removeExistingRain();
+
+    const layer = document.createElement('div');
+    layer.className = 'dee-emoji-rain-layer';
+    layer.setAttribute('data-mode', mode);
+    document.body.appendChild(layer);
+
+    const sleepy = ['😴','🥱','💤','🛌','😪'];
+    const party = ['🎉','🥳','🍾','🏖️','🌴','🍹','✨'];
+    const boring = ['😒','☔','💤','🥱','👎','🧦'];
+
+    const beforeSet = mode === 'activate' ? sleepy : party;
+    const afterSet = mode === 'activate' ? party : boring;
+    const count = mode === 'activate' ? 58 : 50;
+
+    for(let i = 0; i < count; i++){
+      const drop = document.createElement('span');
+      drop.className = 'dee-emoji-drop';
+
+      const startX = 2 + Math.random() * 96;
+      const drift1 = -70 + Math.random() * 140;
+      const drift2 = -120 + Math.random() * 240;
+      const size = 24 + Math.random() * 30;
+      const delay = Math.random() * 1.2;
+      const duration = 5.4 + Math.random() * 1.7;
+      const swapAt = (delay + duration * (.40 + Math.random() * .18)) * 1000;
+
+      drop.style.setProperty('--x', startX + 'vw');
+      drop.style.setProperty('--size', size + 'px');
+      drop.style.setProperty('--delay', delay + 's');
+      drop.style.setProperty('--dur', duration + 's');
+      drop.style.setProperty('--spin', duration + 's');
+      drop.style.setProperty('--drift1', drift1 + 'px');
+      drop.style.setProperty('--drift2', drift2 + 'px');
+
+      const face = document.createElement('span');
+      face.className = 'emoji-face';
+      face.textContent = pick(beforeSet);
+
+      drop.appendChild(face);
+      layer.appendChild(drop);
+
+      window.setTimeout(function(){
+        if(!drop.isConnected) return;
+        face.textContent = pick(afterSet);
+        drop.classList.add('swapped');
+      }, swapAt);
+    }
+
+    window.setTimeout(function(){
+      layer.remove();
+    }, 8800);
+  }
+
+  function hookOverlay(id, mode){
+    const el = document.getElementById(id);
+    if(!el) return;
+
+    const obs = new MutationObserver(function(){
+      if(el.classList.contains('show')){
+        makeEmojiRain(mode);
+      }
+    });
+
+    obs.observe(el, {attributes:true, attributeFilter:['class']});
+  }
+
+  hookOverlay('cooneyActivatedImagePop', 'activate');
+  hookOverlay('cooneyDeactivatedImagePop', 'deactivate');
+
+  // Also expose manual helpers for any existing button code that calls these.
+  window.deeMakeEmojiRain = makeEmojiRain;
+})();
+</script>
+
+
+
+<div class="cooney-playbook-modal" id="cooneyPlaybookModal" aria-hidden="true">
+  <div class="cooney-playbook-card" role="dialog" aria-modal="true" aria-label="Bars and Restaurants Playbook">
+    <div class="cooney-playbook-header">
+      <strong>Open Bars &amp; Restaurants Playbook</strong>
+      <div class="cooney-playbook-actions">
+        <a class="cooney-playbook-open" href="pdfs/03_Bars_Restaurants_Playbook.pdf" target="_blank" rel="noopener">Open full PDF</a>
+        <button class="cooney-playbook-close" id="cooneyPlaybookClose" type="button">Close</button>
+      </div>
+    </div>
+    <iframe class="cooney-playbook-frame" id="cooneyPlaybookFrame" src="" title="Bars and Restaurants Playbook"></iframe>
+    <div class="cooney-playbook-fallback">
+      If the PDF preview does not load on this device,
+      <a href="pdfs/03_Bars_Restaurants_Playbook.pdf" target="_blank" rel="noopener">tap here to open the playbook.</a>
+    </div>
+  </div>
 </div>
-</div>
-</section>
-<footer class="footer">Cape May -> ICONA Avalon -> Atlantic City -> Home Pool Bar Recovery</footer>
-</body>
-</html>
+<script id="cooney-links-deep-fix-js">
+(function(){
+  const PLAYBOOK = "pdfs/03_Bars_Restaurants_Playbook.pdf";
+
+  function norm(s){
+    try { return decodeURIComponent(String(s || "")).toLowerCase(); }
+    catch(e) { return String(s || "").toLowerCase(); }
+  }
+
+  function isPlaybookLink(a){
+    const text = norm(a.textContent);
+    const href = norm(a.getAttribute("href"));
+    return (
+      (text.includes("bars") && text.includes("restaurants") && text.includes("playbook")) ||
+      (href.includes("bars") && href.includes("restaurant") && href.includes("playbook")) ||
+      href.includes("03_bars_restaurants_playbook")
+    );
+  }
+
+  function openPlaybook(e){
+    if(e){
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const modal = document.getElementById("cooneyPlaybookModal");
+    const frame = document.getElementById("cooneyPlaybookFrame");
+    if(!modal || !frame) return false;
+    frame.src = PLAYBOOK;
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+    return false;
+  }
+
+  function closePlaybook(){
+    const modal = document.getElementById("cooneyPlaybookModal");
+    const frame = document.getElementById("cooneyPlaybookFrame");
+    if(modal){
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+    }
+    if(frame) frame.src = "";
+  }
+
+  function wirePlaybookLinks(){
+    document.querySelectorAll("a").forEach(a => {
+      if(isPlaybookLink(a)){
+        a.setAttribute("href", PLAYBOOK);
+        a.removeAttribute("target");
+        a.removeAttribute("rel");
+        a.onclick = openPlaybook;
+        a.addEventListener("click", openPlaybook, true);
+      }
+    });
+  }
+
+  wirePlaybookLinks();
+
+  const closeBtn = document.getElementById("cooneyPlaybookClose");
+  if(closeBtn) closeBtn.addEventListener("click", closePlaybook);
+
+  const modal = document.getElementById("cooneyPlaybookModal");
+  if(modal){
+    modal.addEventListener("click", function(e){
+      if(e.target === modal) closePlaybook();
+    });
+  }
+
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape") closePlaybook();
+  });
+
+  // Force any flag video to behave as a fixed background.
+  document.querySelectorAll("video").forEach(v => {
+    const srcText = norm(v.currentSrc || v.src || v.innerHTML || "");
+    if(v.classList.contains("cooney-flag-bg") || srcText.includes("7049943") || srcText.includes("flag")){
+      v.classList.add("cooney-flag-bg");
+      v.setAttribute("autoplay", "");
+      v.setAttribute("muted", "");
+      v.setAttribute("loop", "");
+      v.setAttribute("playsinline", "");
+    }
+  });
+})();
+</script>
+
+</body></html>
