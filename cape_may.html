@@ -483,7 +483,7 @@ body{background:#07192f !important;}
     <span>Cooney Cape May 250 Celebration Escape</span>
   </div>
 </div>
-<audio id="cooneyAudio" src="assets/audio/vacation.m4a" preload="auto" loop></audio>
+<audio id="cooneyAudio" preload="auto" loop></audio>
 <script id="cooney-clean-vacation-js">
 (function(){
   const overlay = document.getElementById('cooneyStartOverlay');
@@ -561,7 +561,8 @@ body{background:#07192f !important;}
   async function activate(){
     active = true; localStorage.setItem('cooneyVacationMode','active'); setButton();
     if(overlay) overlay.style.display='none';
-    if(audio){ try{ audio.currentTime = Number(localStorage.getItem('cooneyAudioTime') || 0); await audio.play(); } catch(e){ console.warn(e); } }
+    if(window.COONEY_PLAY_SELECTED_WEATHER_TRACK){ await window.COONEY_PLAY_SELECTED_WEATHER_TRACK(); }
+    else if(audio){ try{ audio.currentTime = 0; await audio.play(); } catch(e){ console.warn(e); } }
     if(bar) bar.style.display='flex';
     if(playPause) playPause.textContent = 'Pause';
     partyEffects();
@@ -570,7 +571,7 @@ body{background:#07192f !important;}
 
   function deactivate(){
     active = false; localStorage.setItem('cooneyVacationMode','inactive'); setButton();
-    if(audio) audio.pause();
+    if(window.COONEY_STOP_VACATION_MUSIC){ window.COONEY_STOP_VACATION_MUSIC(); } else if(audio){ audio.pause(); audio.currentTime = 0; }
     if(bar) bar.style.display='flex';
     if(playPause) playPause.textContent = 'Play';
     loserEffects();
@@ -580,17 +581,19 @@ body{background:#07192f !important;}
   if(overlayBtn) overlayBtn.addEventListener('click', activate);
   if(mainBtn) mainBtn.addEventListener('click', function(e){ e.preventDefault(); active ? deactivate() : activate(); });
   if(playPause) playPause.addEventListener('click', async function(){
-    if(!audio) return;
-    if(audio.paused){ try{ await audio.play(); active=true; localStorage.setItem('cooneyVacationMode','active'); setButton(); }catch(e){} }
-    else { audio.pause(); active=false; localStorage.setItem('cooneyVacationMode','inactive'); setButton(); }
-    playPause.textContent = audio.paused ? 'Play' : 'Pause';
+    if(localStorage.getItem('cooneyVacationMode') === 'active'){
+      if(window.COONEY_STOP_VACATION_MUSIC){ window.COONEY_STOP_VACATION_MUSIC(); }
+      else if(audio){ audio.pause(); audio.currentTime = 0; }
+      active=false; localStorage.setItem('cooneyVacationMode','inactive'); setButton(); playPause.textContent='Play';
+    } else {
+      active=true; localStorage.setItem('cooneyVacationMode','active'); setButton();
+      if(window.COONEY_PLAY_SELECTED_WEATHER_TRACK){ await window.COONEY_PLAY_SELECTED_WEATHER_TRACK(); }
+      else if(audio){ try{ audio.currentTime=0; await audio.play(); }catch(e){} }
+      playPause.textContent='Pause';
+    }
   });
-  if(audio){
-    audio.addEventListener('timeupdate', function(){ try{ localStorage.setItem('cooneyAudioTime', String(audio.currentTime)); }catch(e){} });
-  }
-  document.querySelectorAll('a[href$=".pdf"], a[href$=".html"]').forEach(a => {
-    if(!a.href.endsWith('index.html')) { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
-  });
+  document.querySelectorAll('a[href$=".pdf"]').forEach(a => { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); });
+  document.querySelectorAll('a[href$=".html"]').forEach(a => { a.removeAttribute('target'); a.removeAttribute('rel'); });
   if(localStorage.getItem('cooneyCelebrationSeen') === 'yes' || active){
     if(overlay) overlay.style.display='none';
   }
@@ -829,7 +832,8 @@ body{background:#07192f !important;}
 </script>
 
 
-<!-- Cooney Weather Overlay + Safe Audio Controller v25 -->
+
+<!-- Cooney Weather Overlay + Safe Audio Controller v26 -->
 <script src="assets/config/vacation-config.js"></script>
 <script src="assets/js/cooney-weather-overlay.js"></script>
 </body></html>
