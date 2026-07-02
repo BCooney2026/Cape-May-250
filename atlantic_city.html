@@ -1,3 +1,68 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlantic City • Cooney Vacation Mode</title><style>
-*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#fff8df;background:#110017}video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.25) contrast(1.12) brightness(.68)}body:after{content:"";position:fixed;inset:0;background:linear-gradient(90deg,rgba(8,0,16,.90),rgba(8,0,16,.42),rgba(8,0,16,.88));pointer-events:none}.wrap{position:relative;z-index:1;min-height:100svh;display:grid;align-content:center;padding:clamp(22px,5vw,70px)}.panel{max-width:980px;border:1px solid rgba(255,255,255,.28);border-radius:34px;background:rgba(13,0,20,.68);backdrop-filter:blur(16px);box-shadow:0 30px 90px rgba(0,0,0,.60),0 0 80px rgba(255,48,207,.18);padding:clamp(24px,4vw,52px)}a{color:#fff8df;text-decoration:none;font-weight:1000}h1{font-family:Georgia,serif;font-size:clamp(50px,9vw,112px);line-height:.9;letter-spacing:-.06em;margin:10px 0 16px;text-shadow:0 12px 42px rgba(0,0,0,.65),0 0 36px rgba(255,48,207,.32)}p{font-size:clamp(17px,2vw,24px);font-weight:800;line-height:1.35;margin:0 0 18px}.back{display:inline-block;margin-bottom:10px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22)}.pill{display:inline-block;margin-top:10px;padding:12px 16px;border-radius:999px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);font-weight:1000;text-transform:uppercase;letter-spacing:.1em}
-</style></head><body><video autoplay muted loop playsinline preload="metadata"><source src="atlantic-city-bg-hd.mp4" type="video/mp4"></video><main class="wrap"><section class="panel"><a class="back" href="index.html">← Back to Vacation Mode</a><h1>Atlantic City</h1><p>Neon finale. Casino, boardwalk, nightlife, park once, walk/Jitney/Uber, and absolutely no parking war.</p><span class="pill">AC itinerary build comes later</span></section></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlantic City Neon Finale • Cooney Vacation Mode</title>
+<meta name="theme-color" content="#16001f">
+<style>
+:root{--ac-ink:#16001f;--ac-purple:#2b073d;--ac-pink:#ff3ed1;--ac-cyan:#30e8ff;--ac-gold:#ffd166;--ac-cream:#fff8ea;--ac-card:#fff4dc;--ac-red:#ff355d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100%;overflow-x:hidden;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ac-cream);background:#09000f}.ac-bg-video{position:fixed;inset:0;width:100vw;height:100vh;object-fit:cover;z-index:0;opacity:.90;filter:saturate(1.38) contrast(1.15) brightness(.55);pointer-events:none;background:#09000f}.ac-bg-overlay{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 18% 15%,rgba(255,62,209,.25),transparent 26%),radial-gradient(circle at 80% 24%,rgba(48,232,255,.22),transparent 28%),linear-gradient(135deg,rgba(14,0,22,.90),rgba(56,4,76,.54) 48%,rgba(8,0,15,.92))}.ac-bg-overlay:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 24px),repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 28px),linear-gradient(180deg,transparent 0 58%,rgba(7,0,13,.65) 100%);animation:acPulse 4s ease-in-out infinite}.wrap{width:min(1120px,calc(100vw - 32px));margin:0 auto;padding:42px 0 70px;position:relative;z-index:2}.backbar{margin:0 0 18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.back{display:inline-block;color:var(--ac-cream);text-decoration:none;font-weight:1000;border:1px solid rgba(255,255,255,.30);background:rgba(255,255,255,.12);padding:10px 14px;border-radius:999px;box-shadow:0 12px 28px rgba(0,0,0,.24)}.tag{font-weight:1000;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:rgba(255,248,234,.78)}.hero{position:relative;overflow:hidden;border-radius:32px;border:2px solid rgba(255,209,102,.68);background:linear-gradient(180deg,rgba(255,248,234,.94),rgba(255,244,220,.90));color:var(--ac-ink);box-shadow:0 28px 90px rgba(0,0,0,.42),0 0 50px rgba(255,62,209,.22);padding:clamp(28px,5vw,54px);text-align:center}.hero:before{content:"777";position:absolute;right:18px;bottom:-18px;font-family:Georgia,serif;font-size:clamp(84px,16vw,190px);font-weight:900;color:rgba(255,62,209,.10);letter-spacing:-.08em}.slot{font-size:clamp(52px,9vw,92px);line-height:1;margin-bottom:8px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.15))}.kicker{font-size:13px;font-weight:1000;letter-spacing:.20em;text-transform:uppercase;color:#a31e8f}.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,7vw,74px);line-height:.94;letter-spacing:-.055em;margin:8px 0 10px}.hero p{max-width:780px;margin:0 auto 18px;font-size:clamp(16px,2vw,22px);font-weight:850;line-height:1.25;color:#35243a}.badge{display:inline-block;position:relative;z-index:1;border:1px solid rgba(255,62,209,.45);background:rgba(255,255,255,.65);border-radius:999px;padding:10px 18px;font-weight:1000;color:#1b0d25}.section-title{font-family:Georgia,serif;font-size:clamp(28px,4vw,40px);line-height:1;margin:34px 0 16px;text-shadow:0 5px 24px rgba(0,0,0,.38)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.daily-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{position:relative;min-height:132px;display:block;text-decoration:none;color:var(--ac-ink);border-radius:22px;border:2px solid rgba(255,209,102,.60);background:linear-gradient(180deg,rgba(255,248,234,.96),rgba(255,244,220,.93));box-shadow:0 20px 54px rgba(0,0,0,.28),inset 0 0 0 1px rgba(255,255,255,.52);padding:20px;overflow:hidden;transition:transform .18s ease, box-shadow .18s ease}.card:hover{transform:translateY(-3px);box-shadow:0 28px 70px rgba(0,0,0,.35),0 0 35px rgba(48,232,255,.22)}.card:after{content:"";position:absolute;right:-28px;bottom:-28px;width:94px;height:94px;border:3px solid rgba(255,62,209,.12);border-radius:50%}.card span{display:block;font-size:12px;font-weight:1000;letter-spacing:.16em;text-transform:uppercase;color:#c41793;margin-bottom:6px}.card b{display:block;font-family:Georgia,serif;font-size:clamp(24px,3vw,34px);line-height:.98;letter-spacing:-.035em;margin-bottom:8px}.card p{font-size:15px;line-height:1.35;color:#413347;margin:0;font-weight:650}.card.hot{border-color:rgba(48,232,255,.75)}.card.gold{border-color:rgba(255,209,102,.85)}.note{margin-top:16px;border-radius:22px;border:1px solid rgba(255,255,255,.20);background:rgba(0,0,0,.42);backdrop-filter:blur(10px);padding:18px 20px;color:rgba(255,248,234,.92);font-weight:750;line-height:1.45}.footer{text-align:center;margin:44px 0 0;color:rgba(255,248,234,.72);font-weight:800}.neon{color:#fff;text-shadow:0 0 12px var(--ac-pink),0 0 20px var(--ac-cyan)}@keyframes acPulse{0%,100%{opacity:.72}50%{opacity:1}}@media(max-width:860px){.grid,.daily-row{grid-template-columns:1fr}.wrap{width:min(760px,calc(100vw - 26px));padding-top:24px}.hero{text-align:left}.slot{text-align:center}.card{min-height:112px}.backbar{align-items:flex-start}.tag{font-size:11px}}
+</style>
+</head>
+<body>
+<video class="ac-bg-video" autoplay muted loop playsinline preload="auto">
+  <source src="atlanticicty.mo4" type="video/mp4">
+  <source src="atlanticicty.mp4" type="video/mp4">
+  <source src="atlanticcity.mp4" type="video/mp4">
+  <source src="atlantic-city-bg-hd.mp4" type="video/mp4">
+</video><div class="ac-bg-overlay"></div>
+<main class="wrap">
+  <nav class="backbar"><a class="back" href="index.html">← Back to Vacation Mode</a><span class="tag">Stop Three • Atlantic City • July 9-10</span></nav>
+  <section class="hero">
+    <div class="slot">🎰</div>
+    <div class="kicker">July 9-10, 2026</div>
+    <h1>Atlantic City:<br><span class="neon">Neon Finale</span></h1>
+    <p>Premium dispensary stop, park once, casino lights, boardwalk energy, and absolutely no parking war.</p>
+    <div class="badge">Avalon → AC • Brian, Dee and Amber • one-night finale</div>
+  </section>
+
+  <h2 class="section-title">Start Here</h2>
+  <section class="grid">
+    <a class="card hot" href="pdfs/ac/01_AC_Arrival_Strategy.pdf" target="_blank" rel="noopener"><span>Game plan</span><b>AC Arrival Strategy</b><p>Leave Avalon easy, stop once if it fits, then shift into neon mode.</p></a>
+    <a class="card gold" href="pdfs/ac/02_Premium_Dispensary_Stop.pdf" target="_blank" rel="noopener"><span>High-end stop</span><b>Premium Dispensary</b><p>High Rollers first shot. Design 710 backup. No generic rec-shop nonsense.</p></a>
+    <a class="card" href="pdfs/ac/03_Park_Once_Neon_Playbook.pdf" target="_blank" rel="noopener"><span>Transport rule</span><b>Park Once</b><p>After check-in: walk, Jitney, Uber. The car is done for the night.</p></a>
+  </section>
+
+  <h2 class="section-title">Daily Plans</h2>
+  <section class="daily-row">
+    <a class="card hot" href="pdfs/ac/04_Thursday_AC_Neon_Finale.pdf" target="_blank" rel="noopener"><span>Thu 7/9</span><b>Avalon to AC Neon Finale</b><p>Checkout at your pace, dispensary if wanted, check in, park once, go neon.</p></a>
+    <a class="card" href="pdfs/ac/05_Friday_Breakout_Home_Recovery.pdf" target="_blank" rel="noopener"><span>Fri 7/10</span><b>Break Out + Home Recovery</b><p>Wake up, coffee, pack, leave when ready, pool-bar recovery at home.</p></a>
+  </section>
+
+  <h2 class="section-title">Food, Drink and Seats</h2>
+  <section class="grid">
+    <a class="card" href="pdfs/ac/03_Park_Once_Neon_Playbook.pdf" target="_blank" rel="noopener"><span>Night movement</span><b>Walk / Jitney / Uber</b><p>Use the city without letting transportation become the story.</p></a>
+    <a class="card gold" href="pdfs/ac/02_Premium_Dispensary_Stop.pdf" target="_blank" rel="noopener"><span>Before drinks</span><b>Do This Early</b><p>Any dispensary stop happens before the night gets loose.</p></a>
+  </section>
+
+  <h2 class="section-title">Save the Day</h2>
+  <section class="grid">
+    <a class="card" href="pdfs/ac/01_AC_Arrival_Strategy.pdf" target="_blank" rel="noopener"><span>No chaos</span><b>One-Night Rule</b><p>Do not turn one night into a logistics marathon. AC is the finale, not homework.</p></a>
+    <a class="card" href="pdfs/ac/05_Friday_Breakout_Home_Recovery.pdf" target="_blank" rel="noopener"><span>Exit plan</span><b>Friday Is Easy</b><p>AC does not need a heroic morning. Home recovery is part of the trip.</p></a>
+  </section>
+  <div class="note">Premium dispensary placement: Thursday on the way into AC, before drinking, before the car is parked for the night. Primary: High Rollers. Backup: Design 710. Keep it sealed/stored, follow NJ rules, and nobody drives impaired.</div>
+  <div class="footer">Built for the Cooney crew - neon, casino, boardwalk, and one clean finale.</div>
+</main>
+<script>
+(function(){
+  const v=document.querySelector('.ac-bg-video');
+  if(!v) return;
+  v.muted=true; v.playsInline=true; v.loop=true;
+  v.style.zIndex='0';
+  v.addEventListener('loadeddata',()=>document.documentElement.classList.add('video-ok'));
+  v.play().catch(()=>{});
+})();
+</script>
+</body>
+</html>
