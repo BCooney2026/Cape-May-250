@@ -1,20 +1,17 @@
-Cooney Shore Run Command Center v3
+Cooney Shore Run Command Center v3.1 ROOT UPLOAD
 
-UPLOAD RULE:
-Upload the CONTENTS of this folder/ZIP to the GitHub repo root. Do not upload the enclosing folder.
+Upload the CONTENTS of this folder to the GitHub repo root.
+Do not upload the enclosing folder.
 
-Required root files included:
-- index.html
-- cape_may.html
-- avalon.html
-- atlantic_city.html
-- cape_may_daily_plans.html
-- assets/
-- pdfs/
-- CNAME
+Root should include:
+index.html
+cape_may.html
+cape_may_daily_plans.html
+avalon.html
+atlantic_city.html
+assets/
+pdfs/
+CNAME
 
-Custom domain CNAME:
-vacation.cooneysparadise.com
-
-Cape May source of truth:
-Cooney_Cape_May_250_Escape_DISNEY_POLISH_v18 was transplanted into cape_may.html and preserved behind the Cape May button.
+Homepage v3.1 change:
+The three destination portals are now the center of the page and much larger. Cape May remains transplanted from the v18 Disney Polish package.
