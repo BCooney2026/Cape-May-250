@@ -57,10 +57,95 @@ h1{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,6vw
 @media (max-width:900px){html,body{overflow:auto}.launcher{height:auto;min-height:100svh;grid-template-rows:auto auto auto}.hero{gap:6px}.deck{grid-template-rows:none;grid-auto-rows:minmax(178px,auto)}.destination{grid-template-columns:78px 1fr;grid-template-rows:1fr auto;gap:14px;padding:16px;border-radius:26px}.badge{width:74px;border-radius:22px}.badge span{font-size:38px}.title{font-size:clamp(44px,12vw,62px)}.desc{font-size:13.5px}.cta{grid-column:1/-1;min-height:44px;border-left:0;border-top:1px solid rgba(255,255,255,.24);display:flex;justify-content:space-between;padding-top:10px}.cta .arrow{margin:0;font-size:26px}.mode-button{min-height:66px;font-size:clamp(16px,5vw,25px)}.mode-button:after{display:none}}
 @media (max-height:760px) and (min-width:901px){.launcher{gap:10px;padding:12px 20px}.kicker{padding:5px 12px}.subtitle{display:none}h1{font-size:clamp(42px,5.2vw,76px)}.deck{gap:10px}.destination{padding:14px 22px}.badge{width:92px}.title{font-size:clamp(42px,4.7vw,64px);margin-bottom:4px}.desc{font-size:14px;line-height:1.18}.cta{min-height:70px}.mode-button{min-height:60px;font-size:28px}}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Restored pre-entry Vacation Mode landing screen with patriotic pup */
+.cooney-start-overlay{
+  position:fixed; inset:0; z-index:9998; display:flex; align-items:center; justify-content:center;
+  padding:24px; text-align:center; color:#fff6d6; overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255,216,107,.30), transparent 26%),
+    radial-gradient(circle at 80% 24%, rgba(48,120,255,.24), transparent 28%),
+    linear-gradient(135deg, rgba(2,9,24,.94), rgba(7,27,60,.92) 42%, rgba(105,14,32,.90));
+  backdrop-filter: blur(12px);
+}
+.cooney-start-overlay[hidden]{display:none!important;}
+.cooney-start-overlay:before{
+  content:""; position:absolute; inset:-36px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.055) 0 8px, transparent 8px 18px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.032) 0 1px, transparent 1px 34px);
+  opacity:.72; animation:cvDrift 18s linear infinite;
+}
+.cooney-start-overlay:after{
+  content:"250"; position:absolute; right:1vw; bottom:-4vw;
+  font-family:Georgia,'Times New Roman',serif; font-size:clamp(130px,30vw,340px); font-weight:900;
+  color:rgba(255,247,230,.075); letter-spacing:-.08em; pointer-events:none;
+}
+.cooney-start-card{
+  position:relative; z-index:1; width:min(660px, calc(100vw - 34px));
+  border:2px solid rgba(244,216,137,.52); border-radius:32px;
+  background:linear-gradient(180deg, rgba(255,247,230,.17), rgba(255,247,230,.075));
+  box-shadow:0 34px 100px rgba(0,0,0,.54), inset 0 0 0 1px rgba(255,255,255,.16), 0 0 54px rgba(255,214,107,.13);
+  padding:36px 28px 32px; backdrop-filter:blur(12px); overflow:hidden;
+}
+.cooney-start-card:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,246,214,.12),transparent);transform:translateX(-120%);animation:sheen 7s ease-in-out infinite;pointer-events:none}
+.cooney-start-card h2{
+  position:relative; z-index:1; font-size:clamp(38px,7vw,64px); line-height:.95; margin:0 0 12px;
+  font-family:Georgia,'Times New Roman',serif; letter-spacing:-.04em;
+  text-shadow:0 4px 16px rgba(0,0,0,.45),0 0 28px rgba(255,214,107,.16);
+}
+.cooney-start-card p{position:relative;z-index:1;margin:0 auto 22px;max-width:500px;font-weight:850;line-height:1.35;color:rgba(255,246,214,.88);text-shadow:0 2px 12px rgba(0,0,0,.55)}
+.patriot-pup{width:142px;height:132px;margin:0 auto 12px;position:relative;filter:drop-shadow(0 12px 18px rgba(0,0,0,.30));animation:cvPupBob 3s ease-in-out infinite;}
+.patriot-pup .body{position:absolute;left:30px;top:54px;width:72px;height:48px;border-radius:38px 38px 30px 30px;background:linear-gradient(135deg,#f7e1bf,#d7a87b);}
+.patriot-pup .head{position:absolute;left:40px;top:22px;width:58px;height:54px;border-radius:50% 50% 45% 45%;background:linear-gradient(135deg,#f8e4c8,#d39b6b);}
+.patriot-pup .ear1,.patriot-pup .ear2{position:absolute;top:27px;width:22px;height:42px;background:#8b5a3b;border-radius:50% 50% 58% 58%;}
+.patriot-pup .ear1{left:28px;transform:rotate(18deg)}.patriot-pup .ear2{left:87px;transform:rotate(-18deg)}
+.patriot-pup .eye1,.patriot-pup .eye2{position:absolute;top:44px;width:7px;height:7px;background:#1b1720;border-radius:50%;}
+.patriot-pup .eye1{left:58px}.patriot-pup .eye2{left:78px}
+.patriot-pup .nose{position:absolute;left:67px;top:55px;width:10px;height:8px;background:#1b1720;border-radius:50% 50% 55% 55%;}
+.patriot-pup .mouth-flag{position:absolute;left:76px;top:58px;width:50px;height:6px;background:#9a6a38;border-radius:6px;transform:rotate(-7deg);}
+.patriot-pup .flag{position:absolute;left:113px;top:30px;width:58px;height:39px;background:linear-gradient(#244678 0 53%,transparent 53%),repeating-linear-gradient(to bottom,#c82333 0 5px,#fff 5px 10px);border-radius:2px 9px 9px 2px;clip-path:polygon(0 0,100% 8%,90% 50%,100% 92%,0 100%);transform-origin:left center;animation:cvFlagWave .9s ease-in-out infinite;box-shadow:0 5px 12px rgba(0,0,0,.25);}
+.patriot-pup .flag:after{content:"★ ★";position:absolute;left:5px;top:5px;font-size:8px;color:#fff;letter-spacing:1px;}
+.patriot-pup .tail{position:absolute;left:14px;top:66px;width:32px;height:12px;background:#d7a87b;border-radius:999px;transform-origin:right center;animation:cvTail 1.2s ease-in-out infinite;}
+.patriot-pup .paw1,.patriot-pup .paw2{position:absolute;top:94px;width:20px;height:12px;background:#f8e4c8;border-radius:50%;}
+.patriot-pup .paw1{left:47px}.patriot-pup .paw2{left:78px}
+.overlay-vacation-button{
+  appearance:none; border:3px solid rgba(255,244,196,.95); border-radius:18px; padding:16px 24px;
+  font-weight:1000; font-size:clamp(16px,4vw,20px); text-transform:uppercase; letter-spacing:.03em; color:#fff;
+  text-shadow:0 2px 0 rgba(0,0,0,.45), 0 0 12px rgba(255,255,255,.35);
+  box-shadow:0 10px 0 rgba(0,0,0,.28),0 20px 34px rgba(0,0,0,.38),inset 0 2px 0 rgba(255,255,255,.42),inset 0 -10px 18px rgba(0,0,0,.18);
+  cursor:pointer; position:relative; overflow:hidden; width:min(450px,100%);
+  background:linear-gradient(180deg,#29b94d 0%,#0f8c30 48%,#07691f 100%);
+  animation:cvPulse 1.9s ease-in-out infinite;
+}
+.overlay-vacation-button:before{content:""; position:absolute; top:0; bottom:0; left:-55%; width:45%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent); transform:skewX(-18deg); animation:cvShine 2.75s ease-in-out infinite;}
+.overlay-vacation-button span{position:relative;z-index:1;}
+@keyframes cvDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(34px,34px,0)}}
+@keyframes cvPupBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes cvFlagWave{0%,100%{transform:skewY(0deg) scaleX(1)}50%{transform:skewY(-6deg) scaleX(.96)}}
+@keyframes cvTail{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(18deg)}}
+@keyframes cvPulse{0%,100%{box-shadow:0 10px 0 rgba(0,0,0,.28),0 20px 34px rgba(0,0,0,.38),inset 0 2px 0 rgba(255,255,255,.42),inset 0 -10px 18px rgba(0,0,0,.18),0 0 0 0 rgba(244,216,137,.38)}50%{box-shadow:0 10px 0 rgba(0,0,0,.28),0 20px 34px rgba(0,0,0,.38),inset 0 2px 0 rgba(255,255,255,.42),inset 0 -10px 18px rgba(0,0,0,.18),0 0 0 9px rgba(244,216,137,0)}}
+@keyframes cvShine{0%{left:-55%}45%,100%{left:115%}}
+@media(max-width:640px){.cooney-start-card{padding:30px 22px 28px}.cooney-start-card h2{font-size:42px}.patriot-pup{transform:scale(.92);margin-bottom:8px}.cooney-start-card p{font-size:14px}}
+
 </style>
 </head>
 <body>
 <div class="bg-atmosphere" aria-hidden="true"></div>
+
+<div class="cooney-start-overlay" id="cooneyStartOverlay" aria-label="Start Vacation Mode">
+  <div class="cooney-start-card">
+    <div class="patriot-pup" aria-hidden="true">
+      <div class="tail"></div><div class="body"></div><div class="ear1"></div><div class="ear2"></div>
+      <div class="head"></div><div class="eye1"></div><div class="eye2"></div><div class="nose"></div>
+      <div class="mouth-flag"></div><div class="flag"></div><div class="paw1"></div><div class="paw2"></div>
+    </div>
+    <h2>Start the Celebration</h2>
+    <p>Tap once to fire up Vacation Mode, start the soundtrack, and unlock the Cooney Shore Run.</p>
+    <button class="overlay-vacation-button" id="cooneyOverlayActivate" type="button"><span>🇺🇸 Activate Vacation Mode</span></button>
+  </div>
+</div>
+
 <div class="party-layer" id="partyLayer" aria-hidden="true"></div>
 <main class="launcher">
   <header class="hero">
@@ -97,16 +182,18 @@ h1{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,6vw
 <audio id="cooneyAudio" src="assets/audio/vacation.m4a" preload="auto" loop></audio>
 <script>
 (function(){
- const btn=document.getElementById('activateVacationMode'),audio=document.getElementById('cooneyAudio'),party=document.getElementById('partyLayer'),activePop=document.getElementById('cooneyActivatedImagePop'),deadPop=document.getElementById('cooneyDeactivatedImagePop');
+ const btn=document.getElementById('activateVacationMode'),overlay=document.getElementById('cooneyStartOverlay'),overlayBtn=document.getElementById('cooneyOverlayActivate'),audio=document.getElementById('cooneyAudio'),party=document.getElementById('partyLayer'),activePop=document.getElementById('cooneyActivatedImagePop'),deadPop=document.getElementById('cooneyDeactivatedImagePop');
  let active=localStorage.getItem('cooneyVacationMode')==='active';
  const colors=['#fff8df','#f3cf75','#e33245','#2c6de8','#39d660','#ff7bc8'];
  function setButton(){btn.classList.toggle('deactivate',active);btn.querySelector('span').textContent=active?'😴 Deactivate Vacation Mode':'🎉 Activate Vacation Mode'}
  function pop(el){if(!el)return;el.classList.remove('show');void el.offsetWidth;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3200)}
  function rain(kind){if(!party)return;party.innerHTML='';const emojis=kind==='on'?['🎉','🥳','🍾','🏖️','🌴','🍹','✨','🇺🇸']:['😴','🥱','💤','☔','👎','🧦'];for(let i=0;i<90;i++){const s=document.createElement(i%3===0?'span':'i');if(i%3===0){s.className='emoji-drop';s.textContent=emojis[Math.floor(Math.random()*emojis.length)];s.style.setProperty('--s',(22+Math.random()*34)+'px')}else{s.className='confetti';s.style.setProperty('--c',colors[Math.floor(Math.random()*colors.length)])}s.style.left=(Math.random()*100)+'vw';s.style.setProperty('--x',(Math.random()*100)+'vw');s.style.setProperty('--dx',(-90+Math.random()*180)+'px');s.style.setProperty('--dur',(3.4+Math.random()*3.8)+'s');s.style.animationDelay=(Math.random()*0.65)+'s';party.appendChild(s)}setTimeout(()=>{party.innerHTML=''},8200)}
- async function activate(){active=true;localStorage.setItem('cooneyVacationMode','active');setButton();if(audio){try{audio.currentTime=Number(localStorage.getItem('cooneyAudioTime')||0);await audio.play()}catch(e){}}rain('on');pop(activePop)}
+ async function activate(){active=true;localStorage.setItem('cooneyVacationMode','active');setButton();if(overlay) overlay.setAttribute('hidden','');if(audio){try{audio.currentTime=Number(localStorage.getItem('cooneyAudioTime')||0);await audio.play()}catch(e){}}rain('on');pop(activePop)}
  function deactivate(){active=false;localStorage.setItem('cooneyVacationMode','inactive');setButton();if(audio)audio.pause();rain('off');pop(deadPop)}
  btn.addEventListener('click',e=>{e.preventDefault();active?deactivate():activate()});
+ if(overlayBtn) overlayBtn.addEventListener('click',e=>{e.preventDefault();activate()});
  if(audio)audio.addEventListener('timeupdate',()=>{try{localStorage.setItem('cooneyAudioTime',String(audio.currentTime))}catch(e){}});
+ if(active && overlay) overlay.setAttribute('hidden','');
  setButton();
 })();
 </script>
