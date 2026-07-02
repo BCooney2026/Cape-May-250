@@ -56,7 +56,7 @@ h1{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,6vw
 .dee-emoji-rain-layer{
   position:fixed;
   inset:0;
-  z-index:2147483500;
+  z-index:2147483647;
   pointer-events:none;
   overflow:hidden;
 }
@@ -250,7 +250,7 @@ body.vacation-entered .cooney-start-overlay,
     <a class="destination avalon" href="avalon.html" aria-label="Open Avalon itinerary">
       <video autoplay muted loop playsinline preload="metadata"><source src="avalon-bg-hd.mp4" type="video/mp4"></video><span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span>
       <div class="badge" aria-hidden="true"><span>🌊</span></div>
-      <div class="copy"><span class="eyebrow">Stop Two • July 7-9</span><span class="title">Avalon</span><span class="desc"><b>ICONA resort reset</b>, D's real beach day, honorable beach cameo, then pool, bar, shade, and zero guilt.</span></div>
+      <div class="copy"><span class="eyebrow">Stop Two • July 7-9</span><span class="title">Avalon</span><span class="desc"><b>ICONA resort reset</b>, Dee's real beach day, honorable beach cameo, then pool, bar, shade, and zero guilt.</span></div>
       <div class="cta"><span><span class="arrow">→</span><span class="label">Open Avalon</span></span></div>
     </a>
     <a class="destination ac" href="atlantic_city.html" aria-label="Open Atlantic City itinerary">
@@ -282,6 +282,9 @@ body.vacation-entered .cooney-start-overlay,
   removeExistingRain();
   const layer=document.createElement('div');
   layer.className='dee-emoji-rain-layer';
+  layer.style.zIndex='2147483647';
+  layer.style.position='fixed';
+  layer.style.inset='0';
   layer.setAttribute('data-mode',mode);
   document.body.appendChild(layer);
 
