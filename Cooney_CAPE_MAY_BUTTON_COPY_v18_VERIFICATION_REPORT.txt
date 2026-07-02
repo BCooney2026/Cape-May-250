@@ -1,0 +1,53 @@
+Cooney Cape May Button Copy v18 Verification
+==============================================
+Source of button/effects: /mnt/data/v9_casefix/cape_may.html
+Cape May page was NOT modified or included in this patch.
+Patch files: index.html, avalon.html, atlantic_city.html
+
+index.html
+  PASS: exact Cape May activate/deactivate button element present
+  PASS: exactly one activateVacationMode id
+  PASS: Cape May vacation-mode JS block copied
+  PASS: Cape May overlay pop JS block copied
+  PASS: Cape May emoji transform JS block copied
+  PASS: Cape May support layer id copied
+  PASS: activated picture overlay copied
+  PASS: deactivated picture overlay copied
+  PASS: Vacation audio path copied
+  PASS: old homepage mode-button ELEMENT removed
+  PASS: old homepage partyLayer ELEMENT removed
+  PASS: HTML closes body/html once
+  activateVacationMode count: 1
+  sha256: 6a289a6338d8f4955c322a82fc67982c7340df64331c9e8294960503fd6b367e
+
+avalon.html
+  PASS: exact Cape May activate/deactivate button element present
+  PASS: exactly one activateVacationMode id
+  PASS: Cape May vacation-mode JS block copied
+  PASS: Cape May overlay pop JS block copied
+  PASS: Cape May emoji transform JS block copied
+  PASS: Cape May support layer id copied
+  PASS: activated picture overlay copied
+  PASS: deactivated picture overlay copied
+  PASS: Vacation audio path copied
+  PASS: old homepage mode-button ELEMENT removed
+  PASS: old homepage partyLayer ELEMENT removed
+  PASS: HTML closes body/html once
+  activateVacationMode count: 1
+  sha256: 55ad9431fb635870f5afb8bd46e808700ce650eadfab1fcc2d630323e9f9ed58
+
+atlantic_city.html
+  PASS: exact Cape May activate/deactivate button element present
+  PASS: exactly one activateVacationMode id
+  PASS: Cape May vacation-mode JS block copied
+  PASS: Cape May overlay pop JS block copied
+  PASS: Cape May emoji transform JS block copied
+  PASS: Cape May support layer id copied
+  PASS: activated picture overlay copied
+  PASS: deactivated picture overlay copied
+  PASS: Vacation audio path copied
+  PASS: old homepage mode-button ELEMENT removed
+  PASS: old homepage partyLayer ELEMENT removed
+  PASS: HTML closes body/html once
+  activateVacationMode count: 1
+  sha256: bc77f88a22f4fbd4ddf7140c440440904e6d2e0171ceaf3b244e885dc5e90082
