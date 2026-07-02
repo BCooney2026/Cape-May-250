@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avalon Itinerary • Cooney Vacation Mode</title>
+<!-- AVALON_ITINERARY_v9_1: Stone Harbor + Dee beach day page -->
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}html,body{margin:0;min-height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#fff8df;background:#041b28}body{overflow-x:hidden}.bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.18) contrast(1.05) brightness(.70);transform:scale(1.02);z-index:-4}.wash{position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 20% 8%,rgba(255,225,141,.20),transparent 28%),radial-gradient(circle at 82% 16%,rgba(52,217,255,.16),transparent 30%),linear-gradient(90deg,rgba(0,12,22,.88),rgba(0,28,40,.55) 52%,rgba(0,12,22,.88));pointer-events:none}.grain{position:fixed;inset:0;z-index:-2;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.10) 1px,transparent 1px);background-size:42px 42px;mask-image:radial-gradient(circle at center,black,transparent 78%);pointer-events:none}a{color:#fff8df;text-decoration:none}.page{position:relative;z-index:1;min-height:100svh;padding:clamp(18px,3vw,42px);display:grid;gap:clamp(18px,2.4vw,34px)}.shell{width:min(1240px,100%);margin:0 auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:clamp(16px,2vw,28px)}.back,.tag{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.10);backdrop-filter:blur(12px);box-shadow:0 14px 34px rgba(0,0,0,.25);font-weight:950;text-transform:uppercase;letter-spacing:.09em;font-size:12px}.hero{position:relative;overflow:hidden;border-radius:clamp(30px,4vw,54px);border:1px solid rgba(255,255,255,.32);background:linear-gradient(135deg,rgba(7,52,70,.78),rgba(6,29,45,.64) 45%,rgba(1,17,33,.82));box-shadow:0 34px 110px rgba(0,0,0,.58),inset 0 1px 0 rgba(255,255,255,.20);backdrop-filter:blur(18px);padding:clamp(26px,5vw,70px)}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent,rgba(255,255,255,.16),transparent);transform:translateX(-120%);animation:sheen 8s ease-in-out infinite;pointer-events:none}.hero:after{content:"🍹";position:absolute;right:clamp(18px,5vw,74px);bottom:clamp(20px,4vw,58px);font-size:clamp(72px,11vw,148px);filter:drop-shadow(0 20px 30px rgba(0,0,0,.45));opacity:.75;animation:float 3.8s ease-in-out infinite}.hero-content{position:relative;z-index:1;max-width:900px}.eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font-size:clamp(11px,.9vw,13px);font-weight:1000;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,246,214,.9)}h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(58px,11vw,132px);line-height:.88;letter-spacing:-.065em;margin:0 0 16px;text-shadow:0 13px 44px rgba(0,0,0,.62),0 0 32px rgba(58,214,255,.18)}.lead{font-size:clamp(19px,2.4vw,32px);font-weight:900;line-height:1.18;max-width:860px;margin:0 0 26px;color:#fff7d8;text-shadow:0 3px 18px rgba(0,0,0,.58)}.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1040px}.stat{padding:15px;border-radius:22px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.16)}.stat b{display:block;font-size:clamp(20px,2.2vw,34px);line-height:1}.stat span{display:block;margin-top:7px;font-size:12px;text-transform:uppercase;letter-spacing:.11em;font-weight:950;color:rgba(255,246,214,.78)}.section-title{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:clamp(16px,3vw,38px) 0 14px}.section-title h2{font-family:Georgia,serif;font-size:clamp(34px,5vw,70px);line-height:.95;letter-spacing:-.045em;margin:0;text-shadow:0 10px 30px rgba(0,0,0,.45)}.section-title p{margin:0;max-width:520px;font-weight:850;line-height:1.35;color:rgba(255,246,214,.84)}.cards{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(14px,2vw,22px)}.card{grid-column:span 6;position:relative;overflow:hidden;border-radius:32px;border:1px solid rgba(255,255,255,.25);background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.065));backdrop-filter:blur(14px);box-shadow:0 22px 70px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.16);padding:clamp(20px,2.8vw,34px)}.card.full{grid-column:1/-1}.card.third{grid-column:span 4}.card:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#ffe08a,#50dbff,#8af7b2);opacity:.95}.num{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;border-radius:15px;background:linear-gradient(180deg,#fff5bd,#e5ad3d);color:#113143;font-weight:1000;box-shadow:0 12px 26px rgba(0,0,0,.28);margin-bottom:14px}.card h3{font-family:Georgia,serif;font-size:clamp(27px,3.1vw,46px);line-height:1;letter-spacing:-.035em;margin:0 0 10px}.card p{font-size:clamp(15.5px,1.25vw,18px);font-weight:750;line-height:1.45;color:rgba(255,248,223,.88);margin:0 0 13px}.card ul{margin:12px 0 0;padding:0;display:grid;gap:10px}.card li{list-style:none;position:relative;padding:12px 12px 12px 42px;border-radius:18px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.12);font-weight:780;line-height:1.35;color:rgba(255,248,223,.9)}.card li:before{content:"✓";position:absolute;left:13px;top:10px;width:20px;height:20px;border-radius:999px;display:grid;place-items:center;background:#55e69b;color:#06231a;font-weight:1000}.spot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}.spot{border-radius:22px;padding:15px;background:rgba(0,0,0,.20);border:1px solid rgba(255,255,255,.14)}.spot strong{display:block;font-size:18px;margin-bottom:4px;color:#fff3b2}.spot small{display:block;color:rgba(255,248,223,.74);font-weight:850;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}.day-ribbon{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:9px 13px;margin-bottom:12px;background:rgba(76,224,255,.16);border:1px solid rgba(101,232,255,.28);font-weight:1000;text-transform:uppercase;letter-spacing:.11em;font-size:12px}.rule{border-radius:28px;padding:clamp(20px,3vw,34px);background:linear-gradient(135deg,rgba(255,230,139,.18),rgba(255,255,255,.08));border:1px solid rgba(255,238,183,.34);box-shadow:0 20px 60px rgba(0,0,0,.38)}.rule strong{font-size:clamp(20px,2.1vw,32px);display:block;margin-bottom:8px;color:#fff1a8}.footer-note{padding:24px;border-radius:30px;border:1px solid rgba(255,255,255,.20);background:rgba(0,0,0,.24);font-size:clamp(16px,1.5vw,20px);font-weight:850;line-height:1.4;color:rgba(255,248,223,.90)}@keyframes sheen{50%{transform:translateX(115%)}}@keyframes float{50%{transform:translateY(-14px) rotate(-2deg)}}@media(max-width:880px){.page{padding:14px}.topbar{align-items:stretch;flex-direction:column}.tag{justify-content:center}.hero{padding:24px;border-radius:30px}.hero:after{opacity:.36}.hero-grid,.spot-grid{grid-template-columns:1fr}.stat{padding:13px}.section-title{display:grid}.cards{grid-template-columns:1fr}.card,.card.third{grid-column:1/-1}.card{border-radius:26px}.card li{padding-left:40px}.back{justify-content:center}.lead{font-size:18px}h1{font-size:58px}}
+</style>
+</head>
+<body>
+<video class="bg-video" autoplay muted loop playsinline preload="metadata"><source src="avalon-bg-hd.mp4" type="video/mp4"></video>
+<div class="wash"></div><div class="grain"></div>
+<main class="page">
+  <div class="shell">
+    <nav class="topbar">
+      <a class="back" href="index.html">← Back to Vacation Mode</a>
+      <span class="tag">ICONA Avalon • 78th Block Zone • July 7–9</span>
+    </nav>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Stop Two • Beach Reset Chapter</span>
+        <h1>Avalon</h1>
+        <p class="lead">ICONA is home base. Stone Harbor gets the first night. Wednesday is Dee’s beach day — with Brian and Amber close by, shaded, cooled off, and absolutely not trapped in the sand.</p>
+        <div class="hero-grid">
+          <div class="stat"><b>2</b><span>real itinerary days</span></div>
+          <div class="stat"><b>96th</b><span>Stone Harbor first look</span></div>
+          <div class="stat"><b>0</b><span>Brian beach marathons</span></div>
+          <div class="stat"><b>1</b><span>Dee beach queen day</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>The Avalon Strategy</h2>
+        <p>Not hotel jail. Not beach suffering. Use ICONA as the base, Stone Harbor as the exploration zone, and keep Wednesday daytime close enough to Dee that everyone can regroup easily.</p>
+      </div>
+      <div class="cards">
+        <article class="card third"><span class="num">1</span><h3>ICONA is base camp</h3><p>Room, pool, beach access, shade, drinks, bathrooms, reset button. It is the anchor, not the whole vacation.</p></article>
+        <article class="card third"><span class="num">2</span><h3>Stone Harbor is night one</h3><p>Tuesday night is for the 96th Street area: walk around, dinner/drinks, shops, and see if it earns a return trip.</p></article>
+        <article class="card third"><span class="num">3</span><h3>Stay close Wednesday</h3><p>While Dee beaches, Brian and Amber stay within easy walking distance: ICONA Beach Bar, Shimmers, Avalon Brew Pub, or Windrift next door.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><h2>Tuesday 7/7</h2><p>Check in, reset, then go see Stone Harbor. You’re a stone’s throw away — so throw yourselves over there.</p></div>
+      <div class="cards">
+        <article class="card full">
+          <span class="day-ribbon">Arrival + Stone Harbor First Look</span>
+          <h3>Check-In, Clean Up, Then 96th Street</h3>
+          <p>Come up from Cape May, check into ICONA, unload, bathroom reset, and take a short breather. Then make the first real Avalon-area move: head to Stone Harbor’s 96th Street area for dinner, drinks, shops, and a first impression.</p>
+          <ul>
+            <li><b>Start at ICONA:</b> park, check in, drop bags, cool off, and do not over-plan the first 45 minutes.</li>
+            <li><b>Primary evening zone:</b> Stone Harbor’s 96th Street area. This is the “we’ve never been here” walkaround.</li>
+            <li><b>Brian-friendly setup:</b> Dee and Amber can browse while Brian finds a civilized bar perch and people-watches.</li>
+            <li><b>Decision point:</b> if Stone Harbor hits right, it becomes a Wednesday-night option too. If not, Wednesday night can stay closer to ICONA/Windrift.</li>
+          </ul>
+          <div class="spot-grid">
+            <div class="spot"><small>Polished night candidate</small><strong>The Reeds / Water Star Grille area</strong><p>Resorty Stone Harbor energy. Better for a nicer first-night dinner/drink vibe.</p></div>
+            <div class="spot"><small>Brian bar fallback</small><strong>Fred’s Tavern</strong><p>Casual, familiar, easy. The “just give me a seat and a drink” option.</p></div>
+            <div class="spot"><small>Italian dinner candidate</small><strong>Spiaggetta</strong><p>Use as a check-availability dinner idea if everyone wants a more deliberate sit-down meal.</p></div>
+            <div class="spot"><small>Walkaround target</small><strong>96th Street shops</strong><p>Simple first-night exploration without turning arrival day into a production.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><h2>Wednesday 7/8</h2><p>Dee’s beach day. Brian does not do the beach. Amber is not a big sun person. The genius is staying close without suffering.</p></div>
+      <div class="cards">
+        <article class="card full">
+          <span class="day-ribbon">Dee’s Beach Day + Stay-Close Escape Plan</span>
+          <h3>Beach for Dee. Shade for Brian. Options for Amber.</h3>
+          <p>Wednesday belongs to Dee. She can be out there all day if she wants. Brian and Amber stay close enough to support, check in, and regroup — but nobody pretends Brian is becoming a beach guy.</p>
+          <div class="rule"><strong>The beach-day rule:</strong> Dee gets the beach day. Brian gets a beach-free survival plan. Amber gets a short-sun option and a guilt-free exit. Everybody wins because nobody is trapped doing someone else’s vacation.</div>
+          <ul>
+            <li><b>Morning:</b> help Dee get settled if needed, make the respectful beach appearance, confirm the ocean is still there, then Brian exits before the sand starts winning.</li>
+            <li><b>Dee:</b> beach queen. Stay as long as she wants.</li>
+            <li><b>Brian:</b> stay close, avoid the sand, find shade, AC, pool, food, or a drink.</li>
+            <li><b>Amber:</b> short beach/sun window if she wants, then shade/pool/bar/reset whenever the sun gets old.</li>
+          </ul>
+          <div class="spot-grid">
+            <div class="spot"><small>Closest escape</small><strong>ICONA Beach Bar</strong><p>Best daytime answer if Dee is on the beach and Brian/Amber want food, frozen drinks, shade, and fast regroup ability.</p></div>
+            <div class="spot"><small>Coffee / lounge / AC</small><strong>Shimmers Coffee Bar & Cocktail Lounge</strong><p>Morning coffee, midday lounge reset, or cocktail energy without leaving the ICONA zone.</p></div>
+            <div class="spot"><small>Sit-down lunch/drinks</small><strong>Avalon Brew Pub</strong><p>Better if Brian and Amber want an actual table, food, and a break while staying close.</p></div>
+            <div class="spot"><small>Next-door change of scenery</small><strong>Windrift</strong><p>Still walkable, still close to Dee, but it feels like leaving the hotel bubble: bars, pool, restaurant options, and more movement.</p></div>
+          </div>
+        </article>
+        <article class="card"><span class="num">☀</span><h3>Daytime rhythm</h3><p>Dee can beach all day. Brian and Amber rotate through ICONA Beach Bar, Shimmers, Avalon Brew Pub, Windrift, pool, room, shade, and AC. The point is closeness, not togetherness-by-suffering.</p></article>
+        <article class="card"><span class="num">🌙</span><h3>Wednesday night</h3><p>If Stone Harbor was great Tuesday, go back for round two. If everyone is cooked from sun and travel, keep it easy with Windrift, Avalon Brew Pub, or another close ICONA-zone option.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="footer-note"><b>Thursday 7/9:</b> no itinerary needed. Wake up, coffee, pack, move at your own pace, and head to Atlantic City whenever you’re ready. AC ain’t going anywhere.</div>
+    </section>
+  </div>
+</main>
+</body>
+</html>
