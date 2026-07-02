@@ -458,6 +458,15 @@ body{background:#07192f;}
 }
 </style>
 
+
+<style id="cooney-main-landing-unlock-fix">
+/* Emergency homepage fix: after activation, the landing overlay must actually leave and the launcher must be clickable. */
+body.vacation-entered{overflow:auto!important;}
+body.vacation-entered .launcher{opacity:1!important;visibility:visible!important;pointer-events:auto!important;filter:none!important;transform:none!important;}
+body.vacation-entered #cooneyStartOverlay,
+#cooneyStartOverlay.dismissed,
+#cooneyStartOverlay[hidden]{display:none!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
+</style>
 </head>
 <body class="prelaunch">
 <div class="bg-atmosphere" aria-hidden="true"></div>
@@ -551,6 +560,18 @@ body{background:#07192f;}
     setTimeout(()=>el.classList.remove('show'), 3200);
   }
 
+  function enterLauncher(){
+    // Main homepage fix: Cape May's button effects stay intact, but the launcher must be unlocked.
+    document.body.classList.remove('prelaunch');
+    document.body.classList.add('vacation-entered');
+    if(overlay){
+      overlay.classList.add('dismissed');
+      overlay.setAttribute('hidden','');
+      overlay.style.display='none';
+      overlay.style.pointerEvents='none';
+    }
+  }
+
   function setButton(){
     if(!mainBtn) return;
     mainBtn.className = 'cooney-vacation-button' + (active ? ' deactivate' : '');
@@ -600,7 +621,7 @@ body{background:#07192f;}
 
   async function activate(){
     active = true; localStorage.setItem('cooneyVacationMode','active'); setButton();
-    if(overlay) overlay.style.display='none';
+    enterLauncher();
     if(audio){ try{ audio.currentTime = Number(localStorage.getItem('cooneyAudioTime') || 0); await audio.play(); } catch(e){ console.warn(e); } }
     if(bar) bar.style.display='flex';
     if(playPause) playPause.textContent = 'Pause';
@@ -632,7 +653,7 @@ body{background:#07192f;}
     if(!a.href.endsWith('index.html')) { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
   });
   if(localStorage.getItem('cooneyCelebrationSeen') === 'yes' || active){
-    if(overlay) overlay.style.display='none';
+    enterLauncher();
   }
   if(bar && active) bar.style.display='flex';
   setButton();

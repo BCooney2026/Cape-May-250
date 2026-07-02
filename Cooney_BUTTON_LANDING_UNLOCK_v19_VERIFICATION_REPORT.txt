@@ -1,0 +1,7 @@
+enterLauncher function present: PASS
+activate calls enterLauncher: PASS
+body prelaunch removal present: PASS
+body vacation-entered add present: PASS
+dismissed class CSS present: PASS
+Cape May not included in patch: PASS
+Patch contains only index.html. Avalon/AC files from v18 are not touched by this emergency fix.
