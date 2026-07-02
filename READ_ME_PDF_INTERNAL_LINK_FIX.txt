@@ -10,7 +10,7 @@ Verification report:
   "source_zip": "Cooney_Cape_May_250_Escape_LINKS_DEEP_FIX_PLUS1.zip",
   "playbook_url_used_for_pdf_internal_links": "https://vacation.cooneysparadise.com/pdfs/03_Bars_Restaurants_Playbook.pdf",
   "pdfs_with_links_or_changes": {
-    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v11.pdf": {
+    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf": {
       "changed": 3,
       "all_links": [
         {
@@ -59,7 +59,7 @@ Verification report:
         }
       ]
     },
-    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v11.pdf": {
+    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf": {
       "changed": 3,
       "all_links": [
         {
@@ -115,7 +115,7 @@ Verification report:
         }
       ]
     },
-    "pdfs/daily_plans/06_Sunday_DEPOT_CART_TRANSPORT_GUIDE_v11.pdf": {
+    "pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf": {
       "changed": 3,
       "all_links": [
         {
@@ -164,7 +164,7 @@ Verification report:
         }
       ]
     },
-    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_TRANSPORT_GUIDE_v11.pdf": {
+    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf": {
       "changed": 3,
       "all_links": [
         {
@@ -222,7 +222,7 @@ Verification report:
     }
   },
   "verification_after_patch": {
-    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v11.pdf": {
+    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf": {
       "playbook_visible_links": [
         {
           "page": 1,
@@ -245,7 +245,7 @@ Verification report:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v11.pdf": {
+    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf": {
       "playbook_visible_links": [
         {
           "page": 1,
@@ -268,7 +268,7 @@ Verification report:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/06_Sunday_DEPOT_CART_TRANSPORT_GUIDE_v11.pdf": {
+    "pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf": {
       "playbook_visible_links": [
         {
           "page": 1,
@@ -291,7 +291,7 @@ Verification report:
       ],
       "bad_remaining": []
     },
-    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_TRANSPORT_GUIDE_v11.pdf": {
+    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf": {
       "playbook_visible_links": [
         {
           "page": 1,
