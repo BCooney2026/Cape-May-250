@@ -1,0 +1,33 @@
+Weather song filenames expected by v23:
+
+hot-1.m4a
+hot-2.m4a
+hot-3.m4a
+
+rain-1.m4a
+rain-2.m4a
+rain-3.m4a
+
+windy-1.m4a
+windy-2.m4a
+windy-3.m4a
+
+perfect-1.m4a
+perfect-2.m4a
+perfect-3.m4a
+perfect-4.m4a
+
+cloudy-1.m4a
+cloudy-2.m4a
+cloudy-3.m4a
+
+storm-1.m4a
+storm-2.m4a
+storm-3.m4a
+
+cold-1.m4a
+cold-2.m4a
+cold-3.m4a
+
+IMPORTANT: GitHub Pages is case-sensitive. Windy-2.m4a is NOT the same as windy-2.m4a.
+Use lowercase filenames only.
