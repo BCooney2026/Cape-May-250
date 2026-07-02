@@ -31,7 +31,7 @@
     if(codeMeansStorm(code) || rain >= 70) return 'storm';
     if(codeMeansRain(code) || rain >= 45) return 'rain';
     if(temp >= 86) return 'hot';
-    if(temp <= 58) return 'cold';
+    if(temp < 60) return 'cold';
     if(wind >= 22) return 'windy';
     if(codeMeansCloudy(code) || cloud >= 72) return 'cloudy';
     return 'perfect';
@@ -104,8 +104,34 @@
   function songForMood(mood){
     const songs = CONFIG.weatherSongs || {};
     const base = CONFIG.audioBasePath || 'assets/audio/';
-    const song = songs[mood] || songs[CONFIG.defaultMood || 'perfect'] || { file:'perfect.mp3', label:'Perfect Vacation Mode' };
-    return { ...song, mood, src: base + song.file };
+    const bucket = songs[mood] || songs[CONFIG.defaultMood || 'perfect'] || { file:'perfect1.mp3', label:'Perfect Vacation Mode' };
+
+    // Supports any number of songs per category: tracks: [{file,title,artist}, ...]
+    // Also supports the old one-song format: {file,label}
+    let candidates = Array.isArray(bucket.tracks) && bucket.tracks.length
+      ? bucket.tracks.map(track => ({ ...track }))
+      : [{ file: bucket.file || 'perfect1.mp3', title: bucket.example || bucket.label || mood, artist: '' }];
+
+    const lastKey = 'cooneyLastWeatherSong_' + mood;
+    let lastFile = '';
+    try{ lastFile = localStorage.getItem(lastKey) || ''; }catch(e){}
+
+    // Do not play the same file back-to-back when there is another option.
+    if(candidates.length > 1){
+      const filtered = candidates.filter(track => track.file !== lastFile);
+      if(filtered.length) candidates = filtered;
+    }
+
+    const chosen = candidates[Math.floor(Math.random() * candidates.length)] || candidates[0];
+    try{ localStorage.setItem(lastKey, chosen.file || ''); }catch(e){}
+
+    return {
+      ...bucket,
+      ...chosen,
+      mood,
+      label: bucket.label || mood,
+      src: base + chosen.file
+    };
   }
 
   function setVacationAudio(song){
@@ -184,7 +210,7 @@
               </div>
             `).join('')}
           </div>
-          <div class="cooney-weather-foot">Song files live in assets/audio/: hot.mp3, rain.mp3, windy.mp3, perfect.mp3. Edit quips in assets/config/vacation-config.js.</div>
+          <div class="cooney-weather-foot">Song files live in assets/audio/. Add as many as you want per category, then list them in assets/config/vacation-config.js. Same song will not repeat back-to-back when there is another option.</div>
         </div>
       </div>`;
     const close = () => backdrop.remove();
