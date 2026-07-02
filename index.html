@@ -51,7 +51,62 @@ h1{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,6vw
 .cta{position:relative;z-index:2;height:100%;min-height:90px;border-left:1px solid rgba(255,255,255,.24);display:grid;place-items:center;text-align:center;text-transform:uppercase;letter-spacing:.13em;font-size:clamp(12px,.95vw,15px);font-weight:1000;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.66)}.cta .arrow{display:block;font-size:clamp(34px,3.2vw,50px);line-height:.88;margin-bottom:7px;animation:arrowPulse 1.8s ease-in-out infinite}.cta .label{white-space:nowrap}@keyframes arrowPulse{50%{transform:translateX(7px)}}
 .spark{position:absolute;z-index:-1;border-radius:999px;background:#fff5b6;box-shadow:0 0 20px #fff5b6,0 0 42px var(--glow);opacity:.0;animation:sparkle 2.6s ease-in-out infinite}.s1{width:8px;height:8px;left:49%;top:18%}.s2{width:6px;height:6px;right:18%;top:28%;animation-delay:.7s}.s3{width:10px;height:10px;right:34%;bottom:24%;animation-delay:1.2s}@keyframes sparkle{0%,100%{opacity:.16;transform:scale(.55)}46%{opacity:1;transform:scale(2.1)}}
 .rail{width:min(1480px,100%);margin:0 auto}.mode-button{position:relative;width:100%;min-height:clamp(62px,8.5vh,88px);border:0;border-radius:999px;cursor:pointer;overflow:hidden;color:#fff;font-size:clamp(22px,2.9vw,42px);font-weight:1000;text-transform:uppercase;letter-spacing:.03em;text-shadow:0 3px 0 rgba(0,0,0,.25),0 0 24px rgba(255,255,255,.45);background:linear-gradient(180deg,#34fb70 0%,#0bad41 48%,#048b34 100%);box-shadow:0 20px 65px rgba(0,0,0,.50),0 0 0 3px rgba(255,255,255,.25) inset,0 0 28px rgba(69,255,111,.6)}.mode-button:before{content:"";position:absolute;inset:5px;border-radius:999px;border:1px solid rgba(255,255,255,.35);box-shadow:inset 0 2px 0 rgba(255,255,255,.35)}.mode-button:after{content:"Mode: Ready";position:absolute;right:clamp(18px,2vw,32px);top:50%;transform:translateY(-50%);font-size:clamp(11px,.9vw,14px);letter-spacing:.22em;opacity:.88}.mode-button span{position:relative;z-index:1}.mode-button.deactivate{background:linear-gradient(180deg,#ff5959 0%,#bb151d 55%,#7e0910 100%);box-shadow:0 20px 65px rgba(0,0,0,.50),0 0 0 3px rgba(255,255,255,.22) inset,0 0 28px rgba(255,59,59,.55)}.mode-button.deactivate:after{content:"Mode: Activated"}
-.party-layer{position:fixed;inset:0;z-index:10000;pointer-events:none;overflow:hidden}.confetti{position:absolute;top:-30px;width:10px;height:18px;border-radius:3px;background:var(--c);animation:fall var(--dur) linear forwards}.emoji-drop{position:absolute;top:-50px;left:var(--x);font-size:var(--s);animation:fall var(--dur) linear forwards;filter:drop-shadow(0 8px 12px rgba(0,0,0,.35))}@keyframes fall{to{transform:translate3d(var(--dx),112vh,0) rotate(650deg)}}
+/* Verified original-style emoji rain: independent falling paths with mid-flight emoji swap/pop.
+   Forced above Vacation Mode image pop-ups. */
+.dee-emoji-rain-layer{
+  position:fixed;
+  inset:0;
+  z-index:2147483500;
+  pointer-events:none;
+  overflow:hidden;
+}
+.dee-emoji-drop{
+  position:absolute;
+  top:-80px;
+  left:var(--x);
+  font-size:var(--size);
+  line-height:1;
+  opacity:0;
+  text-shadow:0 6px 16px rgba(0,0,0,.55);
+  filter:drop-shadow(0 0 8px rgba(255,255,255,.28));
+  will-change:transform, opacity;
+  animation-name:deeEmojiFallFixed;
+  animation-duration:var(--dur);
+  animation-delay:var(--delay);
+  animation-timing-function:linear;
+  animation-fill-mode:forwards;
+}
+.dee-emoji-drop .emoji-face{
+  display:block;
+  animation-name:deeEmojiSpinFixed;
+  animation-duration:var(--spin);
+  animation-delay:var(--delay);
+  animation-timing-function:ease-in-out;
+  animation-fill-mode:forwards;
+}
+.dee-emoji-drop.swapped .emoji-face{
+  animation-name:deeEmojiPopSwapFixed;
+  animation-duration:.45s;
+  animation-delay:0s;
+  animation-timing-function:ease-out;
+  animation-fill-mode:both;
+}
+@keyframes deeEmojiFallFixed{
+  0%{opacity:0;transform:translate3d(0,-12vh,0) rotate(-10deg) scale(.85)}
+  8%{opacity:1}
+  48%{opacity:1;transform:translate3d(var(--drift1),48vh,0) rotate(8deg) scale(1.05)}
+  100%{opacity:0;transform:translate3d(var(--drift2),116vh,0) rotate(26deg) scale(.9)}
+}
+@keyframes deeEmojiSpinFixed{
+  0%{transform:rotate(-14deg) scale(.9);filter:brightness(.75) saturate(.75)}
+  48%{transform:rotate(8deg) scale(1.05);filter:brightness(1.15) saturate(1.15)}
+  100%{transform:rotate(20deg) scale(.95);filter:brightness(1.05) saturate(1.05)}
+}
+@keyframes deeEmojiPopSwapFixed{
+  0%{transform:scale(.55) rotate(-18deg);filter:brightness(.8) saturate(.8)}
+  55%{transform:scale(1.35) rotate(10deg);filter:brightness(1.75) saturate(1.65)}
+  100%{transform:scale(1) rotate(0deg);filter:brightness(1.15) saturate(1.15)}
+}
 .pop{position:fixed;z-index:10050;inset:0;display:none;align-items:center;justify-content:center;padding:18px;background:radial-gradient(circle at center,rgba(255,244,196,.16),transparent 28%),rgba(0,0,0,.72);pointer-events:none}.pop.show{display:flex;animation:fade 3.15s ease forwards}.pop img{width:min(94vw,1040px);max-height:82vh;object-fit:contain;border-radius:24px;box-shadow:0 30px 100px rgba(0,0,0,.78),0 0 0 5px rgba(255,244,196,.72),0 0 54px rgba(244,216,137,.78);animation:pop 3.15s ease forwards}.pop.off{background:radial-gradient(circle at center,rgba(180,0,0,.14),transparent 30%),rgba(0,0,0,.78)}@keyframes fade{0%{opacity:0}12%,78%{opacity:1}100%{opacity:0}}@keyframes pop{0%{transform:scale(.82)}14%{transform:scale(1.01)}78%{transform:scale(1)}100%{transform:scale(.92)}}
 .musicbar{display:none!important}
 @media (max-width:900px){html,body{overflow:auto}.launcher{height:auto;min-height:100svh;grid-template-rows:auto auto auto}.hero{gap:6px}.deck{grid-template-rows:none;grid-auto-rows:minmax(178px,auto)}.destination{grid-template-columns:78px 1fr;grid-template-rows:1fr auto;gap:14px;padding:16px;border-radius:26px}.badge{width:74px;border-radius:22px}.badge span{font-size:38px}.title{font-size:clamp(44px,12vw,62px)}.desc{font-size:13.5px}.cta{grid-column:1/-1;min-height:44px;border-left:0;border-top:1px solid rgba(255,255,255,.24);display:flex;justify-content:space-between;padding-top:10px}.cta .arrow{margin:0;font-size:26px}.mode-button{min-height:66px;font-size:clamp(16px,5vw,25px)}.mode-button:after{display:none}}
@@ -128,10 +183,41 @@ h1{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,6vw
 @keyframes cvShine{0%{left:-55%}45%,100%{left:115%}}
 @media(max-width:640px){.cooney-start-card{padding:30px 22px 28px}.cooney-start-card h2{font-size:42px}.patriot-pup{transform:scale(.92);margin-bottom:8px}.cooney-start-card p{font-size:14px}}
 
+
+
+/* TRUE LANDING PAGE FORCE v6 — first screen is ONLY the pup/flag activation gate */
+body.prelaunch{overflow:hidden!important;}
+body.prelaunch .launcher{opacity:0!important;visibility:hidden!important;pointer-events:none!important;filter:blur(12px);transform:scale(.985);}
+body.vacation-entered .launcher{opacity:1!important;visibility:visible!important;pointer-events:auto!important;filter:none;transform:none;transition:opacity .55s ease, transform .55s ease, filter .55s ease;}
+.cooney-start-overlay{
+  position:fixed!important;inset:0!important;z-index:2147483000!important;
+  display:grid!important;place-items:center!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+  padding:clamp(18px,3vw,42px)!important;text-align:center!important;color:#fff6d6!important;overflow:hidden!important;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(255,231,138,.34), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgba(47,105,255,.28), transparent 30%),
+    radial-gradient(circle at 52% 92%, rgba(230,42,61,.28), transparent 34%),
+    linear-gradient(135deg, rgba(3,11,28,.98), rgba(5,30,70,.96) 43%, rgba(102,13,32,.95));
+  backdrop-filter:blur(10px);transition:opacity .65s ease, visibility .65s ease, transform .65s ease!important;
+}
+.cooney-start-overlay[hidden]{display:grid!important;opacity:1!important;visibility:visible!important;}
+body.vacation-entered .cooney-start-overlay,
+.cooney-start-overlay.dismissed{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:scale(1.035)!important;}
+.cooney-start-overlay:before{content:""!important;position:absolute!important;inset:-8%!important;background:
+  linear-gradient(110deg, rgba(191,31,48,.24) 0 12%, transparent 12% 22%, rgba(255,255,255,.10) 22% 32%, transparent 32% 44%, rgba(31,72,150,.20) 44% 56%, transparent 56% 100%),
+  repeating-linear-gradient(45deg, rgba(255,255,255,.065) 0 8px, transparent 8px 20px);
+  opacity:.82!important;animation:cvDrift 17s linear infinite!important;}
+.cooney-start-overlay:after{content:"250"!important;position:absolute!important;right:-1vw!important;bottom:-5vw!important;font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(150px,30vw,370px)!important;font-weight:900!important;color:rgba(255,247,230,.09)!important;letter-spacing:-.09em!important;pointer-events:none!important;text-shadow:0 0 50px rgba(255,214,107,.10)!important;}
+.cooney-start-card{width:min(720px,calc(100vw - 34px))!important;border-radius:34px!important;border:2px solid rgba(255,226,128,.62)!important;background:linear-gradient(180deg,rgba(255,247,230,.20),rgba(255,247,230,.075) 52%,rgba(6,16,42,.32))!important;box-shadow:0 44px 125px rgba(0,0,0,.62), inset 0 1px 0 rgba(255,255,255,.22), 0 0 0 1px rgba(255,255,255,.12), 0 0 65px rgba(255,214,107,.16)!important;}
+.cooney-start-card h2{font-size:clamp(44px,7.2vw,76px)!important;text-shadow:0 4px 0 rgba(0,0,0,.22),0 28px 70px rgba(0,0,0,.58),0 0 28px rgba(255,226,128,.22)!important;}
+.patriot-pup{width:168px!important;height:148px!important;margin-bottom:8px!important;}
+.overlay-vacation-button{border-radius:20px!important;min-height:66px!important;font-size:clamp(17px,3.6vw,23px)!important;background:linear-gradient(180deg,#39ff72 0%,#10b544 46%,#057d2b 100%)!important;box-shadow:0 12px 0 rgba(0,0,0,.34),0 25px 50px rgba(0,0,0,.42),inset 0 2px 0 rgba(255,255,255,.45),inset 0 -11px 18px rgba(0,0,0,.20),0 0 32px rgba(57,255,114,.30)!important;}
+@media(max-width:640px){.cooney-start-card{padding:28px 20px 26px!important}.patriot-pup{width:140px!important;height:126px!important}.cooney-start-card h2{font-size:42px!important}.cooney-start-card p{font-size:14px!important}.overlay-vacation-button{min-height:60px!important}}
+
 </style>
-<!-- LANDING_OVERLAY_ALWAYS_VISIBLE_v5 -->
+<!-- TRUE_LANDING_PAGE_VERIFIED_FIRST_SCREEN_v6 -->
 </head>
-<body>
+<body class="prelaunch">
 <div class="bg-atmosphere" aria-hidden="true"></div>
 
 <div class="cooney-start-overlay" id="cooneyStartOverlay" aria-label="Start Vacation Mode">
@@ -184,19 +270,73 @@ h1{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,6vw
 <script>
 (function(){
  const btn=document.getElementById('activateVacationMode'),overlay=document.getElementById('cooneyStartOverlay'),overlayBtn=document.getElementById('cooneyOverlayActivate'),audio=document.getElementById('cooneyAudio'),party=document.getElementById('partyLayer'),activePop=document.getElementById('cooneyActivatedImagePop'),deadPop=document.getElementById('cooneyDeactivatedImagePop');
- let active=localStorage.getItem('cooneyVacationMode')==='active';
+ const store={get(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+ let active=store.get('cooneyVacationMode')==='active';
  const colors=['#fff8df','#f3cf75','#e33245','#2c6de8','#39d660','#ff7bc8'];
  function setButton(){btn.classList.toggle('deactivate',active);btn.querySelector('span').textContent=active?'😴 Deactivate Vacation Mode':'🎉 Activate Vacation Mode'}
  function pop(el){if(!el)return;el.classList.remove('show');void el.offsetWidth;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3200)}
- function rain(kind){if(!party)return;party.innerHTML='';const emojis=kind==='on'?['🎉','🥳','🍾','🏖️','🌴','🍹','✨','🇺🇸']:['😴','🥱','💤','☔','👎','🧦'];for(let i=0;i<90;i++){const s=document.createElement(i%3===0?'span':'i');if(i%3===0){s.className='emoji-drop';s.textContent=emojis[Math.floor(Math.random()*emojis.length)];s.style.setProperty('--s',(22+Math.random()*34)+'px')}else{s.className='confetti';s.style.setProperty('--c',colors[Math.floor(Math.random()*colors.length)])}s.style.left=(Math.random()*100)+'vw';s.style.setProperty('--x',(Math.random()*100)+'vw');s.style.setProperty('--dx',(-90+Math.random()*180)+'px');s.style.setProperty('--dur',(3.4+Math.random()*3.8)+'s');s.style.animationDelay=(Math.random()*0.65)+'s';party.appendChild(s)}setTimeout(()=>{party.innerHTML=''},8200)}
- async function activate(){active=true;localStorage.setItem('cooneyVacationMode','active');setButton();if(overlay) overlay.setAttribute('hidden','');if(audio){try{audio.currentTime=Number(localStorage.getItem('cooneyAudioTime')||0);await audio.play()}catch(e){}}rain('on');pop(activePop)}
- function deactivate(){active=false;localStorage.setItem('cooneyVacationMode','inactive');setButton();if(audio)audio.pause();rain('off');pop(deadPop)}
+ function removeExistingRain(){
+  document.querySelectorAll('.dee-emoji-rain-layer').forEach(layer => layer.remove());
+ }
+ function makeEmojiRain(mode){
+  removeExistingRain();
+  const layer=document.createElement('div');
+  layer.className='dee-emoji-rain-layer';
+  layer.setAttribute('data-mode',mode);
+  document.body.appendChild(layer);
+
+  const sleepy=['😴','🥱','💤','🛌','😪','😑','🙄'];
+  const partySet=['🎉','🥳','🍾','🥂','🪩','💃','🕺','🏖️','🌴','🍹','✨','🎰'];
+  const boring=['😒','☔','💤','🥱','👎','🧦','😴','😑'];
+  const beforeSet=mode==='activate'?sleepy:partySet;
+  const afterSet=mode==='activate'?partySet:boring;
+  const count=mode==='activate'?70:62;
+
+  for(let i=0;i<count;i++){
+    const drop=document.createElement('span');
+    drop.className='dee-emoji-drop';
+    const startX=2+Math.random()*96;
+    const drift1=-70+Math.random()*140;
+    const drift2=-120+Math.random()*240;
+    const size=24+Math.random()*32;
+    const delay=Math.random()*1.2;
+    const duration=5.4+Math.random()*1.7;
+    const swapAt=(delay+duration*(.40+Math.random()*.18))*1000;
+    drop.style.setProperty('--x',startX+'vw');
+    drop.style.setProperty('--size',size+'px');
+    drop.style.setProperty('--delay',delay+'s');
+    drop.style.setProperty('--dur',duration+'s');
+    drop.style.setProperty('--spin',duration+'s');
+    drop.style.setProperty('--drift1',drift1+'px');
+    drop.style.setProperty('--drift2',drift2+'px');
+    const face=document.createElement('span');
+    face.className='emoji-face';
+    face.textContent=pick(beforeSet);
+    drop.appendChild(face);
+    layer.appendChild(drop);
+    window.setTimeout(function(){
+      if(!drop.isConnected)return;
+      face.textContent=pick(afterSet);
+      drop.classList.add('swapped');
+    },swapAt);
+  }
+  window.setTimeout(function(){layer.remove();},9000);
+ }
+ window.deeMakeEmojiRain=makeEmojiRain;
+ function rain(kind){
+  makeEmojiRain(kind==='on'?'activate':'deactivate');
+ }
+ async function activate(){active=true;store.set('cooneyVacationMode','active');setButton();if(overlay){ overlay.removeAttribute('hidden'); overlay.classList.add('dismissed'); } document.body.classList.remove('prelaunch'); document.body.classList.add('vacation-entered');if(audio){try{audio.currentTime=Number(store.get('cooneyAudioTime')||0);await audio.play()}catch(e){}}rain('on');pop(activePop)}
+ function deactivate(){active=false;store.set('cooneyVacationMode','inactive');setButton();if(audio)audio.pause();rain('off');pop(deadPop)}
  btn.addEventListener('click',e=>{e.preventDefault();active?deactivate():activate()});
  if(overlayBtn) overlayBtn.addEventListener('click',e=>{e.preventDefault();activate()});
- if(audio)audio.addEventListener('timeupdate',()=>{try{localStorage.setItem('cooneyAudioTime',String(audio.currentTime))}catch(e){}});
+ if(audio)audio.addEventListener('timeupdate',()=>{try{store.set('cooneyAudioTime',String(audio.currentTime))}catch(e){}});
  /* Always show the front-door landing screen on page load.
     This avoids old localStorage from hiding the pup/flag intro after a prior visit. */
- setButton();
+ document.body.classList.add('prelaunch');
+document.body.classList.remove('vacation-entered');
+if(overlay){ overlay.removeAttribute('hidden'); overlay.classList.remove('dismissed'); }
+setButton();
 })();
 </script>
 </body>
