@@ -1,18 +1,22 @@
-/* Cooney Vacation Weather + Music Config - v23
-   This version matches the audio files Brian uploaded as M4A files.
+/* Cooney Vacation Weather + Music Config - v24
+   IMPORTANT: This file lists songs only. It does NOT contain audio files.
+   Your real audio files stay safely in /assets/audio/.
 
-   Song filenames live in /assets/audio/.
    Use lowercase, hyphenated filenames:
    hot-1.m4a, rain-2.m4a, storm-3.m4a, etc.
 
-   You can use ANY number of songs per category.
-   Add/remove tracks by editing the tracks arrays below.
-   The app randomly picks one track and will not repeat the same file
-   back-to-back when that category has more than one track.
+   You can use ANY number of songs per category. Add/remove tracks below.
 */
 window.COONEY_VACATION_CONFIG = {
   audioBasePath: "assets/audio/",
   defaultMood: "perfect",
+  coldBelowF: 60,
+  hotAtOrAboveF: 86,
+  rainChanceAtOrAbove: 45,
+  stormChanceAtOrAbove: 70,
+  windyAtOrAboveMph: 22,
+  cloudyAtOrAbovePercent: 72,
+
   weatherSongs: {
     hot: {
       label: "Hot as Hell Mode",
@@ -72,6 +76,7 @@ window.COONEY_VACATION_CONFIG = {
       ]
     }
   },
+
   locations: {
     "cape_may.html": { name: "Cape May", latitude: 38.9351, longitude: -74.9060 },
     "daily_plans.html": { name: "Cape May", latitude: 38.9351, longitude: -74.9060 },
@@ -79,6 +84,7 @@ window.COONEY_VACATION_CONFIG = {
     "atlantic_city.html": { name: "Atlantic City", latitude: 39.3643, longitude: -74.4229 },
     "index.html": { name: "Jersey Shore", latitude: 39.1012, longitude: -74.7177 }
   },
+
   quips: {
     hot: [
       "Hot enough to make the sidewalk ask for PTO.",
