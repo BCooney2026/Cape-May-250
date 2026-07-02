@@ -9,10 +9,10 @@ Changes:
 {
   "source_zip": "Cooney_Cape_May_250_Escape_VERSIONED_PDF_LINK_FIX.zip",
   "renamed_daily_pdfs": {
-    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf": "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf",
-    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf": "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf",
-    "pdfs/daily_plans/06_Sunday_DEPOT_CHARGE_POLISHED_v18.pdf": "pdfs/daily_plans/06_Sunday_DEPOT_CHARGE_POLISHED_v18.pdf",
-    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf": "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_POLISHED_v18.pdf"
+    "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf": "pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf",
+    "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf": "pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf",
+    "pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf": "pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf",
+    "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf": "pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf"
   },
   "changed_plans": {
     "July 5": "Added golf cart rented / victory lap cart day note.",

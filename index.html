@@ -3,120 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cooney Shore Run - Avalon to AC</title>
-<link rel="stylesheet" href="assets/style.css">
-<link rel="manifest" href="manifest.webmanifest">
+<title>Cooney Full Trip Command Center</title>
+<style>
+:root {
+  --navy:#07192f; --red:#9f1d25; --gold:#c59a38; --cream:#fff7e6;
+  --teal:#2f8f9d; --purple:#7c3aed; --green:#4d7c0f; --ink:#061a36;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--cream);color:var(--ink)}
+.hero{background:linear-gradient(135deg,#07192f,#0d3b4c 52%,#2c1047);color:white;padding:36px 18px 30px;border-bottom:6px solid var(--gold)}
+.wrap{max-width:1120px;margin:0 auto}
+.kicker{display:inline-block;background:var(--gold);color:#07192f;border-radius:999px;padding:7px 12px;font-weight:900;font-size:12px}
+h1{font-family:Georgia,serif;font-size:clamp(42px,8vw,92px);line-height:.9;margin:16px 0 10px;letter-spacing:-.05em}
+.hero p{font-size:clamp(17px,2.3vw,24px);max-width:920px;color:rgba(255,255,255,.86)}
+nav{position:sticky;top:0;background:rgba(7,25,47,.95);z-index:5;border-bottom:1px solid rgba(255,255,255,.12);padding:10px 12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 12px;font-weight:800;font-size:13px}
+.section{padding:28px 18px}
+h2{font-family:Georgia,serif;font-size:clamp(30px,5vw,58px);margin:0 0 18px;color:var(--navy)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.card{grid-column:span 6;background:white;border:1px solid #ead9b8;border-radius:18px;padding:18px;box-shadow:0 10px 28px rgba(7,25,47,.08);position:relative;overflow:hidden}
+.card.cape{border-left:8px solid var(--red)}
+.card.avalon{border-left:8px solid var(--teal)}
+.card.ac{border-left:8px solid var(--purple)}
+.card.home{border-left:8px solid var(--green)}
+.card h3{font-size:23px;margin:0 0 8px;color:var(--navy)}
+.card p{margin:0 0 12px;line-height:1.45}
+.btn{display:inline-block;background:var(--navy);color:white;text-decoration:none;border-radius:10px;padding:10px 12px;font-weight:900;margin:4px 6px 4px 0}
+.btn.gold{background:var(--gold);color:#07192f}
+.btn.red{background:var(--red)}
+.btn.teal{background:var(--teal)}
+.btn.purple{background:var(--purple)}
+.btn.green{background:var(--green)}
+.rule{background:#fff3c4;border-left:6px solid var(--gold);padding:14px 16px;border-radius:12px;margin:12px 0;line-height:1.45}
+.timeline{display:grid;gap:10px}
+.timeline div{background:white;border-left:6px solid var(--gold);padding:12px 14px;border-radius:12px;box-shadow:0 8px 20px rgba(7,25,47,.06)}
+.footer{padding:28px;text-align:center;color:#475569}
+@media(max-width:760px){.card{grid-column:span 12}}
+</style>
 </head>
 <body>
-<div class="stage">
-  <div class="neon-strip"></div>
-  <div class="wave"></div><div class="wave two"></div>
-  <nav class="nav">
-    <a href="#chapters">Chapters</a>
-    <a href="#daily">Daily PDFs</a>
-    <a href="#movement">Movement Plan</a>
-    <a href="#menus">Menus</a>
-    <a href="#rules">Rules</a>
-  </nav>
+<nav>
+<a href="#cape">Cape May</a><a href="#avalon">Avalon</a><a href="#ac">AC Finale</a><a href="#home">Home Recovery</a><a href="#allpdfs">All PDFs</a>
+</nav>
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">FULL TRIP COMMAND CENTER - USEFUL VERSION</span>
+    <h1>Cape May 250<br>+ Shore Run</h1>
+    <p>The actual working plan: Cape May remains the main itinerary, Avalon/ICONA gets added for D's beach day, AC becomes the one-night neon finale, and Friday starts pool-bar recovery.</p>
+  </div>
+</header>
 
-  <section class="hero">
-    <div>
-      <div class="floaty one"></div><div class="floaty two"></div><div class="floaty three"></div>
-      <div class="logo-kicker">NEW SEQUEL UNLOCKED</div>
-      <h1 class="title">Cooney<br>Shore Run</h1>
-      <p class="subtitle">Cape May 250 rolls into Avalon Beach Reset, then one-night AC Neon Finale, then home for pool-bar recovery.</p>
-      <div class="slot">
-        <div class="reel">AVALON</div>
-        <div class="reel">AC</div>
-        <div class="reel">POOL BAR</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="chapters" class="section">
-    <div class="wrap">
-      <h2>Trip Chapters</h2>
-      <div class="grid">
-        <article class="card avalon">
-          <h3>Avalon Beach Reset</h3>
-          <p>ICONA becomes D's beach-day payoff: easy beach setup, pool/bar escape hatch, zero Airbnb chores.</p>
-          <div class="tagrow"><span class="tag">Beach</span><span class="tag">Pool</span><span class="tag">D's Day</span></div>
-        </article>
-        <article class="card ac">
-          <h3>AC Neon Finale</h3>
-          <p>Thursday overnight: casino chaos, boardwalk energy, dinner, drinks, and a clean Friday escape.</p>
-          <div class="tagrow"><span class="tag">Casino</span><span class="tag">Boardwalk</span><span class="tag">One-night sendoff</span></div>
-        </article>
-        <article class="card home">
-          <h3>Pool Bar Recovery</h3>
-          <p>Friday breakout, home, luggage dump, pool bar reset, and a weekend pretending we made responsible choices.</p>
-          <div class="tagrow"><span class="tag">R&R</span><span class="tag">No plans</span><span class="tag">Hydrate</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="daily" class="section">
-    <div class="wrap">
-      <h2>Daily Itinerary PDFs</h2>
-      <div class="grid">
-        <article class="card avalon">
-          <h3>Tuesday 7/7</h3>
-          <p>Leave Cape May, roll to ICONA, settle in, soft Avalon launch.</p>
-          <a class="cta" href="pdfs/daily_plans/08_Tuesday_ICONA_AVALON_ARRIVAL_v3.pdf">Open Tuesday PDF</a>
-        </article>
-        <article class="card avalon">
-          <h3>Wednesday 7/8</h3>
-          <p>D's full beach day. Brian/Amber beach cameo, then pool/bar/shade survival plan.</p>
-          <a class="cta" href="pdfs/daily_plans/09_Wednesday_AVALON_BEACH_DAY_v3.pdf">Open Wednesday PDF</a>
-        </article>
-        <article class="card ac">
-          <h3>Thursday 7/9</h3>
-          <p>Avalon checkout, AC check-in, boardwalk/casino/dinner neon sendoff.</p>
-          <a class="cta" href="pdfs/daily_plans/10_Thursday_AC_NEON_FINALE_v3.pdf">Open Thursday PDF</a>
-        </article>
-        <article class="card home">
-          <h3>Friday 7/10</h3>
-          <p>Break out of AC, drive home, pool bar recovery mode activated.</p>
-          <a class="cta" href="pdfs/daily_plans/11_Friday_POOL_BAR_RECOVERY_v3.pdf">Open Friday PDF</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="movement" class="section">
-    <div class="wrap">
-      <h2>Movement Plan</h2>
-      <div class="grid">
-        <div class="card"><h3>Avalon</h3><p>Park once at ICONA. Walk beach/pool/hotel zones. Uber only if dinner is not walkable or the heat is stupid.</p></div>
-        <div class="card"><h3>AC</h3><p>Park once. Casino-hop by walking, Uber, or jitney. No “let’s move the car real quick” nonsense.</p></div>
-        <div class="card"><h3>Home</h3><p>Drive home, unload minimum required, go directly to pool bar recovery. Productivity is banned.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="menus" class="section">
-    <div class="wrap">
-      <h2>New Menus</h2>
-      <div class="menu">
-        <a href="#daily">Daily PDFs <span>Tuesday-Friday</span></a>
-        <a href="#chapters">Trip Chapters <span>Avalon / AC / Home</span></a>
-        <a href="#movement">Movement Plan <span>Walk / Uber / Jitney / Park once</span></a>
-        <a href="#rules">No Dumb Shit Rules <span>Protect the vibe</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="rules" class="section">
-    <div class="wrap">
-      <h2>No Dumb Shit Rules</h2>
-      <div class="rule"><b>Avalon:</b> D gets the beach day. Brian and Amber do the honorable beach cameo, then escape to pool/bar/shade without guilt.</div><br>
-      <div class="rule"><b>AC:</b> Park once. Casino-hop smart. Uber if drinking. Jitney if it makes sense. Do not turn one night into a parking war.</div><br>
-      <div class="rule"><b>Friday:</b> Break out clean. Home is not the end of vacation; it is the recovery chapter.</div>
-    </div>
-  </section>
-
-  <footer class="footer">Built for Brian, Dee, and Amber - Cape May to Avalon to AC to Pool Bar Recovery.</footer>
+<section class="section" id="cape">
+<div class="wrap">
+<h2>Chapter 1: Cape May 250</h2>
+<div class="rule"><b>This stays the main plan.</b> The detailed Cape May PDFs, golf-cart charge breaks, movement guidance, fireworks backup, bars/restaurants, and hidden gems are still the working core.</div>
+<div class="grid">
+  <div class="card cape"><h3>Friday 7/3</h3><p>Arrival, check-in, Washington Street Mall scout, first Cape May night.</p><a class="btn red" href="pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v12.pdf">Open Friday PDF</a></div>
+  <div class="card cape"><h3>Saturday 7/4</h3><p>America 250 main event, Harry's reservation, fireworks strategy, no car chaos.</p><a class="btn red" href="pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v12.pdf">Open Saturday PDF</a></div>
+  <div class="card cape"><h3>Sunday 7/5</h3><p>Depot golf cart day with planned charge break at Depot. No mystery outlets.</p><a class="btn red" href="pdfs/daily_plans/06_Sunday_DEPOT_CART_CHARGE_BREAK_v12.pdf">Open Sunday PDF</a></div>
+  <div class="card cape"><h3>Monday 7/6</h3><p>Cape May Carts day with planned charge break at the rental place and Andrea only if available.</p><a class="btn red" href="pdfs/daily_plans/07_Monday_CAPE_MAY_CARTS_CHARGE_BREAK_v12.pdf">Open Monday PDF</a></div>
 </div>
+</div>
+</section>
+
+<section class="section" id="avalon">
+<div class="wrap">
+<h2>Chapter 2: ICONA Avalon Beach Reset</h2>
+<div class="rule"><b>Why this exists:</b> D wanted a real beach day. Avalon/ICONA gives her that, while Brian and Amber have the pool/bar/shade escape hatch.</div>
+<div class="grid">
+  <div class="card avalon"><h3>Tuesday 7/7</h3><p>Leave Cape May, check into ICONA, beach/pool soft launch, easy dinner.</p><a class="btn teal" href="pdfs/daily_plans/08_Tuesday_ICONA_AVALON_ARRIVAL_FULL_TRIP_v1.pdf">Open Tuesday PDF</a></div>
+  <div class="card avalon"><h3>Wednesday 7/8</h3><p>D's full Avalon beach day. Brian/Amber cameo, then pool/bar/shade survival plan.</p><a class="btn teal" href="pdfs/daily_plans/09_Wednesday_AVALON_BEACH_DAY_FULL_TRIP_v1.pdf">Open Wednesday PDF</a></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="ac">
+<div class="wrap">
+<h2>Chapter 3: AC Neon Finale</h2>
+<div class="grid">
+  <div class="card ac"><h3>Thursday 7/9</h3><p>Avalon checkout, roll to Atlantic City, park once, boardwalk/casino orientation, dinner, drinks, organized chaos.</p><a class="btn purple" href="pdfs/daily_plans/10_Thursday_AC_NEON_FINALE_FULL_TRIP_v1.pdf">Open Thursday PDF</a></div>
+  <div class="card ac"><h3>Movement Rule</h3><p>Park once. Walk/Jitney/Uber. Do not turn one AC night into a parking war.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="home">
+<div class="wrap">
+<h2>Chapter 4: Pool Bar Recovery</h2>
+<div class="grid">
+  <div class="card home"><h3>Friday 7/10</h3><p>Break out of AC, drive home, unload only what matters, activate pool-bar recovery mode.</p><a class="btn green" href="pdfs/daily_plans/11_Friday_POOL_BAR_RECOVERY_FULL_TRIP_v1.pdf">Open Friday PDF</a></div>
+  <div class="card home"><h3>Weekend Rule</h3><p>No productivity heroics. Pool bar recovery is the final chapter, not an afterthought.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="allpdfs">
+<div class="wrap">
+<h2>Useful Playbooks</h2>
+<div class="grid">
+  <div class="card"><h3>Bars & Restaurants</h3><p>Seat moves, food/drink options, backup plans.</p><a class="btn" href="pdfs/03_Bars_Restaurants_Playbook.pdf">Open Playbook</a></div>
+  <div class="card"><h3>Hidden Gems</h3><p>Good stops, scouting zones, lower-chaos moves.</p><a class="btn" href="pdfs/10_Hidden_Gems.pdf">Open Hidden Gems</a></div>
+  <div class="card"><h3>July 4 Backup</h3><p>Fireworks fallback logic.</p><a class="btn" href="pdfs/09_July_4_Backup_Fireworks_Playbook.pdf">Open Fireworks Backup</a></div>
+  <div class="card"><h3>Daily Plans Page</h3><p>Direct daily PDF page remains available.</p><a class="btn gold" href="daily_plans.html">Open Daily Plans</a></div>
+</div>
+</div>
+</section>
+<footer class="footer">Cape May -> ICONA Avalon -> Atlantic City -> Home Pool Bar Recovery</footer>
 </body>
 </html>
