@@ -1,15 +1,16 @@
 /* Cooney Vacation Weather + Music Config
    Edit this file any time. No page-code changes needed.
 
-   Required song filenames in /assets/audio/:
-   - hot.mp3
-   - rain.mp3
-   - windy.mp3
-   - perfect.mp3
-   Optional extras:
-   - cloudy.mp3
-   - storm.mp3
-   - cold.mp3
+   Song filenames live in /assets/audio/.
+
+   You can use ANY number of songs per category.
+   Examples:
+   - hot1.mp3, hot2.mp3
+   - rain1.mp3, rain2.mp3, rain3.mp3, rain4.mp3, rain5.mp3
+
+   To add/remove songs, only edit each category's tracks array below.
+   The code randomly picks one track and will not repeat the same file
+   back-to-back when that category has more than one track.
 */
 window.COONEY_VACATION_CONFIG = {
   audioBasePath: "assets/audio/",
@@ -17,38 +18,59 @@ window.COONEY_VACATION_CONFIG = {
   weatherSongs: {
     hot: {
       label: "Hot as Hell Mode",
-      file: "hot.mp3",
-      example: "Heat Wave"
+      tracks: [
+        { file: "hot1.mp3", title: "Heat Wave", artist: "Martha and the Vandellas" },
+        { file: "hot2.mp3", title: "Hot Stuff", artist: "Donna Summer" },
+        { file: "hot3.mp3", title: "The Heat Is On", artist: "Glenn Frey" }
+      ]
     },
     rain: {
       label: "Rainy Day Mode",
-      file: "rain.mp3",
-      example: "Raindrops Keep Fallin' on My Head"
+      tracks: [
+        { file: "rain1.mp3", title: "Raindrops Keep Fallin' on My Head", artist: "B. J. Thomas" },
+        { file: "rain2.mp3", title: "Have You Ever Seen the Rain", artist: "Creedence Clearwater Revival" },
+        { file: "rain3.mp3", title: "I Love a Rainy Night", artist: "Eddie Rabbitt" }
+      ]
     },
     windy: {
       label: "Windy Mode",
-      file: "windy.mp3",
-      example: "Against the Wind"
+      tracks: [
+        { file: "windy1.mp3", title: "Against the Wind", artist: "Bob Seger" },
+        { file: "windy2.mp3", title: "Windy", artist: "The Association" },
+        { file: "windy3.mp3", title: "Ride Like the Wind", artist: "Christopher Cross" }
+      ]
     },
     perfect: {
       label: "Perfect Vacation Mode",
-      file: "perfect.mp3",
-      example: "Vacation / Good Vibes"
+      tracks: [
+        { file: "perfect1.mp3", title: "Vacation", artist: "The Go-Go's" },
+        { file: "perfect2.mp3", title: "Lovely Day", artist: "Bill Withers" },
+        { file: "perfect3.mp3", title: "Good Vibrations", artist: "The Beach Boys" }
+      ]
     },
     cloudy: {
       label: "Cloudy Mood Lighting Mode",
-      file: "cloudy.mp3",
-      example: "Ain't No Sunshine"
+      tracks: [
+        { file: "cloudy1.mp3", title: "Ain't No Sunshine", artist: "Bill Withers" },
+        { file: "cloudy2.mp3", title: "Cloudy", artist: "Simon & Garfunkel" },
+        { file: "cloudy3.mp3", title: "No Rain", artist: "Blind Melon" }
+      ]
     },
     storm: {
       label: "Storm Drama Mode",
-      file: "storm.mp3",
-      example: "Riders on the Storm"
+      tracks: [
+        { file: "storm1.mp3", title: "Thunderstruck", artist: "AC/DC" },
+        { file: "storm2.mp3", title: "Riders on the Storm", artist: "The Doors" },
+        { file: "storm3.mp3", title: "Rock You Like a Hurricane", artist: "Scorpions" }
+      ]
     },
     cold: {
       label: "Chilly Mode",
-      file: "cold.mp3",
-      example: "Cold as Ice"
+      tracks: [
+        { file: "cold1.mp3", title: "Cold as Ice", artist: "Foreigner" },
+        { file: "cold2.mp3", title: "Ice Ice Baby", artist: "Vanilla Ice" },
+        { file: "cold3.mp3", title: "Sweater Weather", artist: "The Neighbourhood" }
+      ]
     }
   },
   locations: {
