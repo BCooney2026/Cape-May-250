@@ -1,0 +1,14 @@
+Put your MP3 files in this folder using these exact names:
+
+REQUIRED:
+hot.mp3       = hot weather song, example: Heat Wave
+rain.mp3      = rainy weather song, example: Raindrops Keep Fallin' on My Head
+windy.mp3     = windy weather song, example: Against the Wind
+perfect.mp3   = perfect weather / default vacation song
+
+OPTIONAL BUT SUPPORTED:
+cloudy.mp3    = cloudy weather song
+storm.mp3     = thunderstorm / stormy weather song
+cold.mp3      = chilly weather song
+
+Do not rename these in the page code. Change the filenames here or edit assets/config/vacation-config.js.
