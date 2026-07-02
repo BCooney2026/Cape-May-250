@@ -10,83 +10,39 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100%;overflow-x:hidden;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--av-cream);background:#071d2d}.av-bg-video{position:fixed;inset:0;width:100vw;height:100vh;object-fit:cover;z-index:0;opacity:.88;filter:saturate(1.15) contrast(1.07) brightness(.62);pointer-events:none;background:#071d2d}.av-bg-overlay{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 16% 10%,rgba(255,244,220,.22),transparent 28%),radial-gradient(circle at 82% 22%,rgba(94,199,216,.24),transparent 30%),linear-gradient(135deg,rgba(8,32,50,.84),rgba(7,56,74,.56) 48%,rgba(8,32,50,.88))}.av-bg-overlay:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 8px,transparent 8px 18px),linear-gradient(180deg,transparent 0 55%,rgba(5,22,34,.62) 100%);animation:avDrift 22s linear infinite}.wrap{width:min(1120px,calc(100vw - 32px));margin:0 auto;padding:42px 0 70px;position:relative;z-index:2}.backbar{margin:0 0 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.backbar a,.pill{color:var(--av-cream);text-decoration:none;border:1px solid rgba(255,244,220,.28);background:rgba(255,255,255,.12);border-radius:999px;padding:10px 14px;font-weight:900;box-shadow:0 10px 24px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.18);backdrop-filter:blur(8px)}.hero{position:relative;overflow:hidden;text-align:center;color:var(--av-ink);border-radius:30px;border:2px solid rgba(216,170,79,.9);background:radial-gradient(circle at 12% 10%,rgba(94,199,216,.26),transparent 25%),radial-gradient(circle at 90% 80%,rgba(216,170,79,.18),transparent 27%),linear-gradient(180deg,rgba(255,248,234,.97),rgba(255,244,220,.92));box-shadow:0 26px 70px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.86);padding:34px 28px 30px}.hero:before{content:"";position:absolute;inset:-40px;background:radial-gradient(ellipse at 50% 16%,rgba(255,255,255,.64),transparent 24%),repeating-linear-gradient(90deg,transparent 0 46px,rgba(11,114,133,.08) 46px 52px),repeating-linear-gradient(0deg,transparent 0 52px,rgba(216,170,79,.08) 52px 58px);opacity:.85}.hero:after{content:"AVALON";position:absolute;right:-18px;bottom:-20px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(62px,14vw,190px);font-weight:900;color:rgba(11,114,133,.09);letter-spacing:-.08em}.hero>*{position:relative;z-index:1}.topicon{font-size:58px;line-height:1;margin-bottom:8px;filter:drop-shadow(0 8px 12px rgba(0,0,0,.13))}.kicker{font-weight:1000;color:var(--av-teal);text-transform:uppercase;letter-spacing:.14em;font-size:14px;margin:4px 0 8px}.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,7vw,68px);line-height:.94;margin:0 0 12px;color:var(--av-navy);letter-spacing:-.045em}.hero p{max-width:760px;margin:0 auto 16px;color:#4c5b61;font-size:clamp(16px,2.4vw,19px);font-weight:700;line-height:1.24}.badge{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(216,170,79,.95);background:rgba(255,255,255,.55);border-radius:999px;padding:10px 18px;color:var(--av-navy);font-weight:1000;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}.section-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(26px,4vw,34px);line-height:1;margin:34px 4px 16px;color:var(--av-cream);text-shadow:0 5px 18px rgba(0,0,0,.5)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.daily-row{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{display:block;min-height:130px;text-decoration:none;color:var(--av-navy);position:relative;overflow:hidden;border-radius:22px;border:1.5px solid rgba(216,170,79,.82);background:linear-gradient(180deg,rgba(255,248,234,.97),rgba(255,244,220,.94));box-shadow:0 18px 42px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.75);padding:22px 22px 20px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.card:hover{transform:translateY(-3px);box-shadow:0 24px 58px rgba(0,0,0,.34),0 0 0 3px rgba(94,199,216,.20);border-color:rgba(94,199,216,.95)}.card:after{content:"";position:absolute;right:-20px;bottom:-28px;width:90px;height:90px;border:2px solid rgba(216,170,79,.22);border-radius:50%}.card span{display:block;text-transform:uppercase;letter-spacing:.13em;font-size:12px;font-weight:1000;color:var(--av-teal);margin-bottom:8px}.card b{display:block;font-family:Georgia,'Times New Roman',serif;font-size:clamp(22px,3vw,30px);line-height:.95;color:var(--av-navy);letter-spacing:-.04em}.card p{margin:8px 0 0;color:#44565d;font-size:14px;line-height:1.25;font-weight:700}.card.teal{border-color:rgba(94,199,216,.72)}.card.coral{border-color:rgba(227,107,88,.72)}.card.coral span{color:var(--av-coral)}.note-card{color:var(--av-navy);border-radius:24px;border:1.5px solid rgba(216,170,79,.82);background:linear-gradient(180deg,rgba(255,248,234,.97),rgba(255,244,220,.94));box-shadow:0 18px 42px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.75);padding:22px}.note-card b{display:block;font-family:Georgia,'Times New Roman',serif;font-size:28px;line-height:1;color:var(--av-navy);margin-bottom:8px}.note-card p{margin:0;color:#44565d;font-size:15px;line-height:1.35;font-weight:750}.footer{margin:32px 0 0;text-align:center;color:rgba(255,248,234,.86);font-weight:800;text-shadow:0 4px 16px rgba(0,0,0,.42)}@keyframes avDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(36px,36px,0)}}@media(max-width:760px){.wrap{width:min(100vw - 22px,1120px);padding:24px 0 54px}.hero{border-radius:24px;padding:26px 18px}.grid,.daily-row{grid-template-columns:1fr;gap:13px}.card{border-radius:19px;padding:17px 16px;min-height:108px}.section-title{margin-top:26px}.badge{font-size:13px}.backbar{font-size:13px}}
 </style>
 
-<style id="cooney-video-bg-hard-fix-v14">
-html, body { min-height:100%; background:#061b2a !important; }
-body { position:relative; isolation:isolate; }
-.av-bg-video, .ac-bg-video{
+
+<style id="cooney-video-background-final-v17">
+/* v17 FINAL: local repo video is a real visible fixed background layer, not behind the body. */
+html, body{min-height:100%; margin:0; overflow-x:hidden; background:#061b2a !important;}
+body{position:relative;}
+.cooney-page-bg-video{
   position:fixed !important;
-  top:0 !important; left:0 !important; right:0 !important; bottom:0 !important;
+  top:0 !important; left:0 !important;
   width:100vw !important; height:100vh !important;
-  min-width:100vw !important; min-height:100vh !important;
   object-fit:cover !important;
   z-index:0 !important;
-  display:block !important;
   opacity:.92 !important;
+  display:block !important;
+  visibility:visible !important;
   pointer-events:none !important;
-  transform:translateZ(0) !important;
+  filter:saturate(1.18) contrast(1.08) brightness(.66) !important;
   background:#061b2a !important;
 }
-.av-bg-overlay, .ac-bg-overlay{
-  position:fixed !important; inset:0 !important; z-index:1 !important; pointer-events:none !important;
-}
-.wrap, main.wrap{ position:relative !important; z-index:2 !important; }
-.video-fallback-note{display:none !important;}
-html.video-ok .av-bg-video, html.video-ok .ac-bg-video{ opacity:.96 !important; }
-</style>
-
-<style id="cooney-cape-may-video-method-v15">
-/* v15: use the EXACT Cape May-style background-video stacking method */
-html, body{min-height:100%;}
-body{
-  background:#07192f !important;
-  isolation:auto !important;
-  overflow-x:hidden !important;
-}
-.cooney-flag-bg,
-video.cooney-flag-bg,
-.cooney-local-video-bg{
+.cooney-page-bg-scrim{
   position:fixed !important;
   inset:0 !important;
-  width:100vw !important;
-  height:100vh !important;
-  min-width:100vw !important;
-  min-height:100vh !important;
-  object-fit:cover !important;
-  z-index:-10 !important;
-  opacity:.82 !important;
+  z-index:1 !important;
   pointer-events:none !important;
-  filter:saturate(1.12) contrast(1.06) brightness(.66) !important;
-  transform:none !important;
-  margin:0 !important;
-  padding:0 !important;
   display:block !important;
-  background:#07192f !important;
+  background:linear-gradient(135deg,rgba(4,17,30,.74),rgba(4,35,47,.36) 48%,rgba(4,17,30,.78)), radial-gradient(circle at 18% 10%,rgba(255,244,220,.18),transparent 26%) !important;
 }
-.cooney-flag-bg-overlay,
-.cooney-local-video-overlay{
-  position:fixed !important;
-  inset:0 !important;
-  z-index:-9 !important;
-  pointer-events:none !important;
-  background:
-    radial-gradient(circle at 50% 18%, rgba(255,247,230,.16), transparent 26%),
-    linear-gradient(135deg, rgba(8,24,50,.56), rgba(7,56,74,.36) 52%, rgba(8,24,50,.68)) !important;
-}
-.wrap, main, header, .hero, .section-title, .grid, .daily-row, .card, .note, .note-card, .footer{
-  position:relative !important;
-  z-index:2 !important;
-}
+main.wrap,.wrap,.backbar,.hero,.section-title,.grid,.daily-row,.card,.note,.note-card,.footer{position:relative !important; z-index:2 !important;}
+body > *:not(.cooney-page-bg-video):not(.cooney-page-bg-scrim){position:relative;}
 </style>
 </head>
 <body>
-<video class="cooney-flag-bg cooney-local-video-bg" id="cooneyAvalonBgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto">
-  <source src="avalon.mp4" type="video/mp4">
-  <source src="/avalon.mp4" type="video/mp4">
-  <source src="avalon-bg-hd.mp4" type="video/mp4">
-  <source src="/avalon-bg-hd.mp4" type="video/mp4">
-  <source src="assets/video/avalon-bg-hd.mp4" type="video/mp4">
-</video>
-<div class="cooney-flag-bg-overlay cooney-local-video-overlay"></div>
+<video id="cooneyPageBgVideo" class="cooney-page-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto" src="avalon.mp4?v=17"></video>
+<div class="cooney-page-bg-scrim"></div>
 <main class="wrap">
   <nav class="backbar"><a href="index.html">← Back to Vacation Mode</a><span class="pill">Avalon • 78th Block Zone • July 7-9</span></nav>
   <section class="hero"><div class="topicon">🌊🍹</div><div class="kicker">July 7-9, 2026</div><h1>Avalon Resort Reset</h1><p>ICONA is home base. Stone Harbor gets the first night. Wednesday is Dee’s beach day — with Brian and Amber close by, shaded, cooled off, and absolutely not trapped in the sand.</p><div class="badge">ICONA Avalon • Brian, Dee and Amber</div></section>
@@ -115,52 +71,41 @@ video.cooney-flag-bg,
   </section>
   <div class="footer">Avalon chapter: classy reset, Dee’s beach day, Stone Harbor first look, and zero forced sand suffering.</div>
 </main>
-<script>
-(function(){
-  const v=document.querySelector('.av-bg-video');
-  if(!v) return;
-  v.muted=true; v.playsInline=true; v.loop=true;
-  v.style.zIndex='0';
-  v.addEventListener('loadeddata',()=>document.documentElement.classList.add('video-ok'));
-  v.play().catch(()=>{});
-})();
-</script>
 
-<script id="cooney-video-bg-loader-v14">
+<script id="cooney-video-background-final-v17-js">
 (function(){
-  const video = document.getElementById('cooneyAvalonBgVideo');
-  const candidates = ['/avalon.mp4','avalon.mp4','/avalon-bg-hd.mp4','avalon-bg-hd.mp4','/assets/video/avalon-bg-hd.mp4'];
+  const video = document.getElementById('cooneyPageBgVideo');
   if(!video) return;
-  video.muted = true; video.loop = true; video.playsInline = true; video.setAttribute('playsinline',''); video.setAttribute('webkit-playsinline','');
+  const candidates = ['avalon.mp4','/avalon.mp4','avalon-bg-hd.mp4','/avalon-bg-hd.mp4','assets/video/avalon-bg-hd.mp4','/assets/video/avalon-bg-hd.mp4'];
   let idx = 0;
-  function trySrc(){
-    if(idx >= candidates.length) { document.documentElement.classList.add('video-failed'); return; }
-    const src = candidates[idx++];
+  video.muted = true;
+  video.defaultMuted = true;
+  video.autoplay = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.setAttribute('muted','');
+  video.setAttribute('autoplay','');
+  video.setAttribute('loop','');
+  video.setAttribute('playsinline','');
+  video.setAttribute('webkit-playsinline','');
+  video.style.zIndex = '0';
+  video.style.display = 'block';
+  video.style.visibility = 'visible';
+  function markOK(){ document.documentElement.classList.add('cooney-video-ok'); }
+  function tryNext(){
+    if(idx >= candidates.length){ document.documentElement.classList.add('cooney-video-failed'); return; }
+    const raw = candidates[idx++];
+    const src = raw + (raw.indexOf('?') === -1 ? '?v=17' : '&v=17');
     video.src = src;
     video.load();
     const p = video.play();
-    if(p && p.catch) p.catch(()=>{});
+    if(p && p.catch) p.catch(function(){});
   }
-  video.addEventListener('loadeddata',()=>document.documentElement.classList.add('video-ok'), {once:true});
-  video.addEventListener('canplay',()=>{ document.documentElement.classList.add('video-ok'); try{ video.play(); }catch(e){}; });
-  video.addEventListener('error', trySrc);
-  trySrc();
-})();
-</script>
-
-<script id="cooney-cape-video-play-v15">
-(function(){
-  const video = document.querySelector('video.cooney-flag-bg');
-  if(!video) return;
-  video.muted = true;
-  video.loop = true;
-  video.playsInline = true;
-  video.setAttribute('playsinline','');
-  video.setAttribute('webkit-playsinline','');
-  video.addEventListener('loadeddata',()=>document.documentElement.classList.add('cooney-bg-video-loaded'),{once:true});
-  video.addEventListener('canplay',()=>{document.documentElement.classList.add('cooney-bg-video-loaded'); try{video.play();}catch(e){};});
-  const p = video.play();
-  if(p && p.catch) p.catch(()=>{});
+  video.addEventListener('loadeddata', markOK);
+  video.addEventListener('canplay', function(){ markOK(); try{ video.play(); }catch(e){} });
+  video.addEventListener('error', tryNext);
+  window.addEventListener('pageshow', function(){ try{ video.play(); }catch(e){} });
+  tryNext();
 })();
 </script>
 </body>
