@@ -129,6 +129,7 @@ h1{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,6vw
 @media(max-width:640px){.cooney-start-card{padding:30px 22px 28px}.cooney-start-card h2{font-size:42px}.patriot-pup{transform:scale(.92);margin-bottom:8px}.cooney-start-card p{font-size:14px}}
 
 </style>
+<!-- LANDING_OVERLAY_ALWAYS_VISIBLE_v5 -->
 </head>
 <body>
 <div class="bg-atmosphere" aria-hidden="true"></div>
@@ -193,7 +194,8 @@ h1{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,6vw
  btn.addEventListener('click',e=>{e.preventDefault();active?deactivate():activate()});
  if(overlayBtn) overlayBtn.addEventListener('click',e=>{e.preventDefault();activate()});
  if(audio)audio.addEventListener('timeupdate',()=>{try{localStorage.setItem('cooneyAudioTime',String(audio.currentTime))}catch(e){}});
- if(active && overlay) overlay.setAttribute('hidden','');
+ /* Always show the front-door landing screen on page load.
+    This avoids old localStorage from hiding the pup/flag intro after a prior visit. */
  setButton();
 })();
 </script>
