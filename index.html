@@ -656,6 +656,119 @@ body.vacation-entered #cooneyStartOverlay,
 
 
 
+<script id="cooney-emergency-landing-unlock-v40">
+(function(){
+  "use strict";
+  if(window.__COONEY_EMERGENCY_LANDING_UNLOCK_V40__) return;
+  window.__COONEY_EMERGENCY_LANDING_UNLOCK_V40__ = true;
+
+  const LANDING_TRACK = "assets/audio/perfect-1.m4a";
+  const ACTIVE_TEXT = "💩 🛑 Deactivate Vacation Mode";
+  const INACTIVE_TEXT = "🎉 Activate Vacation Mode";
+
+  function $(id){ return document.getElementById(id); }
+
+  function setBtn(active){
+    const btn = $("activateVacationMode");
+    if(!btn) return;
+    btn.classList.toggle("deactivate", !!active);
+    btn.innerHTML = "<span>" + (active ? ACTIVE_TEXT : INACTIVE_TEXT) + "</span>";
+  }
+
+  function unlockPage(){
+    document.body.classList.remove("prelaunch");
+    document.body.classList.add("vacation-entered");
+    const overlay = $("cooneyStartOverlay");
+    if(overlay){
+      overlay.classList.add("dismissed");
+      overlay.setAttribute("hidden", "hidden");
+      overlay.style.setProperty("display", "none", "important");
+      overlay.style.setProperty("opacity", "0", "important");
+      overlay.style.setProperty("visibility", "hidden", "important");
+      overlay.style.setProperty("pointer-events", "none", "important");
+    }
+  }
+
+  async function playLandingAudio(){
+    const audio = $("cooneyAudio");
+    if(!audio) return false;
+    const wanted = LANDING_TRACK;
+    const current = audio.getAttribute("src") || "";
+    if(!current.includes("perfect-1.m4a")){
+      audio.setAttribute("src", wanted);
+      audio.src = wanted;
+      try{ audio.load(); }catch(e){}
+    }
+    audio.loop = true;
+    try{
+      await audio.play();
+      return true;
+    }catch(e){
+      console.warn("Cooney landing audio play was blocked or failed:", e);
+      return false;
+    }
+  }
+
+  function showActivated(){
+    try{
+      if(typeof window.cooneyShowActivatedOverlayImage === "function") window.cooneyShowActivatedOverlayImage();
+      if(typeof window.deeMakeEmojiRain === "function") window.deeMakeEmojiRain("activate");
+    }catch(e){ console.warn("Cooney activated overlay failed:", e); }
+  }
+
+  function showDeactivated(){
+    try{
+      if(typeof window.cooneyShowDeactivatedOverlayImage === "function") window.cooneyShowDeactivatedOverlayImage();
+      if(typeof window.deeMakeEmojiRain === "function") window.deeMakeEmojiRain("deactivate");
+    }catch(e){ console.warn("Cooney deactivated overlay failed:", e); }
+  }
+
+  async function activate(){
+    unlockPage();
+    setBtn(true);
+    try{ localStorage.setItem("cooneyVacationMode", "active"); }catch(e){}
+    window.__COONEY_LAST_LANDING_ACTION__ = "activate";
+    await playLandingAudio();
+    showActivated();
+  }
+
+  function deactivate(){
+    const audio = $("cooneyAudio");
+    if(audio){ try{ audio.pause(); }catch(e){} }
+    setBtn(false);
+    try{ localStorage.setItem("cooneyVacationMode", "inactive"); }catch(e){}
+    window.__COONEY_LAST_LANDING_ACTION__ = "deactivate";
+    showDeactivated();
+  }
+
+  function isLandingButtonTarget(target){
+    if(!target || !target.closest) return false;
+    return !!target.closest("#cooneyOverlayActivate, #activateVacationMode");
+  }
+
+  document.addEventListener("click", function(e){
+    if(!isLandingButtonTarget(e.target)) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    const mainBtn = $("activateVacationMode");
+    const isActive = document.body.classList.contains("vacation-entered") && mainBtn && mainBtn.classList.contains("deactivate");
+    if(isActive) deactivate();
+    else activate();
+  }, true);
+
+  // If Vacation Mode was already active from a previous visit, do not trap the family behind the gate.
+  try{
+    if(localStorage.getItem("cooneyVacationMode") === "active"){
+      unlockPage();
+      setBtn(true);
+    }else{
+      setBtn(false);
+    }
+  }catch(e){ setBtn(false); }
+})();
+</script>
+
+
 <!-- Cooney Weather Overlay + Weather Vacation Mode Controller v29 -->
 <script src="assets/config/vacation-config.js?v=29"></script>
 <script src="assets/js/cooney-weather-overlay.js?v=29"></script>
