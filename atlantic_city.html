@@ -336,7 +336,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 <h2 class="section-title">Start Here</h2>
 <section class="grid">
 <button class="card hot" data-cooney-playbook-id="ac-arrival-strategy" id="cooneyACArrivalPlaybookButton" onclick="return window.cooneyOpenMobilePlaybook('ac-arrival-strategy', event);" type="button"><span>Game plan</span><b>AC Arrival Strategy</b><p>Leave Avalon easy, stop once if it fits, then shift into neon mode.</p></button>
-<button class="card gold" data-cooney-playbook-id="premium-dispensary" onclick="return window.cooneyOpenMobilePlaybook('premium-dispensary', event);" type="button"><span>High-end stop</span><b>Premium Dispensary</b><p>High Rollers first shot. Design 710 backup. No generic rec-shop nonsense.</p></button>
+<button class="card gold" data-cooney-playbook-id="premium-dispensary" onclick="if (window.cooneyLaunchDispensaryBurst) window.cooneyLaunchDispensaryBurst(); return window.cooneyOpenMobilePlaybook('premium-dispensary', event);" type="button"><span>High-end stop</span><b>Premium Dispensary</b><p>High Rollers first shot. Design 710 backup. No generic rec-shop nonsense.</p></button>
 <button class="card" data-cooney-playbook-id="park-once" onclick="return window.cooneyOpenMobilePlaybook('park-once', event);" type="button"><span>Transport rule</span><b>Park Once</b><p>After check-in: walk, Jitney, Uber. The car is done for the night.</p></button>
 </section>
 <h2 class="section-title">Daily Plans</h2>
@@ -621,135 +621,211 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 <script src="assets/js/cooney-weather-overlay.js?v=29"></script>
 
 
-<!-- Cooney Premium Dispensary Leaf Burst v35 - inline, AC only -->
-<style id="cooney-dispensary-leaf-burst-v35-style">
-#cooneyDispensaryBurstOverlay{
-  position:fixed;
-  inset:0;
-  z-index:2147483646;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(42,255,130,.34), transparent 0 30%, rgba(5,16,9,.68) 70%),
-    radial-gradient(circle at 18% 16%, rgba(120,255,160,.22), transparent 28%),
-    radial-gradient(circle at 82% 18%, rgba(43,255,201,.16), transparent 30%),
-    linear-gradient(135deg, rgba(2,8,4,.82), rgba(10,33,18,.78));
-  -webkit-backdrop-filter: blur(10px) saturate(1.25);
-  backdrop-filter: blur(10px) saturate(1.25);
+<!-- Cooney Premium Dispensary Leaf Burst v36 - inline, AC only, weather-safe -->
+<style id="cooney-dispensary-leaf-burst-v36-style">
+#cooneyDispensaryBurstOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483646;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(42, 255, 130, .34), transparent 0 30%, rgba(5, 16, 9, .68) 70%),
+        radial-gradient(circle at 18% 16%, rgba(120, 255, 160, .22), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(43, 255, 201, .16), transparent 30%),
+        linear-gradient(135deg, rgba(2, 8, 4, .82), rgba(10, 33, 18, .78));
+    -webkit-backdrop-filter: blur(10px) saturate(1.25);
+    backdrop-filter: blur(10px) saturate(1.25);
 }
-#cooneyDispensaryBurstOverlay.is-showing{display:flex;animation:cooneyLeafOverlayIn .26s ease-out both;}
-#cooneyDispensaryBurstOverlay.is-leaving{animation:cooneyLeafOverlayOut .32s ease-in both;}
-.cooney-disp-card{
-  position:relative;
-  width:min(92vw,620px);
-  padding:30px 22px 26px;
-  border-radius:34px;
-  text-align:center;
-  color:#f8ffe9;
-  background:
-    linear-gradient(145deg, rgba(11,47,24,.94), rgba(6,91,42,.82)),
-    radial-gradient(circle at 50% 0%, rgba(183,255,119,.38), transparent 45%);
-  border:2px solid rgba(197,255,117,.70);
-  box-shadow:0 0 38px rgba(34,255,107,.38), 0 28px 90px rgba(0,0,0,.60), inset 0 0 22px rgba(255,255,255,.08);
-  transform:scale(.86) rotate(-1deg);
-  animation:cooneyDispCardPop 1.95s cubic-bezier(.2,1.25,.2,1) both;
+#cooneyDispensaryBurstOverlay.is-showing {
+    display: flex;
+    animation: cooneyLeafOverlayIn .26s ease-out both;
 }
-.cooney-disp-icon{font-size:clamp(72px,19vw,132px);line-height:1;filter:drop-shadow(0 8px 18px rgba(0,0,0,.5));animation:cooneyLeafPulse 1.05s ease-in-out infinite alternate;}
-.cooney-disp-kicker{margin-top:8px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:13px;font-weight:1000;letter-spacing:.18em;text-transform:uppercase;color:#bfff79;text-shadow:0 2px 10px rgba(0,0,0,.6);}
-.cooney-disp-title{margin:9px 0 7px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(34px,9vw,66px);font-weight:900;line-height:.92;color:#fffbe5;text-shadow:0 4px 22px rgba(0,0,0,.55);}
-.cooney-disp-sub{margin:0 auto;max-width:520px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(15px,4.2vw,21px);font-weight:900;line-height:1.24;color:#ecffd8;}
-.cooney-disp-rule{margin:16px auto 0;display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(207,255,144,.38);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(12px,3.2vw,15px);font-weight:1000;text-transform:uppercase;letter-spacing:.06em;color:#fbffe9;}
-.cooney-leaf-particle{position:absolute;top:-10vh;left:50%;font-size:clamp(24px,7vw,58px);filter:drop-shadow(0 6px 12px rgba(0,0,0,.55));opacity:0;animation:cooneyLeafFall var(--dur,1.8s) linear var(--delay,0s) forwards;will-change:transform,opacity;}
-.cooney-smoke-particle{position:absolute;bottom:8vh;left:50%;font-size:clamp(22px,6vw,48px);opacity:0;animation:cooneySmokeFloat var(--dur,1.6s) ease-out var(--delay,0s) forwards;will-change:transform,opacity;}
-@keyframes cooneyLeafOverlayIn{from{opacity:0}to{opacity:1}}
-@keyframes cooneyLeafOverlayOut{from{opacity:1}to{opacity:0}}
-@keyframes cooneyDispCardPop{0%{opacity:0;transform:scale(.55) rotate(-8deg)}18%{opacity:1;transform:scale(1.07) rotate(2deg)}45%{transform:scale(.98) rotate(-1deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
-@keyframes cooneyLeafPulse{from{transform:scale(1) rotate(-2deg)}to{transform:scale(1.08) rotate(3deg)}}
-@keyframes cooneyLeafFall{0%{opacity:0;transform:translate3d(var(--x,0),-12vh,0) rotate(0deg) scale(.82)}10%{opacity:1}100%{opacity:0;transform:translate3d(calc(var(--x,0) + var(--drift,0px)),112vh,0) rotate(var(--spin,360deg)) scale(1.06)}}
-@keyframes cooneySmokeFloat{0%{opacity:0;transform:translate3d(var(--x,0),30px,0) scale(.7)}20%{opacity:.75}100%{opacity:0;transform:translate3d(calc(var(--x,0) + var(--drift,0px)),-56vh,0) scale(1.45)}}
-@media (prefers-reduced-motion: reduce){#cooneyDispensaryBurstOverlay,.cooney-disp-card,.cooney-disp-icon,.cooney-leaf-particle,.cooney-smoke-particle{animation:none!important}.cooney-leaf-particle,.cooney-smoke-particle{display:none!important}}
+#cooneyDispensaryBurstOverlay.is-leaving {
+    animation: cooneyLeafOverlayOut .32s ease-in both;
+}
+.cooney-disp-card {
+    position: relative;
+    width: min(92vw, 620px);
+    padding: 30px 22px 26px;
+    border-radius: 34px;
+    text-align: center;
+    color: #f8ffe9;
+    background:
+        linear-gradient(145deg, rgba(11, 47, 24, .94), rgba(6, 91, 42, .82)),
+        radial-gradient(circle at 50% 0%, rgba(183, 255, 119, .38), transparent 45%);
+    border: 2px solid rgba(197, 255, 117, .70);
+    box-shadow: 0 0 38px rgba(34, 255, 107, .38), 0 28px 90px rgba(0, 0, 0, .60), inset 0 0 22px rgba(255, 255, 255, .08);
+    transform: scale(.86) rotate(-1deg);
+    animation: cooneyDispCardPop 1.95s cubic-bezier(.2, 1.25, .2, 1) both;
+}
+.cooney-disp-icon {
+    font-size: clamp(72px, 19vw, 132px);
+    line-height: 1;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .5));
+    animation: cooneyLeafPulse 1.05s ease-in-out infinite alternate;
+}
+.cooney-disp-kicker {
+    margin-top: 8px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 1000;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #bfff79;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .6);
+}
+.cooney-disp-title {
+    margin: 9px 0 7px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 9vw, 66px);
+    font-weight: 900;
+    line-height: .92;
+    color: #fffbe5;
+    text-shadow: 0 4px 22px rgba(0, 0, 0, .55);
+}
+.cooney-disp-sub {
+    margin: 0 auto;
+    max-width: 520px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: clamp(15px, 4.2vw, 21px);
+    font-weight: 900;
+    line-height: 1.24;
+    color: #ecffd8;
+}
+.cooney-disp-rule {
+    margin: 16px auto 0;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(207, 255, 144, .38);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: clamp(12px, 3.2vw, 15px);
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #fbffe9;
+}
+.cooney-leaf-particle {
+    position: absolute;
+    top: -10vh;
+    left: 50%;
+    font-size: clamp(24px, 7vw, 58px);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, .55));
+    opacity: 0;
+    animation: cooneyLeafFall var(--dur, 1.8s) linear var(--delay, 0s) forwards;
+    will-change: transform, opacity;
+}
+.cooney-smoke-particle {
+    position: absolute;
+    bottom: 8vh;
+    left: 50%;
+    font-size: clamp(22px, 6vw, 48px);
+    opacity: 0;
+    animation: cooneySmokeFloat var(--dur, 1.6s) ease-out var(--delay, 0s) forwards;
+    will-change: transform, opacity;
+}
+@keyframes cooneyLeafOverlayIn { from { opacity:0 } to { opacity:1 } }
+@keyframes cooneyLeafOverlayOut { from { opacity:1 } to { opacity:0 } }
+@keyframes cooneyDispCardPop {
+    0% { opacity: 0; transform: scale(.55) rotate(-8deg) }
+    18% { opacity: 1; transform: scale(1.07) rotate(2deg) }
+    45% { transform: scale(.98) rotate(-1deg) }
+    100% { opacity: 1; transform: scale(1) rotate(0deg) }
+}
+@keyframes cooneyLeafPulse { from { transform: scale(1) rotate(-2deg) } to { transform: scale(1.08) rotate(3deg) } }
+@keyframes cooneyLeafFall {
+    0% { opacity: 0; transform: translate3d(var(--x, 0), -12vh, 0) rotate(0deg) scale(.82) }
+    10% { opacity: 1 }
+    100% { opacity: 0; transform: translate3d(calc(var(--x, 0) + var(--drift, 0px)), 112vh, 0) rotate(var(--spin, 360deg)) scale(1.06) }
+}
+@keyframes cooneySmokeFloat {
+    0% { opacity: 0; transform: translate3d(var(--x, 0), 30px, 0) scale(.7) }
+    20% { opacity: .75 }
+    100% { opacity: 0; transform: translate3d(calc(var(--x, 0) + var(--drift, 0px)), -56vh, 0) scale(1.45) }
+}
+@media (prefers-reduced-motion: reduce) {
+    #cooneyDispensaryBurstOverlay, .cooney-disp-card, .cooney-disp-icon, .cooney-leaf-particle, .cooney-smoke-particle { animation: none !important }
+    .cooney-leaf-particle, .cooney-smoke-particle { display: none !important }
+}
 </style>
 <div id="cooneyDispensaryBurstOverlay" aria-hidden="true">
-  <div class="cooney-disp-card" role="presentation">
-    <div class="cooney-disp-icon">🌿</div>
-    <div class="cooney-disp-kicker">Premium Stop Activated</div>
-    <div class="cooney-disp-title">High Rollers Mode</div>
-    <p class="cooney-disp-sub">Before drinks. Before parking. Zero generic rec-shop nonsense.</p>
-    <div class="cooney-disp-rule">🌿 sealed • legal • nobody drives impaired 🌿</div>
-  </div>
+    <div class="cooney-disp-card" role="presentation">
+        <div class="cooney-disp-icon">🌿</div>
+        <div class="cooney-disp-kicker">Premium Stop Activated</div>
+        <div class="cooney-disp-title">High Rollers Mode</div>
+        <p class="cooney-disp-sub">Before drinks. Before parking. Zero generic rec-shop nonsense.</p>
+        <div class="cooney-disp-rule">🌿 sealed • legal • nobody drives impaired 🌿</div>
+    </div>
 </div>
-<script id="cooney-dispensary-leaf-burst-v35-script">
-(function(){
-  'use strict';
-  var overlay, hideTimer;
-  var leafEmojis = ['🌿','🍃','🌱','☘️','🌿','🍃','✨'];
-  var smokeEmojis = ['💨','🌫️','💚','✨'];
-  function rand(min,max){ return Math.random() * (max-min) + min; }
-  function getOverlay(){ overlay = overlay || document.getElementById('cooneyDispensaryBurstOverlay'); return overlay; }
-  function clearParticles(el){
-    if(!el) return;
-    el.querySelectorAll('.cooney-leaf-particle,.cooney-smoke-particle').forEach(function(n){ n.remove(); });
-  }
-  function addParticles(el){
-    clearParticles(el);
-    for(var i=0;i<44;i++){
-      var leaf = document.createElement('span');
-      leaf.className = 'cooney-leaf-particle';
-      leaf.textContent = leafEmojis[i % leafEmojis.length];
-      leaf.style.left = rand(0,100).toFixed(2)+'vw';
-      leaf.style.setProperty('--x', rand(-60,60).toFixed(1)+'px');
-      leaf.style.setProperty('--drift', rand(-120,120).toFixed(1)+'px');
-      leaf.style.setProperty('--spin', rand(180,960).toFixed(1)+'deg');
-      leaf.style.setProperty('--dur', rand(1.15,2.35).toFixed(2)+'s');
-      leaf.style.setProperty('--delay', rand(0,.48).toFixed(2)+'s');
-      el.appendChild(leaf);
+<script id="cooney-dispensary-leaf-burst-v36-script">
+(function() {
+    'use strict';
+    var overlay, hideTimer;
+    var leafEmojis = ['🌿', '🍃', '🌱', '☘️', '🌿', '🍃', '✨'];
+    var smokeEmojis = ['💨', '🌫️', '💚', '✨'];
+    function rand(min, max) { return Math.random() * (max - min) + min; }
+    function getOverlay() {
+        overlay = overlay || document.getElementById('cooneyDispensaryBurstOverlay');
+        return overlay;
     }
-    for(var j=0;j<13;j++){
-      var smoke = document.createElement('span');
-      smoke.className = 'cooney-smoke-particle';
-      smoke.textContent = smokeEmojis[j % smokeEmojis.length];
-      smoke.style.left = rand(10,90).toFixed(2)+'vw';
-      smoke.style.setProperty('--x', rand(-50,50).toFixed(1)+'px');
-      smoke.style.setProperty('--drift', rand(-130,130).toFixed(1)+'px');
-      smoke.style.setProperty('--dur', rand(1.1,2.0).toFixed(2)+'s');
-      smoke.style.setProperty('--delay', rand(.05,.65).toFixed(2)+'s');
-      el.appendChild(smoke);
+    function clearParticles(el) {
+        if (!el) return;
+        el.querySelectorAll('.cooney-leaf-particle,.cooney-smoke-particle').forEach(function(n) { n.remove(); });
     }
-  }
-  function hideDispensaryBurst(){
-    var el = getOverlay();
-    if(!el || !el.classList.contains('is-showing')) return;
-    el.classList.add('is-leaving');
-    window.setTimeout(function(){
-      el.classList.remove('is-showing','is-leaving');
-      el.setAttribute('aria-hidden','true');
-      clearParticles(el);
-    },340);
-  }
-  function launchDispensaryBurst(){
-    var el = getOverlay();
-    if(!el) return true;
-    window.clearTimeout(hideTimer);
-    el.classList.remove('is-leaving');
-    el.classList.add('is-showing');
-    el.setAttribute('aria-hidden','false');
-    addParticles(el);
-    hideTimer = window.setTimeout(hideDispensaryBurst, 2250);
-    return true;
-  }
-  function bindDispensaryTrigger(){
-    var trigger = document.querySelector('[data-cooney-playbook-id="premium-dispensary"]');
-    if(!trigger || trigger.dataset.cooneyDispensaryBurstBound === 'true') return;
-    trigger.dataset.cooneyDispensaryBurstBound = 'true';
-    trigger.addEventListener('click', launchDispensaryBurst, true);
-    trigger.addEventListener('touchstart', function(){}, {passive:true});
-  }
-  window.cooneyLaunchDispensaryBurst = launchDispensaryBurst;
-  document.addEventListener('DOMContentLoaded', bindDispensaryTrigger);
-  bindDispensaryTrigger();
+    function addParticles(el) {
+        clearParticles(el);
+        for (var i = 0; i < 44; i++) {
+            var leaf = document.createElement('span');
+            leaf.className = 'cooney-leaf-particle';
+            leaf.textContent = leafEmojis[i % leafEmojis.length];
+            leaf.style.left = rand(0, 100).toFixed(2) + 'vw';
+            leaf.style.setProperty('--x', rand(-60, 60).toFixed(1) + 'px');
+            leaf.style.setProperty('--drift', rand(-120, 120).toFixed(1) + 'px');
+            leaf.style.setProperty('--spin', rand(180, 960).toFixed(1) + 'deg');
+            leaf.style.setProperty('--dur', rand(1.15, 2.35).toFixed(2) + 's');
+            leaf.style.setProperty('--delay', rand(0, .48).toFixed(2) + 's');
+            el.appendChild(leaf);
+        }
+        for (var j = 0; j < 13; j++) {
+            var smoke = document.createElement('span');
+            smoke.className = 'cooney-smoke-particle';
+            smoke.textContent = smokeEmojis[j % smokeEmojis.length];
+            smoke.style.left = rand(10, 90).toFixed(2) + 'vw';
+            smoke.style.setProperty('--x', rand(-50, 50).toFixed(1) + 'px');
+            smoke.style.setProperty('--drift', rand(-130, 130).toFixed(1) + 'px');
+            smoke.style.setProperty('--dur', rand(1.1, 2.0).toFixed(2) + 's');
+            smoke.style.setProperty('--delay', rand(.05, .65).toFixed(2) + 's');
+            el.appendChild(smoke);
+        }
+    }
+    function hideDispensaryBurst() {
+        var el = getOverlay();
+        if (!el || !el.classList.contains('is-showing')) return;
+        el.classList.add('is-leaving');
+        window.setTimeout(function() {
+            el.classList.remove('is-showing', 'is-leaving');
+            el.setAttribute('aria-hidden', 'true');
+            clearParticles(el);
+        }, 340);
+    }
+    window.cooneyLaunchDispensaryBurst = function() {
+        var el = getOverlay();
+        if (!el) return true;
+        window.clearTimeout(hideTimer);
+        el.classList.remove('is-leaving');
+        el.classList.add('is-showing');
+        el.setAttribute('aria-hidden', 'false');
+        addParticles(el);
+        hideTimer = window.setTimeout(hideDispensaryBurst, 2250);
+        return true;
+    };
 })();
 </script>
 
