@@ -1,12 +1,14 @@
 /* Cooney Jersey Shore Vacation Mode Controller
-   Surgical repair target: homepage activation + destination weather buttons.
+   v39 landing-page-safe repair.
+   Scope: assets/js/cooney-weather-overlay.js only.
    Does not touch assets/audio. Designed to survive missing listed audio files.
+   Critical: homepage click is NOT captured or stopped, so the existing landing-page launch behavior can still run.
 */
 (function () {
   'use strict';
 
-  if (window.__COONEY_VACATION_CONTROLLER_V38__) return;
-  window.__COONEY_VACATION_CONTROLLER_V38__ = true;
+  if (window.__COONEY_VACATION_CONTROLLER_V39__) return;
+  window.__COONEY_VACATION_CONTROLLER_V39__ = true;
 
   var ACTIVE_CLASS = 'cooney-vacation-active';
   var BUTTON_SELECTOR = '#activateVacationMode, [data-cooney-vacation-button]';
@@ -326,9 +328,17 @@
   function handleClick(event) {
     var button = event.target && event.target.closest ? event.target.closest(BUTTON_SELECTOR) : null;
     if (!button) return;
-    event.preventDefault();
-    event.stopPropagation();
-    fire('cooney:raw-click-detected', { text: button.textContent || '', active: state.active });
+    var home = isHomePage();
+
+    // Homepage safety rule:
+    // Do not preventDefault/stopPropagation on the landing page.
+    // The homepage has its own launch/enter behavior, and the vacation music controller
+    // must ride alongside that behavior instead of hijacking the click.
+    if (!home) {
+      event.preventDefault();
+    }
+
+    fire('cooney:raw-click-detected', { text: button.textContent || '', active: state.active, home: home });
 
     var buttonSaysDeactivate = /deactivate|stop|pause/i.test(button.textContent || '');
     if (state.active || button.dataset.cooneyVacationActive === 'true' || buttonSaysDeactivate) {
@@ -336,7 +346,7 @@
       return;
     }
 
-    var promise = isHomePage() ? activateHome(button) : playSelectedWeatherTrack(pickWeatherTrack(), button);
+    var promise = home ? activateHome(button) : playSelectedWeatherTrack(pickWeatherTrack(), button);
     Promise.resolve(promise).catch(function (err) {
       state.lastError = err;
       log('activation failed', err);
@@ -350,7 +360,7 @@
     var button = getButton();
     if (button) setButtonActive(button, false);
     if (!state.handlerAttached) {
-      document.addEventListener('click', handleClick, true);
+      document.addEventListener('click', handleClick, false);
       state.handlerAttached = true;
     }
     fire('cooney:controller-ready', { buttonExists: !!button, audioExists: !!document.querySelector(AUDIO_SELECTOR) });
