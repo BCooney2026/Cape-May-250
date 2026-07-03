@@ -1,12 +1,14 @@
-/* Cooney Vacation Config
-   Edit this file any time. Do NOT put audio files in this config folder.
+/* Cooney Vacation Config v29
+   Edit quips and song lists here. Do NOT put audio files in this config folder.
    Audio files live in: assets/audio/
 */
 window.COONEY_VACATION_CONFIG = {
-  // Anything below this is vacation-cold. Because 59 degrees at the shore is nonsense.
   coldBelowF: 60,
 
-  // Music files you uploaded into assets/audio/. Add/remove as many as you want per category.
+  // Homepage landing anthem. This is NOT weather-randomized.
+  launchSong: "assets/audio/perfect-1.m4a",
+
+  // Music files in assets/audio/. Add/remove as many as you want per category.
   // Keep filenames lowercase, hyphenated, and exact: hot-1.m4a, rain-2.m4a, etc.
   weatherSongs: {
     hot: [
@@ -64,10 +66,10 @@ window.COONEY_VACATION_CONFIG = {
     ],
     windy: [
       "Secure the hats, napkins, and Brian's last nerve.",
-      "Windy enough to audit everyone’s hair product choices.",
+      "Windy enough to audit everyone's hair product choices.",
       "A light breeze with main-character energy.",
       "If the napkins survive, so do we.",
-      "Today’s forecast: dramatic flags and airborne receipts."
+      "Today's forecast: dramatic flags and airborne receipts."
     ],
     perfect: [
       "This weather is suspiciously perfect. Do not question it.",
@@ -79,7 +81,7 @@ window.COONEY_VACATION_CONFIG = {
     cloudy: [
       "Cloudy, but classy. Like the sky put on mood lighting.",
       "The sun is taking a union break.",
-      "Less squinting, more judging other people’s parking.",
+      "Less squinting, more judging other people's parking.",
       "Not beach-ruining cloudy. More like dramatic preview cloudy.",
       "The sky is wearing sweatpants today. Respect."
     ],
