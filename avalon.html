@@ -287,7 +287,7 @@ body{background:#07192f;}
 <div class="cooney-page-bg-scrim"></div>
 
 <div class="vacation-mode-launch">
-  <button class="cooney-vacation-button" id="activateVacationMode"><span>🎉 Activate Vacation Mode</span></button>
+  <button class="cooney-vacation-button" id="activateVacationMode"><span>🌦️ Weather Vacation Mode</span></button>
 </div>
 
 <main class="wrap">
@@ -372,123 +372,6 @@ body{background:#07192f;}
   </div>
 </div>
 <audio id="cooneyAudio" preload="auto" loop></audio>
-<script id="cooney-clean-vacation-js">
-(function(){
-  const overlay = document.getElementById('cooneyStartOverlay');
-  const overlayBtn = document.getElementById('cooneyOverlayActivate');
-  const mainBtn = document.getElementById('activateVacationMode');
-  const layer = document.getElementById('cooneyPartyLayer');
-  const audio = document.getElementById('cooneyAudio');
-  const bar = document.getElementById('cooneyMusicbar');
-  const playPause = document.getElementById('cooneyPlayPause');
-  const activePop = document.getElementById('cooneyActivatedImagePop');
-  const deadPop = document.getElementById('cooneyDeactivatedImagePop');
-  const colors = ['#c82333','#ffffff','#244678','#d3a347','#6ed3e7','#fff4c4'];
-  const loserBits = ['💩','😒','🧦','🥱','👎','🚫','😭','🧻','☔','💤','🤡'];
-  let active = localStorage.getItem('cooneyVacationMode') === 'active';
-
-  function rand(min,max){ return Math.random()*(max-min)+min; }
-  function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-  function clearLater(){ setTimeout(()=>{ if(layer) layer.innerHTML=''; }, 5400); }
-
-  function showPop(el){
-    if(!el) return;
-    el.classList.remove('show');
-    void el.offsetWidth;
-    el.classList.add('show');
-    setTimeout(()=>el.classList.remove('show'), 3200);
-  }
-
-  function setButton(){
-    if(!mainBtn) return;
-    mainBtn.className = 'cooney-vacation-button' + (active ? ' deactivate' : '');
-    mainBtn.innerHTML = active ? '<span>💩 🛑 Deactivate Vacation Mode (Loser)</span>' : '<span>🎉 Activate Vacation Mode</span>';
-  }
-
-  function partyEffects(){
-    if(!layer) return;
-    layer.innerHTML='';
-    for(let i=0;i<95;i++){
-      const el=document.createElement('span'); el.className='confetti-piece';
-      el.style.left=rand(0,100)+'vw'; el.style.background=pick(colors);
-      el.style.animationDuration=rand(2.2,4.8)+'s'; el.style.animationDelay=rand(0,.7)+'s';
-      el.style.width=rand(6,13)+'px'; el.style.height=rand(10,22)+'px'; layer.appendChild(el);
-    }
-    for(let i=0;i<15;i++){
-      const el=document.createElement('span'); el.className='party-balloon';
-      el.style.left=rand(3,96)+'vw'; el.style.setProperty('--balloon', pick(['#c82333','#244678','#d3a347','#fff4c4','#6ed3e7']));
-      el.style.setProperty('--drift', rand(-80,80)+'px'); el.style.animationDuration=rand(4.2,6.4)+'s'; el.style.animationDelay=rand(0,1.1)+'s'; layer.appendChild(el);
-    }
-    function fw(x,y){
-      const f=document.createElement('span'); f.className='firework'; f.style.left=x+'vw'; f.style.top=y+'vh';
-      for(let i=0;i<22;i++){ const s=document.createElement('i'); s.style.setProperty('--angle',(i*(360/22))+'deg'); s.style.setProperty('--distance',rand(48,105)+'px'); s.style.setProperty('--spark',pick(colors)); f.appendChild(s); }
-      layer.appendChild(f);
-    }
-    [[18,24],[78,22],[50,18],[30,38],[68,40]].forEach((p,idx)=>setTimeout(()=>fw(p[0],p[1]), idx*260));
-    for(let i=0;i<16;i++){
-      const s=document.createElement('span'); s.className='streamer'; s.style.left=rand(0,100)+'vw';
-      s.style.setProperty('--s1', pick(['#c82333','#244678','#d3a347','#6ed3e7'])); s.style.setProperty('--s2', pick(['#fff4c4','#ffffff']));
-      s.style.animationDelay=rand(0,.9)+'s'; s.style.animationDuration=rand(1.7,2.8)+'s'; layer.appendChild(s);
-    }
-    clearLater();
-  }
-
-  function loserEffects(){
-    if(!layer) return;
-    layer.innerHTML='';
-    for(let i=0;i<80;i++){
-      const el=document.createElement('span'); el.className='loser-piece'; el.textContent=pick(loserBits);
-      el.style.left=rand(0,100)+'vw'; el.style.animationDuration=rand(2.1,4.6)+'s'; el.style.animationDelay=rand(0,.8)+'s'; layer.appendChild(el);
-    }
-    for(let i=0;i<8;i++){
-      const c=document.createElement('span'); c.className='gray-cloud'; c.style.left=rand(4,86)+'vw'; c.style.top=rand(-8,18)+'vh'; c.style.setProperty('--drift', rand(-80,80)+'px'); c.style.animationDelay=rand(0,.7)+'s'; layer.appendChild(c);
-    }
-    clearLater();
-  }
-
-  async function activate(){
-    active = true; localStorage.setItem('cooneyVacationMode','active'); setButton();
-    if(overlay) overlay.style.display='none';
-    if(window.COONEY_PLAY_SELECTED_WEATHER_TRACK){ await window.COONEY_PLAY_SELECTED_WEATHER_TRACK(); }
-    else if(audio){ try{ audio.currentTime = 0; await audio.play(); } catch(e){ console.warn(e); } }
-    if(bar) bar.style.display='flex';
-    if(playPause) playPause.textContent = 'Pause';
-    partyEffects();
-    showPop(activePop);
-  }
-
-  function deactivate(){
-    active = false; localStorage.setItem('cooneyVacationMode','inactive'); setButton();
-    if(window.COONEY_STOP_VACATION_MUSIC){ window.COONEY_STOP_VACATION_MUSIC(); } else if(audio){ audio.pause(); audio.currentTime = 0; }
-    if(bar) bar.style.display='flex';
-    if(playPause) playPause.textContent = 'Play';
-    loserEffects();
-    showPop(deadPop);
-  }
-
-  if(overlayBtn) overlayBtn.addEventListener('click', activate);
-  if(mainBtn) mainBtn.addEventListener('click', function(e){ e.preventDefault(); active ? deactivate() : activate(); });
-  if(playPause) playPause.addEventListener('click', async function(){
-    if(localStorage.getItem('cooneyVacationMode') === 'active'){
-      if(window.COONEY_STOP_VACATION_MUSIC){ window.COONEY_STOP_VACATION_MUSIC(); }
-      else if(audio){ audio.pause(); audio.currentTime = 0; }
-      active=false; localStorage.setItem('cooneyVacationMode','inactive'); setButton(); playPause.textContent='Play';
-    } else {
-      active=true; localStorage.setItem('cooneyVacationMode','active'); setButton();
-      if(window.COONEY_PLAY_SELECTED_WEATHER_TRACK){ await window.COONEY_PLAY_SELECTED_WEATHER_TRACK(); }
-      else if(audio){ try{ audio.currentTime=0; await audio.play(); }catch(e){} }
-      playPause.textContent='Pause';
-    }
-  });
-  document.querySelectorAll('a[href$=".pdf"]').forEach(a => { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); });
-  document.querySelectorAll('a[href$=".html"]').forEach(a => { a.removeAttribute('target'); a.removeAttribute('rel'); });
-  if(localStorage.getItem('cooneyCelebrationSeen') === 'yes' || active){
-    if(overlay) overlay.style.display='none';
-  }
-  if(bar && active) bar.style.display='flex';
-  setButton();
-})();
-</script>
 
 
 <script id="cooney-overlay-crop-final-js">
@@ -618,8 +501,8 @@ body{background:#07192f;}
 
 
 
-<!-- Cooney Weather Overlay + Safe Audio Controller v26 -->
-<script src="assets/config/vacation-config.js"></script>
-<script src="assets/js/cooney-weather-overlay.js"></script>
+<!-- Cooney Weather Overlay + Weather Vacation Mode Controller v29 -->
+<script src="assets/config/vacation-config.js?v=29"></script>
+<script src="assets/js/cooney-weather-overlay.js?v=29"></script>
 </body>
 </html>
