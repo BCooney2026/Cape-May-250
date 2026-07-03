@@ -1,16 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Atlantic City Neon Finale • Cooney Vacation Mode</title>
-<meta name="theme-color" content="#16001f">
+<meta content="#16001f" name="theme-color"/>
 <style>
 :root{--ac-ink:#16001f;--ac-purple:#2b073d;--ac-pink:#ff3ed1;--ac-cyan:#30e8ff;--ac-gold:#ffd166;--ac-cream:#fff8ea;--ac-card:#fff4dc;--ac-red:#ff355d}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100%;overflow-x:hidden;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ac-cream);background:#09000f}.ac-bg-video{position:fixed;inset:0;width:100vw;height:100vh;object-fit:cover;z-index:0;opacity:.90;filter:saturate(1.38) contrast(1.15) brightness(.55);pointer-events:none;background:#09000f}.ac-bg-overlay{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 18% 15%,rgba(255,62,209,.25),transparent 26%),radial-gradient(circle at 80% 24%,rgba(48,232,255,.22),transparent 28%),linear-gradient(135deg,rgba(14,0,22,.90),rgba(56,4,76,.54) 48%,rgba(8,0,15,.92))}.ac-bg-overlay:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 24px),repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 28px),linear-gradient(180deg,transparent 0 58%,rgba(7,0,13,.65) 100%);animation:acPulse 4s ease-in-out infinite}.wrap{width:min(1120px,calc(100vw - 32px));margin:0 auto;padding:42px 0 70px;position:relative;z-index:2}.backbar{margin:0 0 18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.back{display:inline-block;color:var(--ac-cream);text-decoration:none;font-weight:1000;border:1px solid rgba(255,255,255,.30);background:rgba(255,255,255,.12);padding:10px 14px;border-radius:999px;box-shadow:0 12px 28px rgba(0,0,0,.24)}.tag{font-weight:1000;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:rgba(255,248,234,.78)}.hero{position:relative;overflow:hidden;border-radius:32px;border:2px solid rgba(255,209,102,.68);background:linear-gradient(180deg,rgba(255,248,234,.94),rgba(255,244,220,.90));color:var(--ac-ink);box-shadow:0 28px 90px rgba(0,0,0,.42),0 0 50px rgba(255,62,209,.22);padding:clamp(28px,5vw,54px);text-align:center}.hero:before{content:"777";position:absolute;right:18px;bottom:-18px;font-family:Georgia,serif;font-size:clamp(84px,16vw,190px);font-weight:900;color:rgba(255,62,209,.10);letter-spacing:-.08em}.slot{font-size:clamp(52px,9vw,92px);line-height:1;margin-bottom:8px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.15))}.kicker{font-size:13px;font-weight:1000;letter-spacing:.20em;text-transform:uppercase;color:#a31e8f}.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,7vw,74px);line-height:.94;letter-spacing:-.055em;margin:8px 0 10px}.hero p{max-width:780px;margin:0 auto 18px;font-size:clamp(16px,2vw,22px);font-weight:850;line-height:1.25;color:#35243a}.badge{display:inline-block;position:relative;z-index:1;border:1px solid rgba(255,62,209,.45);background:rgba(255,255,255,.65);border-radius:999px;padding:10px 18px;font-weight:1000;color:#1b0d25}.section-title{font-family:Georgia,serif;font-size:clamp(28px,4vw,40px);line-height:1;margin:34px 0 16px;text-shadow:0 5px 24px rgba(0,0,0,.38)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.daily-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{position:relative;min-height:132px;display:block;text-decoration:none;color:var(--ac-ink);border-radius:22px;border:2px solid rgba(255,209,102,.60);background:linear-gradient(180deg,rgba(255,248,234,.96),rgba(255,244,220,.93));box-shadow:0 20px 54px rgba(0,0,0,.28),inset 0 0 0 1px rgba(255,255,255,.52);padding:20px;overflow:hidden;transition:transform .18s ease, box-shadow .18s ease}.card:hover{transform:translateY(-3px);box-shadow:0 28px 70px rgba(0,0,0,.35),0 0 35px rgba(48,232,255,.22)}.card:after{content:"";position:absolute;right:-28px;bottom:-28px;width:94px;height:94px;border:3px solid rgba(255,62,209,.12);border-radius:50%}.card span{display:block;font-size:12px;font-weight:1000;letter-spacing:.16em;text-transform:uppercase;color:#c41793;margin-bottom:6px}.card b{display:block;font-family:Georgia,serif;font-size:clamp(24px,3vw,34px);line-height:.98;letter-spacing:-.035em;margin-bottom:8px}.card p{font-size:15px;line-height:1.35;color:#413347;margin:0;font-weight:650}.card.hot{border-color:rgba(48,232,255,.75)}.card.gold{border-color:rgba(255,209,102,.85)}.note{margin-top:16px;border-radius:22px;border:1px solid rgba(255,255,255,.20);background:rgba(0,0,0,.42);backdrop-filter:blur(10px);padding:18px 20px;color:rgba(255,248,234,.92);font-weight:750;line-height:1.45}.footer{text-align:center;margin:44px 0 0;color:rgba(255,248,234,.72);font-weight:800}.neon{color:#fff;text-shadow:0 0 12px var(--ac-pink),0 0 20px var(--ac-cyan)}@keyframes acPulse{0%,100%{opacity:.72}50%{opacity:1}}@media(max-width:860px){.grid,.daily-row{grid-template-columns:1fr}.wrap{width:min(760px,calc(100vw - 26px));padding-top:24px}.hero{text-align:left}.slot{text-align:center}.card{min-height:112px}.backbar{align-items:flex-start}.tag{font-size:11px}}
 </style>
-
-
 <style id="cooney-video-background-final-v17">
 /* v17 FINAL: local repo video is a real visible fixed background layer, not behind the body. */
 html, body{min-height:100%; margin:0; overflow-x:hidden; background:#061b2a !important;}
@@ -39,8 +38,6 @@ body{position:relative;}
 main.wrap,.wrap,.backbar,.hero,.section-title,.grid,.daily-row,.card,.note,.note-card,.footer{position:relative !important; z-index:2 !important;}
 body > *:not(.cooney-page-bg-video):not(.cooney-page-bg-scrim){position:relative;}
 </style>
-
-
 <!-- COPIED EXACTLY FROM WORKING CAPE MAY VACATION MODE BUTTON -->
 <style id="cooney-clean-vacation-css">
 :root{
@@ -281,205 +278,176 @@ body{background:#07192f;}
 }
 </style>
 
-
-
-<!-- Cooney AC Mobile Playbook v32 - hardwired inline, no external dependency -->
-<style id="cooney-ac-playbook-style-v32">
-#acArrivalPlaybookOverlay{
-  position:fixed;
-  inset:0;
-  z-index:2147483000;
-  display:none;
-  align-items:stretch;
-  justify-content:center;
-  padding:12px;
-  box-sizing:border-box;
-  background:
-    radial-gradient(circle at 20% 8%, rgba(255,62,209,.38), transparent 28%),
-    radial-gradient(circle at 84% 14%, rgba(48,232,255,.30), transparent 27%),
-    linear-gradient(135deg, rgba(8,0,15,.96), rgba(48,7,67,.92) 45%, rgba(4,47,64,.96));
-  -webkit-backdrop-filter:blur(14px);
-  backdrop-filter:blur(14px);
-  overflow:auto;
-  color:#16001f;
-}
-#acArrivalPlaybookOverlay.is-open{display:flex;}
-#acArrivalPlaybookOverlay *{box-sizing:border-box;}
-.ac-playbook-card{
-  width:min(760px, 100%);
-  margin:auto;
-  border-radius:30px;
-  overflow:hidden;
-  background:linear-gradient(180deg,#fffaf0,#fff1dc);
-  border:2px solid rgba(255,209,102,.78);
-  box-shadow:0 34px 110px rgba(0,0,0,.72), 0 0 48px rgba(255,62,209,.28);
-  animation:acPlaybookPop .22s ease both;
-}
-.ac-playbook-head{
-  position:relative;
-  padding:24px 20px 20px;
-  color:#fff8ea;
-  background:
-    linear-gradient(135deg, rgba(20,0,30,.98), rgba(123,10,107,.94) 55%, rgba(0,89,112,.92)),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 22px);
-  border-bottom:3px solid rgba(255,209,102,.76);
-}
-.ac-playbook-close{
-  position:absolute;
-  top:12px;
-  right:12px;
-  width:46px;
-  height:46px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.48);
-  background:rgba(0,0,0,.28);
-  color:#fff;
-  font-size:30px;
-  font-weight:1000;
-  line-height:1;
-  cursor:pointer;
-  z-index:3;
-}
-.ac-playbook-kicker{
-  display:inline-flex;
-  padding:7px 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,209,102,.55);
-  font-size:12px;
-  font-weight:1000;
-  letter-spacing:.13em;
-  text-transform:uppercase;
-  margin:0 0 12px;
-}
-.ac-playbook-title{
-  margin:0;
-  font-family:Georgia,'Times New Roman',serif;
-  font-size:clamp(38px, 10vw, 66px);
-  line-height:.92;
-  letter-spacing:-.055em;
-  text-shadow:0 5px 22px rgba(0,0,0,.35), 0 0 16px rgba(255,62,209,.42);
-}
-.ac-playbook-subtitle{
-  margin:12px 0 0;
-  color:rgba(255,248,234,.94);
-  font-size:clamp(17px,4.6vw,23px);
-  line-height:1.2;
-  font-weight:850;
-  max-width:630px;
-}
-.ac-playbook-body{padding:17px 15px 20px;}
-.ac-playbook-alert{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-  margin:0 0 14px;
-  padding:15px;
-  border-radius:20px;
-  background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.68));
-  border:2px solid rgba(255,62,209,.25);
-  box-shadow:0 12px 30px rgba(22,0,31,.10);
-}
-.ac-playbook-alert .icon{font-size:36px;line-height:1;}
-.ac-playbook-alert b{display:block;font-size:19px;margin-bottom:4px;}
-.ac-playbook-alert p{margin:0;font-size:16px;line-height:1.3;font-weight:760;color:#3b2b42;}
-.ac-playbook-grid{display:grid;grid-template-columns:1fr;gap:12px;}
-.ac-step{
-  padding:15px;
-  border-radius:21px;
-  background:#fffaf0;
-  border:1px solid rgba(22,0,31,.12);
-  box-shadow:0 12px 30px rgba(22,0,31,.09);
-}
-.ac-step h3{
-  margin:0 0 8px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-family:Georgia,'Times New Roman',serif;
-  color:#16001f;
-  font-size:25px;
-  line-height:1;
-  letter-spacing:-.025em;
-}
-.ac-step h3 span{font-size:27px;}
-.ac-step p{margin:0;color:#3b2b42;font-size:17px;line-height:1.33;font-weight:730;}
-.ac-step.full{background:linear-gradient(180deg,#fff7ec,#ffe5f6);border-color:rgba(255,62,209,.25);}
-.ac-playbook-list{margin:11px 0 0;padding:0;list-style:none;display:grid;gap:8px;}
-.ac-playbook-list li{position:relative;padding-left:24px;font-size:16px;line-height:1.3;font-weight:780;color:#35243a;}
-.ac-playbook-list li:before{content:'✦';position:absolute;left:0;top:0;color:#c41793;font-weight:1000;}
-.ac-playbook-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:15px;}
-.ac-playbook-action{
-  min-height:54px;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 16px;
-  border:2px solid rgba(255,209,102,.75);
-  text-decoration:none;
-  color:#fff8ea;
-  background:linear-gradient(180deg,#ff3ed1 0%,#9a1f8d 48%,#48105c 100%);
-  box-shadow:0 8px 0 rgba(22,0,31,.20),0 18px 36px rgba(22,0,31,.18);
-  font-weight:1000;
-  text-transform:uppercase;
-  letter-spacing:.04em;
-  font-size:15px;
-  cursor:pointer;
-}
-.ac-playbook-action.secondary{color:#16001f;background:linear-gradient(180deg,#fff8ea,#ffd166);border-color:rgba(22,0,31,.18);}
-.ac-playbook-note{margin:12px 3px 0;color:#5b4961;font-size:14px;line-height:1.3;font-weight:760;text-align:center;}
-@keyframes acPlaybookPop{from{transform:translateY(10px) scale(.985);opacity:.72;}to{transform:translateY(0) scale(1);opacity:1;}}
-@media (min-width:680px){.ac-playbook-body{padding:22px 22px 24px;}.ac-playbook-grid{grid-template-columns:repeat(2,1fr);}.ac-step.full{grid-column:1/-1;}.ac-playbook-actions{grid-template-columns:1fr 1fr;}}
-@media (max-width:420px){#acArrivalPlaybookOverlay{padding:8px;}.ac-playbook-card{border-radius:24px;}.ac-playbook-head{padding:22px 17px 18px;}.ac-playbook-close{width:42px;height:42px;font-size:28px;}.ac-playbook-body{padding:14px 12px 16px;}.ac-step h3{font-size:23px;}.ac-step p{font-size:16.5px;}}
+<!-- Cooney Mobile Playbooks v33 - inline, tested v32 method scaled across all tiles -->
+<style id="cooney-mobile-playbooks-v33-style">
+button.card{font:inherit;text-align:left;appearance:none;-webkit-appearance:none;cursor:pointer;width:100%;}
+button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset:4px;}
+#cooneyMobilePlaybookOverlay{position:fixed;inset:0;z-index:2147483000;display:none;align-items:stretch;justify-content:center;padding:12px;box-sizing:border-box;background:radial-gradient(circle at 20% 8%,rgba(var(--cmp-accent-rgb,255,62,209),.38),transparent 28%),radial-gradient(circle at 84% 14%,rgba(var(--cmp-accent2-rgb,48,232,255),.30),transparent 27%),linear-gradient(135deg,rgba(8,0,15,.96),rgba(48,7,67,.92) 45%,rgba(4,47,64,.96));-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);overflow:auto;color:#16001f;}
+#cooneyMobilePlaybookOverlay.is-open{display:flex;}
+#cooneyMobilePlaybookOverlay *{box-sizing:border-box;}
+#cooneyMobilePlaybookOverlay.theme-cape{--cmp-accent-rgb:190,35,35;--cmp-accent2-rgb:255,209,102;}
+#cooneyMobilePlaybookOverlay.theme-avalon{--cmp-accent-rgb:94,199,216;--cmp-accent2-rgb:216,170,79;}
+#cooneyMobilePlaybookOverlay.theme-ac {--cmp-accent-rgb:255,62,209;--cmp-accent2-rgb:48,232,255;}
+.cooney-mp-card{width:min(760px,100%);margin:auto;border-radius:30px;overflow:hidden;background:linear-gradient(180deg,#fffaf0,#fff1dc);border:2px solid rgba(255,209,102,.78);box-shadow:0 34px 110px rgba(0,0,0,.72),0 0 48px rgba(var(--cmp-accent-rgb,255,62,209),.28);animation:cooneyMpPop .22s ease both;}
+.cooney-mp-head{position:relative;padding:24px 20px 20px;color:#fff8ea;background:linear-gradient(135deg,rgba(20,0,30,.98),rgba(var(--cmp-accent-rgb,255,62,209),.72) 55%,rgba(0,89,112,.92)),repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 22px);border-bottom:3px solid rgba(255,209,102,.76);}
+.cooney-mp-close{position:absolute;top:12px;right:12px;width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,255,255,.48);background:rgba(0,0,0,.28);color:#fff;font-size:30px;font-weight:1000;line-height:1;cursor:pointer;z-index:3;}
+.cooney-mp-kicker{display:inline-flex;max-width:calc(100% - 56px);padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.13);border:1px solid rgba(255,209,102,.55);font-size:12px;font-weight:1000;letter-spacing:.13em;text-transform:uppercase;margin:0 0 12px;}
+.cooney-mp-title{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,10vw,66px);line-height:.92;letter-spacing:-.055em;text-shadow:0 5px 22px rgba(0,0,0,.35),0 0 16px rgba(var(--cmp-accent-rgb,255,62,209),.42);}
+.cooney-mp-subtitle{margin:12px 0 0;color:rgba(255,248,234,.94);font-size:clamp(17px,4.6vw,23px);line-height:1.2;font-weight:850;max-width:630px;}
+.cooney-mp-body{padding:17px 15px 20px;}
+.cooney-mp-alert{display:flex;gap:12px;align-items:flex-start;margin:0 0 14px;padding:15px;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.68));border:2px solid rgba(var(--cmp-accent-rgb,255,62,209),.25);box-shadow:0 12px 30px rgba(22,0,31,.10);}
+.cooney-mp-alert .icon{font-size:36px;line-height:1;}
+.cooney-mp-alert b{display:block;font-size:19px;margin-bottom:4px;}
+.cooney-mp-alert p{margin:0;font-size:16px;line-height:1.3;font-weight:760;color:#3b2b42;}
+.cooney-mp-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+.cooney-mp-step{padding:15px;border-radius:21px;background:#fffaf0;border:1px solid rgba(22,0,31,.12);box-shadow:0 12px 30px rgba(22,0,31,.09);}
+.cooney-mp-step h3{margin:0 0 8px;display:flex;align-items:center;gap:10px;font-family:Georgia,'Times New Roman',serif;color:#16001f;font-size:25px;line-height:1;letter-spacing:-.025em;}
+.cooney-mp-step h3 span{font-size:27px;}
+.cooney-mp-step p{margin:0;color:#3b2b42;font-size:17px;line-height:1.33;font-weight:730;}
+.cooney-mp-step.full{background:linear-gradient(180deg,#fff7ec,#ffe5f6);border-color:rgba(var(--cmp-accent-rgb,255,62,209),.25);}
+.cooney-mp-list{margin:11px 0 0;padding:0;list-style:none;display:grid;gap:8px;}
+.cooney-mp-list li{position:relative;padding-left:24px;font-size:16px;line-height:1.3;font-weight:780;color:#35243a;}
+.cooney-mp-list li:before{content:'✦';position:absolute;left:0;top:0;color:rgb(var(--cmp-accent-rgb,255,62,209));font-weight:1000;}
+.cooney-mp-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:15px;}
+.cooney-mp-action{min-height:54px;border-radius:18px;display:flex;align-items:center;justify-content:center;padding:14px 16px;border:2px solid rgba(255,209,102,.75);text-decoration:none;color:#fff8ea;background:linear-gradient(180deg,rgb(var(--cmp-accent-rgb,255,62,209)) 0%,#9a1f8d 48%,#48105c 100%);box-shadow:0 8px 0 rgba(22,0,31,.20),0 18px 36px rgba(22,0,31,.18);font-weight:1000;text-transform:uppercase;letter-spacing:.04em;font-size:15px;cursor:pointer;}
+.cooney-mp-action.secondary{color:#16001f;background:linear-gradient(180deg,#fff8ea,#ffd166);border-color:rgba(22,0,31,.18);}
+.cooney-mp-note{margin:12px 3px 0;color:#5b4961;font-size:14px;line-height:1.3;font-weight:760;text-align:center;}
+@keyframes cooneyMpPop{from{transform:translateY(10px) scale(.985);opacity:.72;}to{transform:translateY(0) scale(1);opacity:1;}}
+@media (min-width:680px){.cooney-mp-body{padding:22px 22px 24px;}.cooney-mp-grid{grid-template-columns:repeat(2,1fr);}.cooney-mp-step.full{grid-column:1/-1;}.cooney-mp-actions{grid-template-columns:1fr 1fr;}}
+@media (max-width:420px){#cooneyMobilePlaybookOverlay{padding:8px;}.cooney-mp-card{border-radius:24px;}.cooney-mp-head{padding:22px 17px 18px;}.cooney-mp-close{width:42px;height:42px;font-size:28px;}.cooney-mp-body{padding:14px 12px 16px;}.cooney-mp-step h3{font-size:23px;}.cooney-mp-step p{font-size:16.5px;}}
 </style>
 
 </head>
 <body>
-<video id="cooneyPageBgVideo" class="cooney-page-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto" src="atlanticcity.mp4?v=17"></video>
+<video autoplay="" class="cooney-page-bg-video" id="cooneyPageBgVideo" loop="" muted="" playsinline="" preload="auto" src="atlanticcity.mp4?v=17" webkit-playsinline=""></video>
 <div class="cooney-page-bg-scrim"></div>
-
 <div class="vacation-mode-launch">
-  <button class="cooney-vacation-button" id="activateVacationMode"><span>🌦️ Weather Vacation Mode</span></button>
+<button class="cooney-vacation-button" id="activateVacationMode"><span>🌦️ Weather Vacation Mode</span></button>
 </div>
-
 <main class="wrap">
-  <nav class="backbar"><a class="back" href="index.html">← Back to Vacation Mode</a><span class="tag">Stop Three • Atlantic City • July 9-10</span></nav>
-  <section class="hero">
-    <div class="slot">🎰</div>
-    <div class="kicker">July 9-10, 2026</div>
-    <h1>Atlantic City:<br><span class="neon">Neon Finale</span></h1>
-    <p>Premium dispensary stop, park once, casino lights, boardwalk energy, and absolutely no parking war.</p>
-    <div class="badge">Avalon → AC • Brian, Dee and Amber • one-night finale</div>
-  </section>
-
-  <h2 class="section-title">Start Here</h2>
-  <section class="grid">
-    <button type="button" id="cooneyACArrivalPlaybookButton" class="card hot" onclick="return window.cooneyOpenACArrivalPlaybook ? window.cooneyOpenACArrivalPlaybook(event) : false;"><span>Game plan</span><b>AC Arrival Strategy</b><p>Leave Avalon easy, stop once if it fits, then shift into neon mode.</p></button>
-    <a class="card gold" href="pdfs/ac/02_Premium_Dispensary_Stop.pdf" target="_blank" rel="noopener"><span>High-end stop</span><b>Premium Dispensary</b><p>High Rollers first shot. Design 710 backup. No generic rec-shop nonsense.</p></a>
-    <a class="card" href="pdfs/ac/03_Park_Once_Neon_Playbook.pdf" target="_blank" rel="noopener"><span>Transport rule</span><b>Park Once</b><p>After check-in: walk, Jitney, Uber. The car is done for the night.</p></a>
-  </section>
-
-  <h2 class="section-title">Daily Plans</h2>
-  <section class="daily-row">
-    <a class="card hot" href="pdfs/ac/04_Thursday_AC_Neon_Finale.pdf" target="_blank" rel="noopener"><span>Thu 7/9</span><b>Avalon to AC Neon Finale</b><p>Checkout at your pace, dispensary if wanted, check in, park once, go neon.</p></a>
-    <a class="card" href="pdfs/ac/05_Friday_Breakout_Home_Recovery.pdf" target="_blank" rel="noopener"><span>Fri 7/10</span><b>Break Out + Home Recovery</b><p>Wake up, coffee, pack, leave when ready, pool-bar recovery at home.</p></a>
-  </section>
-
-  <h2 class="section-title">Food, Drink and Seats</h2>
-  <section class="grid">
-    <a class="card" href="pdfs/ac/03_Park_Once_Neon_Playbook.pdf" target="_blank" rel="noopener"><span>Night movement</span><b>Walk / Jitney / Uber</b><p>Use the city without letting transportation become the story.</p></a>
-    <a class="card gold" href="pdfs/ac/02_Premium_Dispensary_Stop.pdf" target="_blank" rel="noopener"><span>Before drinks</span><b>Do This Early</b><p>Any dispensary stop happens before the night gets loose.</p></a>
-  </section>
-
-  <h2 class="section-title">Save the Day</h2>
-  <section class="grid">
-    <a class="card" href="pdfs/ac/01_AC_Arrival_Strategy.pdf" target="_blank" rel="noopener"><span>No chaos</span><b>One-Night Rule</b><p>Do not turn one night into a logistics marathon. AC is the finale, not homework.</p></a>
-    <a class="card" href="pdfs/ac/05_Friday_Breakout_Home_Recovery.pdf" target="_blank" rel="noopener"><span>Exit plan</span><b>Friday Is Easy</b><p>AC does not need a heroic morning. Home recovery is part of the trip.</p></a>
-  </section>
-  <div class="note">Premium dispensary placement: Thursday on the way into AC, before drinking, before the car is parked for the night. Primary: High Rollers. Backup: Design 710. Keep it sealed/stored, follow NJ rules, and nobody drives impaired.</div>
-  <div class="footer">Built for the Cooney crew - neon, casino, boardwalk, and one clean finale.</div>
+<nav class="backbar"><a class="back" href="index.html">← Back to Vacation Mode</a><span class="tag">Stop Three • Atlantic City • July 9-10</span></nav>
+<section class="hero">
+<div class="slot">🎰</div>
+<div class="kicker">July 9-10, 2026</div>
+<h1>Atlantic City:<br/><span class="neon">Neon Finale</span></h1>
+<p>Premium dispensary stop, park once, casino lights, boardwalk energy, and absolutely no parking war.</p>
+<div class="badge">Avalon → AC • Brian, Dee and Amber • one-night finale</div>
+</section>
+<h2 class="section-title">Start Here</h2>
+<section class="grid">
+<button class="card hot" data-cooney-playbook-id="ac-arrival-strategy" id="cooneyACArrivalPlaybookButton" onclick="return window.cooneyOpenMobilePlaybook('ac-arrival-strategy', event);" type="button"><span>Game plan</span><b>AC Arrival Strategy</b><p>Leave Avalon easy, stop once if it fits, then shift into neon mode.</p></button>
+<button class="card gold" data-cooney-playbook-id="premium-dispensary" onclick="return window.cooneyOpenMobilePlaybook('premium-dispensary', event);" type="button"><span>High-end stop</span><b>Premium Dispensary</b><p>High Rollers first shot. Design 710 backup. No generic rec-shop nonsense.</p></button>
+<button class="card" data-cooney-playbook-id="park-once" onclick="return window.cooneyOpenMobilePlaybook('park-once', event);" type="button"><span>Transport rule</span><b>Park Once</b><p>After check-in: walk, Jitney, Uber. The car is done for the night.</p></button>
+</section>
+<h2 class="section-title">Daily Plans</h2>
+<section class="daily-row">
+<button class="card hot" data-cooney-playbook-id="avalon-to-ac-neon-finale" onclick="return window.cooneyOpenMobilePlaybook('avalon-to-ac-neon-finale', event);" type="button"><span>Thu 7/9</span><b>Avalon to AC Neon Finale</b><p>Checkout at your pace, dispensary if wanted, check in, park once, go neon.</p></button>
+<button class="card" data-cooney-playbook-id="break-out-home-recovery" onclick="return window.cooneyOpenMobilePlaybook('break-out-home-recovery', event);" type="button"><span>Fri 7/10</span><b>Break Out + Home Recovery</b><p>Wake up, coffee, pack, leave when ready, pool-bar recovery at home.</p></button>
+</section>
+<h2 class="section-title">Food, Drink and Seats</h2>
+<section class="grid">
+<button class="card" data-cooney-playbook-id="walk-jitney-uber" onclick="return window.cooneyOpenMobilePlaybook('walk-jitney-uber', event);" type="button"><span>Night movement</span><b>Walk / Jitney / Uber</b><p>Use the city without letting transportation become the story.</p></button>
+<button class="card gold" data-cooney-playbook-id="do-this-early" onclick="return window.cooneyOpenMobilePlaybook('do-this-early', event);" type="button"><span>Before drinks</span><b>Do This Early</b><p>Any dispensary stop happens before the night gets loose.</p></button>
+</section>
+<h2 class="section-title">Save the Day</h2>
+<section class="grid">
+<button class="card" data-cooney-playbook-id="one-night-rule" onclick="return window.cooneyOpenMobilePlaybook('one-night-rule', event);" type="button"><span>No chaos</span><b>One-Night Rule</b><p>Do not turn one night into a logistics marathon. AC is the finale, not homework.</p></button>
+<button class="card" data-cooney-playbook-id="friday-is-easy" onclick="return window.cooneyOpenMobilePlaybook('friday-is-easy', event);" type="button"><span>Exit plan</span><b>Friday Is Easy</b><p>AC does not need a heroic morning. Home recovery is part of the trip.</p></button>
+</section>
+<div class="note">Premium dispensary placement: Thursday on the way into AC, before drinking, before the car is parked for the night. Primary: High Rollers. Backup: Design 710. Keep it sealed/stored, follow NJ rules, and nobody drives impaired.</div>
+<div class="footer">Built for the Cooney crew - neon, casino, boardwalk, and one clean finale.</div>
 </main>
+
+<!-- Cooney Mobile Playbooks v33 - inline overlay generated from tested AC method -->
+<div id="cooneyMobilePlaybookOverlay" class="theme-ac" aria-hidden="true">
+  <div class="cooney-mp-card" role="dialog" aria-modal="true" aria-label="Cooney mobile playbook">
+    <header class="cooney-mp-head">
+      <button type="button" class="cooney-mp-close" id="cooneyMobilePlaybookCloseTop" aria-label="Close playbook">×</button>
+      <div class="cooney-mp-kicker" id="cooneyMobilePlaybookKicker">Playbook</div>
+      <h2 class="cooney-mp-title" id="cooneyMobilePlaybookTitle">Playbook</h2>
+      <p class="cooney-mp-subtitle" id="cooneyMobilePlaybookSubtitle">Mobile-friendly trip card.</p>
+    </header>
+    <div class="cooney-mp-body">
+      <div class="cooney-mp-alert"><span class="icon" id="cooneyMobilePlaybookIcon">✨</span><div><b id="cooneyMobilePlaybookAlertTitle">The Cooney Rule</b><p id="cooneyMobilePlaybookAlertText">Keep the day easy.</p></div></div>
+      <div class="cooney-mp-grid" id="cooneyMobilePlaybookSteps"></div>
+      <div class="cooney-mp-actions">
+        <a class="cooney-mp-action" id="cooneyMobilePlaybookPdf" href="#" target="_blank" rel="noopener">Open Printable PDF</a>
+        <button type="button" class="cooney-mp-action secondary" id="cooneyMobilePlaybookCloseBottom">Back to Page</button>
+      </div>
+      <p class="cooney-mp-note">Readable mobile playbook. Audio, Weather Vacation Mode, D overlays, and emoji effects stay untouched.</p>
+    </div>
+  </div>
+</div>
+<script id="cooney-mobile-playbooks-v33-script">
+(function(){
+  'use strict';
+  var PLAYBOOKS = {"ac-arrival-strategy": {"theme": "ac", "kicker": "Game plan", "title": "AC Arrival Strategy", "subtitle": "Leave Avalon easy, stop once if it fits, then shift into neon mode.", "icon": "🚗", "alertTitle": "The Cooney Rule", "alert": "Leave Avalon easy, handle the smart stop before the night gets loose, then park once and let AC do AC things.", "pdf": "pdfs/ac/01_AC_Arrival_Strategy.pdf", "steps": [{"icon": "🚗", "title": "Leave Avalon Easy", "text": "Coffee, bags, slow roll. No heroic checkout energy and no starting the finale already annoyed."}, {"icon": "🌿", "title": "Optional Premium Stop", "text": "If the dispensary happens, it happens before hotel mode and before drinks. Primary: High Rollers. Backup: Design 710."}, {"icon": "🅿️", "title": "Park Once", "text": "Once the car is parked, it is done for the night. Walk, Jitney, or Uber from there."}, {"icon": "🍸", "title": "Go Neon", "text": "Casino lights, boardwalk chaos, people watching, cocktails, and zero pressure to over-plan."}], "full": {"icon": "⭐", "title": "The AC Rule", "text": "Do not turn one night into a logistics marathon. AC is the finale, not homework.", "items": ["Keep anything sealed/stored and follow NJ rules.", "Nobody drives impaired.", "If the plan starts feeling complicated, simplify it immediately."]}}, "premium-dispensary": {"theme": "ac", "kicker": "High-end stop", "title": "Premium Dispensary", "subtitle": "High Rollers first shot. Design 710 backup. No generic rec-shop nonsense.", "icon": "🎰", "alertTitle": "The Cooney Rule", "alert": "This is a before-the-night stop, not an after-drinks adventure.", "pdf": "pdfs/ac/02_Premium_Dispensary_Stop.pdf", "steps": [{"icon": "🎰", "title": "High Rollers First", "text": "Premium AC choice with the right “this is part of the finale” energy."}, {"icon": "🛍️", "title": "Design 710 Backup", "text": "Good backup if High Rollers is inconvenient or timing gets weird."}, {"icon": "⏰", "title": "Do It Early", "text": "Stop before check-in/nightlife if possible, and definitely before drinks."}, {"icon": "🚘", "title": "Store It Right", "text": "Keep it sealed, stored, legal, and boring from a logistics standpoint."}], "full": {"icon": "⭐", "title": "The Rule", "text": "This is supposed to make the night smoother, not create a side quest.", "items": ["21+ with valid ID.", "Follow NJ rules.", "Nobody drives impaired."]}}, "park-once": {"theme": "ac", "kicker": "Transport rule", "title": "Park Once", "subtitle": "After check-in: walk, Jitney, Uber. The car is done for the night.", "icon": "🏨", "alertTitle": "The Cooney Rule", "alert": "The car is not a pet. It does not need to come everywhere.", "pdf": "pdfs/ac/03_Park_Once_Neon_Playbook.pdf", "steps": [{"icon": "🏨", "title": "Check In", "text": "Get settled first so the room and car are handled."}, {"icon": "🅿️", "title": "Retire The Car", "text": "Once parked, the car stays parked for the night."}, {"icon": "🚶", "title": "Walk When Easy", "text": "Use the boardwalk/casino zone when it makes sense."}, {"icon": "🚕", "title": "Uber/Jitney When Not", "text": "If the walk feels annoying, outsource the annoyance."}], "full": {"icon": "⭐", "title": "Transportation Win", "text": "A one-night AC finale should feel like neon, not a parking spreadsheet.", "items": ["No parking battles.", "No “where did we leave the car?” nonsense.", "The simplest move wins."]}}, "avalon-to-ac-neon-finale": {"theme": "ac", "kicker": "Thu 7/9", "title": "Avalon to AC Neon Finale", "subtitle": "Checkout at your pace, dispensary if wanted, check in, park once, go neon.", "icon": "☕", "alertTitle": "The Cooney Rule", "alert": "This is the transition day: soft checkout, smart stop, neon finish.", "pdf": "pdfs/ac/04_Thursday_AC_Neon_Finale.pdf", "steps": [{"icon": "☕", "title": "Start Soft", "text": "Wake up, coffee, pack without rushing. AC is not going anywhere."}, {"icon": "🚗", "title": "Drive Easy", "text": "Avalon to AC is a move, not a mission."}, {"icon": "🌿", "title": "Optional Stop", "text": "Premium dispensary stop belongs before hotel/check-in/night mode."}, {"icon": "🌃", "title": "Neon Finale", "text": "Check in, park once, and let the night be the event."}], "full": {"icon": "⭐", "title": "Thursday Rule", "text": "The day should build toward the finale, not wear everybody out before it starts.", "items": ["Keep the daytime loose.", "Do the logistics early.", "Once AC mode starts, stop planning so hard."]}}, "break-out-home-recovery": {"theme": "ac", "kicker": "Fri 7/10", "title": "Break Out + Home Recovery", "subtitle": "Wake up, coffee, pack, leave when ready, pool-bar recovery at home.", "icon": "☕", "alertTitle": "The Cooney Rule", "alert": "Friday is not for heroics. Friday is for getting home and becoming pool furniture.", "pdf": "pdfs/ac/05_Friday_Breakout_Home_Recovery.pdf", "steps": [{"icon": "☕", "title": "Coffee First", "text": "Wake up slowly. Nobody needs a dramatic AC morning."}, {"icon": "🧳", "title": "Pack And Roll", "text": "Get packed, check out, move when ready."}, {"icon": "🚗", "title": "Head Home", "text": "No forced breakfast pilgrimage unless everyone actually wants it."}, {"icon": "🍹", "title": "Pool-Bar Recovery", "text": "Home recovery is part of the itinerary, not a failure."}], "full": {"icon": "⭐", "title": "Friday Rule", "text": "The trip ends clean when you leave before the day becomes work.", "items": ["No heroic morning personality required.", "No extra AC errands unless they are easy.", "Home base wins."]}}, "walk-jitney-uber": {"theme": "ac", "kicker": "Night movement", "title": "Walk / Jitney / Uber", "subtitle": "Use the city without letting transportation become the story.", "icon": "🚶", "alertTitle": "The Cooney Rule", "alert": "Use AC like a city, not like a parking-lot obstacle course.", "pdf": "pdfs/ac/03_Park_Once_Neon_Playbook.pdf", "steps": [{"icon": "🚶", "title": "Walk The Easy Stuff", "text": "If it is nearby and the vibe is good, walk it."}, {"icon": "🚌", "title": "Jitney Option", "text": "For short hops when walking is annoying."}, {"icon": "🚕", "title": "Uber When Needed", "text": "Pay a few bucks to avoid a whole argument."}, {"icon": "🅿️", "title": "Protect The Parked Car", "text": "Once parked, do not restart the parking war."}], "full": {"icon": "⭐", "title": "Movement Rule", "text": "The best transportation plan is the one nobody talks about afterward.", "items": ["The car stays retired.", "Comfort beats stubbornness.", "If it feels dumb, Uber."]}}, "do-this-early": {"theme": "ac", "kicker": "Before drinks", "title": "Do This Early", "subtitle": "Any dispensary stop happens before the night gets loose.", "icon": "🌿", "alertTitle": "The Cooney Rule", "alert": "Any adult/logistics stop happens before drinks and before casino/nightlife mode.", "pdf": "pdfs/ac/02_Premium_Dispensary_Stop.pdf", "steps": [{"icon": "🌿", "title": "Dispensary First", "text": "If doing it, do it before the night gets loose."}, {"icon": "🏨", "title": "Hotel Next", "text": "Check in and get the room handled."}, {"icon": "🅿️", "title": "Park Once", "text": "Retire the car before cocktails."}, {"icon": "🍸", "title": "Then Fun", "text": "After that, the night can be neon and easy."}], "full": {"icon": "⭐", "title": "Timing Rule", "text": "The later it gets, the less patience anyone has for errands.", "items": ["Early stops are easy stops.", "Late stops become nonsense.", "Do not mix errands and cocktails."]}}, "one-night-rule": {"theme": "ac", "kicker": "No chaos", "title": "One-Night Rule", "subtitle": "Do not turn one night into a logistics marathon. AC is the finale, not homework.", "icon": "🎰", "alertTitle": "The Cooney Rule", "alert": "AC gets one clean night. Do not overstuff it.", "pdf": "pdfs/ac/01_AC_Arrival_Strategy.pdf", "steps": [{"icon": "🎰", "title": "Pick The Vibe", "text": "Casino lights, boardwalk, drinks, people watching."}, {"icon": "🧭", "title": "Skip The Marathon", "text": "No need to see every corner of AC in one night."}, {"icon": "🅿️", "title": "No Parking War", "text": "The car is parked and retired."}, {"icon": "✨", "title": "Let It Be Easy", "text": "The finale is better when nobody is managing a military operation."}], "full": {"icon": "⭐", "title": "AC Rule", "text": "One night should feel like a victory lap, not a scavenger hunt.", "items": ["Simple beats ambitious.", "Comfort beats coverage.", "Good seats and good timing win."]}}, "friday-is-easy": {"theme": "ac", "kicker": "Exit plan", "title": "Friday Is Easy", "subtitle": "AC does not need a heroic morning. Home recovery is part of the trip.", "icon": "☕", "alertTitle": "The Cooney Rule", "alert": "AC does not need a final exam in the morning.", "pdf": "pdfs/ac/05_Friday_Breakout_Home_Recovery.pdf", "steps": [{"icon": "☕", "title": "Coffee", "text": "Start there. Always."}, {"icon": "🧳", "title": "Pack", "text": "Get out without turning the room into a search party."}, {"icon": "🚗", "title": "Drive Home", "text": "Leave when ready, not when some fake schedule says so."}, {"icon": "🏊", "title": "Recover", "text": "Pool-bar recovery is a planned activity."}], "full": {"icon": "⭐", "title": "Exit Rule", "text": "The cleanest ending is the one with the least friction.", "items": ["No extra chaos.", "No forced stops.", "Home recovery counts."]}}};
+  var overlay, previousOverflow = '';
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(ch){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]; }); }
+  function getOverlay(){ overlay = overlay || document.getElementById('cooneyMobilePlaybookOverlay'); return overlay; }
+  function renderSteps(pb){
+    var html = '';
+    (pb.steps || []).forEach(function(step){
+      html += '<article class="cooney-mp-step"><h3><span>'+esc(step.icon || '✨')+'</span>'+esc(step.title || 'Step')+'</h3><p>'+esc(step.text || '')+'</p></article>';
+    });
+    if(pb.full){
+      html += '<article class="cooney-mp-step full"><h3><span>'+esc(pb.full.icon || '⭐')+'</span>'+esc(pb.full.title || 'The Rule')+'</h3><p>'+esc(pb.full.text || '')+'</p>';
+      if(pb.full.items && pb.full.items.length){ html += '<ul class="cooney-mp-list">' + pb.full.items.map(function(item){ return '<li>'+esc(item)+'</li>'; }).join('') + '</ul>'; }
+      html += '</article>';
+    }
+    return html;
+  }
+  function openPlaybook(id, event){
+    if(event){ event.preventDefault(); event.stopPropagation(); if(typeof event.stopImmediatePropagation === 'function') event.stopImmediatePropagation(); }
+    var pb = PLAYBOOKS[id];
+    var el = getOverlay();
+    if(!pb || !el) return false;
+    el.className = 'theme-' + (pb.theme || 'ac');
+    document.getElementById('cooneyMobilePlaybookKicker').textContent = pb.kicker || 'Cooney Playbook';
+    document.getElementById('cooneyMobilePlaybookTitle').textContent = pb.title || 'Playbook';
+    document.getElementById('cooneyMobilePlaybookSubtitle').textContent = pb.subtitle || '';
+    document.getElementById('cooneyMobilePlaybookIcon').textContent = pb.icon || '✨';
+    document.getElementById('cooneyMobilePlaybookAlertTitle').textContent = pb.alertTitle || 'The Cooney Rule';
+    document.getElementById('cooneyMobilePlaybookAlertText').textContent = pb.alert || '';
+    document.getElementById('cooneyMobilePlaybookSteps').innerHTML = renderSteps(pb);
+    var pdf = document.getElementById('cooneyMobilePlaybookPdf');
+    pdf.href = pb.pdf || '#';
+    pdf.style.display = pb.pdf ? 'flex' : 'none';
+    previousOverflow = document.body.style.overflow || '';
+    document.body.style.overflow = 'hidden';
+    el.classList.add('is-open');
+    el.setAttribute('aria-hidden','false');
+    var close = document.getElementById('cooneyMobilePlaybookCloseTop');
+    if(close && close.focus) close.focus({preventScroll:true});
+    return false;
+  }
+  function closePlaybook(event){
+    if(event){ event.preventDefault(); event.stopPropagation(); }
+    var el = getOverlay();
+    if(!el) return false;
+    el.classList.remove('is-open');
+    el.setAttribute('aria-hidden','true');
+    document.body.style.overflow = previousOverflow;
+    return false;
+  }
+  function init(){
+    document.querySelectorAll('[data-cooney-playbook-id]').forEach(function(trigger){
+      trigger.addEventListener('click', function(event){ return openPlaybook(trigger.getAttribute('data-cooney-playbook-id'), event); }, true);
+    });
+    var topClose = document.getElementById('cooneyMobilePlaybookCloseTop');
+    var bottomClose = document.getElementById('cooneyMobilePlaybookCloseBottom');
+    if(topClose) topClose.addEventListener('click', closePlaybook);
+    if(bottomClose) bottomClose.addEventListener('click', closePlaybook);
+    var el = getOverlay();
+    if(el){ el.addEventListener('click', function(event){ if(event.target === el) closePlaybook(event); }); }
+    document.addEventListener('keydown', function(event){ if(event.key === 'Escape') closePlaybook(event); });
+  }
+  window.cooneyOpenMobilePlaybook = openPlaybook;
+  window.cooneyCloseMobilePlaybook = closePlaybook;
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+
 
 <script id="cooney-video-background-final-v17-js">
 (function(){
@@ -517,25 +485,22 @@ body{background:#07192f;}
   tryNext();
 })();
 </script>
-
 <!-- COPIED EXACTLY FROM WORKING CAPE MAY VACATION MODE BUTTON SUPPORT LAYERS -->
 <div class="cooney-party-layer" id="cooneyPartyLayer"></div>
 <div class="cooney-image-pop" id="cooneyActivatedImagePop">
-  <img src="assets/overlays/vacation-mode-activated.png" alt="Vacation Mode Activated">
+<img alt="Vacation Mode Activated" src="assets/overlays/vacation-mode-activated.png"/>
 </div>
 <div class="cooney-image-pop deactivated" id="cooneyDeactivatedImagePop">
-  <img src="assets/overlays/vacation-mode-deactivated.png" alt="Vacation Mode Deactivated">
+<img alt="Vacation Mode Deactivated" src="assets/overlays/vacation-mode-deactivated.png"/>
 </div>
 <div class="cooney-musicbar" id="cooneyMusicbar">
-  <button id="cooneyPlayPause">Pause</button>
-  <div class="cooney-track">
-    <strong>Now Playing: “Vacation” — The Go-Go’s</strong>
-    <span>Cooney Cape May 250 Celebration Escape</span>
-  </div>
+<button id="cooneyPlayPause">Pause</button>
+<div class="cooney-track">
+<strong>Now Playing: “Vacation” — The Go-Go’s</strong>
+<span>Cooney Cape May 250 Celebration Escape</span>
 </div>
-<audio id="cooneyAudio" preload="auto" loop></audio>
-
-
+</div>
+<audio id="cooneyAudio" loop="" preload="auto"></audio>
 <script id="cooney-overlay-crop-final-js">
 (function(){
   function killOldToasts(){
@@ -572,9 +537,6 @@ body{background:#07192f;}
   observer.observe(document.documentElement, {subtree:true, attributes:true, attributeFilter:['class','style']});
 })();
 </script>
-
-
-
 <script id="dee-emoji-rain-js">
 (function(){
   function pick(list){
@@ -660,107 +622,6 @@ body{background:#07192f;}
   window.deeMakeEmojiRain = makeEmojiRain;
 })();
 </script>
-
-
-
-
-
-<!-- Cooney AC Mobile Playbook v32 - hardwired inline overlay -->
-<div id="acArrivalPlaybookOverlay" aria-hidden="true">
-  <div class="ac-playbook-card" role="dialog" aria-modal="true" aria-label="AC Arrival Strategy mobile playbook">
-    <header class="ac-playbook-head">
-      <button type="button" class="ac-playbook-close" id="acPlaybookCloseTop" aria-label="Close AC playbook">×</button>
-      <div class="ac-playbook-kicker">Atlantic City • One-Night Finale</div>
-      <h2 class="ac-playbook-title">AC Arrival Strategy</h2>
-      <p class="ac-playbook-subtitle">Slide out of Avalon, do the smart stuff early, park once, then let Atlantic City become the neon victory lap.</p>
-    </header>
-    <div class="ac-playbook-body">
-      <div class="ac-playbook-alert"><span class="icon">🎰</span><div><b>The AC rule is simple</b><p>Do not turn one night into a logistics marathon. AC is the finale, not a homework assignment with parking fees.</p></div></div>
-      <div class="ac-playbook-grid">
-        <article class="ac-step"><h3><span>🚗</span>Leave Avalon Easy</h3><p>No heroic checkout energy. Coffee, bags, slow roll. Arrive relaxed, not already annoyed.</p></article>
-        <article class="ac-step"><h3><span>🌿</span>Optional Premium Stop</h3><p>If the dispensary stop happens, it happens before hotel/casino mode and before drinks. Primary: High Rollers. Backup: Design 710.</p></article>
-        <article class="ac-step"><h3><span>🅿️</span>Park Once</h3><p>Once the car is parked, it is done for the night. Walk, Jitney, or Uber. Nobody wins vacation by fighting AC parking twice.</p></article>
-        <article class="ac-step"><h3><span>🍸</span>Go Neon</h3><p>Casino lights, people watching, boardwalk chaos, cocktails, and zero pressure to over-plan. This is the last-night victory lap.</p></article>
-        <article class="ac-step full"><h3><span>☕</span>Friday Breakout</h3><p>Wake up, coffee, pack, leave when ready, home pool-bar recovery. AC does not require a meaningful morning personality.</p><ul class="ac-playbook-list"><li>Keep anything sealed/stored and follow NJ rules.</li><li>Nobody drives impaired. That is not a vacation joke.</li><li>If the plan starts feeling complicated, simplify it immediately.</li></ul></article>
-      </div>
-      <div class="ac-playbook-actions">
-        <a class="ac-playbook-action" href="pdfs/ac/01_AC_Arrival_Strategy.pdf" target="_blank" rel="noopener">Open Printable PDF</a>
-        <button type="button" class="ac-playbook-action secondary" id="acPlaybookCloseBottom">Back to AC Page</button>
-      </div>
-      <p class="ac-playbook-note">Mobile playbook test. Audio, Weather Vacation Mode, D overlays, and emoji effects stay untouched.</p>
-    </div>
-  </div>
-</div>
-<script id="cooney-ac-playbook-script-v32">
-(function(){
-  'use strict';
-  var overlay;
-  var previousOverflow = '';
-
-  function getOverlay(){
-    overlay = overlay || document.getElementById('acArrivalPlaybookOverlay');
-    return overlay;
-  }
-
-  function openACArrivalPlaybook(event){
-    if(event){
-      event.preventDefault();
-      event.stopPropagation();
-      if(typeof event.stopImmediatePropagation === 'function') event.stopImmediatePropagation();
-    }
-    var el = getOverlay();
-    if(!el) return false;
-    previousOverflow = document.body.style.overflow || '';
-    document.body.style.overflow = 'hidden';
-    el.classList.add('is-open');
-    el.setAttribute('aria-hidden','false');
-    var close = document.getElementById('acPlaybookCloseTop');
-    if(close && close.focus) close.focus({preventScroll:true});
-    return false;
-  }
-
-  function closeACArrivalPlaybook(event){
-    if(event){
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    var el = getOverlay();
-    if(!el) return false;
-    el.classList.remove('is-open');
-    el.setAttribute('aria-hidden','true');
-    document.body.style.overflow = previousOverflow;
-    return false;
-  }
-
-  function init(){
-    var trigger = document.getElementById('cooneyACArrivalPlaybookButton');
-    if(trigger){
-      trigger.addEventListener('click', openACArrivalPlaybook, true);
-      trigger.addEventListener('touchend', openACArrivalPlaybook, true);
-    }
-    var topClose = document.getElementById('acPlaybookCloseTop');
-    var bottomClose = document.getElementById('acPlaybookCloseBottom');
-    if(topClose) topClose.addEventListener('click', closeACArrivalPlaybook);
-    if(bottomClose) bottomClose.addEventListener('click', closeACArrivalPlaybook);
-    var el = getOverlay();
-    if(el){
-      el.addEventListener('click', function(event){
-        if(event.target === el) closeACArrivalPlaybook(event);
-      });
-    }
-    document.addEventListener('keydown', function(event){
-      if(event.key === 'Escape') closeACArrivalPlaybook(event);
-    });
-  }
-
-  window.cooneyOpenACArrivalPlaybook = openACArrivalPlaybook;
-  window.cooneyCloseACArrivalPlaybook = closeACArrivalPlaybook;
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-})();
-</script>
-
-
 <!-- Cooney Weather Overlay + Weather Vacation Mode Controller v29 -->
 <script src="assets/config/vacation-config.js?v=29"></script>
 <script src="assets/js/cooney-weather-overlay.js?v=29"></script>
