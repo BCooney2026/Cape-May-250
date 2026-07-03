@@ -224,3 +224,17 @@
   .cooney-playbook-step h3{font-size:23px;}
   .cooney-playbook-step p,.cooney-playbook-list li{font-size:16px;}
 }
+
+/* v31: allow playbook cards to be real buttons so iPhone Safari cannot open the PDF first. */
+button.cooney-playbook-trigger.card{
+  width:100%;
+  text-align:left;
+  font:inherit;
+  cursor:pointer;
+  -webkit-appearance:none;
+  appearance:none;
+}
+button.cooney-playbook-trigger.card:focus-visible{
+  outline:3px solid rgba(48,232,255,.95);
+  outline-offset:4px;
+}

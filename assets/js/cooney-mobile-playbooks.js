@@ -1,4 +1,4 @@
-// Cooney Mobile Playbook Overlay v30
+// Cooney Mobile Playbook Overlay v31
 // Safe layer only: no audio, no Vacation Mode state, no weather controller changes.
 (function(){
   'use strict';
@@ -142,11 +142,15 @@
   }
 
   function init(){
-    document.querySelectorAll('[data-cooney-playbook]').forEach(function(link){
-      link.addEventListener('click', function(event){
+    document.querySelectorAll('[data-cooney-playbook]').forEach(function(trigger){
+      trigger.addEventListener('click', function(event){
         event.preventDefault();
-        openPlaybook(link.getAttribute('data-cooney-playbook'), link.getAttribute('data-playbook-pdf') || link.getAttribute('href'));
-      });
+        event.stopPropagation();
+        const key = trigger.getAttribute('data-cooney-playbook');
+        const pdf = trigger.getAttribute('data-playbook-pdf') || trigger.getAttribute('href') || '';
+        openPlaybook(key, pdf);
+        return false;
+      }, true);
     });
   }
 
