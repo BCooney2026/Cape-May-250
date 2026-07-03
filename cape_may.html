@@ -430,6 +430,17 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 @media (max-width:420px){#cooneyMobilePlaybookOverlay{padding:8px;}.cooney-mp-card{border-radius:24px;}.cooney-mp-head{padding:22px 17px 18px;}.cooney-mp-close{width:42px;height:42px;font-size:28px;}.cooney-mp-body{padding:14px 12px 16px;}.cooney-mp-step h3{font-size:23px;}.cooney-mp-step p{font-size:16.5px;}}
 </style>
 
+
+<style id="cooney-v42-destination-gate-kill">
+/* v42 emergency: destination pages must not show the homepage/start activation gate.
+   Cape May's old gate was covering the page and freezing taps. */
+body #cooneyStartOverlay{
+  display:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+</style>
 </head><body><main class="wrap">
 <div class="vacation-mode-launch">
 <button class="cooney-vacation-button" id="activateVacationMode"><span>🌦️ Weather Vacation Mode</span></button>
@@ -672,7 +683,25 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
   window.deeMakeEmojiRain = makeEmojiRain;
 })();
 </script>
-<!-- Cooney Weather Overlay + Weather Vacation Mode Controller v29 -->
+
+<script id="cooney-v42-destination-gate-kill-js">
+(function(){
+  function killDestinationGate(){
+    var gate=document.getElementById('cooneyStartOverlay');
+    if(!gate) return;
+    gate.classList.add('dismissed');
+    gate.setAttribute('hidden','hidden');
+    gate.style.setProperty('display','none','important');
+    gate.style.setProperty('opacity','0','important');
+    gate.style.setProperty('visibility','hidden','important');
+    gate.style.setProperty('pointer-events','none','important');
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',killDestinationGate,{once:true});
+  else killDestinationGate();
+})();
+</script>
+
+<!-- Cooney Weather Overlay + Weather Vacation Mode Controller v42 -->
 <script src="assets/config/vacation-config.js?v=29"></script>
 <script src="assets/js/cooney-weather-overlay.js?v=29"></script>
 </body></html>
