@@ -661,8 +661,11 @@ body.vacation-entered #cooneyStartOverlay,
   "use strict";
   if(window.__COONEY_EMERGENCY_LANDING_UNLOCK_V40__) return;
   window.__COONEY_EMERGENCY_LANDING_UNLOCK_V40__ = true;
+  window.__COONEY_LANDING_AUDIO_ATTEMPTS__ = 0;
+  window.__COONEY_LANDING_AUDIO_TRACKS__ = [];
 
   const LANDING_TRACK = "assets/audio/perfect-1.m4a";
+  const HOMEPAGE_AUDIO_ONLY = true;
   const ACTIVE_TEXT = "💩 🛑 Deactivate Vacation Mode";
   const INACTIVE_TEXT = "🎉 Activate Vacation Mode";
 
@@ -693,13 +696,24 @@ body.vacation-entered #cooneyStartOverlay,
     const audio = $("cooneyAudio");
     if(!audio) return false;
     const wanted = LANDING_TRACK;
+
+    // Hard rule: homepage uses exactly one track, one audio element, and does not chain/loop songs.
+    document.querySelectorAll("audio").forEach(function(other){
+      if(other !== audio){
+        try{ other.pause(); other.currentTime = 0; }catch(e){}
+      }
+    });
+
     const current = audio.getAttribute("src") || "";
     if(!current.includes("perfect-1.m4a")){
       audio.setAttribute("src", wanted);
       audio.src = wanted;
       try{ audio.load(); }catch(e){}
     }
-    audio.loop = true;
+    audio.loop = false;
+    try{ audio.currentTime = 0; }catch(e){}
+    window.__COONEY_LANDING_AUDIO_ATTEMPTS__ += 1;
+    window.__COONEY_LANDING_AUDIO_TRACKS__.push(audio.getAttribute("src") || audio.src || "");
     try{
       await audio.play();
       return true;
@@ -734,7 +748,7 @@ body.vacation-entered #cooneyStartOverlay,
 
   function deactivate(){
     const audio = $("cooneyAudio");
-    if(audio){ try{ audio.pause(); }catch(e){} }
+    if(audio){ try{ audio.pause(); audio.currentTime = 0; }catch(e){} }
     setBtn(false);
     try{ localStorage.setItem("cooneyVacationMode", "inactive"); }catch(e){}
     window.__COONEY_LAST_LANDING_ACTION__ = "deactivate";
@@ -769,8 +783,9 @@ body.vacation-entered #cooneyStartOverlay,
 </script>
 
 
-<!-- Cooney Weather Overlay + Weather Vacation Mode Controller v29 -->
-<script src="assets/config/vacation-config.js?v=29"></script>
-<script src="assets/js/cooney-weather-overlay.js?v=29"></script>
+<!-- Homepage emergency rule v41:
+     Do NOT load the shared weather/vacation controller on the landing page.
+     The landing page has its own tiny unlock/audio controller above so the front door cannot be broken by destination-page weather logic.
+     Destination pages should continue to load their own weather controller files. -->
 </body>
 </html>
