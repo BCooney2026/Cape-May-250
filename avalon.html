@@ -607,6 +607,14 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
   hookOverlay('cooneyActivatedImagePop', 'activate');
   hookOverlay('cooneyDeactivatedImagePop', 'deactivate');
 
+  console.log("Button text:", document.getElementById("activateVacationMode")?.innerText);
+console.log("Weather overlay elements:", [...document.querySelectorAll("[id*='weather' i], [class*='weather' i]")].map(e => ({
+  tag: e.tagName,
+  id: e.id,
+  class: e.className
+})));
+console.log("Cooney weather globals:", Object.keys(window).filter(k => k.toLowerCase().includes("weather") || k.toLowerCase().includes("cooney")).sort());
+
   // Also expose manual helpers for any existing button code that calls these.
   window.deeMakeEmojiRain = makeEmojiRain;
 })();
