@@ -317,6 +317,50 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 @media (max-width:420px){#cooneyMobilePlaybookOverlay{padding:8px;}.cooney-mp-card{border-radius:24px;}.cooney-mp-head{padding:22px 17px 18px;}.cooney-mp-close{width:42px;height:42px;font-size:28px;}.cooney-mp-body{padding:14px 12px 16px;}.cooney-mp-step h3{font-size:23px;}.cooney-mp-step p{font-size:16.5px;}}
 </style>
 
+
+<style id="cooney-avalon-weather-force-v41-css">
+/* Avalon weather overlay force layer v41: static DOM root so Safari/GitHub Pages cannot lose the injected overlay */
+#cooneyAvalonWeatherOverlay{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:2147483646 !important;
+  display:none !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:14px !important;
+  background:radial-gradient(circle at 18% 10%,rgba(94,199,216,.42),transparent 26%),radial-gradient(circle at 86% 18%,rgba(216,170,79,.30),transparent 28%),rgba(3,16,28,.82) !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+  color:#fff8ea !important;
+  pointer-events:auto !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  isolation:isolate !important;
+}
+#cooneyAvalonWeatherOverlay.is-open{display:flex !important;}
+#cooneyAvalonWeatherOverlay *{box-sizing:border-box;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-card{width:min(940px,96vw);max-height:92vh;overflow:auto;border-radius:30px;border:2px solid rgba(216,170,79,.78);background:linear-gradient(145deg,rgba(8,32,50,.98),rgba(7,56,74,.95));box-shadow:0 34px 110px rgba(0,0,0,.72),0 0 50px rgba(94,199,216,.22);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-head{position:relative;padding:24px 22px 18px;border-bottom:1px solid rgba(255,248,234,.16);background:radial-gradient(circle at 15% 0,rgba(94,199,216,.25),transparent 30%),linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.02));}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:1000;color:#ffd166;margin-bottom:8px;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-title{font-family:Georgia,serif;font-size:clamp(34px,7vw,62px);line-height:.94;letter-spacing:-.05em;font-weight:900;margin:0 54px 8px 0;color:#fff8ea;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-sub{font-weight:800;line-height:1.35;color:rgba(255,248,234,.86);max-width:760px;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-close{position:absolute;right:14px;top:14px;width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,248,234,.35);background:rgba(0,0,0,.22);color:#fff;font-size:28px;font-weight:1000;cursor:pointer;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-body{padding:18px 18px 22px;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-now{border-radius:24px;border:1px solid rgba(216,170,79,.38);background:linear-gradient(135deg,rgba(255,209,102,.20),rgba(94,199,216,.12));padding:16px;margin-bottom:14px;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-now b{display:block;font-size:clamp(21px,4.8vw,32px);line-height:1.05;margin-bottom:6px;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-now p{margin:0;font-size:16px;line-height:1.35;font-weight:800;color:rgba(255,248,234,.88);}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-slot{border-radius:21px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);padding:14px;min-height:132px;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-slot .top{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:#ffd166;font-weight:1000;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-slot .temp{font-size:36px;font-weight:1000;margin:8px 0 2px;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-slot .meta,#cooneyAvalonWeatherOverlay .cooney-weather-v40-slot .quip{font-size:13px;line-height:1.4;color:rgba(255,248,234,.82);font-weight:760;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-slot .quip{margin-top:8px;color:#fff8ea;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-actions button{border:0;border-radius:999px;padding:12px 15px;font-weight:1000;cursor:pointer;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-primary{background:#ffd166;color:#082032;}
+#cooneyAvalonWeatherOverlay .cooney-weather-v40-secondary{background:rgba(255,255,255,.14);color:#fff8ea;border:1px solid rgba(255,255,255,.18)!important;}
+@media(max-width:740px){#cooneyAvalonWeatherOverlay{padding:8px !important;align-items:flex-start !important;overflow:auto !important;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-card{border-radius:24px;margin:10px 0;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-head{padding:20px 16px 16px;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-body{padding:13px;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-grid{grid-template-columns:1fr;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-title{font-size:42px;}}
+</style>
 </head>
 <body>
 <video autoplay="" class="cooney-page-bg-video" id="cooneyPageBgVideo" loop="" muted="" playsinline="" preload="auto" src="avalon.mp4?v=17" webkit-playsinline=""></video>
@@ -488,6 +532,8 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 <div class="cooney-image-pop deactivated" id="cooneyDeactivatedImagePop">
 <img alt="Vacation Mode Deactivated" src="assets/overlays/vacation-mode-deactivated.png"/>
 </div>
+
+<div id="cooneyAvalonWeatherOverlay" aria-hidden="true"></div>
 <audio id="cooneyAudio" loop="" preload="auto"></audio>
 <script id="cooney-overlay-crop-final-js">
 (function(){
@@ -610,9 +656,9 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
   window.deeMakeEmojiRain = makeEmojiRain;
 })();
 </script>
-<!-- Cooney Weather Vacation Mode v40 - Avalon self-contained tested recovery controller -->
+<!-- Cooney Weather Vacation Mode v41 - Avalon audio preserved, forced static weather overlay root -->
 <script src="assets/config/vacation-config.js?v=29"></script>
-<script id="cooney-avalon-weather-controller-v40">
+<script id="cooney-avalon-weather-controller-v41">
 (function(){
   'use strict';
 
@@ -721,8 +767,21 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     style.textContent = '\n.cooney-weather-v40{position:fixed;inset:0;z-index:2147483200;display:flex;align-items:center;justify-content:center;padding:14px;background:radial-gradient(circle at 18% 10%,rgba(94,199,216,.42),transparent 26%),radial-gradient(circle at 86% 18%,rgba(216,170,79,.30),transparent 28%),rgba(3,16,28,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff8ea;}\n.cooney-weather-v40-card{width:min(940px,96vw);max-height:92vh;overflow:auto;border-radius:30px;border:2px solid rgba(216,170,79,.78);background:linear-gradient(145deg,rgba(8,32,50,.98),rgba(7,56,74,.95));box-shadow:0 34px 110px rgba(0,0,0,.72),0 0 50px rgba(94,199,216,.22);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;}\n.cooney-weather-v40-head{position:relative;padding:24px 22px 18px;border-bottom:1px solid rgba(255,248,234,.16);background:radial-gradient(circle at 15% 0,rgba(94,199,216,.25),transparent 30%),linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.02));}\n.cooney-weather-v40-kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:1000;color:#ffd166;margin-bottom:8px;}\n.cooney-weather-v40-title{font-family:Georgia,serif;font-size:clamp(34px,7vw,62px);line-height:.94;letter-spacing:-.05em;font-weight:900;margin:0 54px 8px 0;}\n.cooney-weather-v40-sub{font-weight:800;line-height:1.35;color:rgba(255,248,234,.86);max-width:760px;}\n.cooney-weather-v40-close{position:absolute;right:14px;top:14px;width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,248,234,.35);background:rgba(0,0,0,.22);color:#fff;font-size:28px;font-weight:1000;cursor:pointer;}\n.cooney-weather-v40-body{padding:18px 18px 22px;}\n.cooney-weather-v40-now{border-radius:24px;border:1px solid rgba(216,170,79,.38);background:linear-gradient(135deg,rgba(255,209,102,.20),rgba(94,199,216,.12));padding:16px;margin-bottom:14px;}\n.cooney-weather-v40-now b{display:block;font-size:clamp(21px,4.8vw,32px);line-height:1.05;margin-bottom:6px;}\n.cooney-weather-v40-now p{margin:0;font-size:16px;line-height:1.35;font-weight:800;color:rgba(255,248,234,.88);}\n.cooney-weather-v40-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}\n.cooney-weather-v40-slot{border-radius:21px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);padding:14px;min-height:132px;}\n.cooney-weather-v40-slot .top{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:#ffd166;font-weight:1000;}\n.cooney-weather-v40-slot .temp{font-size:36px;font-weight:1000;margin:8px 0 2px;}\n.cooney-weather-v40-slot .meta,.cooney-weather-v40-slot .quip{font-size:13px;line-height:1.4;color:rgba(255,248,234,.82);font-weight:760;}\n.cooney-weather-v40-slot .quip{margin-top:8px;color:#fff8ea;}\n.cooney-weather-v40-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px;}\n.cooney-weather-v40-actions button{border:0;border-radius:999px;padding:12px 15px;font-weight:1000;cursor:pointer;}\n.cooney-weather-v40-primary{background:#ffd166;color:#082032;}\n.cooney-weather-v40-secondary{background:rgba(255,255,255,.14);color:#fff8ea;border:1px solid rgba(255,255,255,.18)!important;}\n@media(max-width:740px){.cooney-weather-v40{padding:8px;align-items:flex-start;overflow:auto}.cooney-weather-v40-card{border-radius:24px;margin:10px 0}.cooney-weather-v40-head{padding:20px 16px 16px}.cooney-weather-v40-body{padding:13px}.cooney-weather-v40-grid{grid-template-columns:1fr}.cooney-weather-v40-title{font-size:42px}}';
     document.head.appendChild(style);
   }
+  function weatherRoot(){
+    var root = $('cooneyAvalonWeatherOverlay');
+    if(!root){
+      root = document.createElement('div');
+      root.id = 'cooneyAvalonWeatherOverlay';
+      root.setAttribute('aria-hidden','true');
+      document.body.appendChild(root);
+    }
+    return root;
+  }
   function closeWeather(){
-    if(state.overlay && state.overlay.parentNode) state.overlay.parentNode.removeChild(state.overlay);
+    var root = weatherRoot();
+    root.classList.remove('is-open');
+    root.setAttribute('aria-hidden','true');
+    root.innerHTML = '';
     state.overlay = null;
   }
   function quip(mood){
@@ -766,14 +825,14 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
       '<div class="cooney-weather-v40-body"><div class="cooney-weather-v40-now"><b>' + esc((loading ? '🌦️ Loading forecast' : moodEmoji(mood) + ' ' + mood.toUpperCase() + ' mode')) + '</b><p>' + esc((loading ? 'Give it a second. If weather fails, Avalon still falls back cleanly.' : quip(mood))) + '</p><p style="margin-top:8px">🎵 Track armed: ' + esc(track.replace('assets/audio/','')) + '</p></div>' +
       '<div class="cooney-weather-v40-grid">' + slots.map(function(s){ var sm = s.mood || classify(s); return '<article class="cooney-weather-v40-slot"><div class="top"><span>' + esc(s.emoji || '🌤️') + ' ' + esc(s.day || 'Today') + '</span><span>' + esc(s.period || 'Now') + '</span></div><div class="temp">' + esc(Math.round(Number(s.temp) || 72)) + '°</div><div class="meta">' + esc(s.condition || weatherLabel(s.code)) + ' · Rain ' + esc(Math.round(Number(s.rain) || 0)) + '% · Wind ' + esc(Math.round(Number(s.wind) || 0)) + ' mph</div><div class="quip">' + esc(quip(sm)) + '</div></article>'; }).join('') + '</div>' +
       '<div class="cooney-weather-v40-actions"><button class="cooney-weather-v40-primary" type="button" data-close-weather>Let me in</button><button class="cooney-weather-v40-secondary" type="button" data-stop-vacation>Deactivate Vacation Mode</button></div></div></div>';
-    var overlay = document.createElement('div');
-    overlay.className = 'cooney-weather-v40';
+    var overlay = weatherRoot();
+    overlay.className = 'is-open';
+    overlay.setAttribute('aria-hidden','false');
     overlay.innerHTML = html;
     overlay.querySelector('.cooney-weather-v40-close').addEventListener('click', closeWeather);
     overlay.querySelector('[data-close-weather]').addEventListener('click', closeWeather);
     overlay.querySelector('[data-stop-vacation]').addEventListener('click', deactivate);
-    overlay.addEventListener('click', function(e){ if(e.target === overlay) closeWeather(); });
-    document.body.appendChild(overlay);
+    overlay.onclick = function(e){ if(e.target === overlay) closeWeather(); };
     state.overlay = overlay;
   }
   function moodEmoji(mood){
