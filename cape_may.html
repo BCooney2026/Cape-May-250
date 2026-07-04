@@ -936,11 +936,27 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     if(temp >= hotAt) return 'hot';
     return 'perfect';
   }
+
+  function chooseMood(slots){
+    var list = Array.isArray(slots) ? slots : [];
+    var priority = {storm:90, rain:80, hot:70, windy:60, cold:50, cloudy:40, perfect:10};
+    var best = DEFAULT_MOOD;
+    var bestScore = priority[best] || 0;
+    for(var i=0; i<list.length; i++){
+      var slot = list[i] || {};
+      var mood = slot.mood || classify(slot);
+      var score = priority[mood] || 0;
+      if(score > bestScore){
+        best = mood;
+        bestScore = score;
+      }
+    }
+    return best;
+  }
   function renderWeather(slots, loading){
     ensureWeatherCss();
     closeWeather();
-    var first = slots[0] || fallbackSlot();
-    var mood = first.mood || classify(first);
+    var mood = chooseMood(slots);
     var track = state.lastTrack || (getSongs(mood)[0] || getSongs(DEFAULT_MOOD)[0] || 'assets/audio/perfect-1.m4a');
     var title = loading ? 'Checking Cape May Weather…' : 'Cape May Weather Vibe Check';
     var sub = loading ? 'Weather is loading now. Vacation Mode is already armed so the button does not feel dead.' : 'Forecast picked the vibe, selected the music bucket, and opened the weather overlay first — not Dee’s picture.';
@@ -1089,7 +1105,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     makeWeatherEmojiRain(DEFAULT_MOOD, 'activate');
     try{
       var slots = await fetchWeatherSlots();
-      var mood = (slots[0] && slots[0].mood) || DEFAULT_MOOD;
+      var mood = chooseMood(slots);
       var picked = await chooseAndPlay(mood);
       renderWeather(slots, false);
       makeWeatherEmojiRain(mood, 'activate');
