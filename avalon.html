@@ -362,24 +362,24 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 @media(max-width:740px){#cooneyAvalonWeatherOverlay{padding:8px !important;align-items:flex-start !important;overflow:auto !important;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-card{border-radius:24px;margin:10px 0;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-head{padding:20px 16px 16px;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-body{padding:13px;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-grid{grid-template-columns:1fr;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-title{font-size:42px;}}
 </style>
 
-<style id="cooney-weather-emoji-rain-v42-css">
-/* v42: current-weather emoji rain, above the weather overlay, Avalon only */
+<style id="cooney-weather-emoji-rain-v43-css">
+/* v43: current-weather emoji rain, visible above the weather overlay, Avalon only */
 .cooney-weather-emoji-rain-layer{
   position:fixed;
   inset:0;
-  z-index:2147483500;
+  z-index:2147483647;
   pointer-events:none;
   overflow:hidden;
 }
 .cooney-weather-emoji-drop{
   position:absolute;
-  top:-90px;
+  top:-70px;
   left:var(--x);
   font-size:var(--size);
   line-height:1;
   opacity:0;
-  text-shadow:0 7px 18px rgba(0,0,0,.58);
-  filter:drop-shadow(0 0 10px rgba(255,255,255,.28));
+  text-shadow:0 7px 18px rgba(0,0,0,.75),0 0 14px rgba(255,255,255,.55);
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.50));
   will-change:transform,opacity;
   animation:cooneyWeatherEmojiFallV42 var(--dur) linear var(--delay) forwards;
 }
@@ -388,8 +388,8 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
   animation:cooneyWeatherEmojiWobbleV42 var(--spin) ease-in-out var(--delay) forwards;
 }
 @keyframes cooneyWeatherEmojiFallV42{
-  0%{opacity:0;transform:translate3d(0,-12vh,0) rotate(-8deg) scale(.84);}
-  8%{opacity:1;}
+  0%{opacity:1;transform:translate3d(0,-8vh,0) rotate(-8deg) scale(.92);}
+  4%{opacity:1;}
   48%{opacity:1;transform:translate3d(var(--drift1),48vh,0) rotate(10deg) scale(1.08);}
   100%{opacity:0;transform:translate3d(var(--drift2),116vh,0) rotate(28deg) scale(.92);}
 }
@@ -398,7 +398,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
   50%{transform:rotate(12deg) scale(1.08);}
   100%{transform:rotate(22deg) scale(.96);}
 }
-@media(max-width:520px){.cooney-weather-emoji-drop{font-size:calc(var(--size) * .9);}}
+@media(max-width:520px){.cooney-weather-emoji-drop{filter:drop-shadow(0 0 12px rgba(255,255,255,.60));}}
 </style>
 </head>
 <body>
@@ -626,7 +626,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     const layer = document.createElement('div');
     layer.className = 'dee-emoji-rain-layer';
     layer.setAttribute('data-mode', mode);
-    document.body.appendChild(layer);
+    (document.documentElement || document.body).appendChild(layer);
 
     const sleepy = ['😴','🥱','💤','🛌','😪'];
     const party = ['🎉','🥳','🍾','🏖️','🌴','🍹','✨'];
@@ -695,9 +695,9 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
   window.deeMakeEmojiRain = makeEmojiRain;
 })();
 </script>
-<!-- Cooney Weather Vacation Mode v41 - Avalon audio preserved, forced static weather overlay root -->
+<!-- Cooney Weather Vacation Mode v43 - Avalon audio preserved, weather overlay + visible weather emoji rain + real song names -->
 <script src="assets/config/vacation-config.js?v=29"></script>
-<script id="cooney-avalon-weather-controller-v41">
+<script id="cooney-avalon-weather-controller-v43">
 (function(){
   'use strict';
 
@@ -712,6 +712,34 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
       return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];
     });
   }
+  function trackTitle(src){
+    var key = String(src || '').split('/').pop().replace(/\?.*$/, '');
+    var titles = {
+      'cloudy-1.m4a': 'Soundgarden – Black Hole Sun',
+      'cloudy-2.m4a': 'Bill Withers – Ain’t No Sunshine',
+      'cloudy-3.m4a': 'Blind Melon – No Rain',
+      'cold-1.m4a': 'Vanilla Ice – Ice Ice Baby!',
+      'cold-2.m4a': 'Foreigner – Cold as Ice',
+      'cold-3.m4a': 'The Neighbourhood – Sweater Weather',
+      'hot-1.m4a': 'Martha Reeves & The Vandellas – (Love Is Like a) Heat Wave',
+      'hot-2.m4a': 'Violent Femmes – Blister in the Sun',
+      'hot-3.m4a': 'DJ Jazzy Jeff & The Fresh Prince – Summertime',
+      'perfect-1.m4a': 'The Go-Go’s – Vacation!!!!!!!!!!!!!',
+      'perfect-2.m4a': 'Marky Mark and the Funky Bunch – Good Vibrations',
+      'perfect-3.m4a': 'The Beach Boys – Good Vibrations',
+      'perfect-4.m4a': 'Bill Withers – Lovely Day',
+      'rain-1.m4a': 'Eddie Rabbitt – I Love a Rainy Night',
+      'rain-2.m4a': 'Garbage – I’m Only Happy When It Rains',
+      'rain-3.m4a': 'Creedence Clearwater Revival – Have You Ever Seen the Rain',
+      'storm-1.m4a': 'AC/DC – Thunderstruck',
+      'storm-2.m4a': 'Scorpions – Rock You Like a Hurricane',
+      'storm-3.m4a': 'The Doors – Riders on the Storm',
+      'windy-1.m4a': 'Patrick Swayze – She’s Like the Wind',
+      'windy-2.m4a': 'The Association – Windy'
+    };
+    return titles[key] || key || 'Vacation Mode Track';
+  }
+
   function shuffle(list){
     var out = list.slice();
     for(var i = out.length - 1; i > 0; i--){
@@ -861,7 +889,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     var sub = loading ? 'Weather is loading now. Vacation Mode is already armed so the button does not feel dead.' : 'Forecast picked the vibe, selected the music bucket, and opened the weather overlay first — not Dee’s picture.';
     var html = '<div class="cooney-weather-v40-card" role="dialog" aria-modal="true" aria-label="Avalon weather vibe check">' +
       '<div class="cooney-weather-v40-head"><button class="cooney-weather-v40-close" type="button" aria-label="Close weather">×</button><div class="cooney-weather-v40-kicker">Weather Vacation Mode</div><h2 class="cooney-weather-v40-title">' + esc(title) + '</h2><div class="cooney-weather-v40-sub">' + esc(sub) + '</div></div>' +
-      '<div class="cooney-weather-v40-body"><div class="cooney-weather-v40-now"><b>' + esc((loading ? '🌦️ Loading forecast' : moodEmoji(mood) + ' ' + mood.toUpperCase() + ' mode')) + '</b><p>' + esc((loading ? 'Give it a second. If weather fails, Avalon still falls back cleanly.' : quip(mood))) + '</p><p style="margin-top:8px">🎵 Track armed: ' + esc(track.replace('assets/audio/','')) + '</p></div>' +
+      '<div class="cooney-weather-v40-body"><div class="cooney-weather-v40-now"><b>' + esc((loading ? '🌦️ Loading forecast' : moodEmoji(mood) + ' ' + mood.toUpperCase() + ' mode')) + '</b><p>' + esc((loading ? 'Give it a second. If weather fails, Avalon still falls back cleanly.' : quip(mood))) + '</p><p style="margin-top:8px">🎵 Track armed: ' + esc(trackTitle(track)) + '</p></div>' +
       '<div class="cooney-weather-v40-grid">' + slots.map(function(s){ var sm = s.mood || classify(s); return '<article class="cooney-weather-v40-slot"><div class="top"><span>' + esc(s.emoji || '🌤️') + ' ' + esc(s.day || 'Today') + '</span><span>' + esc(s.period || 'Now') + '</span></div><div class="temp">' + esc(Math.round(Number(s.temp) || 72)) + '°</div><div class="meta">' + esc(s.condition || weatherLabel(s.code)) + ' · Rain ' + esc(Math.round(Number(s.rain) || 0)) + '% · Wind ' + esc(Math.round(Number(s.wind) || 0)) + ' mph</div><div class="quip">' + esc(quip(sm)) + '</div></article>'; }).join('') + '</div>' +
       '<div class="cooney-weather-v40-actions"><button class="cooney-weather-v40-primary" type="button" data-close-weather>Let me in</button><button class="cooney-weather-v40-secondary" type="button" data-stop-vacation>Deactivate Vacation Mode</button></div></div></div>';
     var overlay = weatherRoot();
@@ -896,18 +924,18 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     layer.className = 'cooney-weather-emoji-rain-layer';
     layer.setAttribute('data-mood', mood || DEFAULT_MOOD);
     layer.setAttribute('data-mode', mode || 'activate');
-    document.body.appendChild(layer);
+    (document.documentElement || document.body).appendChild(layer);
     var emojis = weatherEmojiSet(mood || DEFAULT_MOOD);
-    var count = mode === 'deactivate' ? 46 : 58;
+    var count = mode === 'deactivate' ? 54 : 72;
     for(var i=0; i<count; i++){
       var drop = document.createElement('span');
       drop.className = 'cooney-weather-emoji-drop';
       var startX = 2 + Math.random() * 96;
       var drift1 = -70 + Math.random() * 140;
       var drift2 = -120 + Math.random() * 240;
-      var size = 24 + Math.random() * 31;
-      var delay = Math.random() * 1.1;
-      var duration = 5.2 + Math.random() * 1.9;
+      var size = 32 + Math.random() * 34;
+      var delay = Math.random() * 0.55;
+      var duration = 5.6 + Math.random() * 2.1;
       drop.style.setProperty('--x', startX + 'vw');
       drop.style.setProperty('--size', size + 'px');
       drop.style.setProperty('--delay', delay + 's');
@@ -1001,6 +1029,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     state.candidateIndex = 0;
     playNextCandidate();
     renderWeather([fallbackSlot()], true);
+    makeWeatherEmojiRain(DEFAULT_MOOD, 'activate');
     try{
       var slots = await fetchWeatherSlots();
       var mood = (slots[0] && slots[0].mood) || DEFAULT_MOOD;
@@ -1009,7 +1038,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
       makeWeatherEmojiRain(mood, 'activate');
       if(picked){
         var note = state.overlay && state.overlay.querySelector('.cooney-weather-v40-now p[style]');
-        if(note) note.textContent = '🎵 Track armed: ' + picked.replace('assets/audio/','');
+        if(note) note.textContent = '🎵 Track armed: ' + trackTitle(picked);
       }
     }catch(e){
       var slot = fallbackSlot();
@@ -1045,6 +1074,8 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     window.COONEY_PICK_WEATHER_TRACK = function(mood){ return allCandidates(mood || DEFAULT_MOOD)[0]; };
     window.COONEY_PLAY_SELECTED_WEATHER_TRACK = function(){ playNextCandidate(); };
     window.COONEY_STOP_VACATION_MUSIC = deactivate;
+    window.COONEY_TEST_WEATHER_EMOJI_RAIN = makeWeatherEmojiRain;
+    window.COONEY_TRACK_TITLE = trackTitle;
   }
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind); else bind();
 })();
