@@ -361,6 +361,45 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 #cooneyAvalonWeatherOverlay .cooney-weather-v40-secondary{background:rgba(255,255,255,.14);color:#fff8ea;border:1px solid rgba(255,255,255,.18)!important;}
 @media(max-width:740px){#cooneyAvalonWeatherOverlay{padding:8px !important;align-items:flex-start !important;overflow:auto !important;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-card{border-radius:24px;margin:10px 0;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-head{padding:20px 16px 16px;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-body{padding:13px;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-grid{grid-template-columns:1fr;}#cooneyAvalonWeatherOverlay .cooney-weather-v40-title{font-size:42px;}}
 </style>
+
+<style id="cooney-weather-emoji-rain-v42-css">
+/* v42: current-weather emoji rain, above the weather overlay, Avalon only */
+.cooney-weather-emoji-rain-layer{
+  position:fixed;
+  inset:0;
+  z-index:2147483500;
+  pointer-events:none;
+  overflow:hidden;
+}
+.cooney-weather-emoji-drop{
+  position:absolute;
+  top:-90px;
+  left:var(--x);
+  font-size:var(--size);
+  line-height:1;
+  opacity:0;
+  text-shadow:0 7px 18px rgba(0,0,0,.58);
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.28));
+  will-change:transform,opacity;
+  animation:cooneyWeatherEmojiFallV42 var(--dur) linear var(--delay) forwards;
+}
+.cooney-weather-emoji-drop .weather-emoji-face{
+  display:block;
+  animation:cooneyWeatherEmojiWobbleV42 var(--spin) ease-in-out var(--delay) forwards;
+}
+@keyframes cooneyWeatherEmojiFallV42{
+  0%{opacity:0;transform:translate3d(0,-12vh,0) rotate(-8deg) scale(.84);}
+  8%{opacity:1;}
+  48%{opacity:1;transform:translate3d(var(--drift1),48vh,0) rotate(10deg) scale(1.08);}
+  100%{opacity:0;transform:translate3d(var(--drift2),116vh,0) rotate(28deg) scale(.92);}
+}
+@keyframes cooneyWeatherEmojiWobbleV42{
+  0%{transform:rotate(-16deg) scale(.9);}
+  50%{transform:rotate(12deg) scale(1.08);}
+  100%{transform:rotate(22deg) scale(.96);}
+}
+@media(max-width:520px){.cooney-weather-emoji-drop{font-size:calc(var(--size) * .9);}}
+</style>
 </head>
 <body>
 <video autoplay="" class="cooney-page-bg-video" id="cooneyPageBgVideo" loop="" muted="" playsinline="" preload="auto" src="avalon.mp4?v=17" webkit-playsinline=""></video>
@@ -835,6 +874,55 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     overlay.onclick = function(e){ if(e.target === overlay) closeWeather(); };
     state.overlay = overlay;
   }
+
+  function weatherEmojiSet(mood){
+    var sets = {
+      hot:['🔥','🥵','☀️','🌡️'],
+      rain:['☔','🌧️','💧','🌂'],
+      windy:['💨','🍃','🌬️','🌀'],
+      perfect:['🌞','😎','🏖️','✨'],
+      cloudy:['☁️','⛅','🌥️','🌫️'],
+      storm:['⛈️','⚡','🌩️','☔'],
+      cold:['🥶','❄️','🧊','☃️']
+    };
+    return sets[mood] || ['🌦️','✨','🌊'];
+  }
+  function removeWeatherEmojiRain(){
+    document.querySelectorAll('.cooney-weather-emoji-rain-layer').forEach(function(layer){ layer.remove(); });
+  }
+  function makeWeatherEmojiRain(mood, mode){
+    removeWeatherEmojiRain();
+    var layer = document.createElement('div');
+    layer.className = 'cooney-weather-emoji-rain-layer';
+    layer.setAttribute('data-mood', mood || DEFAULT_MOOD);
+    layer.setAttribute('data-mode', mode || 'activate');
+    document.body.appendChild(layer);
+    var emojis = weatherEmojiSet(mood || DEFAULT_MOOD);
+    var count = mode === 'deactivate' ? 46 : 58;
+    for(var i=0; i<count; i++){
+      var drop = document.createElement('span');
+      drop.className = 'cooney-weather-emoji-drop';
+      var startX = 2 + Math.random() * 96;
+      var drift1 = -70 + Math.random() * 140;
+      var drift2 = -120 + Math.random() * 240;
+      var size = 24 + Math.random() * 31;
+      var delay = Math.random() * 1.1;
+      var duration = 5.2 + Math.random() * 1.9;
+      drop.style.setProperty('--x', startX + 'vw');
+      drop.style.setProperty('--size', size + 'px');
+      drop.style.setProperty('--delay', delay + 's');
+      drop.style.setProperty('--dur', duration + 's');
+      drop.style.setProperty('--spin', duration + 's');
+      drop.style.setProperty('--drift1', drift1 + 'px');
+      drop.style.setProperty('--drift2', drift2 + 'px');
+      var face = document.createElement('span');
+      face.className = 'weather-emoji-face';
+      face.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      drop.appendChild(face);
+      layer.appendChild(drop);
+    }
+    window.setTimeout(function(){ if(layer && layer.isConnected) layer.remove(); }, 9000);
+  }
   function moodEmoji(mood){
     return {hot:'🔥', rain:'☔', windy:'💨', perfect:'🌞', cloudy:'☁️', storm:'⛈️', cold:'🥶'}[mood] || '🌦️';
   }
@@ -918,6 +1006,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
       var mood = (slots[0] && slots[0].mood) || DEFAULT_MOOD;
       var picked = await chooseAndPlay(mood);
       renderWeather(slots, false);
+      makeWeatherEmojiRain(mood, 'activate');
       if(picked){
         var note = state.overlay && state.overlay.querySelector('.cooney-weather-v40-now p[style]');
         if(note) note.textContent = '🎵 Track armed: ' + picked.replace('assets/audio/','');
@@ -926,6 +1015,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
       var slot = fallbackSlot();
       await chooseAndPlay(slot.mood);
       renderWeather([slot], false);
+      makeWeatherEmojiRain(slot.mood, 'activate');
     }
   }
   function deactivate(){
@@ -935,6 +1025,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     try{ audio.pause(); }catch(e){}
     try{ audio.currentTime = 0; }catch(e){}
     closeWeather();
+    makeWeatherEmojiRain(state.lastMood || DEFAULT_MOOD, 'deactivate');
     setButton(false);
   }
   function onButtonClick(event){
