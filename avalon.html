@@ -871,12 +871,22 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     var wind = Number(slot.wind); if(!Number.isFinite(wind)) wind = 0;
     var cloud = Number(slot.cloud); if(!Number.isFinite(cloud)) cloud = 0;
     var code = Number(slot.code); if(!Number.isFinite(code)) code = 0;
-    if([95,96,99].indexOf(code) >= 0 || rain >= Number(c.stormChanceAtOrAbove || 70)) return 'storm';
-    if([51,53,55,56,57,61,63,65,66,67,80,81,82].indexOf(code) >= 0 || rain >= Number(c.rainChanceAtOrAbove || 45)) return 'rain';
-    if(temp >= Number(c.hotAtOrAboveF || 86)) return 'hot';
-    if(temp < Number(c.coldBelowF || 60)) return 'cold';
-    if(wind >= Number(c.windyAtOrAboveMph || 22)) return 'windy';
-    if([2,3,45,48].indexOf(code) >= 0 || cloud >= Number(c.cloudyAtOrAbovePercent || 72)) return 'cloudy';
+
+    // v45 shore-tuned mood rules. 86° at the Jersey Shore is still vacation-perfect;
+    // HOT now means actually nasty-hot, not just a warm beach day.
+    var stormAt = Number(c.stormChanceAtOrAbove || 70);
+    var rainAt = Number(c.rainChanceAtOrAbove || 45);
+    var coldBelow = Number(c.coldBelowF || 60);
+    var windyAt = Number(c.windyAtOrAboveMph || 22);
+    var cloudyAt = Number(c.cloudyAtOrAbovePercent || 72);
+    var hotAt = Math.max(90, Number(c.hotAtOrAboveF || 90));
+
+    if([95,96,99].indexOf(code) >= 0 || rain >= stormAt) return 'storm';
+    if([51,53,55,56,57,61,63,65,66,67,80,81,82].indexOf(code) >= 0 || rain >= rainAt) return 'rain';
+    if(temp < coldBelow) return 'cold';
+    if(wind >= windyAt) return 'windy';
+    if([2,3,45,48].indexOf(code) >= 0 || cloud >= cloudyAt) return 'cloudy';
+    if(temp >= hotAt) return 'hot';
     return 'perfect';
   }
   function renderWeather(slots, loading){
