@@ -1,36 +1,44 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Cooney Cape May 250</title><link href="style.css" rel="stylesheet"/>
-<style id="cooney-video-layer-fix">
-/* Keeps the Pexels flag video visible behind the hub content */
-body{background:#07192f !important;}
-.cooney-flag-bg{
-  z-index:0 !important;
-  opacity:.82 !important;
-  pointer-events:none !important;
-}
-.cooney-flag-bg-overlay{
-  z-index:1 !important;
-  pointer-events:none !important;
-}
-body:before{
-  z-index:1 !important;
-}
-.wrap, main, header, .hero, .section-title, .grid, .daily-row, .card{
-  position:relative;
-  z-index:2;
-}
-.cooney-start-overlay{z-index:9999 !important;}
-.cooney-musicbar{z-index:9998 !important;}
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Ocean City Flanders Boardwalk Base • Cooney Vacation Mode</title>
+<meta content="#0b5265" name="theme-color"/>
+<style>
+:root{--ac-ink:#16001f;--ac-purple:#2b073d;--ac-pink:#ff3ed1;--ac-cyan:#30e8ff;--ac-gold:#ffd166;--ac-cream:#fff8ea;--ac-card:#fff4dc;--ac-red:#ff355d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100%;overflow-x:hidden;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ac-cream);background:#09000f}.ac-bg-video{position:fixed;inset:0;width:100vw;height:100vh;object-fit:cover;z-index:0;opacity:.90;filter:saturate(1.38) contrast(1.15) brightness(.55);pointer-events:none;background:#09000f}.ac-bg-overlay{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 18% 15%,rgba(255,62,209,.25),transparent 26%),radial-gradient(circle at 80% 24%,rgba(48,232,255,.22),transparent 28%),linear-gradient(135deg,rgba(14,0,22,.90),rgba(56,4,76,.54) 48%,rgba(8,0,15,.92))}.ac-bg-overlay:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 24px),repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 28px),linear-gradient(180deg,transparent 0 58%,rgba(7,0,13,.65) 100%);animation:acPulse 4s ease-in-out infinite}.wrap{width:min(1120px,calc(100vw - 32px));margin:0 auto;padding:42px 0 70px;position:relative;z-index:2}.backbar{margin:0 0 18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.back{display:inline-block;color:var(--ac-cream);text-decoration:none;font-weight:1000;border:1px solid rgba(255,255,255,.30);background:rgba(255,255,255,.12);padding:10px 14px;border-radius:999px;box-shadow:0 12px 28px rgba(0,0,0,.24)}.tag{font-weight:1000;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:rgba(255,248,234,.78)}.hero{position:relative;overflow:hidden;border-radius:32px;border:2px solid rgba(255,209,102,.68);background:linear-gradient(180deg,rgba(255,248,234,.94),rgba(255,244,220,.90));color:var(--ac-ink);box-shadow:0 28px 90px rgba(0,0,0,.42),0 0 50px rgba(255,62,209,.22);padding:clamp(28px,5vw,54px);text-align:center}.hero:before{content:"777";position:absolute;right:18px;bottom:-18px;font-family:Georgia,serif;font-size:clamp(84px,16vw,190px);font-weight:900;color:rgba(255,62,209,.10);letter-spacing:-.08em}.slot{font-size:clamp(52px,9vw,92px);line-height:1;margin-bottom:8px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.15))}.kicker{font-size:13px;font-weight:1000;letter-spacing:.20em;text-transform:uppercase;color:#a31e8f}.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,7vw,74px);line-height:.94;letter-spacing:-.055em;margin:8px 0 10px}.hero p{max-width:780px;margin:0 auto 18px;font-size:clamp(16px,2vw,22px);font-weight:850;line-height:1.25;color:#35243a}.badge{display:inline-block;position:relative;z-index:1;border:1px solid rgba(255,62,209,.45);background:rgba(255,255,255,.65);border-radius:999px;padding:10px 18px;font-weight:1000;color:#1b0d25}.section-title{font-family:Georgia,serif;font-size:clamp(28px,4vw,40px);line-height:1;margin:34px 0 16px;text-shadow:0 5px 24px rgba(0,0,0,.38)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.daily-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{position:relative;min-height:132px;display:block;text-decoration:none;color:var(--ac-ink);border-radius:22px;border:2px solid rgba(255,209,102,.60);background:linear-gradient(180deg,rgba(255,248,234,.96),rgba(255,244,220,.93));box-shadow:0 20px 54px rgba(0,0,0,.28),inset 0 0 0 1px rgba(255,255,255,.52);padding:20px;overflow:hidden;transition:transform .18s ease, box-shadow .18s ease}.card:hover{transform:translateY(-3px);box-shadow:0 28px 70px rgba(0,0,0,.35),0 0 35px rgba(48,232,255,.22)}.card:after{content:"";position:absolute;right:-28px;bottom:-28px;width:94px;height:94px;border:3px solid rgba(255,62,209,.12);border-radius:50%}.card span{display:block;font-size:12px;font-weight:1000;letter-spacing:.16em;text-transform:uppercase;color:#c41793;margin-bottom:6px}.card b{display:block;font-family:Georgia,serif;font-size:clamp(24px,3vw,34px);line-height:.98;letter-spacing:-.035em;margin-bottom:8px}.card p{font-size:15px;line-height:1.35;color:#413347;margin:0;font-weight:650}.card.hot{border-color:rgba(48,232,255,.75)}.card.gold{border-color:rgba(255,209,102,.85)}.note{margin-top:16px;border-radius:22px;border:1px solid rgba(255,255,255,.20);background:rgba(0,0,0,.42);backdrop-filter:blur(10px);padding:18px 20px;color:rgba(255,248,234,.92);font-weight:750;line-height:1.45}.footer{text-align:center;margin:44px 0 0;color:rgba(255,248,234,.72);font-weight:800}.neon{color:#fff;text-shadow:0 0 12px var(--ac-pink),0 0 20px var(--ac-cyan)}@keyframes acPulse{0%,100%{opacity:.72}50%{opacity:1}}@media(max-width:860px){.grid,.daily-row{grid-template-columns:1fr}.wrap{width:min(760px,calc(100vw - 26px));padding-top:24px}.hero{text-align:left}.slot{text-align:center}.card{min-height:112px}.backbar{align-items:flex-start}.tag{font-size:11px}}
 </style>
-<!-- Family Vacation Home Screen Icon -->
-<link href="assets/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="assets/icons/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest" rel="manifest"/>
-<meta content="yes" name="apple-mobile-web-app-capable"/>
-<meta content="Family Vacation" name="apple-mobile-web-app-title"/>
-<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<meta content="#12264a" name="theme-color"/>
+<style id="cooney-video-background-final-v17">
+/* v17 FINAL: local repo video is a real visible fixed background layer, not behind the body. */
+html, body{min-height:100%; margin:0; overflow-x:hidden; background:#061b2a !important;}
+body{position:relative;}
+.cooney-page-bg-video{
+  position:fixed !important;
+  top:0 !important; left:0 !important;
+  width:100vw !important; height:100vh !important;
+  object-fit:cover !important;
+  z-index:0 !important;
+  opacity:.92 !important;
+  display:block !important;
+  visibility:visible !important;
+  pointer-events:none !important;
+  filter:saturate(1.18) contrast(1.08) brightness(.66) !important;
+  background:#061b2a !important;
+}
+.cooney-page-bg-scrim{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  display:block !important;
+  background:linear-gradient(135deg,rgba(4,17,30,.74),rgba(4,35,47,.36) 48%,rgba(4,17,30,.78)), radial-gradient(circle at 18% 10%,rgba(255,244,220,.18),transparent 26%) !important;
+}
+main.wrap,.wrap,.backbar,.hero,.section-title,.grid,.daily-row,.card,.note,.note-card,.footer{position:relative !important; z-index:2 !important;}
+body > *:not(.cooney-page-bg-video):not(.cooney-page-bg-scrim){position:relative;}
+</style>
+<!-- COPIED EXACTLY FROM WORKING CAPE MAY VACATION MODE BUTTON -->
 <style id="cooney-clean-vacation-css">
 :root{
   --cv-navy:#081832; --cv-red:#9f1d25; --cv-gold:#d3a347; --cv-gold2:#fff0b8;
@@ -269,127 +277,6 @@ body{background:#07192f;}
   100%{transform:scale(1) rotate(0deg);filter:brightness(1.15) saturate(1.15);}
 }
 </style>
-<style id="cooney-links-deep-fix-css">
-/* Flag video locked as background */
-.cooney-flag-bg,
-video.cooney-flag-bg,
-#cooneyFlagBg{
-  position:fixed !important;
-  inset:0 !important;
-  width:100vw !important;
-  height:100vh !important;
-  object-fit:cover !important;
-  z-index:-10 !important;
-  opacity:.72 !important;
-  pointer-events:none !important;
-  filter:saturate(1.08) contrast(1.05) brightness(.62) !important;
-  transform:none !important;
-  margin:0 !important;
-  padding:0 !important;
-  display:block !important;
-}
-.cooney-flag-bg-overlay,
-#cooneyFlagBgOverlay{
-  position:fixed !important;
-  inset:0 !important;
-  z-index:-9 !important;
-  pointer-events:none !important;
-  background:
-    radial-gradient(circle at 50% 18%, rgba(255,247,230,.16), transparent 26%),
-    linear-gradient(135deg, rgba(8,24,50,.62), rgba(159,29,37,.48) 62%, rgba(8,24,50,.72)) !important;
-}
-body{background:#07192f !important;}
-
-/* On-page Playbook popup */
-.cooney-playbook-modal{
-  position:fixed;
-  inset:0;
-  z-index:11000;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  background:rgba(0,0,0,.72);
-  backdrop-filter:blur(5px);
-}
-.cooney-playbook-modal.show{display:flex;}
-.cooney-playbook-card{
-  width:min(94vw, 980px);
-  height:min(86vh, 760px);
-  background:#fff7e6;
-  border:3px solid rgba(211,163,71,.95);
-  border-radius:24px;
-  box-shadow:0 30px 100px rgba(0,0,0,.78),0 0 0 5px rgba(255,244,196,.25),0 0 48px rgba(244,216,137,.5);
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-}
-.cooney-playbook-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:12px 14px;
-  background:linear-gradient(135deg,#081832,#9f1d25);
-  color:#fff7e6;
-  border-bottom:2px solid rgba(211,163,71,.9);
-}
-.cooney-playbook-header strong{
-  font-family:Georgia,serif;
-  font-size:18px;
-}
-.cooney-playbook-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.cooney-playbook-open,
-.cooney-playbook-close{
-  border:0;
-  border-radius:999px;
-  padding:9px 13px;
-  font-weight:900;
-  cursor:pointer;
-}
-.cooney-playbook-open{
-  background:#fff7e6;
-  color:#12264a;
-  text-decoration:none;
-  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
-  font-size:13px;
-}
-.cooney-playbook-close{
-  background:#d3a347;
-  color:#081832;
-  font-size:15px;
-}
-.cooney-playbook-frame{
-  flex:1;
-  width:100%;
-  border:0;
-  background:#fff;
-}
-.cooney-playbook-fallback{
-  padding:18px;
-  color:#081832;
-  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
-  font-size:14px;
-  background:#fff7e6;
-}
-.cooney-playbook-fallback a{
-  color:#9f1d25;
-  font-weight:900;
-}
-@media (max-width:640px){
-  .cooney-playbook-card{
-    width:96vw;
-    height:82vh;
-    border-radius:18px;
-  }
-  .cooney-playbook-header strong{font-size:15px;}
-  .cooney-playbook-open{display:none;}
-}
-</style>
 
 <!-- Cooney Mobile Playbooks v33 - inline, tested v32 method scaled across all tiles -->
 <style id="cooney-mobile-playbooks-v33-style">
@@ -400,7 +287,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 #cooneyMobilePlaybookOverlay *{box-sizing:border-box;}
 #cooneyMobilePlaybookOverlay.theme-cape{--cmp-accent-rgb:190,35,35;--cmp-accent2-rgb:255,209,102;}
 #cooneyMobilePlaybookOverlay.theme-avalon{--cmp-accent-rgb:94,199,216;--cmp-accent2-rgb:216,170,79;}
-#cooneyMobilePlaybookOverlay.theme-ac {--cmp-accent-rgb:255,62,209;--cmp-accent2-rgb:48,232,255;}
+#cooneyMobilePlaybookOverlay.theme-avalon {--cmp-accent-rgb:255,62,209;--cmp-accent2-rgb:48,232,255;}
 .cooney-mp-card{width:min(760px,100%);margin:auto;border-radius:30px;overflow:hidden;background:linear-gradient(180deg,#fffaf0,#fff1dc);border:2px solid rgba(255,209,102,.78);box-shadow:0 34px 110px rgba(0,0,0,.72),0 0 48px rgba(var(--cmp-accent-rgb,255,62,209),.28);animation:cooneyMpPop .22s ease both;}
 .cooney-mp-head{position:relative;padding:24px 20px 20px;color:#fff8ea;background:linear-gradient(135deg,rgba(20,0,30,.98),rgba(var(--cmp-accent-rgb,255,62,209),.72) 55%,rgba(0,89,112,.92)),repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 22px);border-bottom:3px solid rgba(255,209,102,.76);}
 .cooney-mp-close{position:absolute;top:12px;right:12px;width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,255,255,.48);background:rgba(0,0,0,.28);color:#fff;font-size:30px;font-weight:1000;line-height:1;cursor:pointer;z-index:3;}
@@ -511,14 +398,51 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 }
 @media(max-width:520px){.cooney-weather-emoji-drop{filter:drop-shadow(0 0 12px rgba(255,255,255,.60));}}
 </style>
-</head><body><main class="wrap">
+</head>
+<body>
+<video autoplay="" class="cooney-page-bg-video" id="cooneyPageBgVideo" loop="" muted="" playsinline="" preload="auto" src="avalon.mp4?v=17" webkit-playsinline=""></video>
+<div class="cooney-page-bg-scrim"></div>
 <div class="vacation-mode-launch">
 <button class="cooney-vacation-button" id="activateVacationMode"><span>🌦️ Weather Vacation Mode</span></button>
 </div>
-<section class="hero"><svg aria-label="American flag" class="topflag" viewbox="0 0 190 100" xmlns="http://www.w3.org/2000/svg"><rect fill="#fff8ea" height="100" width="190"></rect><g fill="#b03535"><rect height="7.7" width="190" y="0"></rect><rect height="7.7" width="190" y="15.4"></rect><rect height="7.7" width="190" y="30.8"></rect><rect height="7.7" width="190" y="46.2"></rect><rect height="7.7" width="190" y="61.6"></rect><rect height="7.7" width="190" y="77"></rect><rect height="7.6" width="190" y="92.4"></rect></g><rect fill="#0b2545" height="53.9" width="76"></rect><g fill="#fff8ea"><circle cx="7" cy="6" r="1.6"></circle><circle cx="19" cy="6" r="1.6"></circle><circle cx="31" cy="6" r="1.6"></circle><circle cx="43" cy="6" r="1.6"></circle><circle cx="55" cy="6" r="1.6"></circle><circle cx="67" cy="6" r="1.6"></circle><circle cx="7" cy="16" r="1.6"></circle><circle cx="19" cy="16" r="1.6"></circle><circle cx="31" cy="16" r="1.6"></circle><circle cx="43" cy="16" r="1.6"></circle><circle cx="55" cy="16" r="1.6"></circle><circle cx="67" cy="16" r="1.6"></circle><circle cx="7" cy="26" r="1.6"></circle><circle cx="19" cy="26" r="1.6"></circle><circle cx="31" cy="26" r="1.6"></circle><circle cx="43" cy="26" r="1.6"></circle><circle cx="55" cy="26" r="1.6"></circle><circle cx="67" cy="26" r="1.6"></circle><circle cx="7" cy="36" r="1.6"></circle><circle cx="19" cy="36" r="1.6"></circle><circle cx="31" cy="36" r="1.6"></circle><circle cx="43" cy="36" r="1.6"></circle><circle cx="55" cy="36" r="1.6"></circle><circle cx="67" cy="36" r="1.6"></circle><circle cx="7" cy="46" r="1.6"></circle><circle cx="19" cy="46" r="1.6"></circle><circle cx="31" cy="46" r="1.6"></circle><circle cx="43" cy="46" r="1.6"></circle><circle cx="55" cy="46" r="1.6"></circle><circle cx="67" cy="46" r="1.6"></circle></g></svg><div class="kicker">July 3-7, 2026</div><h1>Cooney Cape May 250:<br/>The Launch Chapter</h1><p>Cape May worked because the plan was simple: good seats, easy food, porch drinks, shopping freedom, and no forced tourist checklist.</p><div class="badge">Wilbraham Mansion → Avalon lunch/gift stop → The Flanders in Ocean City</div></section><h2 class="section-title">Start Here</h2><section class="grid"><button class="card" data-cooney-playbook-id="area-guide" onclick="return window.cooneyOpenMobilePlaybook('area-guide', event);" type="button"><span>Map in your head</span><b>Area Guide</b><p>Wilbraham reset, Mall split, Harry’s, then clean Tuesday exit north.</p></button><button class="card" data-cooney-playbook-id="must-do-rankings" onclick="return window.cooneyOpenMobilePlaybook('must-do-rankings', event);" type="button"><span>Decision filter</span><b>Must-Do Rankings</b><p>What actually mattered, and what to protect as the trip pivots.</p></button><button class="card" data-cooney-playbook-id="hidden-gems" onclick="return window.cooneyOpenMobilePlaybook('hidden-gems', event);" type="button"><span>Cape May extras</span><b>Hidden Gems</b><p>Only if they fit naturally before checkout.</p></button></section><h2 class="section-title">Daily Plans</h2><section class="daily-row"><button class="card" data-cooney-playbook-id="arrival-250-warm-up" onclick="return window.cooneyOpenMobilePlaybook('arrival-250-warm-up', event);" type="button"><span>Fri 7/3</span><b>Arrival + 250 Warm-Up</b></button><button class="card" data-cooney-playbook-id="america-250-main-event" onclick="return window.cooneyOpenMobilePlaybook('america-250-main-event', event);" type="button"><span>Sat 7/4</span><b>America 250 Main Event</b></button><button class="card" data-cooney-playbook-id="recovery-victory-lap" onclick="return window.cooneyOpenMobilePlaybook('recovery-victory-lap', event);" type="button"><span>Sun/Mon</span><b>Recovery + Victory Lap</b></button><button class="card" data-cooney-playbook-id="cape-may-carts-pickup-golf-cart-freedom" onclick="return window.cooneyOpenMobilePlaybook('cape-may-carts-pickup-golf-cart-freedom', event);" type="button"><span>Tue 7/7</span><b>Checkout → Avalon → OCNJ</b></button></section><h2 class="section-title">Food, Drink and Seats</h2><section class="grid"><button class="card" data-cooney-playbook-id="bars-and-restaurants-playbook" onclick="return window.cooneyOpenMobilePlaybook('bars-and-restaurants-playbook', event);" type="button"><span>Seats matter</span><b>Bars and Restaurants Playbook</b><p>Brown Room, Ugly Mug, Elaine’s porch, Mario’s lesson — exact moves, not vague vibes.</p></button></section><h2 class="section-title">Save the Day</h2><section class="grid"><button class="card fire" data-cooney-playbook-id="fireworks-fallback-ladder" onclick="return window.cooneyOpenMobilePlaybook('fireworks-fallback-ladder', event);" type="button"><span>Backup 4th</span><b>Fireworks Fallback Ladder</b><p>Harry’s 8:15 PM, confirm fireworks time day-of, protect the view.</p></button><button class="card" data-cooney-playbook-id="plan-b-card" onclick="return window.cooneyOpenMobilePlaybook('plan-b-card', event);" type="button"><span>Rain / heat / crowds</span><b>Plan B Card</b><p>Specific fallback moves when weather or crowds get stupid.</p></button></section><div class="footer">Cape May chapter updated for the Ocean City audible — no cool air, no fake checklist, no bad fireworks time.</div></main>
+<main class="wrap">
+<nav class="backbar"><a class="back" href="index.html">← Back to Vacation Mode</a><span class="tag">Stop Three • Ocean City NJ • July 7-10</span></nav>
+<section class="hero">
+<div class="slot">🎡</div>
+<div class="kicker">July 7-10, 2026</div>
+<h1>Ocean City:<br/><span class="neon">Flanders Boardwalk Base</span></h1>
+<p>Dry town, big boardwalk, Manco & Manco pizza, Flanders reset button, Somers Point drink escape, and Wildwood chaos only when chosen on purpose.</p>
+<div class="badge">The Flanders Hotel • Brian, Dee and Amber • Atlantic City removed</div>
+</section>
+<h2 class="section-title">Start Here</h2>
+<section class="grid">
+<button class="card hot" data-cooney-playbook-id="ocnj-arrival-strategy" onclick="return window.cooneyOpenMobilePlaybook('ocnj-arrival-strategy', event);" type="button"><span>Game plan</span><b>OCNJ Arrival Strategy</b><p>Flanders check-in, park once, Manco & Manco, 9th–12th Street boardwalk loop.</p></button>
+<button class="card gold" data-cooney-playbook-id="manco-pizza-plan" onclick="return window.cooneyOpenMobilePlaybook('manco-pizza-plan', event);" type="button"><span>Dee’s pie priority</span><b>Manco & Manco Pizza Plan</b><p>First-night Jersey Shore pie without overthinking dinner.</p></button>
+<button class="card" data-cooney-playbook-id="dry-town-plan" onclick="return window.cooneyOpenMobilePlaybook('dry-town-plan', event);" type="button"><span>Brian reality check</span><b>Dry Town Survival Plan</b><p>Room drinks, Somers Point, or Wildwood — not fake OCNJ bar hunting.</p></button>
+</section>
+<h2 class="section-title">Daily Plans</h2>
+<section class="daily-row">
+<button class="card hot" data-cooney-playbook-id="ocnj-boardwalk-first-night" onclick="return window.cooneyOpenMobilePlaybook('ocnj-boardwalk-first-night', event);" type="button"><span>Tue 7/7</span><b>First OCNJ Boardwalk Night</b><p>Manco & Manco, Castaway Cove/Music Pier zone, dessert, Flanders reset.</p></button>
+<button class="card" data-cooney-playbook-id="ocnj-full-day" onclick="return window.cooneyOpenMobilePlaybook('ocnj-full-day', event);" type="button"><span>Wed/Thu</span><b>Ocean City Full Day Plan</b><p>Morning beach/walk, afternoon reset, one evening mission only.</p></button>
+</section>
+<h2 class="section-title">Food, Drink and Seats</h2>
+<section class="grid">
+<button class="card" data-cooney-playbook-id="flanders-home-base" onclick="return window.cooneyOpenMobilePlaybook('flanders-home-base', event);" type="button"><span>Home base</span><b>Flanders Home Base</b><p>Park once, cool-air reset, pool/room breaks, close boardwalk access.</p></button>
+<button class="card gold" data-cooney-playbook-id="asbury-shopping" onclick="return window.cooneyOpenMobilePlaybook('asbury-shopping', event);" type="button"><span>Shopping zone</span><b>Downtown Asbury Avenue Plan</b><p>Dee/Amber shop; Brian uses Flanders/pool reset instead of fake bar hunting.</p></button>
+<button class="card" data-cooney-playbook-id="somers-point-escape" onclick="return window.cooneyOpenMobilePlaybook('somers-point-escape', event);" type="button"><span>Adult-beverage escape</span><b>Somers Point Bar Escape</b><p>Closest practical answer when Brian needs a real perch.</p></button>
+</section>
+<h2 class="section-title">Save the Day</h2>
+<section class="grid">
+<button class="card hot" data-cooney-playbook-id="wildwood-side-quest" onclick="return window.cooneyOpenMobilePlaybook('wildwood-side-quest', event);" type="button"><span>Optional chaos</span><b>Wildwood Side Quest</b><p>Morey’s Piers / boardwalk / neon chaos as a deliberate evening, not an afterthought.</p></button>
+<button class="card" data-cooney-playbook-id="plan-b-card" onclick="return window.cooneyOpenMobilePlaybook('plan-b-card', event);" type="button"><span>Rain / heat / crowds</span><b>OCNJ Plan B Card</b><p>Flanders reset, Asbury shops, Somers Point, or simplified boardwalk loop.</p></button>
+<button class="card" data-cooney-playbook-id="friday-breakout" onclick="return window.cooneyOpenMobilePlaybook('friday-breakout', event);" type="button"><span>Fri 7/10</span><b>Friday Breakout + Home Recovery</b><p>Coffee, pack, optional easy last bite, home recovery.</p></button>
+</section>
+<div class="note">Ocean City is dry. That is not a bug; it is the operating condition. Use Flanders as the adult reset base, Somers Point for a real bar escape, and Wildwood only when everyone wants the loud boardwalk chaos.</div>
+<div class="footer">Built for the Cooney crew — Flanders base, Manco pie, boardwalk nostalgia, and no AC.</div>
+</main>
 
 <!-- Cooney Mobile Playbooks v33 - inline overlay generated from tested AC method -->
-<div id="cooneyMobilePlaybookOverlay" class="theme-cape" aria-hidden="true">
+<div id="cooneyMobilePlaybookOverlay" class="theme-avalon" aria-hidden="true">
   <div class="cooney-mp-card" role="dialog" aria-modal="true" aria-label="Cooney mobile playbook">
     <header class="cooney-mp-head">
       <button type="button" class="cooney-mp-close" id="cooneyMobilePlaybookCloseTop" aria-label="Close playbook">×</button>
@@ -540,7 +464,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 <script id="cooney-mobile-playbooks-v33-script">
 (function(){
   'use strict';
-  var PLAYBOOKS = {"area-guide":{"theme":"cape","kicker":"Map in your head","title":"Area Guide","subtitle":"Cape May is the completed chapter: Wilbraham base, Washington Street Mall split, Harry’s, then Tuesday exit north.","icon":"🏡","alertTitle":"Cape May Operating Map","alert":"Use Cape May in loops: Wilbraham reset, Washington Street Mall for shopping/perch, beachfront/Harry’s for the big view, then clean exit Tuesday.","pdf":"pdfs/01_Area_Guide.pdf","steps":[{"icon":"🏡","title":"Wilbraham Base","text":"Wilbraham is the reset point. Use it before dinner, before Harry’s, and before leaving town so nobody drags bags or moods around Cape May."},{"icon":"🛍️","title":"Washington Street Mall Split","text":"Dee and Amber shop the pedestrian Mall. Brian plants at The Brown Room for classy/cool-air cocktails or The Ugly Mug for casual bar-stool people-watching."},{"icon":"🍸","title":"Elaine’s Porch Lesson","text":"Last night proved the formula: porch, breeze, people-watching, easy company. If the day gets weird, repeat that kind of move instead of forcing tourism."},{"icon":"🚗","title":"Tuesday Exit North","text":"Leave Cape May late morning, hit Avalon for lunch/gift mission, then continue to The Flanders in Ocean City."}],"full":{"icon":"⭐","title":"Cape May Rule","text":"The win is not seeing everything. The win is comfortable loops with a planted Brian option and Dee/Amber shopping freedom.","items":["Mall split works.","Porch/drink/people-watching works.","Tuesday is a clean exit, not another Cape May project."]}},"must-do-rankings":{"theme":"cape","kicker":"Decision filter","title":"Must-Do Rankings","subtitle":"What mattered in Cape May, now filtered for the exit day.","icon":"🎆","alertTitle":"What Actually Matters","alert":"Cape May is already a win. Protect the finish and save energy for Ocean City.","pdf":"pdfs/02_Must_Do_Rankings.pdf","steps":[{"icon":"🍕","title":"Completed Win: Mario’s + Elaine’s","text":"That combo worked because it was easy, breezy, and social without being a tourist checklist."},{"icon":"🎆","title":"Harry’s 8:15 PM","text":"For the fireworks night: arrive early enough to ask for rooftop/good angle, confirm fireworks timing day-of, and do not give up the view too early."},{"icon":"🛍️","title":"Mall Split","text":"Washington Street Mall remains the best Cape May split: shopping for Dee/Amber, planted drink for Brian."},{"icon":"🚗","title":"Exit Clean","text":"Tuesday morning: coffee, pack, checkout, Avalon lunch/gift stop, Ocean City check-in."}],"full":{"icon":"⭐","title":"Ranking Rule","text":"Do the good stuff, skip the homework, leave with gas in the tank for the next chapter.","items":["Comfort beats completion.","Known-good moments beat forced stops.","Do not burn everyone out before OCNJ."]}},"hidden-gems":{"theme":"cape","kicker":"Cape May extras","title":"Hidden Gems","subtitle":"Only use these if they fit naturally before leaving.","icon":"🏛️","alertTitle":"Extras Are Extras","alert":"Do not let a hidden gem hijack checkout day.","pdf":"pdfs/10_Hidden_Gems.pdf","steps":[{"icon":"☕","title":"Coffee Before Checkout","text":"Get coffee before loading the car. A calm checkout beats a hungry checkout."},{"icon":"🏛️","title":"One Last Victorian Loop","text":"If everyone is ready early, do a short drive-by/stroll near the historic streets. No parking war, no long walk."},{"icon":"🛍️","title":"Last Cape May Shop","text":"Only if it is on the way and easy. Do not duplicate the Avalon gift mission."},{"icon":"🚘","title":"Point Car North","text":"Avalon is the next useful stop. Save the real energy for Ocean City boardwalk night."}],"full":{"icon":"⭐","title":"Hidden Gem Rule","text":"Cape May extras should improve the exit, not delay the next chapter.","items":["No late checkout panic.","No forced museum energy.","Avalon/OCNJ are the priority now."]}},"arrival-250-warm-up":{"theme":"cape","kicker":"Fri 7/3","title":"Arrival + 250 Warm-Up","subtitle":"Completed: arrival, pizza, porch drinks, Cape May settled in.","icon":"🚗","alertTitle":"Completed Chapter","alert":"This night worked because it stayed easy.","pdf":"pdfs/daily_plans/04_Friday_TRANSPORT_GUIDE_v18.pdf","steps":[{"icon":"🚗","title":"Arrive","text":"Cape May became base camp."},{"icon":"🍕","title":"Mario’s Pie","text":"Jersey Shore pie without a dramatic reservation process."},{"icon":"🍸","title":"Elaine’s Porch","text":"Front porch, drinks, breeze, people-watching: that is the Brian/Dee/Amber formula."},{"icon":"✅","title":"Lesson","text":"When in doubt, choose easy company and a good perch over a checklist."}],"full":{"icon":"⭐","title":"Friday Rule","text":"This is the model for OCNJ too: food, people-watching, easy reset.","items":["Simple wins.","Porch/perch wins.","Do not over-engineer every night."]}},"america-250-main-event":{"theme":"cape","kicker":"Sat 7/4","title":"America 250 Main Event","subtitle":"Harry’s is 8:15 PM only. Confirm fireworks timing day-of with Harry’s staff or the official Cape May schedule.","icon":"🇺🇸","alertTitle":"Harry’s Rooftop Strategy","alert":"The goal is not just dinner. The goal is the best possible shot at rooftop/good fireworks angle without fighting a mob.","pdf":"pdfs/daily_plans/05_Saturday_TRANSPORT_GUIDE_v18.pdf","steps":[{"icon":"🧼","title":"6:15 PM: Reset at Wilbraham","text":"Change, charge phones, bring whatever you need, and leave the room calm."},{"icon":"🚶","title":"7:35 PM: Head to Harry’s","text":"Do not arrive frazzled at 8:13. Get there early enough to check in politely and ask about rooftop/good fireworks positioning."},{"icon":"🍽️","title":"8:15 PM: Harry’s Reservation","text":"Check in, ask for rooftop or best available fireworks angle, and confirm the actual fireworks time with Harry’s staff / official Cape May schedule."},{"icon":"🎆","title":"Hold the Angle","text":"If you get a good view, do not abandon it too early. Order slow, settle in, and let the fireworks plan breathe."}],"full":{"icon":"⭐","title":"Saturday Rule","text":"Big vibe, controlled logistics, no false fireworks time baked into the plan.","items":["Harry’s reservation: 8:15 PM.","Confirm fireworks time day-of.","Ask nicely for rooftop/good angle as soon as you check in."]}},"recovery-victory-lap":{"theme":"cape","kicker":"Sun 7/5","title":"Recovery + Victory Lap","subtitle":"Recovery means easy food, easy strolls, and no fake obligation pile-up.","icon":"☕","alertTitle":"Recovery Day Rule","alert":"If the previous night was big, the next day earns a softer pace.","pdf":"pdfs/daily_plans/06_Sunday_DEPOT_CHARGE_POLISHED_v18.pdf","steps":[{"icon":"☕","title":"Late Coffee","text":"Start slow. Nobody needs to win Cape May by 9 AM."},{"icon":"🛍️","title":"Mall Split If Needed","text":"Dee/Amber shop Washington Street Mall; Brian plants at Brown Room or Ugly Mug."},{"icon":"🍝","title":"Andrea Trattoria Candidate","text":"Use Andrea Trattoria on a night where it actually fits, not forced onto July 4."},{"icon":"🍸","title":"Repeat What Worked","text":"If energy dips, chase the Elaine’s porch formula: seated, breezy, social, easy."}],"full":{"icon":"⭐","title":"Recovery Rule","text":"Cape May recovery is about easy seats and good mood preservation.","items":["No forced tourist march.","Use known good zones.","Dinner only if availability and energy line up."]}},"cape-may-carts-pickup-golf-cart-freedom":{"theme":"cape","kicker":"Tue 7/7","title":"Checkout → Avalon → Ocean City","subtitle":"Clean exit from Cape May, surgical Avalon lunch/gift stop, then Flanders/OCNJ boardwalk night.","icon":"🚗","alertTitle":"Tuesday Is A Transfer Day","alert":"Do not turn Tuesday into three full vacations. Cape May exit, Avalon mission, Ocean City arrival — that is enough.","pdf":"","steps":[{"icon":"☕","title":"10:00 AM: Coffee + Pack","text":"Coffee first, pack clean, check the room, and get the car loaded without acting like you’re evacuating."},{"icon":"🚗","title":"10:45–11:00 AM: Leave Cape May","text":"This timing gets you to Avalon for lunch without rushing and still leaves energy for Ocean City first night."},{"icon":"🛍️","title":"11:45 AM–2:15 PM: Avalon Mission","text":"Lunch plus Avalon-name gift. Keep it tight: eat, shop one short loop, leave before it becomes a second full stop."},{"icon":"🏨","title":"3:00–4:00 PM: Flanders Check-In","text":"Arrive Ocean City, park, unload, reset. First night is Manco & Manco / boardwalk, not a Wildwood side quest."}],"full":{"icon":"⭐","title":"Transfer Rule","text":"The best Tuesday gives you Avalon without stealing Ocean City night one.","items":["Avalon is lunch + gift mission.","Ocean City is the new base.","No Wildwood on arrival night unless everyone is weirdly energized."]}},"bars-and-restaurants-playbook":{"theme":"cape","kicker":"Seats matter","title":"Bars and Restaurants Playbook","subtitle":"Cape May lessons to reuse in Ocean City: exact anchors, easy splits, no vague wandering.","icon":"🍸","alertTitle":"The Perch Is The Plan","alert":"Brian’s bar-perch strategy is real. The portal now needs to tell him the perch, not tell him to find one.","pdf":"pdfs/03_Bars_Restaurants_Playbook.pdf","steps":[{"icon":"🍸","title":"Brown Room = Classy Perch","text":"Use The Brown Room at Congress Hall when Brian wants cool-air, classic cocktail, polished sit-down energy while Dee/Amber shop nearby."},{"icon":"🍺","title":"Ugly Mug = Casual Perch","text":"Use The Ugly Mug when Brian wants a bar stool, crowd, noise, and casual people-watching right by the Mall action."},{"icon":"🏡","title":"Elaine’s = Porch Formula","text":"Elaine’s worked because it was open-air, easy, and social. That is the vibe to chase, not another forced attraction."},{"icon":"🍕","title":"Pizza Lesson","text":"Mario’s proved that a simple pie can beat an overplanned dinner when everyone is tired and hungry."}],"full":{"icon":"⭐","title":"Restaurant Rule","text":"Specific seat beats famous name. Easy beats impressive. Planted Brian + free-range Dee/Amber wins.","items":["Text: ‘I’m planted.’","Dee/Amber orbit back when done.","Do not make Brian wander hungry looking for a perch."]}},"fireworks-fallback-ladder":{"theme":"cape","kicker":"Backup 4th","title":"Fireworks Fallback Ladder","subtitle":"Harry’s first, then comfort-first fallback if rooftop/view gets weird.","icon":"🎆","alertTitle":"Fireworks Without Misery","alert":"Confirm the time day-of. Do not hardcode a bad fireworks time into the plan.","pdf":"pdfs/09_July_4_Backup_Fireworks_Playbook.pdf","steps":[{"icon":"🎆","title":"Plan A: Harry’s 8:15 PM","text":"Check in early, ask for rooftop or best available fireworks angle, and confirm timing with staff / official schedule."},{"icon":"🪑","title":"Plan B: Stay Comfortable","text":"If rooftop is impossible, take the best comfortable seat you can get and stop fighting the crowd."},{"icon":"🚶","title":"Plan C: Walk View Only If Easy","text":"Only leave a good seat if the walk/view situation clearly improves the night."},{"icon":"🚫","title":"Avoid Dumb Pain","text":"No elbows-to-assholes suffering just to say you technically saw fireworks."}],"full":{"icon":"⭐","title":"Fireworks Rule","text":"The best fireworks are the ones that do not ruin the night.","items":["Harry’s 8:15 PM only.","Confirm day-of timing.","Comfort is part of the plan."]}},"plan-b-card":{"theme":"cape","kicker":"Rain / heat / crowds","title":"Plan B Card","subtitle":"Specific fallback moves when Cape May gets hot, wet, or crowded.","icon":"🌧️","alertTitle":"Protect The Mood","alert":"Bad weather or crowds should change the plan, not ruin the day.","pdf":"pdfs/08_Plan_B_Rain_Heat_Crowds.pdf","steps":[{"icon":"🌧️","title":"Rain: Brown Room / Ugly Mug","text":"Mall-adjacent indoor perch. Dee/Amber shop between showers; Brian sits and waits like a civilized man."},{"icon":"🔥","title":"Heat: Wilbraham Reset","text":"Return to the room before anyone melts. Shower, cool air, phone charge, then restart."},{"icon":"👥","title":"Crowds: Porch Formula","text":"If Washington Street or beachfront feels packed, choose porch/bar seating over crowd combat."},{"icon":"🚗","title":"Exit Day: Leave Clean","text":"If Tuesday gets messy, skip extra Cape May stops and protect Avalon/OCNJ timing."}],"full":{"icon":"⭐","title":"Plan B Rule","text":"The backup should be easier than the original plan, not a second problem.","items":["Rain = indoor perch.","Heat = cool-air reset.","Crowds = bail early, not late."]}}};
+  var PLAYBOOKS = {"ocnj-arrival-strategy":{"theme":"avalon","kicker":"Game plan","title":"OCNJ Arrival Strategy","subtitle":"Flanders check-in, park once, Manco & Manco, boardwalk first look — no Wildwood on night one unless everyone begs for chaos.","icon":"🏨","alertTitle":"Ocean City Is The Base Now","alert":"Ocean City is dry, family-boardwalk, nostalgia, pizza, rides, shopping, and beach. Do not try to make it Ocean City.","pdf":"","steps":[{"icon":"🏨","title":"3:00–4:00 PM: Flanders Check-In","text":"Park, unload, reset, and stop living out of the car. The Flanders is the anchor because it sits right by the boardwalk at 11th Street."},{"icon":"🍕","title":"5:30 PM: Manco & Manco","text":"Dee loves Jersey Shore pie. Make first dinner easy: Manco & Manco on/near the boardwalk, then walk instead of overplanning."},{"icon":"🎡","title":"6:30–8:30 PM: Boardwalk First Look","text":"Stay in the 9th–12th Street zone first: Music Pier / Castaway Cove / shops / dessert. Learn the home base area before wandering far."},{"icon":"🍦","title":"Dessert + Hotel Reset","text":"After pizza, get Kohr Bros/Johnson’s Popcorn/fudge/ice cream style boardwalk dessert, people-watch, then back to Flanders before everyone is cooked."}],"full":{"icon":"⭐","title":"Arrival Rule","text":"Night one should teach you the boardwalk, not exhaust you trying to conquer the whole island.","items":["Flanders first.","Manco & Manco first dinner.","No Wildwood on arrival night unless energy is insane."]}},"manco-pizza-plan":{"theme":"avalon","kicker":"Dee’s pie priority","title":"Manco & Manco Pizza Plan","subtitle":"First-night pizza target because Dee loves Jersey Shore pie and this is the obvious OCNJ move.","icon":"🍕","alertTitle":"Do Not Overthink Pizza Night","alert":"This is the easy win: get the pie, walk the boardwalk, let Ocean City introduce itself.","pdf":"","steps":[{"icon":"⏰","title":"5:15–5:45 PM: Go Before Peak Crush","text":"After Flanders reset, walk to Manco & Manco before the boardwalk dinner rush fully peaks."},{"icon":"🍕","title":"Order Simple","text":"Start with plain cheese and one topping pie/slices if needed. The point is classic Jersey Shore pizza, not a 14-step dinner debate."},{"icon":"🪑","title":"Seat Strategy","text":"If seating is annoying, eat, move, and do not let a pizza line define the night. Boardwalk food is allowed to be casual."},{"icon":"🚶","title":"Walk After Eating","text":"Head toward Playland’s Castaway Cove / Music Pier zone for the first boardwalk loop."}],"full":{"icon":"⭐","title":"Pizza Rule","text":"Manco & Manco is the first-night anchor because it is specific, famous-for-OCNJ, and Dee-friendly.","items":["Do it arrival night.","Do not chase a fancy dinner first.","Pizza + walk + dessert = perfect OCNJ entry."]}},"dry-town-plan":{"theme":"avalon","kicker":"Brian reality check","title":"Dry Town Survival Plan","subtitle":"OCNJ has no public alcohol sales, so Brian’s plan needs room drinks, Somers Point, or Wildwood — not magical bars in town.","icon":"🥃","alertTitle":"Do Not Fight The Town","alert":"Ocean City is dry. Build around it instead of pretending Brian can plant at a normal OCNJ bar.","pdf":"","steps":[{"icon":"🏨","title":"Room Base Option","text":"Bring/keep legal room drinks for Flanders reset. Use the room as the adult-beverage base before/after boardwalk, not during boardwalk wandering."},{"icon":"🌉","title":"Somers Point Option","text":"For real bar/perch energy, cross to Somers Point. Target Anchorage Tavern for old-school bar history or The Crab Trap/nearby marina zone for dinner energy."},{"icon":"🎡","title":"Wildwood Option","text":"For louder chaos and alcohol-town energy, make Wildwood a separate planned evening — not an exhausted afterthought."},{"icon":"🚫","title":"No Driving Impaired","text":"If drinks happen off-island, Uber/Lyft/taxi logic beats pretending the car is still part of the evening."}],"full":{"icon":"⭐","title":"Dry Town Rule","text":"OCNJ is for boardwalk, pizza, beach, shopping, and family-resort nostalgia. Drinks are solved separately.","items":["Room drinks = simplest.","Somers Point = closest real bar escape.","Wildwood = chaos side quest."]}},"flanders-home-base":{"theme":"avalon","kicker":"Home base","title":"Flanders Home Base","subtitle":"Use The Flanders as the reset anchor: boardwalk access, pool, room breaks, and no parking war.","icon":"🏨","alertTitle":"The Hotel Is Strategy","alert":"The Flanders is not just where you sleep. It is the mood-protection station.","pdf":"","steps":[{"icon":"🅿️","title":"Park Once","text":"After check-in, avoid moving the car for routine boardwalk stuff. Walking from Flanders is the whole advantage."},{"icon":"❄️","title":"Cool-Air Reset","text":"If heat/crowds hit, return to the room for 30–45 minutes. Shower, drink, charge phones, restart."},{"icon":"🏊","title":"Pool Window","text":"Use the pool/hotel downtime as a planned activity, not a failure to sightsee."},{"icon":"🌙","title":"Night Reset","text":"End nights by returning to Flanders before the boardwalk turns into cranky wandering."}],"full":{"icon":"⭐","title":"Flanders Rule","text":"A great OCNJ plan keeps using the hotel instead of pretending everyone has endless boardwalk stamina.","items":["Park once.","Reset often.","Keep the room stocked."]}},"ocnj-boardwalk-first-night":{"theme":"avalon","kicker":"Tue 7/7","title":"First OCNJ Boardwalk Night","subtitle":"Manco & Manco, 9th–12th Street loop, Castaway Cove/Music Pier zone, dessert, then Flanders reset.","icon":"🎡","alertTitle":"Night One Is Orientation","alert":"Do the classic first loop. Do not try to understand all of Ocean City in one night.","pdf":"","steps":[{"icon":"🍕","title":"5:30 PM: Manco & Manco","text":"First dinner. Dee gets Jersey Shore pie. Brian gets an easy decision. Amber gets boardwalk food without a reservation hunt."},{"icon":"🎡","title":"6:30 PM: Castaway Cove Zone","text":"Walk toward Playland’s Castaway Cove around 10th Street for rides/lights/boardwalk energy. Gillian’s Wonderland is closed, so do not plan around that."},{"icon":"🎶","title":"7:30 PM: Music Pier / People-Watch","text":"Use the Music Pier/boardwalk stretch as the easy people-watching loop. Stop for dessert when something looks good."},{"icon":"🏨","title":"9:00 PM: Flanders Reset","text":"Return before everyone becomes fried. You are here until Friday; no need to win it all tonight."}],"full":{"icon":"⭐","title":"First Night Rule","text":"Specific, easy, close to hotel. That is the winning first night.","items":["Manco first.","Castaway Cove/Music Pier loop.","Dessert, then reset."]}},"ocnj-full-day":{"theme":"avalon","kicker":"Wed/Thu","title":"Ocean City Full Day Plan","subtitle":"Beach/boardwalk/downtown with built-in Brian survival options.","icon":"☀️","alertTitle":"Full Day Without Meltdown","alert":"Ocean City works best in blocks: morning beach/walk, midday food, afternoon reset, evening side mission or boardwalk.","pdf":"","steps":[{"icon":"☕","title":"9:00 AM: Coffee + Boardwalk Walk","text":"Start near Flanders. Do a short boardwalk walk before the heat and crowds peak."},{"icon":"🏖️","title":"10:30 AM–12:30 PM: Beach Window","text":"If Dee wants beach, do it in the morning. Brian can cameo, then retreat to Flanders/pool/cool air without guilt."},{"icon":"🛍️","title":"1:30 PM: Asbury Avenue Shopping","text":"Use Downtown Asbury Avenue for shops when you want a break from the boardwalk. Brian’s fallback is hotel reset, not a mystery bar."},{"icon":"🌙","title":"Evening Choice","text":"Pick one: OCNJ boardwalk repeat, Somers Point drinks/dinner, or Wildwood chaos. Do not do all three."}],"full":{"icon":"⭐","title":"Full Day Rule","text":"Use blocks and resets. Ocean City is easy if you stop pretending every hour needs a new attraction.","items":["Morning outside.","Afternoon reset.","One evening mission only."]}},"asbury-shopping":{"theme":"avalon","kicker":"Shopping zone","title":"Downtown Asbury Avenue Plan","subtitle":"Specific shopping break away from the boardwalk when Dee and Amber want stores instead of rides.","icon":"🛍️","alertTitle":"Shopping Without Wandering","alert":"Asbury Avenue is the downtown-shopping move. Use it as a block, not an endless drift.","pdf":"","steps":[{"icon":"🚗","title":"Go After Lunch Or Afternoon Reset","text":"Do not start the day with a long shopping block. Use Asbury when beach/boardwalk needs a break."},{"icon":"🛍️","title":"Shop The Downtown Strip","text":"Dee and Amber browse the Asbury Avenue downtown shops. Set a loop and time cap before splitting."},{"icon":"🏨","title":"Brian Fallback: Flanders","text":"Because OCNJ is dry, Brian’s best ‘perch’ is often the hotel room/pool/cool-air reset instead of pretending there is a nearby bar."},{"icon":"🍬","title":"Treat Stop","text":"Add fudge/candy/popcorn/ice cream as the reward stop before returning to the boardwalk or hotel."}],"full":{"icon":"⭐","title":"Asbury Rule","text":"Shopping is great when it is a planned loop with a clean rejoin point.","items":["Set a time cap.","Brian resets at hotel/pool if needed.","Do not mix shopping with hunger."]}},"somers-point-escape":{"theme":"avalon","kicker":"Adult-beverage escape","title":"Somers Point Bar Escape","subtitle":"Closest practical fix for Brian’s real bar-perch need while staying in dry Ocean City.","icon":"🥃","alertTitle":"Closest Real Drink Move","alert":"If Brian needs the Key West-style bar perch, Somers Point is the practical answer, not Ocean City itself.","pdf":"","steps":[{"icon":"🌉","title":"Go After A Hotel Reset","text":"Do not leave OCNJ hot, sandy, and cranky. Reset at Flanders first, then go."},{"icon":"🍺","title":"Anchorage Tavern = Old-School Perch","text":"Use this if Brian wants a real bar stool, darker old-school energy, and people-watching."},{"icon":"🍽️","title":"Crab Trap / Bay Area = Dinner Energy","text":"Use this if the group wants a more dinner-focused off-island move near Somers Point’s bay-side restaurant zone."},{"icon":"🚕","title":"Ride Share If Drinking","text":"If drinks are part of the plan, do not make the car part of the plan."}],"full":{"icon":"⭐","title":"Somers Point Rule","text":"Somers Point is the pressure valve. Use it once if OCNJ starts feeling too dry/family-only for Brian.","items":["Reset first.","Choose bar-perch or dinner energy.","No impaired driving."]}},"wildwood-side-quest":{"theme":"avalon","kicker":"Optional chaos","title":"Wildwood Side Quest","subtitle":"Use one night for Wildwood if you want the louder boardwalk / Morey’s Piers / neon-chaos contrast.","icon":"🎢","alertTitle":"Wildwood Is A Different Animal","alert":"Wildwood should be a deliberate side quest, not something you add after everyone is tired.","pdf":"","steps":[{"icon":"⏰","title":"Best Window: 5:00–9:30 PM","text":"Leave OCNJ late afternoon/early evening after a Flanders reset. Arrive with energy for boardwalk lights."},{"icon":"🎢","title":"Morey’s Piers / Boardwalk","text":"Use the boardwalk and Morey’s Piers zone as the target. Do not try to inspect every block."},{"icon":"🍟","title":"Food Mode: Boardwalk Snacks","text":"This is Curley’s-fries / pizza / dessert / chaos-snack territory, not a polished dinner hunt."},{"icon":"🚗","title":"Exit Before Collapse","text":"Leave before everyone gets fried. Wildwood is more intense than OCNJ; do not wait until moods break."}],"full":{"icon":"⭐","title":"Wildwood Rule","text":"Go for lights, rides, snacks, people-watching, and ‘what the hell is this place?’ energy.","items":["Do it on a rested evening.","Pick one boardwalk zone.","Leave while it is still funny."]}},"plan-b-card":{"theme":"avalon","kicker":"Rain / heat / crowds","title":"OCNJ Plan B Card","subtitle":"Specific backups when dry-town logistics, heat, rain, or crowds mess with the plan.","icon":"🌧️","alertTitle":"Protect The Vibe","alert":"Ocean City is easy to enjoy if you use the hotel and side missions intelligently.","pdf":"","steps":[{"icon":"🔥","title":"Heat: Flanders Reset","text":"Room, pool, cool air, shower, phone charge. This is the strongest Plan B because the hotel is close."},{"icon":"🌧️","title":"Rain: Asbury / Arcade / Food","text":"Shift to Asbury Avenue shops, indoor arcades/boardwalk stores if open, pizza, sweets, and hotel reset."},{"icon":"👥","title":"Crowds: Move One Block Or Reset","text":"Do not fight a mob. Move a block, grab dessert, or return to Flanders and restart later."},{"icon":"🥃","title":"Dry-Town Friction: Somers Point","text":"If Brian needs a real bar, make it an intentional Somers Point move, not a frustrated boardwalk complaint."}],"full":{"icon":"⭐","title":"Plan B Rule","text":"The backup has to be easier than the original plan.","items":["Flanders is the reset button.","Somers Point solves drinks.","Wildwood solves chaos, not comfort."]}},"friday-breakout":{"theme":"avalon","kicker":"Fri 7/10","title":"Friday Breakout + Home Recovery","subtitle":"Coffee, pack, one last boardwalk bite if easy, then home without turning checkout into a mission.","icon":"☕","alertTitle":"Clean Exit","alert":"Friday is not for heroics. Leave Ocean City before the day becomes work.","pdf":"","steps":[{"icon":"☕","title":"Coffee First","text":"Start with coffee and a room sweep. Do not begin checkout hungry and annoyed."},{"icon":"🧳","title":"Pack Clean","text":"Beach stuff, chargers, fridge items, bathroom sweep, car loaded."},{"icon":"🍩","title":"Optional Last Bite","text":"Only if easy: boardwalk breakfast/treat near Flanders. Do not create a parking problem for one last snack."},{"icon":"🏠","title":"Home Recovery","text":"Head home and let the trip end clean. Pool-bar recovery at home still counts."}],"full":{"icon":"⭐","title":"Friday Rule","text":"A clean exit is better than a heroic final morning.","items":["No forced Wildwood Friday.","No last-minute shopping spiral.","Home recovery is part of the trip."]}}};
   var overlay, previousOverflow = '';
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(ch){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]; }); }
   function getOverlay(){ overlay = overlay || document.getElementById('cooneyMobilePlaybookOverlay'); return overlay; }
@@ -561,7 +485,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     var pb = PLAYBOOKS[id];
     var el = getOverlay();
     if(!pb || !el) return false;
-    el.className = 'theme-' + (pb.theme || 'cape');
+    el.className = 'theme-' + (pb.theme || 'ac');
     document.getElementById('cooneyMobilePlaybookKicker').textContent = pb.kicker || 'Cooney Playbook';
     document.getElementById('cooneyMobilePlaybookTitle').textContent = pb.title || 'Playbook';
     document.getElementById('cooneyMobilePlaybookSubtitle').textContent = pb.subtitle || '';
@@ -608,11 +532,43 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 </script>
 
 
-<video autoplay="" class="cooney-flag-bg" loop="" muted="" playsinline="" preload="auto">
-<source src="https://videos.pexels.com/video-files/7049943/7049943-hd_1920_1080_30fps.mp4" type="video/mp4"/>
-</video>
-<div class="cooney-flag-bg-overlay"></div>
-
+<script id="cooney-video-background-final-v17-js">
+(function(){
+  const video = document.getElementById('cooneyPageBgVideo');
+  if(!video) return;
+  const candidates = ['atlanticcity.mp4','/atlanticcity.mp4','atlantic-city-bg-hd.mp4','/atlantic-city-bg-hd.mp4','assets/video/atlantic-city-bg-hd.mp4','/assets/video/atlantic-city-bg-hd.mp4'];
+  let idx = 0;
+  video.muted = true;
+  video.defaultMuted = true;
+  video.autoplay = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.setAttribute('muted','');
+  video.setAttribute('autoplay','');
+  video.setAttribute('loop','');
+  video.setAttribute('playsinline','');
+  video.setAttribute('webkit-playsinline','');
+  video.style.zIndex = '0';
+  video.style.display = 'block';
+  video.style.visibility = 'visible';
+  function markOK(){ document.documentElement.classList.add('cooney-video-ok'); }
+  function tryNext(){
+    if(idx >= candidates.length){ document.documentElement.classList.add('cooney-video-failed'); return; }
+    const raw = candidates[idx++];
+    const src = raw + (raw.indexOf('?') === -1 ? '?v=17' : '&v=17');
+    video.src = src;
+    video.load();
+    const p = video.play();
+    if(p && p.catch) p.catch(function(){});
+  }
+  video.addEventListener('loadeddata', markOK);
+  video.addEventListener('canplay', function(){ markOK(); try{ video.play(); }catch(e){} });
+  video.addEventListener('error', tryNext);
+  window.addEventListener('pageshow', function(){ try{ video.play(); }catch(e){} });
+  tryNext();
+})();
+</script>
+<!-- COPIED EXACTLY FROM WORKING CAPE MAY VACATION MODE BUTTON SUPPORT LAYERS -->
 <div class="cooney-party-layer" id="cooneyPartyLayer"></div>
 <div class="cooney-image-pop" id="cooneyActivatedImagePop">
 <img alt="Vacation Mode Activated" src="assets/overlays/vacation-mode-activated.png"/>
@@ -744,11 +700,11 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 </script>
 <!-- Cooney Weather Overlay + Weather Vacation Mode Controller v29 -->
 <script src="assets/config/vacation-config.js?v=29"></script>
-<script id="cooney-cape-may-weather-controller-v43">
+<script id="cooney-atlantic-city-weather-controller-v43">
 (function(){
   'use strict';
 
-  var LOCATION = { name: 'Cape May', latitude: 38.9351, longitude: -74.9060 };
+  var LOCATION = { name: 'Ocean City', latitude: 39.3643, longitude: -74.4229 };
   var DEFAULT_MOOD = 'perfect';
   var state = { active:false, overlay:null, candidates:[], candidateIndex:0, lastMood:null, lastTrack:null };
 
@@ -958,11 +914,11 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     closeWeather();
     var mood = chooseMood(slots);
     var track = state.lastTrack || (getSongs(mood)[0] || getSongs(DEFAULT_MOOD)[0] || 'assets/audio/perfect-1.m4a');
-    var title = loading ? 'Checking Cape May Weather…' : 'Cape May Weather Vibe Check';
+    var title = loading ? 'Checking Ocean City Weather…' : 'Ocean City Weather Vibe Check';
     var sub = loading ? 'Weather is loading now. Vacation Mode is already armed so the button does not feel dead.' : 'Forecast picked the vibe, selected the music bucket, and opened the weather overlay first — not Dee’s picture.';
-    var html = '<div class="cooney-weather-v40-card" role="dialog" aria-modal="true" aria-label="Cape May weather vibe check">' +
+    var html = '<div class="cooney-weather-v40-card" role="dialog" aria-modal="true" aria-label="Ocean City weather vibe check">' +
       '<div class="cooney-weather-v40-head"><button class="cooney-weather-v40-close" type="button" aria-label="Close weather">×</button><div class="cooney-weather-v40-kicker">Weather Vacation Mode</div><h2 class="cooney-weather-v40-title">' + esc(title) + '</h2><div class="cooney-weather-v40-sub">' + esc(sub) + '</div></div>' +
-      '<div class="cooney-weather-v40-body"><div class="cooney-weather-v40-now"><b>' + esc((loading ? '🌦️ Loading forecast' : moodEmoji(mood) + ' ' + mood.toUpperCase() + ' mode')) + '</b><p>' + esc((loading ? 'Give it a second. If weather fails, Cape May still falls back cleanly.' : quip(mood))) + '</p><p style="margin-top:8px">🎵 Track armed: ' + esc(trackTitle(track)) + '</p></div>' +
+      '<div class="cooney-weather-v40-body"><div class="cooney-weather-v40-now"><b>' + esc((loading ? '🌦️ Loading forecast' : moodEmoji(mood) + ' ' + mood.toUpperCase() + ' mode')) + '</b><p>' + esc((loading ? 'Give it a second. If weather fails, Ocean City still falls back cleanly.' : quip(mood))) + '</p><p style="margin-top:8px">🎵 Track armed: ' + esc(trackTitle(track)) + '</p></div>' +
       '<div class="cooney-weather-v40-grid">' + slots.map(function(s){ var sm = s.mood || classify(s); return '<article class="cooney-weather-v40-slot"><div class="top"><span>' + esc(s.emoji || '🌤️') + ' ' + esc(s.day || 'Today') + '</span><span>' + esc(s.period || 'Now') + '</span></div><div class="temp">' + esc(Math.round(Number(s.temp) || 72)) + '°</div><div class="meta">' + esc(s.condition || weatherLabel(s.code)) + ' · Rain ' + esc(Math.round(Number(s.rain) || 0)) + '% · Wind ' + esc(Math.round(Number(s.wind) || 0)) + ' mph</div><div class="quip">' + esc(quip(sm)) + '</div></article>'; }).join('') + '</div>' +
       '<div class="cooney-weather-v40-actions"><button class="cooney-weather-v40-primary" type="button" data-close-weather>Let me in</button><button class="cooney-weather-v40-secondary" type="button" data-stop-vacation>Deactivate Vacation Mode</button></div></div></div>';
     var overlay = weatherRoot();
@@ -1028,7 +984,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     return {hot:'🔥', rain:'☔', windy:'💨', perfect:'🌞', cloudy:'☁️', storm:'⛈️', cold:'🥶'}[mood] || '🌦️';
   }
   function fallbackSlot(){
-    return {day:'Today',period:'Cape May',emoji:'🇺🇸',temp:72,rain:0,wind:5,cloud:20,code:0,mood:DEFAULT_MOOD,condition:'Clear'};
+    return {day:'Today',period:'Ocean City',emoji:'🎡',temp:72,rain:0,wind:5,cloud:20,code:0,mood:DEFAULT_MOOD,condition:'Clear'};
   }
   function avg(nums){ var a = nums.filter(Number.isFinite); return a.length ? a.reduce(function(x,y){return x+y;},0)/a.length : 0; }
   function max(nums){ var a = nums.filter(Number.isFinite); return a.length ? Math.max.apply(Math,a) : 0; }
@@ -1154,4 +1110,213 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 })();
 
 </script>
-</body></html>
+<!-- Cooney Premium Dispensary Leaf Burst v36 - inline, AC only, weather-safe -->
+<style id="cooney-dispensary-leaf-burst-v36-style">
+#cooneyDispensaryBurstOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483646;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(42, 255, 130, .34), transparent 0 30%, rgba(5, 16, 9, .68) 70%),
+        radial-gradient(circle at 18% 16%, rgba(120, 255, 160, .22), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(43, 255, 201, .16), transparent 30%),
+        linear-gradient(135deg, rgba(2, 8, 4, .82), rgba(10, 33, 18, .78));
+    -webkit-backdrop-filter: blur(10px) saturate(1.25);
+    backdrop-filter: blur(10px) saturate(1.25);
+}
+#cooneyDispensaryBurstOverlay.is-showing {
+    display: flex;
+    animation: cooneyLeafOverlayIn .26s ease-out both;
+}
+#cooneyDispensaryBurstOverlay.is-leaving {
+    animation: cooneyLeafOverlayOut .32s ease-in both;
+}
+.cooney-disp-card {
+    position: relative;
+    width: min(92vw, 620px);
+    padding: 30px 22px 26px;
+    border-radius: 34px;
+    text-align: center;
+    color: #f8ffe9;
+    background:
+        linear-gradient(145deg, rgba(11, 47, 24, .94), rgba(6, 91, 42, .82)),
+        radial-gradient(circle at 50% 0%, rgba(183, 255, 119, .38), transparent 45%);
+    border: 2px solid rgba(197, 255, 117, .70);
+    box-shadow: 0 0 38px rgba(34, 255, 107, .38), 0 28px 90px rgba(0, 0, 0, .60), inset 0 0 22px rgba(255, 255, 255, .08);
+    transform: scale(.86) rotate(-1deg);
+    animation: cooneyDispCardPop 1.95s cubic-bezier(.2, 1.25, .2, 1) both;
+}
+.cooney-disp-icon {
+    font-size: clamp(72px, 19vw, 132px);
+    line-height: 1;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .5));
+    animation: cooneyLeafPulse 1.05s ease-in-out infinite alternate;
+}
+.cooney-disp-kicker {
+    margin-top: 8px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 1000;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #bfff79;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .6);
+}
+.cooney-disp-title {
+    margin: 9px 0 7px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 9vw, 66px);
+    font-weight: 900;
+    line-height: .92;
+    color: #fffbe5;
+    text-shadow: 0 4px 22px rgba(0, 0, 0, .55);
+}
+.cooney-disp-sub {
+    margin: 0 auto;
+    max-width: 520px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: clamp(15px, 4.2vw, 21px);
+    font-weight: 900;
+    line-height: 1.24;
+    color: #ecffd8;
+}
+.cooney-disp-rule {
+    margin: 16px auto 0;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(207, 255, 144, .38);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: clamp(12px, 3.2vw, 15px);
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #fbffe9;
+}
+.cooney-leaf-particle {
+    position: absolute;
+    top: -10vh;
+    left: 50%;
+    font-size: clamp(24px, 7vw, 58px);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, .55));
+    opacity: 0;
+    animation: cooneyLeafFall var(--dur, 1.8s) linear var(--delay, 0s) forwards;
+    will-change: transform, opacity;
+}
+.cooney-smoke-particle {
+    position: absolute;
+    bottom: 8vh;
+    left: 50%;
+    font-size: clamp(22px, 6vw, 48px);
+    opacity: 0;
+    animation: cooneySmokeFloat var(--dur, 1.6s) ease-out var(--delay, 0s) forwards;
+    will-change: transform, opacity;
+}
+@keyframes cooneyLeafOverlayIn { from { opacity:0 } to { opacity:1 } }
+@keyframes cooneyLeafOverlayOut { from { opacity:1 } to { opacity:0 } }
+@keyframes cooneyDispCardPop {
+    0% { opacity: 0; transform: scale(.55) rotate(-8deg) }
+    18% { opacity: 1; transform: scale(1.07) rotate(2deg) }
+    45% { transform: scale(.98) rotate(-1deg) }
+    100% { opacity: 1; transform: scale(1) rotate(0deg) }
+}
+@keyframes cooneyLeafPulse { from { transform: scale(1) rotate(-2deg) } to { transform: scale(1.08) rotate(3deg) } }
+@keyframes cooneyLeafFall {
+    0% { opacity: 0; transform: translate3d(var(--x, 0), -12vh, 0) rotate(0deg) scale(.82) }
+    10% { opacity: 1 }
+    100% { opacity: 0; transform: translate3d(calc(var(--x, 0) + var(--drift, 0px)), 112vh, 0) rotate(var(--spin, 360deg)) scale(1.06) }
+}
+@keyframes cooneySmokeFloat {
+    0% { opacity: 0; transform: translate3d(var(--x, 0), 30px, 0) scale(.7) }
+    20% { opacity: .75 }
+    100% { opacity: 0; transform: translate3d(calc(var(--x, 0) + var(--drift, 0px)), -56vh, 0) scale(1.45) }
+}
+@media (prefers-reduced-motion: reduce) {
+    #cooneyDispensaryBurstOverlay, .cooney-disp-card, .cooney-disp-icon, .cooney-leaf-particle, .cooney-smoke-particle { animation: none !important }
+    .cooney-leaf-particle, .cooney-smoke-particle { display: none !important }
+}
+</style>
+<div id="cooneyDispensaryBurstOverlay" aria-hidden="true">
+    <div class="cooney-disp-card" role="presentation">
+        <div class="cooney-disp-icon">🌿</div>
+        <div class="cooney-disp-kicker">Premium Stop Activated</div>
+        <div class="cooney-disp-title">High Rollers Mode</div>
+        <p class="cooney-disp-sub">Before drinks. Before parking. Zero generic rec-shop nonsense.</p>
+        <div class="cooney-disp-rule">🌿 sealed • legal • nobody drives impaired 🌿</div>
+    </div>
+</div>
+<script id="cooney-dispensary-leaf-burst-v36-script">
+(function() {
+    'use strict';
+    var overlay, hideTimer;
+    var leafEmojis = ['🌿', '🍃', '🌱', '☘️', '🌿', '🍃', '✨'];
+    var smokeEmojis = ['💨', '🌫️', '💚', '✨'];
+    function rand(min, max) { return Math.random() * (max - min) + min; }
+    function getOverlay() {
+        overlay = overlay || document.getElementById('cooneyDispensaryBurstOverlay');
+        return overlay;
+    }
+    function clearParticles(el) {
+        if (!el) return;
+        el.querySelectorAll('.cooney-leaf-particle,.cooney-smoke-particle').forEach(function(n) { n.remove(); });
+    }
+    function addParticles(el) {
+        clearParticles(el);
+        for (var i = 0; i < 44; i++) {
+            var leaf = document.createElement('span');
+            leaf.className = 'cooney-leaf-particle';
+            leaf.textContent = leafEmojis[i % leafEmojis.length];
+            leaf.style.left = rand(0, 100).toFixed(2) + 'vw';
+            leaf.style.setProperty('--x', rand(-60, 60).toFixed(1) + 'px');
+            leaf.style.setProperty('--drift', rand(-120, 120).toFixed(1) + 'px');
+            leaf.style.setProperty('--spin', rand(180, 960).toFixed(1) + 'deg');
+            leaf.style.setProperty('--dur', rand(1.15, 2.35).toFixed(2) + 's');
+            leaf.style.setProperty('--delay', rand(0, .48).toFixed(2) + 's');
+            el.appendChild(leaf);
+        }
+        for (var j = 0; j < 13; j++) {
+            var smoke = document.createElement('span');
+            smoke.className = 'cooney-smoke-particle';
+            smoke.textContent = smokeEmojis[j % smokeEmojis.length];
+            smoke.style.left = rand(10, 90).toFixed(2) + 'vw';
+            smoke.style.setProperty('--x', rand(-50, 50).toFixed(1) + 'px');
+            smoke.style.setProperty('--drift', rand(-130, 130).toFixed(1) + 'px');
+            smoke.style.setProperty('--dur', rand(1.1, 2.0).toFixed(2) + 's');
+            smoke.style.setProperty('--delay', rand(.05, .65).toFixed(2) + 's');
+            el.appendChild(smoke);
+        }
+    }
+    function hideDispensaryBurst() {
+        var el = getOverlay();
+        if (!el || !el.classList.contains('is-showing')) return;
+        el.classList.add('is-leaving');
+        window.setTimeout(function() {
+            el.classList.remove('is-showing', 'is-leaving');
+            el.setAttribute('aria-hidden', 'true');
+            clearParticles(el);
+        }, 340);
+    }
+    window.cooneyLaunchDispensaryBurst = function() {
+        var el = getOverlay();
+        if (!el) return true;
+        window.clearTimeout(hideTimer);
+        el.classList.remove('is-leaving');
+        el.classList.add('is-showing');
+        el.setAttribute('aria-hidden', 'false');
+        addParticles(el);
+        hideTimer = window.setTimeout(hideDispensaryBurst, 2250);
+        return true;
+    };
+})();
+</script>
+
+</body>
+</html>

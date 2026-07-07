@@ -1,0 +1,1 @@
+Upload these files to repo root. Replace cape_may.html and avalon.html, add ocean_city.html, and delete atlantic_city.html from the repo if you want AC removed completely. Also update index.html tile/link from atlantic_city.html to ocean_city.html (index.html was not uploaded here).
