@@ -1,1 +1,12 @@
-Upload the CONTENTS of this folder/ZIP to the repo root. Replace index.html, cape_may.html, avalon.html, ocean_city.html, and atlantic_city.html. The atlantic_city.html file is intentionally a redirect to ocean_city.html so old cached links stop showing the removed casino chapter.
+Cooney Jersey Shore OCNJ Clean Format Upload
+
+Upload the CONTENTS of this folder/ZIP to the repo root, not the enclosing folder.
+
+This package keeps the portal clean:
+- index.html shows Cape May and Ocean City only.
+- Avalon is no longer a visible portal chapter. The Avalon lunch/gift stop is built into Ocean City Day 1.
+- ocean_city.html is the main OCNJ/Flanders page with daily itinerary cards.
+- avalon.html redirects to ocean_city.html for stale links.
+- atlantic_city.html redirects to ocean_city.html for stale links.
+
+Do not touch assets/audio/ or assets/config/vacation-config.js.
