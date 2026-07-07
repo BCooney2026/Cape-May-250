@@ -1,1 +1,1 @@
-Upload these files to repo root. Replace cape_may.html and avalon.html, add ocean_city.html, and delete atlantic_city.html from the repo if you want AC removed completely. Also update index.html tile/link from atlantic_city.html to ocean_city.html (index.html was not uploaded here).
+Upload the CONTENTS of this folder/ZIP to the repo root. Replace index.html, cape_may.html, avalon.html, ocean_city.html, and atlantic_city.html. The atlantic_city.html file is intentionally a redirect to ocean_city.html so old cached links stop showing the removed casino chapter.
