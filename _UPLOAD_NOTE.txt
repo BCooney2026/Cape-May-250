@@ -1,12 +1,20 @@
-Cooney Jersey Shore OCNJ Clean Format Upload
+COONEY OCNJ AVALON-ROUTE UPDATE
 
-Upload the CONTENTS of this folder/ZIP to the repo root, not the enclosing folder.
+Upload the CONTENTS of this folder/ZIP to the GitHub repo root. Do not upload the enclosing folder.
 
-This package keeps the portal clean:
-- index.html shows Cape May and Ocean City only.
-- Avalon is no longer a visible portal chapter. The Avalon lunch/gift stop is built into Ocean City Day 1.
-- ocean_city.html is the main OCNJ/Flanders page with daily itinerary cards.
-- avalon.html redirects to ocean_city.html for stale links.
-- atlantic_city.html redirects to ocean_city.html for stale links.
+Changes in this package:
+- ocean_city.html: Day 1 Avalon stop replaced with the specific Avalon flow:
+  * park near 30th Street and the beach
+  * Serendipity Shops first
+  * Izzi and Lu backup/second gift stop
+  * Concord Cafe lunch
+  * Il Posto upscale backup
+  * leave Avalon around 2:00-2:15 PM
+  * OCNJ check-in around 4-ish
+- index.html, cape_may.html, avalon.html redirect, and atlantic_city.html redirect included unchanged from the clean daily itinerary package.
 
-Do not touch assets/audio/ or assets/config/vacation-config.js.
+Hard rules respected:
+- assets/audio/ untouched
+- assets/config/vacation-config.js untouched
+- Weather Vacation Mode controller code left intact
+- Daily itinerary format preserved
