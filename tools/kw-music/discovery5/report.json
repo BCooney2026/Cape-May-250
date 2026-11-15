@@ -1,0 +1,86 @@
+[
+ {
+  "url": "https://www.cliffcody.com/",
+  "status": 200,
+  "finalUrl": "https://www.cliffcody.com/",
+  "type": "text/html; charset=UTF-8",
+  "bytes": 1563328,
+  "file": "www_cliffcody_com_.txt",
+  "challenge": true,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.cliffcody.com/tour",
+  "status": 200,
+  "finalUrl": "https://www.cliffcody.com/gigs",
+  "type": "text/html; charset=UTF-8",
+  "bytes": 1985555,
+  "file": "www_cliffcody_com_tour.txt",
+  "challenge": true,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.cliffcody.com/shows",
+  "status": 404,
+  "finalUrl": "https://www.cliffcody.com/shows",
+  "type": "text/html; charset=UTF-8",
+  "bytes": 2048,
+  "file": "www_cliffcody_com_shows.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.cliffcody.com/events",
+  "status": 404,
+  "finalUrl": "https://www.cliffcody.com/events",
+  "type": "text/html; charset=UTF-8",
+  "bytes": 2048,
+  "file": "www_cliffcody_com_events.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.cliffcody.com/wp-json/tribe/events/v1/events",
+  "status": 404,
+  "finalUrl": "https://www.cliffcody.com/wp-json/tribe/events/v1/events",
+  "type": "text/html; charset=UTF-8",
+  "bytes": 2048,
+  "file": "www_cliffcody_com_wp_json_tribe_events_v1_events.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.durtbags.com/",
+  "error": "ENOTFOUND"
+ },
+ {
+  "url": "https://www.thedurtbags.com/",
+  "status": 200,
+  "finalUrl": "https://www.thedurtbags.com/",
+  "type": "text/html;charset=utf-8",
+  "bytes": 1186959,
+  "file": "www_thedurtbags_com_.txt",
+  "challenge": true,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.caffeinecarl.net/",
+  "error": "ENOTFOUND"
+ },
+ {
+  "url": "https://caffeinecarlandthebuzz.com/",
+  "error": "ENOTFOUND"
+ }
+]
