@@ -130,7 +130,7 @@ async function fetchTribe(src, today) {
       if (!isKW) { if (out.droppedNotKW.length < 5) out.droppedNotKW.push(`${venue || '?'} / ${city || '?'}`); continue; }
       const [d, t] = String(e.start_date || '').split(' ');
       if (!d || !t) continue;
-      const title = decode(e.title);
+      const title = decode(e.title).replace(/\s*[\u2013\u2014-]\s*Key West,?\s*(FL|Florida)\s*$/i, '');
       out.push({
         date: d, time: e.all_day ? '12:00' : t.slice(0, 5),
         act: src.performer && !new RegExp(src.performer.split(' ')[0], 'i').test(title) ? `${src.performer}: ${title}` : title,
