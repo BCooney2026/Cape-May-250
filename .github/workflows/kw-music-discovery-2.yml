@@ -17,6 +17,6 @@ jobs:
       - run: |
           git config user.name "kw-music-bot"
           git config user.email "kw-music-bot@users.noreply.github.com"
-          git add tools/kw-music/discovery5
+          git add tools/kw-music/discovery6
           git commit -m "KW music discovery 2 snapshot" || exit 0
           git push
