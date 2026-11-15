@@ -1,10 +1,10 @@
 // One-time discovery #2: performer sites, Bandsintown, Hog's Breath, Green Parrot widget, general KW calendars.
 import { mkdir, writeFile } from 'node:fs/promises';
-const OUT = 'tools/kw-music/discovery4';
+const OUT = 'tools/kw-music/discovery5';
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36';
 const enc = encodeURIComponent;
 const ARTISTS = ['Raven Cooper', 'Joe the Show', 'Nick Brownell', 'Zach Lovering', 'LuFFKiD', 'Adam Lufkin', 'Dave Mininberg', 'David Mininberg', 'John Bartus', 'Scott Kirby', 'Caffeine Carl'];
-const URLS = ['https://www.davemininberg.com/', 'https://www.davemininberg.com/shows', 'https://www.davemininberg.com/schedule', 'https://www.davemininberg.com/calendar'];
+const URLS = ['https://www.cliffcody.com/', 'https://www.cliffcody.com/tour', 'https://www.cliffcody.com/shows', 'https://www.cliffcody.com/events', 'https://www.cliffcody.com/wp-json/tribe/events/v1/events', 'https://www.durtbags.com/', 'https://www.thedurtbags.com/', 'https://www.caffeinecarl.net/', 'https://caffeinecarlandthebuzz.com/'];
 const slug = u => u.replace(/^https?:\/\//, '').replace(/[^a-z0-9]+/gi, '_').slice(0, 140);
 const report = [];
 await mkdir(`${OUT}/raw`, { recursive: true });
