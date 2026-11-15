@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://www.keywesttourist.com/live-entertainment/">
+<title>Key West Live Entertainment Schedule - Today's Live Music &amp; Shows</title>
+<meta name="description" content="Discover today's live music and entertainment in Key West. Check schedules for local venues.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Key West Live Entertainment Schedule">
+<meta property="og:description" content="Discover today's live music and entertainment in Key West.">
+<meta property="og:image" content="https://www.keywesttourist.com/media/images/og-image-live-music.jpg">
+<meta property="og:site_name" content="Key West Tourist">
+<meta property="og:url" content="https://www.keywesttourist.com/live-entertainment/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Key West Live Entertainment Schedule">
+<meta name="twitter:description" content="Discover today's live music and entertainment in Key West.">
+<meta name="twitter:image" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Source+Serif+4:ital,opsz,wght@1,8..60,500;1,8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/kwt-redesign.css">
+<!-- FareHarbor button CSS. media=print so a hung fh-kit.com connect cannot block first paint. -->
+<!-- <link rel="stylesheet" href="https://fh-kit.com/buttons/v2/?color=ff6000" media="print" onload="this.media='all'"> -->
+<!--Fareharbor JS code. autolightframe is off: it preventDefault()s book links and sets window.top.location, so target="_blank" never opens a new tab. -->
+<!-- <script src="https://fareharbor.com/embeds/api/v1/"></script> -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+</head>
+<body>
+<div id="kw-splash" hidden>
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect width="1200" height="800" fill="#052e35"></rect>
+    <circle cx="600" cy="330" r="150" fill="#f6c945"></circle>
+    <rect x="200" y="480" width="800" height="26" fill="#2ec4a5"></rect>
+    <text x="600" y="640" font-family="Arial,Helvetica,sans-serif" font-size="150" font-weight="bold" fill="#ffffff" text-anchor="middle">KW</text>
+  </svg>
+</div>
+
+
+<header class="site-header" id="siteHeader">
+  <div class="site-header__bar">
+    <a class="site-header__logo" href="/"><img src="/media/images/og-image-kwt-logo.webp" alt="KeyWestTourist.com"></a>
+    <nav class="site-nav" aria-label="Main">
+      <div class="site-nav__item" data-menu="things">
+        <button class="site-nav__btn" type="button" aria-expanded="false" aria-controls="mega-things">Things to Do <span class="site-nav__caret">&#9662;</span></button>
+        <div class="mega" id="mega-things" hidden>
+          <div class="mega__inner">
+            <div class="mega-feat mega-feat--things">
+              <p class="mega-feat__kicker">Featured</p>
+              <p class="mega-feat__title">Sunset at Mallory Square</p>
+              <p class="mega-feat__text">Street performers, schooners, and the nightly drop of the southernmost sun.</p>
+              <a class="mega-feat__cta" href="/festivals-events/">See what&rsquo;s on &raquo;</a>
+            </div>
+            <div class="mega-col">
+              <p class="mega-col__label">Plan today</p>
+              <a class="mega-link" href="/today-in-key-west/">What's happening today</a>
+              <a class="mega-link" href="/live-music/">Live Music</a>
+              <a class="mega-link" href="/festivals-events/">Festivals &amp; Events</a>
+            </div>
+            <div class="mega-col">
+              <p class="mega-col__label">Around the island</p>
+              
+              <a class="mega-link" href="/attractions/">Attractions</a>
+              
+              <a class="mega-link" href="/golf-cart-rentals/">Golf Cart Rentals</a>
+              
+              <a class="mega-link" href="/tours/">Historic Tours</a>
+              
+              <a class="mega-link" href="/scooter-bike-rentals-key-west/">Scooters &amp; Bikes</a>
+              
+              <a class="mega-link" href="/shopping/">Shopping</a>
+              
+              <a class="mega-link" href="/theater/">Theater &amp; Shows</a>
+              
+              <a class="mega-link" href="/today-in-key-west/">Today in Key West</a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="site-nav__item" data-menu="water">
+        <button class="site-nav__btn" type="button" aria-expanded="false" aria-controls="mega-water">On the Water <span class="site-nav__caret">&#9662;</span></button>
+        <div class="mega" id="mega-water" hidden>
+          <div class="mega__inner">
+            <div class="mega-feat mega-feat--water">
+              <p class="mega-feat__kicker">On the Water</p>
+              <p class="mega-feat__title">Out to the Reef &amp; Beyond</p>
+              <p class="mega-feat__text">Snorkel living coral, sail at golden hour, or run offshore for the big ones.</p>
+              <a class="mega-feat__cta" href="/sunset-sails/">Plan a trip &raquo;</a>
+            </div>
+            <div class="mega-col">
+              <p class="mega-col__label">Sail &amp; Cruise</p>
+              
+              <a class="mega-link" href="/sunset-sails/">Sunset Sails</a>
+              
+              <a class="mega-link" href="/dry-tortugas-national-park-key-west-excursions/">Dry Tortugas</a>
+              
+              <a class="mega-link" href="/jet-ski-tours-key-west/">Jet Ski Tours</a>
+              
+              <a class="mega-link" href="/marinas-boatyards/">Marinas &amp; Boatyards</a>
+              
+              <a class="mega-link" href="/sailing-cruises/">Sailing &amp; Cruises</a>
+              
+            </div>
+            <div class="mega-col">
+              <p class="mega-col__label">Fish &amp; Dive</p>
+              <a class="mega-link" href="/fishing-charters/">Fishing Charters</a>
+              <a class="mega-link" href="/deep-sea-fishing-key-west/">Deep Sea &amp; Offshore</a>
+              <a class="mega-link" href="/flats-backcountry-fishing-from-key-west/">Flats &amp; Backcountry</a>
+              <a class="mega-link" href="/snorkeling/">Snorkeling</a>
+              <a class="mega-link" href="/scuba-diving/">SCUBA Diving</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="site-nav__item" data-menu="eat">
+        <button class="site-nav__btn" type="button" aria-expanded="false" aria-controls="mega-eat">Eat &amp; Drink <span class="site-nav__caret">&#9662;</span></button>
+        <div class="mega" id="mega-eat" hidden>
+          <div class="mega__inner">
+            <div class="mega-feat mega-feat--eat">
+              <p class="mega-feat__kicker">Eat &amp; Drink</p>
+              <p class="mega-feat__title">A Slice of Key Lime</p>
+              <p class="mega-feat__text">From conch fritters to a frozen key lime pie on a stick &mdash; eat your way down Duval.</p>
+              <a class="mega-feat__cta" href="/fine-dining/">Find a table &raquo;</a>
+            </div>
+            <div class="mega-col">
+              <p class="mega-col__label">Dine</p>
+              
+              <a class="mega-link" href="/bars-saloons/">Bars &amp; Saloons</a>
+              
+              <a class="mega-link" href="/casual-restaurants/">Casual Restaurants</a>
+              
+              <a class="mega-link" href="/fine-dining/">Fine Dining</a>
+              
+            </div>
+            <div class="mega-col">
+              <p class="mega-col__label">Drink</p>
+              <a class="mega-link" href="/bars-saloons/">Bars &amp; Saloons</a>
+              <a class="mega-link" href="/happy-hour-bars/">Happy Hour</a>
+              <a class="mega-link" href="/live-music/">Live Music Venues</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="site-nav__item" data-menu="stay">
+        <button class="site-nav__btn" type="button" aria-expanded="false" aria-controls="mega-stay">Stay <span class="site-nav__caret">&#9662;</span></button>
+        <div class="mega" id="mega-stay" hidden>
+          <div class="mega__inner">
+            <div class="mega-feat mega-feat--stay">
+              <p class="mega-feat__kicker">Stay Awhile</p>
+              <p class="mega-feat__title">Gingerbread &amp; Verandas</p>
+              <p class="mega-feat__text">Historic guesthouses, oceanfront resorts, and a hammock with your name on it.</p>
+              <a class="mega-feat__cta" href="/hotels-resorts/">Browse stays &raquo;</a>
+            </div>
+            <div class="mega-col">
+              <p class="mega-col__label">Lodging</p>
+              
+              <a class="mega-link" href="/bed-and-breakfast/">Bed &amp; Breakfasts</a>
+              
+              <a class="mega-link" href="/campgrounds-rv-parks/">Campgrounds &amp; RV Parks</a>
+              
+              <a class="mega-link" href="/hotels-resorts/">Hotels &amp; Resorts</a>
+              
+            </div>
+            <div class="mega-col">
+              <p class="mega-col__label">Plan the trip</p>
+              <a class="mega-link" href="https://www.hotels.com/de1444575/hotels-key-west-florida/?pos=HCOM_US&amp;locale=en_US&amp;clickref=1011lDnorWh5&amp;rffrid=aff.hcom.US.038.000.1011l262772.kwrd=1011lDnorWh5&amp;affcid=HCOM-US.DIRECT.PHG.1011l262772&amp;afflid=1011lDnorWh5&amp;affdtl=PHG.1011lDnorWh5.&amp;affdtl=PHG.1011lDnorWh5." target="_blank" rel="nofollow sponsored noopener">Book a Room</a>
+              <a class="mega-link" href="/transportation/">Transportation</a>
+              <a class="mega-link" href="/news/">Key West News</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <button class="site-header__burger" type="button" id="burger" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">&#9776;</button>
+    <a class="btn btn--book" href="/check-availability/">Book Now</a>
+  </div>
+  <div class="mobile-nav" id="mobileNav" hidden>
+    <div class="mobile-nav__group">
+      <p class="mobile-nav__label">Things to Do</p>
+      <a class="mobile-nav__link" href="/today-in-key-west/">What's happening today</a>
+      <a class="mobile-nav__link" href="/live-music/">Live Music</a>
+      <a class="mobile-nav__link" href="/festivals-events/">Festivals &amp; Events</a>
+      
+      <a class="mobile-nav__link" href="/attractions/">Attractions</a>
+      
+      <a class="mobile-nav__link" href="/golf-cart-rentals/">Golf Cart Rentals</a>
+      
+      <a class="mobile-nav__link" href="/tours/">Historic Tours</a>
+      
+      <a class="mobile-nav__link" href="/scooter-bike-rentals-key-west/">Scooters &amp; Bikes</a>
+      
+      <a class="mobile-nav__link" href="/shopping/">Shopping</a>
+      
+      <a class="mobile-nav__link" href="/theater/">Theater &amp; Shows</a>
+      
+      <a class="mobile-nav__link" href="/today-in-key-west/">Today in Key West</a>
+      
+    </div>
+    <div class="mobile-nav__group">
+      <p class="mobile-nav__label">On the Water</p>
+      
+      <a class="mobile-nav__link" href="/sunset-sails/">Sunset Sails</a>
+      
+      <a class="mobile-nav__link" href="/dry-tortugas-national-park-key-west-excursions/">Dry Tortugas</a>
+      
+      <a class="mobile-nav__link" href="/jet-ski-tours-key-west/">Jet Ski Tours</a>
+      
+      <a class="mobile-nav__link" href="/marinas-boatyards/">Marinas &amp; Boatyards</a>
+      
+      <a class="mobile-nav__link" href="/sailing-cruises/">Sailing &amp; Cruises</a>
+      
+    </div>
+    <div class="mobile-nav__group">
+      <p class="mobile-nav__label">Eat &amp; Drink</p>
+      
+      <a class="mobile-nav__link" href="/bars-saloons/">Bars &amp; Saloons</a>
+      
+      <a class="mobile-nav__link" href="/casual-restaurants/">Casual Restaurants</a>
+      
+      <a class="mobile-nav__link" href="/fine-dining/">Fine Dining</a>
+      
+      <a class="mobile-nav__link" href="/happy-hour-bars/">Happy Hour</a>
+      <a class="mobile-nav__link" href="/live-music/">Live Music Venues</a>
+    </div>
+    <div class="mobile-nav__group">
+      <p class="mobile-nav__label">Stay</p>
+      
+      <a class="mobile-nav__link" href="/bed-and-breakfast/">Bed &amp; Breakfasts</a>
+      
+      <a class="mobile-nav__link" href="/campgrounds-rv-parks/">Campgrounds &amp; RV Parks</a>
+      
+      <a class="mobile-nav__link" href="/hotels-resorts/">Hotels &amp; Resorts</a>
+      
+      <a class="mobile-nav__link" href="https://www.hotels.com/de1444575/hotels-key-west-florida/?pos=HCOM_US&amp;locale=en_US&amp;clickref=1011lDnorWh5&amp;rffrid=aff.hcom.US.038.000.1011l262772.kwrd=1011lDnorWh5&amp;affcid=HCOM-US.DIRECT.PHG.1011l262772&amp;afflid=1011lDnorWh5&amp;affdtl=PHG.1011lDnorWh5.&amp;affdtl=PHG.1011lDnorWh5." target="_blank" rel="nofollow sponsored noopener">Book a Room</a>
+      <a class="mobile-nav__link" href="/news/">Key West News</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+
+
+<section class="hero hero--page hero--split">
+  <div class="wrap hero__split">
+    <div class="hero__copy">
+      <div class="hero__inner">
+        <p class="kicker kicker--light">Sorted by time</p>
+        <h1 class="hero__h1">Live <em class="accent">Entertainment</em></h1>
+        <p class="hero__lede">Live bands can be found at all hours at local outdoor bars and restaurants. <a href="/live-music/">View schedule by venue</a></p>
+      </div>
+    </div>
+    <div class="hero__media">
+      
+      
+      <img src="/media/images/hero-sloppy-joes.webp" alt="Key West Live Entertainment Schedule" width="1400" height="788" loading="lazy" decoding="async">
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap">
+    
+    
+    <p class="kicker showlist__date">Sunday, November 15, 2026</p>
+    <div class="grid grid--3">
+      
+      <article class="propcard showcard">
+        <a href="/casual-restaurants/two-friends-patio-restaurant-bar/" title="Two Friends Patio Restaurant &amp; Bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/restaurant-two-friends-16x9.jpg" alt="Two Friends Patio Restaurant &amp; Bar" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-08-30-alfonse/">Alfonse</a></h3>
+          <p class="showcard__when">8:30 AM at Two Friends Patio Restaurant &amp; Bar</p>
+          <span class="propcard__meta">512 Front St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Alfonse links">
+          <a href="/casual-restaurants/two-friends-patio-restaurant-bar/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/casual-restaurants/blue-heaven/" title="Blue Heaven">
+          <div class="propcard__media">
+            
+            <img src="/media/images/blue-heaven-jlh.jpg" alt="Blue Heaven" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-10-00-larry-smith/">Larry Smith</a></h3>
+          <p class="showcard__when">10:00 AM at Blue Heaven</p>
+          <span class="propcard__meta">729 Thomas St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Larry Smith links">
+          <a href="/casual-restaurants/blue-heaven/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/sloppy-joes-bar/" title="Sloppy Joe&#x27;s Bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/bar-sloppy-joes-16x9.jpg" alt="Sloppy Joe&#x27;s Bar" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-10-00-zack-seemiller/">Zack Seemiller</a></h3>
+          <p class="showcard__when">10:00 AM at Sloppy Joe&#x27;s Bar</p>
+          <span class="propcard__meta">201 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Zack Seemiller links">
+          <a href="/bars-saloons/sloppy-joes-bar/">Music Venue &nearr;</a>
+          
+          <a href="https://sloppyjoes.com/stage-cam/" target="_blank" rel="nofollow noopener">Watch live webcam &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/irish-kevins/" title="Irish Kevin&#x27;s">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Irish_Kevins_Bar_entrance.jpg" alt="Irish Kevin&#x27;s" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-11-00-jeff-harris/">Jeff Harris</a></h3>
+          <p class="showcard__when">11:00 AM at Irish Kevin&#x27;s</p>
+          <span class="propcard__meta">211 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Jeff Harris links">
+          <a href="/bars-saloons/irish-kevins/">Music Venue &nearr;</a>
+          
+          <a href="https://irishkevins.com/web-cam/" target="_blank" rel="nofollow noopener">Watch live webcam &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/sloppy-joes-bar/" title="Sloppy Joe&#x27;s Bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/bar-sloppy-joes-16x9.jpg" alt="Sloppy Joe&#x27;s Bar" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-12-00-drew-gunning/">Drew Gunning</a></h3>
+          <p class="showcard__when">12:00 PM at Sloppy Joe&#x27;s Bar</p>
+          <span class="propcard__meta">201 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Drew Gunning links">
+          <a href="/bars-saloons/sloppy-joes-bar/">Music Venue &nearr;</a>
+          
+          <a href="https://sloppyjoes.com/stage-cam/" target="_blank" rel="nofollow noopener">Watch live webcam &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/smokin-tuna-saloon/" title="Smokin&#x27; Tuna Saloon">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Smokin_Tuna_Key_West_Poster.jpg" alt="Smokin&#x27; Tuna Saloon" width="800" height="867" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-12-00-erica-sunshine-lee/">ERICA SUNSHINE LEE</a></h3>
+          <p class="showcard__when">12:00 PM at Smokin&#x27; Tuna Saloon</p>
+          <span class="propcard__meta">313 Duval Street</span>
+        </div>
+        <nav class="propcard__actions" aria-label="ERICA SUNSHINE LEE links">
+          <a href="/bars-saloons/smokin-tuna-saloon/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/ricks-bar-key-west/" title="Rick&#x27;s Bar Key West">
+          <div class="propcard__media">
+            
+            <img src="/media/images/ricks-bar-kw.jpg" alt="Rick&#x27;s Bar Key West" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-12-00-harley-ray/">Harley Ray</a></h3>
+          <p class="showcard__when">12:00 PM at Rick&#x27;s Bar Key West</p>
+          <span class="propcard__meta">202 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Harley Ray links">
+          <a href="/bars-saloons/ricks-bar-key-west/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/green-parrot-bar/" title="Green Parrot Bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Green_Parrot_Bar_Key_West.jpg" alt="Green Parrot Bar" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-13-00-bathtub-gin-quartet-at-100-300/">Bathtub Gin Quartet at 1:00 &amp; 3:00</a></h3>
+          <p class="showcard__when">1:00 PM at Green Parrot Bar</p>
+          <span class="propcard__meta">601 Whitehead St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Bathtub Gin Quartet at 1:00 &amp; 3:00 links">
+          <a href="/bars-saloons/green-parrot-bar/">Music Venue &nearr;</a>
+          
+          <a href="https://greenparrot.com/stage-cam" target="_blank" rel="nofollow noopener">Watch live webcam &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/smokin-tuna-saloon/" title="Smokin&#x27; Tuna Saloon">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Smokin_Tuna_Key_West_Poster.jpg" alt="Smokin&#x27; Tuna Saloon" width="800" height="867" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-13-00-elle-haley/">Elle Haley</a></h3>
+          <p class="showcard__when">1:00 PM at Smokin&#x27; Tuna Saloon</p>
+          <span class="propcard__meta">313 Duval Street</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Elle Haley links">
+          <a href="/bars-saloons/smokin-tuna-saloon/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/sunset-pier/" title="Sunset Pier">
+          <div class="propcard__media">
+            
+            <img src="/media/images/bar-sunset-pier-16x9.jpg" alt="Sunset Pier" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-13-00-mike-stack-dlew/">Mike Stack &amp; DLew</a></h3>
+          <p class="showcard__when">1:00 PM at Sunset Pier</p>
+          <span class="propcard__meta">0 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Mike Stack &amp; DLew links">
+          <a href="/bars-saloons/sunset-pier/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/hanks-hair-of-the-dog-saloon/" title="Hank&#x27;s Hair of the Dog Saloon">
+          <div class="propcard__media">
+            
+            <img src="/media/images/HanksSaloonKeyWest.jpg" alt="Hank&#x27;s Hair of the Dog Saloon" width="800" height="449" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-13-00-sid-ordoyne/">Sid Ordoyne</a></h3>
+          <p class="showcard__when">1:00 PM at Hank&#x27;s Hair of the Dog Saloon</p>
+          <span class="propcard__meta">409 Caroline St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Sid Ordoyne links">
+          <a href="/bars-saloons/hanks-hair-of-the-dog-saloon/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/irish-kevins/" title="Irish Kevin&#x27;s">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Irish_Kevins_Bar_entrance.jpg" alt="Irish Kevin&#x27;s" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-14-30-oren-polak/">Oren Polak</a></h3>
+          <p class="showcard__when">2:30 PM at Irish Kevin&#x27;s</p>
+          <span class="propcard__meta">211 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Oren Polak links">
+          <a href="/bars-saloons/irish-kevins/">Music Venue &nearr;</a>
+          
+          <a href="https://irishkevins.com/web-cam/" target="_blank" rel="nofollow noopener">Watch live webcam &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/old-sailor-bar-ricks-key-west/" title="Old Sailor Bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Old_Sailor_bar_key_West.jpg" alt="Old Sailor Bar" width="800" height="533" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-15-00-marcy-kaelyn/">Marcy Kaelyn</a></h3>
+          <p class="showcard__when">3:00 PM at Old Sailor Bar</p>
+          <span class="propcard__meta">430 Greene St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Marcy Kaelyn links">
+          <a href="/bars-saloons/old-sailor-bar-ricks-key-west/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/ricks-bar-key-west/" title="Rick&#x27;s Bar Key West">
+          <div class="propcard__media">
+            
+            <img src="/media/images/ricks-bar-kw.jpg" alt="Rick&#x27;s Bar Key West" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-16-00-tba/">TBA</a></h3>
+          <p class="showcard__when">4:00 PM at Rick&#x27;s Bar Key West</p>
+          <span class="propcard__meta">202 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="TBA links">
+          <a href="/bars-saloons/ricks-bar-key-west/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/la-te-da/" title="La Te Da">
+          <div class="propcard__media">
+            
+            <img src="/media/images/bar-la-te-da-16x9.jpg" alt="La Te Da" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-16-00-tea-dance/">TEA DANCE!</a></h3>
+          <p class="showcard__when">4:00 PM at La Te Da</p>
+          <span class="propcard__meta">1125 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="TEA DANCE! links">
+          <a href="/bars-saloons/la-te-da/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/smokin-tuna-saloon/" title="Smokin&#x27; Tuna Saloon">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Smokin_Tuna_Key_West_Poster.jpg" alt="Smokin&#x27; Tuna Saloon" width="800" height="867" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-16-00-victoria-leigh/">Victoria Leigh</a></h3>
+          <p class="showcard__when">4:00 PM at Smokin&#x27; Tuna Saloon</p>
+          <span class="propcard__meta">313 Duval Street</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Victoria Leigh links">
+          <a href="/bars-saloons/smokin-tuna-saloon/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/hanks-hair-of-the-dog-saloon/" title="Hank&#x27;s Hair of the Dog Saloon">
+          <div class="propcard__media">
+            
+            <img src="/media/images/HanksSaloonKeyWest.jpg" alt="Hank&#x27;s Hair of the Dog Saloon" width="800" height="449" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-17-00-jay-klein/">Jay Klein</a></h3>
+          <p class="showcard__when">5:00 PM at Hank&#x27;s Hair of the Dog Saloon</p>
+          <span class="propcard__meta">409 Caroline St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Jay Klein links">
+          <a href="/bars-saloons/hanks-hair-of-the-dog-saloon/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/sunset-pier/" title="Sunset Pier">
+          <div class="propcard__media">
+            
+            <img src="/media/images/bar-sunset-pier-16x9.jpg" alt="Sunset Pier" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-17-00-jerico-rockability-quartet/">Jerico Rockability Quartet</a></h3>
+          <p class="showcard__when">5:00 PM at Sunset Pier</p>
+          <span class="propcard__meta">0 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Jerico Rockability Quartet links">
+          <a href="/bars-saloons/sunset-pier/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/casual-restaurants/two-friends-patio-restaurant-bar/" title="Two Friends Patio Restaurant &amp; Bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/shanty_hounds.jpg" alt="The Shanty Hounds" width="1600" height="900" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-17-00-the-shanty-hounds/">The Shanty Hounds</a></h3>
+          <p class="showcard__when">5:00 PM at Two Friends Patio Restaurant &amp; Bar</p>
+          <span class="propcard__meta">512 Front St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="The Shanty Hounds links">
+          <a href="/casual-restaurants/two-friends-patio-restaurant-bar/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/sloppy-joes-bar/" title="Sloppy Joe&#x27;s Bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/bar-sloppy-joes-16x9.jpg" alt="Sloppy Joe&#x27;s Bar" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-17-30-mojito/">Mojito</a></h3>
+          <p class="showcard__when">5:30 PM at Sloppy Joe&#x27;s Bar</p>
+          <span class="propcard__meta">201 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Mojito links">
+          <a href="/bars-saloons/sloppy-joes-bar/">Music Venue &nearr;</a>
+          
+          <a href="https://sloppyjoes.com/stage-cam/" target="_blank" rel="nofollow noopener">Watch live webcam &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/green-parrot-bar/" title="Green Parrot Bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Green_Parrot_Bar_Key_West.jpg" alt="Green Parrot Bar" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-17-30-the-happy-dog-soundcheck/">The Happy Dog Soundcheck</a></h3>
+          <p class="showcard__when">5:30 PM at Green Parrot Bar</p>
+          <span class="propcard__meta">601 Whitehead St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="The Happy Dog Soundcheck links">
+          <a href="/bars-saloons/green-parrot-bar/">Music Venue &nearr;</a>
+          
+          <a href="https://greenparrot.com/stage-cam" target="_blank" rel="nofollow noopener">Watch live webcam &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/casual-restaurants/kikis-sandbar-bar-grille/" title="Kiki&#x27;s Sandbar Bar &amp; Grille">
+          <div class="propcard__media">
+            
+            <img src="/media/images/kikis-sandbar-bar-grille.jpg" alt="Kiki&#x27;s Sandbar Bar &amp; Grille" width="1600" height="900" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-18-00-circa-22-duo/">Circa 22 Duo</a></h3>
+          <p class="showcard__when">6:00 PM at Kiki&#x27;s Sandbar Bar &amp; Grille</p>
+          <span class="propcard__meta">183 Barry Ave</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Circa 22 Duo links">
+          <a href="/casual-restaurants/kikis-sandbar-bar-grille/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/irish-kevins/" title="Irish Kevin&#x27;s">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Irish_Kevins_Bar_entrance.jpg" alt="Irish Kevin&#x27;s" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-18-00-mylo-omaolain/">Mylo O&#x27;Maolain</a></h3>
+          <p class="showcard__when">6:00 PM at Irish Kevin&#x27;s</p>
+          <span class="propcard__meta">211 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Mylo O&#x27;Maolain links">
+          <a href="/bars-saloons/irish-kevins/">Music Venue &nearr;</a>
+          
+          <a href="https://irishkevins.com/web-cam/" target="_blank" rel="nofollow noopener">Watch live webcam &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/casual-restaurants/key-west-empourium/" title="Key West EmPOURium">
+          <div class="propcard__media">
+            
+            <img src="/media/images/KWE_Front2.jpg" alt="Key West EmPOURium" width="800" height="534" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-18-00-reggae-lou-the-kind-budz/">Reggae Lou &amp; The Kind Budz</a></h3>
+          <p class="showcard__when">6:00 PM at Key West EmPOURium</p>
+          <span class="propcard__meta">618 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Reggae Lou &amp; The Kind Budz links">
+          <a href="/casual-restaurants/key-west-empourium/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/ricks-bar-key-west/" title="Rick&#x27;s Bar Key West">
+          <div class="propcard__media">
+            
+            <img src="/media/images/ricks-bar-kw.jpg" alt="Rick&#x27;s Bar Key West" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-19-00-dj-marty/">DJ Marty</a></h3>
+          <p class="showcard__when">7:00 PM at Rick&#x27;s Bar Key West</p>
+          <span class="propcard__meta">202 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="DJ Marty links">
+          <a href="/bars-saloons/ricks-bar-key-west/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/old-sailor-bar-ricks-key-west/" title="Old Sailor Bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Old_Sailor_bar_key_West.jpg" alt="Old Sailor Bar" width="800" height="533" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-19-00-jesse-lee/">Jesse Lee</a></h3>
+          <p class="showcard__when">7:00 PM at Old Sailor Bar</p>
+          <span class="propcard__meta">430 Greene St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Jesse Lee links">
+          <a href="/bars-saloons/old-sailor-bar-ricks-key-west/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/tiki-house/" title="Tiki House">
+          <div class="propcard__media">
+            
+            <img src="/media/images/TikiHouse-Key_West.jpg" alt="Tiki House" width="800" height="626" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-19-30-elle-haley/">Elle Haley</a></h3>
+          <p class="showcard__when">7:30 PM at Tiki House</p>
+          <span class="propcard__meta">203 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Elle Haley links">
+          <a href="/bars-saloons/tiki-house/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/ricks-bar-key-west/" title="Rick&#x27;s Bar Key West">
+          <div class="propcard__media">
+            
+            <img src="/media/images/ricks-bar-kw.jpg" alt="Rick&#x27;s Bar Key West" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-20-00-aaron-hudgins/">Aaron Hudgins</a></h3>
+          <p class="showcard__when">8:00 PM at Rick&#x27;s Bar Key West</p>
+          <span class="propcard__meta">202 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Aaron Hudgins links">
+          <a href="/bars-saloons/ricks-bar-key-west/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/ricks-bar-key-west/" title="Rick&#x27;s Bar Key West">
+          <div class="propcard__media">
+            
+            <img src="/media/images/ricks-bar-kw.jpg" alt="Rick&#x27;s Bar Key West" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-20-00-dj-kori/">DJ Kori</a></h3>
+          <p class="showcard__when">8:00 PM at Rick&#x27;s Bar Key West</p>
+          <span class="propcard__meta">202 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="DJ Kori links">
+          <a href="/bars-saloons/ricks-bar-key-west/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/casual-restaurants/key-west-empourium/" title="Key West EmPOURium">
+          <div class="propcard__media">
+            
+            <img src="/media/images/KWE_Karaoke.jpg" alt="Karaoke" width="800" height="534" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-20-00-karaoke/">Karaoke</a></h3>
+          <p class="showcard__when">8:00 PM at Key West EmPOURium</p>
+          <span class="propcard__meta">618 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Karaoke links">
+          <a href="/casual-restaurants/key-west-empourium/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/smokin-tuna-saloon/" title="Smokin&#x27; Tuna Saloon">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Smokin_Tuna_Key_West_Poster.jpg" alt="Smokin&#x27; Tuna Saloon" width="800" height="867" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-20-00-reggae-lou-the-kind-budz/">Reggae Lou &amp; The Kind Budz</a></h3>
+          <p class="showcard__when">8:00 PM at Smokin&#x27; Tuna Saloon</p>
+          <span class="propcard__meta">313 Duval Street</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Reggae Lou &amp; The Kind Budz links">
+          <a href="/bars-saloons/smokin-tuna-saloon/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/durty-harrys/" title="Durty Harry&#x27;s bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/durty-harrys.jpg" alt="Durty Harry&#x27;s bar" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-20-30-durtbags/">Durtbags</a></h3>
+          <p class="showcard__when">8:30 PM at Durty Harry&#x27;s bar</p>
+          <span class="propcard__meta">208 Duval Street</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Durtbags links">
+          <a href="/bars-saloons/durty-harrys/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/hanks-hair-of-the-dog-saloon/" title="Hank&#x27;s Hair of the Dog Saloon">
+          <div class="propcard__media">
+            
+            <img src="/media/images/HanksSaloonKeyWest.jpg" alt="Hank&#x27;s Hair of the Dog Saloon" width="800" height="449" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-20-30-pierce-august/">Pierce August</a></h3>
+          <p class="showcard__when">8:30 PM at Hank&#x27;s Hair of the Dog Saloon</p>
+          <span class="propcard__meta">409 Caroline St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Pierce August links">
+          <a href="/bars-saloons/hanks-hair-of-the-dog-saloon/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/irish-kevins/" title="Irish Kevin&#x27;s">
+          <div class="propcard__media">
+            
+            <img src="/media/images/Irish_Kevins_Bar_entrance.jpg" alt="Irish Kevin&#x27;s" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-22-00-ny-pauly/">NY Pauly</a></h3>
+          <p class="showcard__when">10:00 PM at Irish Kevin&#x27;s</p>
+          <span class="propcard__meta">211 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="NY Pauly links">
+          <a href="/bars-saloons/irish-kevins/">Music Venue &nearr;</a>
+          
+          <a href="https://irishkevins.com/web-cam/" target="_blank" rel="nofollow noopener">Watch live webcam &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/sloppy-joes-bar/" title="Sloppy Joe&#x27;s Bar">
+          <div class="propcard__media">
+            
+            <img src="/media/images/bar-sloppy-joes-16x9.jpg" alt="Sloppy Joe&#x27;s Bar" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-22-00-screaming-broccolli/">Screaming Broccolli</a></h3>
+          <p class="showcard__when">10:00 PM at Sloppy Joe&#x27;s Bar</p>
+          <span class="propcard__meta">201 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Screaming Broccolli links">
+          <a href="/bars-saloons/sloppy-joes-bar/">Music Venue &nearr;</a>
+          
+          <a href="https://sloppyjoes.com/stage-cam/" target="_blank" rel="nofollow noopener">Watch live webcam &nearr;</a>
+          
+        </nav>
+      </article>
+      
+      <article class="propcard showcard">
+        <a href="/bars-saloons/ricks-bar-key-west/" title="Rick&#x27;s Bar Key West">
+          <div class="propcard__media">
+            
+            <img src="/media/images/ricks-bar-kw.jpg" alt="Rick&#x27;s Bar Key West" width="800" height="450" loading="lazy" decoding="async">
+            
+          </div>
+        </a>
+        <div class="propcard__body">
+          <h3 class="propcard__name"><a href="/event/2026-11-15-23-59-karaoke-w-jason/">Karaoke w/ Jason</a></h3>
+          <p class="showcard__when">11:59 PM at Rick&#x27;s Bar Key West</p>
+          <span class="propcard__meta">202 Duval St</span>
+        </div>
+        <nav class="propcard__actions" aria-label="Karaoke w/ Jason links">
+          <a href="/bars-saloons/ricks-bar-key-west/">Music Venue &nearr;</a>
+          
+        </nav>
+      </article>
+      
+    </div>
+    
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__cols">
+      <div class="site-footer__brand">
+        <img src="/media/images/og-image-kwt-logo.webp" alt="KeyWestTourist.com">
+        <p>An independent guide to what to do, see, hear and book in Key West, Florida.</p>
+        <a class="site-footer__link" href="https://www.facebook.com/KeyWestTourist/" target="_blank" rel="nofollow noopener">Facebook</a>
+      </div>
+      <div class="site-footer__col">
+        <p class="site-footer__label">Things to Do</p>
+        <a class="site-footer__link" href="/festivals-events/">Festivals &amp; Events</a>
+        <a class="site-footer__link" href="/live-music/">Live Music</a>
+        
+        <a class="site-footer__link" href="/attractions/">Attractions</a>
+        
+        <a class="site-footer__link" href="/golf-cart-rentals/">Golf Cart Rentals</a>
+        
+        <a class="site-footer__link" href="/tours/">Historic Tours</a>
+        
+        <a class="site-footer__link" href="/scooter-bike-rentals-key-west/">Scooters &amp; Bikes</a>
+        
+        <a class="site-footer__link" href="/shopping/">Shopping</a>
+        
+        <a class="site-footer__link" href="/theater/">Theater &amp; Shows</a>
+        
+        <a class="site-footer__link" href="/today-in-key-west/">Today in Key West</a>
+        
+      </div>
+      <div class="site-footer__col">
+        <p class="site-footer__label">On the Water</p>
+        
+        <a class="site-footer__link" href="/sunset-sails/">Sunset Sails</a>
+        
+        <a class="site-footer__link" href="/snorkeling/">Snorkeling</a>
+        
+        <a class="site-footer__link" href="/deep-sea-fishing-key-west/">Deep Sea Fishing</a>
+        
+        <a class="site-footer__link" href="/dry-tortugas-national-park-key-west-excursions/">Dry Tortugas</a>
+        
+        <a class="site-footer__link" href="/fishing-charters/">Fishing Charters</a>
+        
+        <a class="site-footer__link" href="/flats-backcountry-fishing-from-key-west/">Flats &amp; Backcountry</a>
+        
+        <a class="site-footer__link" href="/jet-ski-tours-key-west/">Jet Ski Tours</a>
+        
+        <a class="site-footer__link" href="/marinas-boatyards/">Marinas &amp; Boatyards</a>
+        
+        <a class="site-footer__link" href="/scuba-diving/">SCUBA Diving</a>
+        
+        <a class="site-footer__link" href="/sailing-cruises/">Sailing &amp; Cruises</a>
+        
+      </div>
+      <div class="site-footer__col">
+        <p class="site-footer__label">Eat &amp; Drink</p>
+        
+        <a class="site-footer__link" href="/bars-saloons/">Bars &amp; Saloons</a>
+        
+        <a class="site-footer__link" href="/casual-restaurants/">Casual Restaurants</a>
+        
+        <a class="site-footer__link" href="/fine-dining/">Fine Dining</a>
+        
+        <a class="site-footer__link" href="/happy-hour-bars/">Happy Hour</a>
+      </div>
+      <div class="site-footer__col">
+        <p class="site-footer__label">Stay</p>
+        
+        <a class="site-footer__link" href="/bed-and-breakfast/">Bed &amp; Breakfasts</a>
+        
+        <a class="site-footer__link" href="/campgrounds-rv-parks/">Campgrounds &amp; RV Parks</a>
+        
+        <a class="site-footer__link" href="/hotels-resorts/">Hotels &amp; Resorts</a>
+        
+        <a class="site-footer__link" href="/transportation/">Transportation</a>
+        
+        <a class="site-footer__link" href="https://www.hotels.com/de1444575/hotels-key-west-florida/?pos=HCOM_US&amp;locale=en_US&amp;clickref=1011lDnorWh5&amp;rffrid=aff.hcom.US.038.000.1011l262772.kwrd=1011lDnorWh5&amp;affcid=HCOM-US.DIRECT.PHG.1011l262772&amp;afflid=1011lDnorWh5&amp;affdtl=PHG.1011lDnorWh5.&amp;affdtl=PHG.1011lDnorWh5." target="_blank" rel="nofollow sponsored noopener">Book a Room</a>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <span class="site-footer__copy">&copy; 2026 Be Here, LLC</span>
+      <span class="site-footer__disclosure">Some links are <a href="/affiliate-disclosure-for-keywesttouristcom/">affiliate links</a>. KeyWestTourist.com may earn a commission from a completed booking at no additional cost to the visitor.</span>
+      <a class="site-footer__link" href="/about/">About</a>
+      <a class="site-footer__link" href="/privacypolicy/">Privacy Policy</a>
+      <a class="site-footer__link" href="/partner/">List Your Business</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/kwt-redesign.js"></script>
+</body>
+</html>

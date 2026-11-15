@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html id="scoped-css" class="not-logged-in no-js locale-en no-commerce" lang="en" data-controller="" data-action="">
+  <head prefix="og: https://ogp.me/ns#">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="text/javascript">
+  (function (win, html) {
+    var ua = navigator.userAgent;
+    var touch = 'ontouchstart' in win || navigator.msMaxTouchPoints > 0;
+    var tests = {
+      touchevents: touch,
+      microsofttablet: touch,
+      ios: /iPod|iPhone|iPad/i.test(ua),
+      safari: /Safari/i.test(ua) && !/Chrome/i.test(ua),
+      android: /Android/i.test(ua),
+      iframed: win.self !== win.top,
+      hidpi: win.devicePixelRatio > 1 || win.matchMedia('(min-resolution: 1.5dppx)').matches,
+      cssanimations: true,
+      cssfilters: true,
+      flexbox: true,
+      history: true,
+      supports: true
+    };
+    var classes = [];
+    for (var name in tests) classes.push((tests[name] ? '' : 'no-') + name);
+    html.className = html.className.replace(/(^|\s)no-js(\s|$)/, '$1js$2') + ' ' + classes.join(' ');
+    win.Modernizr = tests;
+  })(window, document.documentElement);
+</script>
+
+<script src="//assets-openresty-kamal-production.bndzgl.com/assets/usersite/application-de828bad69648e302f15588c831370d31e63707e8c3120ae0adc6c5a4f9a15fd.js" data-turbo-track="reload"></script>
+<script src="//assets-openresty-kamal-production.bndzgl.com/assets/usersite-89a88bb79eb91139966ed9a852d04382622798471e87a9ed69721890d5cdccdb.js" defer="defer" type="module" data-turbo-track="reload"></script>
+<link rel="stylesheet" href="//assets-openresty-kamal-production.bndzgl.com/assets/usersite-fe77d814a13bc2e43fc53cf2f1d3fd3a6f2b7253195c03719d30a7a04be5ef27.css" media="screen" data-turbo-track="reload" />
+<meta name="turbo-prefetch" content="false">
+<meta name="turbo-refresh-method" content="morph">
+<title>John Bartus</title>
+
+
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="//assets-openresty-kamal-production.bndzgl.com/assets/usersite/application-c89f318b63ebada5dd608ca519a1b77ff9080ad6595eec9cf1b988cc704870d9.css" media="screen" data-turbo-track="reload" />
+<script src="//assets-openresty-kamal-production.bndzgl.com/assets/usersite/themes/encore-27b431ea64eb05230f53120e18dc5fb5eb8eedee2ac021db8546f7c849b88663.js" type="module" async="async" data-turbo-track="reload"></script>
+<link rel="stylesheet" href="//assets-openresty-kamal-production.bndzgl.com/assets/usersite/themes/encore-bd0625a83c6e0bacb4409444e82ad8daa924aa53199faed3c5d192b092fb2f6a.css" media="screen" data-turbo-track="reload" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&amp;display=swap">
+<style class="theme-config-properties" type="text/css">@font-face { font-display: swap; font-family: "Cormorant Garamond"; src: url('//assets-openresty-kamal-production.bndzgl.com/assets/45a059a9-a84d-4c25-8856-cca1a9a66ec0/cormorantgaramond-regular.woff2') format('woff2'), url('//assets-openresty-kamal-production.bndzgl.com/assets/45a059a9-a84d-4c25-8856-cca1a9a66ec0/cormorantgaramond-regular.woff') format('woff'), url('//assets-openresty-kamal-production.bndzgl.com/assets/45a059a9-a84d-4c25-8856-cca1a9a66ec0/cormorantgaramond-regular.ttf') format('truetype'); font-style: normal; font-weight: 400; }
+@font-face { font-display: swap; font-family: "Woodford Bourne"; src: url('//assets-openresty-kamal-production.bndzgl.com/assets/04cb40d2-43d3-42b6-a98e-678a641d8781/woodfordbourne.woff2') format('woff2'), url('//assets-openresty-kamal-production.bndzgl.com/assets/04cb40d2-43d3-42b6-a98e-678a641d8781/woodfordbourne.woff') format('woff'), url('//assets-openresty-kamal-production.bndzgl.com/assets/04cb40d2-43d3-42b6-a98e-678a641d8781/file.ttf') format('truetype'), url('//assets-openresty-kamal-production.bndzgl.com/assets/04cb40d2-43d3-42b6-a98e-678a641d8781/woodfordbourne.otf') format('opentype'); font-weight: 300; }
+@font-face { font-display: swap; font-family: "Cabin"; src: url('//assets-openresty-kamal-production.bndzgl.com/assets/5231a62e-1590-467b-b313-7d7ace2be6e7/cabin-regular.woff2') format('woff2'), url('//assets-openresty-kamal-production.bndzgl.com/assets/5231a62e-1590-467b-b313-7d7ace2be6e7/cabin-regular.woff') format('woff'), url('//assets-openresty-kamal-production.bndzgl.com/assets/5231a62e-1590-467b-b313-7d7ace2be6e7/cabin-regular.ttf') format('truetype'); font-style: normal; font-weight: 400; }
+@font-face { font-display: swap; font-family: "Woodford Bourne"; src: url('//assets-openresty-kamal-production.bndzgl.com/assets/c09b1c09-f0e3-4e69-bf7c-cbae88100803/woodfordbourne.woff2') format('woff2'), url('//assets-openresty-kamal-production.bndzgl.com/assets/c09b1c09-f0e3-4e69-bf7c-cbae88100803/woodfordbourne.woff') format('woff'), url('//assets-openresty-kamal-production.bndzgl.com/assets/c09b1c09-f0e3-4e69-bf7c-cbae88100803/file.ttf') format('truetype'), url('//assets-openresty-kamal-production.bndzgl.com/assets/c09b1c09-f0e3-4e69-bf7c-cbae88100803/woodfordbourne.otf') format('opentype'); font-weight: 600; }
+@font-face { font-display: swap; font-family: "Woodford Bourne"; src: url('//assets-openresty-kamal-production.bndzgl.com/assets/0f8d43d5-d16f-435c-845f-c081ad52eea0/woodfordbourne.woff2') format('woff2'), url('//assets-openresty-kamal-production.bndzgl.com/assets/0f8d43d5-d16f-435c-845f-c081ad52eea0/woodfordbourne.woff') format('woff'), url('//assets-openresty-kamal-production.bndzgl.com/assets/0f8d43d5-d16f-435c-845f-c081ad52eea0/file.ttf') format('truetype'), url('//assets-openresty-kamal-production.bndzgl.com/assets/0f8d43d5-d16f-435c-845f-c081ad52eea0/woodfordbourne.otf') format('opentype'); font-weight: 400; }
+:root {
+  --theme-config-version: "theme_configs/1183754-20240814174425000000";
+  --text-color: hsl(0, 0%, 12%);
+--text-color-hsl: 0, 0%, 12%;
+--text-color-h: 0;
+--text-color-s: 0;
+--text-color-l: 12;
+--text-color-a: 1.0;
+--link-color: hsl(48, 28%, 62%);
+--link-color-hsl: 48, 28%, 62%;
+--link-color-h: 48;
+--link-color-s: 28;
+--link-color-l: 62;
+--link-color-a: 1.0;
+--feature-title-color: hsl(0, 0%, 12%);
+--feature-title-color-hsl: 0, 0%, 12%;
+--feature-title-color-h: 0;
+--feature-title-color-s: 0;
+--feature-title-color-l: 12;
+--feature-title-color-a: 1.0;
+--nav-link-color: hsl(0, 0%, 100%);
+--nav-link-color-hsl: 0, 0%, 100%;
+--nav-link-color-h: 0;
+--nav-link-color-s: 0;
+--nav-link-color-l: 100;
+--nav-link-color-a: 1.0;
+--nav-link-rollover-color: hsl(48, 28%, 62%);
+--nav-link-rollover-color-hsl: 48, 28%, 62%;
+--nav-link-rollover-color-h: 48;
+--nav-link-rollover-color-s: 28;
+--nav-link-rollover-color-l: 62;
+--nav-link-rollover-color-a: 1.0;
+--sub-menu-background-color: hsl(48, 20%, 44%);
+--sub-menu-background-color-hsl: 48, 20%, 44%;
+--sub-menu-background-color-h: 48;
+--sub-menu-background-color-s: 20;
+--sub-menu-background-color-l: 44;
+--sub-menu-background-color-a: 1.0;
+--sub-menu-link-color: hsl(0, 0%, 100%);
+--sub-menu-link-color-hsl: 0, 0%, 100%;
+--sub-menu-link-color-h: 0;
+--sub-menu-link-color-s: 0;
+--sub-menu-link-color-l: 100;
+--sub-menu-link-color-a: 1.0;
+--page-title-color: hsl(0, 0%, 86%);
+--page-title-color-hsl: 0, 0%, 86%;
+--page-title-color-h: 0;
+--page-title-color-s: 0;
+--page-title-color-l: 86;
+--page-title-color-a: 1.0;
+--swmp-use-custom-colors-boolean: false;
+--swmp-background-color: hsl(0, 0%, 0%);
+--swmp-background-color-hsl: 0, 0%, 0%;
+--swmp-background-color-h: 0;
+--swmp-background-color-s: 0;
+--swmp-background-color-l: 0;
+--swmp-background-color-a: 1.0;
+--swmp-text-color-enum: white;
+--page-title-type-enum: logo;
+--page-title-logo-background-image: url("//images.zoogletools.com/s:bzglfiles/u/425253/0df42ee8465e2e7baca60d4237a775457ed5e52c/original/jb-logo-transp-2020.png/!!/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.png");
+--page-title-string: "John Bartus - Live From the Florida Keys";
+--page-title-logo-size-number: 43%;
+--page-title-logo-size-number-unitless: 43;
+--site-wide-my-sites-align-enum: center;
+--site-wide-my-sites-size-number: 1.5rem;
+--site-wide-my-sites-size-number-unitless: 1.5;
+--site-wide-my-sites-rgba: hsl(48, 28%, 62%);
+--site-wide-my-sites-color: hsl(48, 28%, 62%);
+--site-wide-my-sites-rgba-hsl: 48, 28%, 62%;
+--site-wide-my-sites-rgba-h: 48;
+--site-wide-my-sites-rgba-s: 28;
+--site-wide-my-sites-rgba-l: 62;
+--site-wide-my-sites-rgba-a: 1.0;
+--site-wide-my-sites-hover-rgba: hsl(48, 28%, 62%);
+--site-wide-my-sites-hover-color: hsl(48, 28%, 62%);
+--site-wide-my-sites-hover-rgba-hsl: 48, 28%, 62%;
+--site-wide-my-sites-hover-rgba-h: 48;
+--site-wide-my-sites-hover-rgba-s: 28;
+--site-wide-my-sites-hover-rgba-l: 62;
+--site-wide-my-sites-hover-rgba-a: 1.0;
+--nav-background-rgba: hsla(0, 0%, 0%, 0.5);
+--nav-background-color: hsla(0, 0%, 0%, 0.5);
+--nav-background-rgba-hsl: 0, 0%, 0%;
+--nav-background-rgba-h: 0;
+--nav-background-rgba-s: 0;
+--nav-background-rgba-l: 0;
+--nav-background-rgba-a: 0.5;
+--page-background-color: hsl(0, 0%, 100%);
+--page-background-color-hsl: 0, 0%, 100%;
+--page-background-color-h: 0;
+--page-background-color-s: 0;
+--page-background-color-l: 100;
+--page-background-color-a: 1.0;
+--mobile-nav-link-color: hsl(0, 0%, 0%);
+--mobile-nav-link-color-hsl: 0, 0%, 0%;
+--mobile-nav-link-color-h: 0;
+--mobile-nav-link-color-s: 0;
+--mobile-nav-link-color-l: 0;
+--mobile-nav-link-color-a: 1.0;
+--mobile-nav-background-color: hsl(48, 28%, 62%);
+--mobile-nav-background-color-hsl: 48, 28%, 62%;
+--mobile-nav-background-color-h: 48;
+--mobile-nav-background-color-s: 28;
+--mobile-nav-background-color-l: 62;
+--mobile-nav-background-color-a: 1.0;
+--cta-header-heading-rgba: hsl(0, 0%, 100%);
+--cta-header-heading-color: hsl(0, 0%, 100%);
+--cta-header-heading-rgba-hsl: 0, 0%, 100%;
+--cta-header-heading-rgba-h: 0;
+--cta-header-heading-rgba-s: 0;
+--cta-header-heading-rgba-l: 100;
+--cta-header-heading-rgba-a: 1.0;
+--cta-header-subheading-rgba: hsl(50, 51%, 71%);
+--cta-header-subheading-color: hsl(50, 51%, 71%);
+--cta-header-subheading-rgba-hsl: 50, 51%, 71%;
+--cta-header-subheading-rgba-h: 50;
+--cta-header-subheading-rgba-s: 51;
+--cta-header-subheading-rgba-l: 71;
+--cta-header-subheading-rgba-a: 1.0;
+--cta-header-button-rgba: hsl(47, 24%, 85%);
+--cta-header-button-color: hsl(47, 24%, 85%);
+--cta-header-button-rgba-hsl: 47, 24%, 85%;
+--cta-header-button-rgba-h: 47;
+--cta-header-button-rgba-s: 24;
+--cta-header-button-rgba-l: 85;
+--cta-header-button-rgba-a: 1.0;
+--cta-header-button-hover-rgba: hsl(48, 20%, 44%);
+--cta-header-button-hover-color: hsl(48, 20%, 44%);
+--cta-header-button-hover-rgba-hsl: 48, 20%, 44%;
+--cta-header-button-hover-rgba-h: 48;
+--cta-header-button-hover-rgba-s: 20;
+--cta-header-button-hover-rgba-l: 44;
+--cta-header-button-hover-rgba-a: 1.0;
+--cta-header-align-enum: center;
+--cta-header-position-enum: middle;
+--button-color: hsl(48, 28%, 62%);
+--button-color-hsl: 48, 28%, 62%;
+--button-color-h: 48;
+--button-color-s: 28;
+--button-color-l: 62;
+--button-color-a: 1.0;
+--button-hover-color: hsl(48, 20%, 44%);
+--button-hover-color-hsl: 48, 20%, 44%;
+--button-hover-color-h: 48;
+--button-hover-color-s: 20;
+--button-hover-color-l: 44;
+--button-hover-color-a: 1.0;
+--button-shape-enum: square;
+--button-style-enum: outline;
+--header-height-number: 100%;
+--header-height-number-unitless: 100;
+--header-height-inner-pages-number: 30%;
+--header-height-inner-pages-number-unitless: 30;
+--show-scroll-to-content-boolean: true;
+--cta-header-border-rgba: hsla(0, 0%, 86%, 0.1);
+--cta-header-border-color: hsla(0, 0%, 86%, 0.1);
+--cta-header-border-rgba-hsl: 0, 0%, 86%;
+--cta-header-border-rgba-h: 0;
+--cta-header-border-rgba-s: 0;
+--cta-header-border-rgba-l: 86;
+--cta-header-border-rgba-a: 0.1;
+--cta-header-border-width-number: 1px;
+--cta-header-border-width-number-unitless: 1;
+--cta-header-background-rgba: hsla(0, 0%, 100%, 0.0);
+--cta-header-background-color: hsla(0, 0%, 100%, 0.0);
+--cta-header-background-rgba-hsl: 0, 0%, 100%;
+--cta-header-background-rgba-h: 0;
+--cta-header-background-rgba-s: 0;
+--cta-header-background-rgba-l: 100;
+--cta-header-background-rgba-a: 0.0;
+--heading-color: hsl(0, 0%, 12%);
+--heading-color-hsl: 0, 0%, 12%;
+--heading-color-h: 0;
+--heading-color-s: 0;
+--heading-color-l: 12;
+--heading-color-a: 1.0;
+--page-title-typeface-style: "regular";
+--page-title-typeface-style-stylesheet: "//assets-openresty-kamal-production.bndzgl.com/assets/45a059a9-a84d-4c25-8856-cca1a9a66ec0/stylesheet.css#Cormorant Garamond-regular";
+--page-title-typeface-style-stack: 'Cormorant Garamond', serif;
+--page-title-typeface-style-font-weight: 400;
+--page-title-typeface-style-font-style: normal;
+--page-title-typeface-size-number: 32px;
+--page-title-typeface-size-number-unitless: 32;
+--page-title-uppercase-boolean: false;
+--heading-typeface-style: "regular";
+--heading-typeface-style-stylesheet: "//assets-openresty-kamal-production.bndzgl.com/assets/45a059a9-a84d-4c25-8856-cca1a9a66ec0/stylesheet.css#Cormorant Garamond-regular";
+--heading-typeface-style-stack: 'Cormorant Garamond', serif;
+--heading-typeface-style-font-weight: 400;
+--heading-typeface-style-font-style: normal;
+--heading-typeface-size-number: 22px;
+--heading-typeface-size-number-unitless: 22;
+--heading-uppercase-boolean: false;
+--content-typeface-style: "light";
+--content-typeface-style-stylesheet: "//assets-openresty-kamal-production.bndzgl.com/assets/04cb40d2-43d3-42b6-a98e-678a641d8781/stylesheet.css#Woodford Bourne-light";
+--content-typeface-style-stack: Woodford Bourne;
+--content-typeface-style-font-weight: 300;
+--content-typeface-style-font-style: normal;
+--content-typeface-size-number: 16px;
+--content-typeface-size-number-unitless: 16;
+--content-uppercase-boolean: false;
+--feature-title-typeface-style: "regular";
+--feature-title-typeface-style-stylesheet: "//assets-openresty-kamal-production.bndzgl.com/assets/45a059a9-a84d-4c25-8856-cca1a9a66ec0/stylesheet.css#Cormorant Garamond-regular";
+--feature-title-typeface-style-stack: 'Cormorant Garamond', serif;
+--feature-title-typeface-style-font-weight: 400;
+--feature-title-typeface-style-font-style: normal;
+--feature-title-typeface-size-number: 34px;
+--feature-title-typeface-size-number-unitless: 34;
+--feature-title-uppercase-boolean: false;
+--menu-item-typeface-style: "regular";
+--menu-item-typeface-style-stylesheet: "//assets-openresty-kamal-production.bndzgl.com/assets/5231a62e-1590-467b-b313-7d7ace2be6e7/stylesheet.css#Cabin-regular";
+--menu-item-typeface-style-stack: 'Cabin', sans-serif;
+--menu-item-typeface-style-font-weight: 400;
+--menu-item-typeface-style-font-style: normal;
+--menu-item-typeface-size-number: 12px;
+--menu-item-typeface-size-number-unitless: 12;
+--menu-item-uppercase-boolean: true;
+--feature-title-letterspacing-number: 0em;
+--feature-title-letterspacing-number-unitless: 0;
+--page-title-letterspacing-number: 0em;
+--page-title-letterspacing-number-unitless: 0;
+--image-filter-enum: custom;
+--image-filter-custom-rgba: hsla(0, 0%, 12%, 0.3);
+--image-filter-custom-color: hsla(0, 0%, 12%, 0.3);
+--image-filter-custom-rgba-hsl: 0, 0%, 12%;
+--image-filter-custom-rgba-h: 0;
+--image-filter-custom-rgba-s: 0;
+--image-filter-custom-rgba-l: 12;
+--image-filter-custom-rgba-a: 0.3;
+--image-filter-custom-mode-enum: multiply;
+--content-lineheight-number: 1.7;
+--content-lineheight-number-unitless: 1.7;
+--cta-header-heading-typeface-style: "regular";
+--cta-header-heading-typeface-style-stylesheet: "//assets-openresty-kamal-production.bndzgl.com/assets/45a059a9-a84d-4c25-8856-cca1a9a66ec0/stylesheet.css#Cormorant Garamond-regular";
+--cta-header-heading-typeface-style-stack: 'Cormorant Garamond', serif;
+--cta-header-heading-typeface-style-font-weight: 400;
+--cta-header-heading-typeface-style-font-style: normal;
+--cta-header-heading-letterspacing-number: 0em;
+--cta-header-heading-letterspacing-number-unitless: 0;
+--cta-header-heading-uppercase-boolean: false;
+--cta-header-subheading-typeface-style: "bold";
+--cta-header-subheading-typeface-style-stylesheet: "//assets-openresty-kamal-production.bndzgl.com/assets/c09b1c09-f0e3-4e69-bf7c-cbae88100803/stylesheet.css#Woodford Bourne-bold";
+--cta-header-subheading-typeface-style-stack: Woodford Bourne;
+--cta-header-subheading-typeface-style-font-weight: 700;
+--cta-header-subheading-typeface-style-font-style: normal;
+--cta-header-subheading-letterspacing-number: 0.1em;
+--cta-header-subheading-letterspacing-number-unitless: 0.1;
+--cta-header-subheading-uppercase-boolean: true;
+--secondary-heading-color: hsl(0, 0%, 12%);
+--secondary-heading-color-hsl: 0, 0%, 12%;
+--secondary-heading-color-h: 0;
+--secondary-heading-color-s: 0;
+--secondary-heading-color-l: 12;
+--secondary-heading-color-a: 1.0;
+--feature-title-lineheight-number: 1.2;
+--feature-title-lineheight-number-unitless: 1.2;
+--heading-lineheight-number: 1.2;
+--heading-lineheight-number-unitless: 1.2;
+--secondary-heading-typeface-style: "regular";
+--secondary-heading-typeface-style-stylesheet: "//assets-openresty-kamal-production.bndzgl.com/assets/0f8d43d5-d16f-435c-845f-c081ad52eea0/stylesheet.css#Woodford Bourne-regular";
+--secondary-heading-typeface-style-stack: Woodford Bourne;
+--secondary-heading-typeface-style-font-weight: 400;
+--secondary-heading-typeface-style-font-style: normal;
+--secondary-heading-typeface-size-number: 14px;
+--secondary-heading-typeface-size-number-unitless: 14;
+--secondary-heading-uppercase-boolean: true;
+--secondary-heading-lineheight-number: 1.5;
+--secondary-heading-lineheight-number-unitless: 1.5;
+--use-custom-mobile-header-height-boolean: false;
+--mobile-header-height-number: 100%;
+--mobile-header-height-number-unitless: 100;
+--content-link-style-enum: none;
+--cta-header-description-rgba: hsl(0, 0%, 100%);
+--cta-header-description-color: hsl(0, 0%, 100%);
+--cta-header-description-rgba-hsl: 0, 0%, 100%;
+--cta-header-description-rgba-h: 0;
+--cta-header-description-rgba-s: 0;
+--cta-header-description-rgba-l: 100;
+--cta-header-description-rgba-a: 1.0;
+--cta-header-button-shape-enum: square;
+--cta-header-button-style-enum: outline;
+--cta-header-heading-typeface-size-number: 52px;
+--cta-header-heading-typeface-size-number-unitless: 52;
+--cta-header-heading-lineheight-number: 1.1;
+--cta-header-heading-lineheight-number-unitless: 1.1;
+--cta-header-subheading-typeface-size-number: 28px;
+--cta-header-subheading-typeface-size-number-unitless: 28;
+--cta-header-subheading-lineheight-number: 1.1;
+--cta-header-subheading-lineheight-number-unitless: 1.1;
+--cta-header-description-typeface-style: "bold";
+--cta-header-description-typeface-style-stylesheet: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap";
+--cta-header-description-typeface-style-stack: 'Open Sans', sans-serif;
+--cta-header-description-typeface-style-font-weight: 700;
+--cta-header-description-typeface-style-font-style: normal;
+--cta-header-description-letterspacing-number: 0em;
+--cta-header-description-letterspacing-number-unitless: 0;
+--cta-header-description-uppercase-boolean: true;
+--cta-header-description-typeface-size-number: 14px;
+--cta-header-description-typeface-size-number-unitless: 14;
+--cta-header-description-lineheight-number: 1.1;
+--cta-header-description-lineheight-number-unitless: 1.1;
+--use-device-dependent-logo-sizes-boolean: false;
+--tablet-logo-size-number: 50%;
+--tablet-logo-size-number-unitless: 50;
+--mobile-logo-size-number: 50%;
+--mobile-logo-size-number-unitless: 50;
+--use-device-dependent-title-sizes-boolean: false;
+--tablet-page-title-typeface-size-number: 36px;
+--tablet-page-title-typeface-size-number-unitless: 36;
+--mobile-page-title-typeface-size-number: 24px;
+--mobile-page-title-typeface-size-number-unitless: 24;
+--page-title-letterspacing-mobile-boolean: false;
+--section-background-color: hsl(0, 0%, 100%);
+--_section-background-color: hsl(0, 0%, 100%);
+--section-background-color-hsl: 0, 0%, 100%;
+--_section-background-color-hsl: 0, 0%, 100%;
+--section-background-color-h: 0;
+--_section-background-color-h: 0;
+--section-background-color-s: 0;
+--_section-background-color-s: 0;
+--section-background-color-l: 100;
+--_section-background-color-l: 100;
+--section-background-color-a: 1.0;
+--_section-background-color-a: 1.0;
+}
+
+.style-section-style-1,.style-section-style-2 .complementary-section-style {
+  --background-color-hsl: 0, 0%, 0%;
+--background-color-h: 0;
+--background-color-s: 0;
+--background-color-l: 0;
+--background-color-a: 1.0;
+--text-color: hsl(0, 0%, 100%);
+--text-color-hsl: 0, 0%, 100%;
+--text-color-h: 0;
+--text-color-s: 0;
+--text-color-l: 100;
+--text-color-a: 1.0;
+--link-color: hsl(48, 28%, 62%);
+--link-color-hsl: 48, 28%, 62%;
+--link-color-h: 48;
+--link-color-s: 28;
+--link-color-l: 62;
+--link-color-a: 1.0;
+--feature-title-color: hsl(0, 0%, 100%);
+--feature-title-color-hsl: 0, 0%, 100%;
+--feature-title-color-h: 0;
+--feature-title-color-s: 0;
+--feature-title-color-l: 100;
+--feature-title-color-a: 1.0;
+--heading-color: hsl(0, 0%, 100%);
+--heading-color-hsl: 0, 0%, 100%;
+--heading-color-h: 0;
+--heading-color-s: 0;
+--heading-color-l: 100;
+--heading-color-a: 1.0;
+--button-color: hsl(48, 28%, 62%);
+--button-color-hsl: 48, 28%, 62%;
+--button-color-h: 48;
+--button-color-s: 28;
+--button-color-l: 62;
+--button-color-a: 1.0;
+--button-hover-color: hsl(48, 28%, 62%);
+--button-hover-color-hsl: 48, 28%, 62%;
+--button-hover-color-h: 48;
+--button-hover-color-s: 28;
+--button-hover-color-l: 62;
+--button-hover-color-a: 1.0;
+--secondary-heading-color: hsl(0, 0%, 100%);
+--secondary-heading-color-hsl: 0, 0%, 100%;
+--secondary-heading-color-h: 0;
+--secondary-heading-color-s: 0;
+--secondary-heading-color-l: 100;
+--secondary-heading-color-a: 1.0;
+--section-background-color: hsl(0, 0%, 0%);
+--_section-background-color: hsl(0, 0%, 0%);
+--section-background-color-hsl: 0, 0%, 0%;
+--_section-background-color-hsl: 0, 0%, 0%;
+--section-background-color-h: 0;
+--_section-background-color-h: 0;
+--section-background-color-s: 0;
+--_section-background-color-s: 0;
+--section-background-color-l: 0;
+--_section-background-color-l: 0;
+--section-background-color-a: 1.0;
+--_section-background-color-a: 1.0;
+  --_background-color: hsl(0, 0%, 0%);
+--_background-color-hsl: 0, 0%, 0%;
+--_background-color-h: 0;
+--_background-color-s: 0;
+--_background-color-l: 0;
+--_background-color-a: 1.0;
+}
+
+
+.style-section-style-2,.style-section-style-1 .complementary-section-style,.default-section-style .complementary-section-style {
+  --background-color-hsl: 48, 28%, 62%;
+--background-color-h: 48;
+--background-color-s: 28;
+--background-color-l: 62;
+--background-color-a: 1.0;
+--text-color: hsl(219, 24%, 11%);
+--text-color-hsl: 219, 24%, 11%;
+--text-color-h: 219;
+--text-color-s: 24;
+--text-color-l: 11;
+--text-color-a: 1.0;
+--link-color: hsl(0, 0%, 100%);
+--link-color-hsl: 0, 0%, 100%;
+--link-color-h: 0;
+--link-color-s: 0;
+--link-color-l: 100;
+--link-color-a: 1.0;
+--feature-title-color: hsl(219, 24%, 11%);
+--feature-title-color-hsl: 219, 24%, 11%;
+--feature-title-color-h: 219;
+--feature-title-color-s: 24;
+--feature-title-color-l: 11;
+--feature-title-color-a: 1.0;
+--heading-color: hsl(219, 24%, 11%);
+--heading-color-hsl: 219, 24%, 11%;
+--heading-color-h: 219;
+--heading-color-s: 24;
+--heading-color-l: 11;
+--heading-color-a: 1.0;
+--button-color: hsl(0, 0%, 100%);
+--button-color-hsl: 0, 0%, 100%;
+--button-color-h: 0;
+--button-color-s: 0;
+--button-color-l: 100;
+--button-color-a: 1.0;
+--button-hover-color: hsl(219, 24%, 11%);
+--button-hover-color-hsl: 219, 24%, 11%;
+--button-hover-color-h: 219;
+--button-hover-color-s: 24;
+--button-hover-color-l: 11;
+--button-hover-color-a: 1.0;
+--secondary-heading-color: hsl(219, 24%, 11%);
+--secondary-heading-color-hsl: 219, 24%, 11%;
+--secondary-heading-color-h: 219;
+--secondary-heading-color-s: 24;
+--secondary-heading-color-l: 11;
+--secondary-heading-color-a: 1.0;
+--section-background-color: hsl(48, 28%, 62%);
+--_section-background-color: hsl(48, 28%, 62%);
+--section-background-color-hsl: 48, 28%, 62%;
+--_section-background-color-hsl: 48, 28%, 62%;
+--section-background-color-h: 48;
+--_section-background-color-h: 48;
+--section-background-color-s: 28;
+--_section-background-color-s: 28;
+--section-background-color-l: 62;
+--_section-background-color-l: 62;
+--section-background-color-a: 1.0;
+--_section-background-color-a: 1.0;
+  --_background-color: hsl(48, 28%, 62%);
+--_background-color-hsl: 48, 28%, 62%;
+--_background-color-h: 48;
+--_background-color-s: 28;
+--_background-color-l: 62;
+--_background-color-a: 1.0;
+}
+
+
+
+</style>
+
+  <script type="text/javascript">
+    themeJsManager.registerTheme(170, Object.assign(themeJsManager.blankJs(), {
+	setup: function () {},
+
+	tearDown: function () {},
+
+	plugins: {
+		scrollToContentTab: {
+			scrollTop: function() {
+				return $(window).height();
+			}
+		},
+		navTitleNextToFlexbox: {}
+	}
+}
+));
+  </script>
+
+<link rel="stylesheet" href="//assets-openresty-kamal-production.bndzgl.com/assets/usersite_print-24638a945ae1b016ccbcf88e2053761f56183b78e8a02e4266eb8a11479fcc5d.css" media="print" data-turbo-track="reload" />
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","name":"John Bartus","url":"https:\/\/johnbartus.com\/"}</script>
+
+
+
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="XpLi5oKkP9fdDI4lVEQAKHcFHXuNSfELPH1xFW6t5ihHU88zhLUc0rP3l7PSI_2JiNdQib4n82Wg8m1PUdoFZg" />
+<link rel="canonical" href="https://johnbartus.com/home">
+<meta name="turbo-cache-control" content="no-preview">
+<meta name="remix-stylesheet" content="//assets-openresty-kamal-production.bndzgl.com/assets/remix-b8b31eec6b856bd81ac01d3077d36d38a73632f65d7d9701c22abf814f5e102c.css">
+<meta property="og:site_name" content="John Bartus">
+<meta name="title" content="John Bartus">
+<meta property="og:title" content="John Bartus">
+<meta name="twitter:title" content="John Bartus">
+<meta name="description" content="Home page of John Bartus, a songwriter artist from Marathon, Florida Keys. John Bartus, a full-time professional musician, singer, and songwriter for 40+ years, continues to raise the bar with both his amazing songs and his groundbreaking solo acoustic show.">
+<meta property="og:description" content="Home page of John Bartus, a songwriter artist from Marathon, Florida Keys. John Bartus, a full-time professional musician, singer, and songwriter for 40+ years, continues to raise the bar with both his amazing songs and his groundbreaking solo acoustic show.">
+<meta name="twitter:description" content="Home page of John Bartus, a songwriter artist from Marathon, Florida Keys. John Bartus, a full-time professional musician, singer, and songwriter for 40+ years, continues to raise the bar with both his amazing songs and his groundbreaking solo acoustic show.">
+<meta name="url" content="https://johnbartus.com/home">
+<meta property="og:url" content="https://johnbartus.com/home">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+
+
+
+
+
+</head>
+  <body class="theme-encore theme-encore-a m-style-theme-config-1183754 bz not-intro-page" data-slug="home" data-turbo="true" data-controller="live-chat no-pjax" data-editor--editor-state-target="usersite" data-variant="a">
+    
+    
+    
+
+
+    
+
+      
+<div class="usersite-container-wrap">
+  <div id="usersite-container-inner-wrap">
+    <div id="usersite-container" data-theme-swmp-use-custom-colors-boolean="0" data-theme-swmp-text-color-enum="white" data-theme-page-title-type-enum="logo" data-theme-site-wide-my-sites-align-enum="center" data-theme-cta-header-align-enum="center" data-theme-cta-header-position-enum="middle" data-theme-button-shape-enum="square" data-theme-button-style-enum="outline" data-theme-show-scroll-to-content-boolean="1" data-theme-cta-header-border-width-number-borderless-boolean="0" data-theme-cta-header-background-rgba-alpha-zero-boolean="1" data-theme-page-title-uppercase-boolean="0" data-theme-heading-uppercase-boolean="0" data-theme-content-uppercase-boolean="0" data-theme-feature-title-uppercase-boolean="0" data-theme-menu-item-uppercase-boolean="1" data-theme-image-filter-enum="custom" data-theme-image-filter-custom-mode-enum="multiply" data-theme-cta-header-heading-uppercase-boolean="0" data-theme-cta-header-subheading-uppercase-boolean="1" data-theme-secondary-heading-uppercase-boolean="1" data-theme-use-custom-mobile-header-height-boolean="0" data-theme-content-link-style-enum="none" data-theme-cta-header-button-shape-enum="square" data-theme-cta-header-button-style-enum="outline" data-theme-cta-header-description-uppercase-boolean="1" data-theme-use-device-dependent-logo-sizes-boolean="0" data-theme-use-device-dependent-title-sizes-boolean="0" data-theme-page-title-letterspacing-mobile-boolean="0" data-theme-variant-key="a" data-controller="content-width lightbox-trigger download-dialog" data-action="click-&gt;lightbox-trigger#open click-&gt;download-dialog#open">
+      		
+			<nav id="main-nav" class="mobile" data-action="turbo:load@document-&gt;selected-page#mark click-&gt;nolink-menu#ignore" data-controller="selected-page nolink-menu"><ul class="mobile list balance_5 top menu-length-9"><li class="top selected"><div><a class="top" href="/home">Home</a></div></li><li class="top"><div><a class="top" href="/bio">Bio</a></div></li><li class="top"><div><a class="top" href="/contact">Contact</a></div></li><li class="top"><div><a class="top" href="/press">Press</a></div></li><li class="top"><div><a class="top" href="/links">Links</a></div></li><li class="top"><div><a class="top" href="/blog">Blog</a></div></li><li class="top"><div><a class="top" href="/shows">Shows</a></div></li><li class="top"><div><a class="top" href="/photos">Photos</a></div></li><li class="top"><div><a class="top" href="/videos">Videos</a></div></li></ul></nav>
+
+		
+		<div data-pjax-container>
+			
+        
+  <div id="page-root" class="landing-page display-type-logo website-page-home has-cta has-section-styles" data-page-id="3007868" data-slug="home" data-chromeless="false">
+    <div id="container">
+  
+    <header id="page-header">
+      <div id="page_media_container" class="page-media-wrapper">
+      <media-background-container class="moda m-page-media m-media m-bordered m-cut-corner m-clipped m-shape m-masked page-photos page-media-container" interval="medium" speed="medium" transition="fade" style="--media-background-color: #000000">
+  <media-background crop-rect="{&quot;x&quot;:59.360730593607315,&quot;y&quot;:5.136986301369916,&quot;w&quot;:1823.2876712328766,&quot;h&quot;:1569.86301369863}" focal-point="{&quot;x&quot;:988.6392694063927,&quot;y&quot;:896.8630136986301}" original-width="2100" original-height="1575" mode="cropped" class="page-photo" image-align="center" image-justify="center" vignette="none" background-style="color" opacity="100">
+  <picture>
+      <source media="(max-width: 600px)" srcset="//images.zoogletools.com/s:bzglfiles/u/425253/2faeaa18a49b83d3cc1324ba868273590f24b9dc/original/1000-words-rainbow.jpg/!!/b%3AW1sicmVzaXplIiwxMjAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg 1x, //images.zoogletools.com/s:bzglfiles/u/425253/2faeaa18a49b83d3cc1324ba868273590f24b9dc/original/1000-words-rainbow.jpg/!!/b%3AW1sicmVzaXplIiwxODAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg 2x">
+      <source media="(min-width: 601px)" srcset="//images.zoogletools.com/s:bzglfiles/u/425253/2faeaa18a49b83d3cc1324ba868273590f24b9dc/original/1000-words-rainbow.jpg/!!/b%3AW1sicmVzaXplIiwxODAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg 1x, //images.zoogletools.com/s:bzglfiles/u/425253/2faeaa18a49b83d3cc1324ba868273590f24b9dc/original/1000-words-rainbow.jpg/!!/b%3AW1sicmVzaXplIiwzMjAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg 2x">
+
+    <img src="//images.zoogletools.com/s:bzglfiles/u/425253/2faeaa18a49b83d3cc1324ba868273590f24b9dc/original/1000-words-rainbow.jpg/!!/b%3AW1sicmVzaXplIiwxODAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg" fetchpriority="high">
+  </picture>
+</media-background>
+
+</media-background-container>
+
+</div>
+
+      <div class="title-nav-container">
+        <div id="title-wrap" class="title-wrap"
+            data-apply-textfit="false">
+          <h1 id="page-title" class="page-title display-type-logo text-fit"><a href="/home"><span class="outer" data-controller="text-fit" data-text-fit-max-value="32"><span class="inner"><img src="//images.zoogletools.com/s:bzglfiles/u/425253/0df42ee8465e2e7baca60d4237a775457ed5e52c/original/jb-logo-transp-2020.png/!!/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.png" alt="John Bartus - Live From the Florida Keys"></span></span></a></h1>
+        </div>
+
+        <div class="nav-bar">
+              <span id="toggle-mobile-menu" class="toggle-mobile-menu"><a href="javascript:"><i class="icon-hamburger"></i></a></span><nav id="main-nav" class="non-mobile" data-action="turbo:load@document-&gt;selected-page#mark click-&gt;nolink-menu#ignore click-&gt;submenu#open mouseover-&gt;submenu#position resize@window-&gt;submenu#reset click@document-&gt;submenu#closeOutside touchstart@document-&gt;submenu#closeOutside:passive" data-controller="selected-page nolink-menu submenu"><ul class="horizontal list balance_5 top menu-length-9"><li class="top"><div><a class="top" href="/home">Home</a></div></li><li class="top"><div><a class="top" href="/bio">Bio</a></div></li><li class="top"><div><a class="top" href="/contact">Contact</a></div></li><li class="top"><div><a class="top" href="/press">Press</a></div></li><li class="top"><div><a class="top" href="/links">Links</a></div></li><li class="top selected"><div><a class="top" href="/blog">Blog</a></div></li><li class="top"><div><a class="top" href="/shows">Shows</a></div></li><li class="top"><div><a class="top" href="/photos">Photos</a></div></li><li class="top"><div><a class="top" href="/videos">Videos</a></div></li></ul></nav>
+
+        </div>
+      </div>
+
+      
+        
+<div id="default-page-header" class="default-page-header-area"><moda-sections class="zoogle-content" data-arrangement-id="3615531" data-controller="content-width"><moda-section class="moda m-section m-shape m-masked m-style-feature-row-13341865 zoogle-columns zoogle-columns-1 zoogle-columns-100 default-section-style padding-none title-alignment-left block block-row layout_full" data-row-id="13341865" id="feature_row_13341865" variant="1">
+  
+  
+
+  
+
+  <div class="zoogle-columns-inner site-wrap">
+    
+
+
+    
+      <div class="zoogle-column zoogle-column-1-of-1 col_1_of_1 layout_full" data-column-id="15769657" id="feature_column_15769657">
+  
+    <div class="zoogle-feature block layout_full" data-block-id="16070949" id="feature_block_16070949"><section class="feature call_to_action_header_feature hostbaby" data-feature-id="349605" data-controller="content-width" data-content-width-name="feature" id="call_to_action_header_feature_349605">
+    <section class="call-to-action-wrapper text-and-button">
+      <div class="cta-heading-wrapper">
+        <h2 class="heading-primary cta-heading">
+          Get the new After The Storm CD!
+</h2>      </div>
+
+      <div class="cta-subheading-wrapper">
+        <h3 class="heading-quaternary cta-subheading">
+          Available wherever you get your music!
+</h3>      </div>
+
+      <div class="cta-button-wrapper ">
+        <a class="button" target="_blank" data-turbo="false" href="http://johnbartus.hearnow.com">CLICK HERE!</a>
+      </div>
+</section>
+</section></div>
+</div>
+</div>
+</moda-section></moda-sections></div>
+
+
+      
+
+      <span id="scroll-to-content">
+  <i class="icon-chevron-down"></i>
+  <i class="icon-angle-down"></i>
+</span>
+
+    </header>
+  
+
+  <div id="content-wrap">
+    <div id="content">
+      <div class="zoogle_flash">
+</div>
+
+<div id="cart-badge" class="cart-badge style-section-style-1 -empty-on-load" data-controller="cart--badge-loader cart--badge" data-action="cart--badge-loader:load-&gt;cart--badge-loader#injectBadge cart--cart:updated@window-&gt;cart--badge#onCartUpdate cart--cart:display@window-&gt;cart--badge#displayCart" data-cart--badge-loader-url-value="/api/cart/badge" data-turbo-permanent=""></div>
+
+<div id="page-content-wrap"><moda-sections class="zoogle-content" data-arrangement-id="3613947" data-controller="content-width"><moda-section class="moda m-section m-shape m-masked m-style-feature-row-10463032 zoogle-columns zoogle-columns-1 zoogle-columns-100 default-section-style padding-none title-alignment-left block block-row layout_full zoogle-columns-first" data-row-id="10463032" id="feature_row_10463032" variant="1">
+  
+  
+
+  
+
+  <div class="zoogle-columns-inner site-wrap">
+    
+
+
+    
+      <div class="zoogle-column zoogle-column-1-of-1 col_1_of_1 layout_full" data-column-id="12418931" id="feature_column_12418931">
+  
+    <div class="zoogle-feature block layout_full" data-block-id="12587230" id="feature_block_12587230"><section class="feature text_feature hostbaby" data-feature-id="2807301" data-controller="content-width" data-content-width-name="feature" id="text_feature_2807301"><div data-controller="zoogle-video" data-action="message@window->zoogle-video#handleVimeoPostMessage"><p><span class="font_large">Welcome to the official website for Keys musician, writer, and the former four-time Mayor of the City of Marathon. If you like the music of James Taylor, Tom Petty, Dan Fogelberg, or Jimmy Buffett, then the songs on the Keys Disease and Live From the Florida Keys CDs will appeal to you. Check out the new CD, <em>After The Storm</em>, available now wherever you get your music! Stick around a bit, come back often, and make yourself at home! </span><br><!-- Facebook Badge END --></p></div></section></div>
+</div>
+</div>
+</moda-section></moda-sections></div>
+    </div>
+  </div>
+
+  
+    <div id="footer-wrap">
+      
+
+  <footer id="site-wide-footer" class="site-wide-footer"><moda-sections class="zoogle-content" data-arrangement-id="3799532" data-controller="content-width"><moda-section class="moda m-section m-shape m-masked m-style-feature-row-10737232 zoogle-columns zoogle-columns-1 zoogle-columns-100 default-section-style padding-none title-alignment-left block block-row layout_full" data-row-id="10737232" id="feature_row_10737232" variant="1">
+  
+  
+
+  
+
+  <div class="zoogle-columns-inner site-wrap">
+    
+
+
+    
+      <div class="zoogle-column zoogle-column-1-of-1 col_1_of_1 layout_full" data-column-id="12775513" id="feature_column_12775513">
+  
+    <div class="zoogle-feature block layout_full" data-block-id="17129484" id="feature_block_17129484"><section class="feature my_site_feature hostbaby" data-feature-id="1113277" data-controller="content-width" data-content-width-name="feature" id="my_site_feature_1113277">  
+  <ul class="my_sites -align-center my_sites_font_face my_sites_count_9 -site-brand-colors my_sites_shape_icon my_sites_page_feature" style="--my-sites-feature-size: 41px; --my-sites-feature-background-color: hsla(0,0%,0%,1);">
+      <li class="facebook">
+          <a class="icon facebook" rel="noopener" target="_blank" title="https://www.facebook.com/john.bartus" data-stat-action="Click" data-event-category="My sites" href="https://www.facebook.com/john.bartus"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 18" class="icon"><path fill-rule="evenodd" d="M1.907 18V8.999H0V5.897h1.907V4.035C1.907 1.505 2.984 0 6.044 0h2.547v3.103H7c-1.191 0-1.27.433-1.27 1.242l-.005 1.552h2.885L8.27 9H5.724V18H1.907z"></path></svg></a>
+
+</li>      <li class="amazon">
+          <a class="icon amazon" rel="noopener" target="_blank" title="https://www.amazon.com/s?i=popular&amp;rh=p_32%3AJohn+Bartus&amp;ref=dp_byline_sr_music_1" data-stat-action="Click" data-event-category="My sites" href="https://www.amazon.com/s?i=popular&amp;rh=p_32%3AJohn+Bartus&amp;ref=dp_byline_sr_music_1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class="icon"><path fill-rule="evenodd" d="M.163 12.58a.23.23 0 01.116.05c2.535 1.86 5.672 2.98 8.911 2.98 2.183 0 4.586-.57 6.795-1.753.333-.179.61.273.284.579-1.97 1.833-4.83 2.814-7.29 2.814-3.449 0-6.55-1.611-8.899-4.289-.15-.17-.071-.393.083-.382zm16.515-.445c.63-.01 1.145.145 1.253.313.216.338-.055 2.675-1.114 3.79-.163.172-.316.077-.243-.15l.147-.47c.254-.83.578-2.027.37-2.363-.251-.406-1.669-.192-2.304-.097-.193.03-.222-.183-.049-.336.564-.5 1.31-.675 1.94-.687zM9.028 0c1.09 0 2.51.297 3.37 1.146 1.088 1.046.986 2.442.986 3.96v3.59c0 1.079.435 1.552.845 2.135.145.207.174.454-.008.61l-.625.548-1.09.98a.475.475 0 01-.536.05c-.743-.634-.874-.93-1.283-1.536-1.228 1.29-2.1 1.675-3.692 1.675-1.882 0-3.347-1.196-3.347-3.59 0-1.868.986-3.138 2.387-3.759.81-.367 1.833-.534 2.809-.65l1.396-.153.002-.674c-.001-.45-.03-.923-.272-1.29-.274-.425-.793-.6-1.253-.6-.802 0-1.525.399-1.762 1.223l-.039.16c-.033.181-.152.36-.317.408l-.073.012-2.168-.239c-.183-.042-.385-.194-.334-.482C4.524.816 6.9 0 9.028 0zm1.212 6.855c-1.617 0-3.324.354-3.324 2.316 0 .994.5 1.667 1.358 1.667.63 0 1.194-.398 1.55-1.046.36-.652.41-1.27.416-1.963v-.974z"></path></svg></a>
+
+</li>      <li class="apple-music">
+          <a class="icon apple-music" rel="noopener" target="_blank" title="https://itunes.apple.com/artist/john-bartus/4100179" data-stat-action="Click" data-event-category="My sites" href="https://itunes.apple.com/artist/john-bartus/4100179"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73 73" class="icon"><path class="st0" d="M72,19.94c0-0.72-0.01-1.45-0.03-2.17c-0.04-1.58-0.14-3.17-0.42-4.73c-0.28-1.58-0.75-3.06-1.48-4.5 c-0.72-1.41-1.66-2.71-2.78-3.83c-1.12-1.12-2.42-2.06-3.83-2.78c-1.44-0.73-2.91-1.2-4.49-1.48c-1.56-0.28-3.15-0.37-4.73-0.42 C53.51,0.02,52.78,0.01,52.06,0c-0.86,0-1.72,0-2.58,0H22.52c-0.86,0-1.72,0-2.58,0c-0.72,0-1.45,0.01-2.17,0.03 c-1.58,0.04-3.17,0.14-4.73,0.42C11.46,0.74,9.98,1.2,8.55,1.94C7.13,2.66,5.84,3.6,4.72,4.72S2.65,7.13,1.93,8.55 c-0.73,1.44-1.2,2.91-1.48,4.5c-0.28,1.56-0.37,3.15-0.42,4.73C0.02,18.5,0.01,19.22,0,19.94c0,0.86,0,1.72,0,2.58v26.95 c0,0.86,0,1.72,0,2.58c0,0.72,0.01,1.45,0.03,2.17c0.04,1.58,0.14,3.17,0.42,4.73c0.28,1.58,0.75,3.06,1.48,4.5 c0.72,1.41,1.66,2.71,2.78,3.83s2.42,2.06,3.83,2.78c1.44,0.73,2.91,1.2,4.49,1.48c1.56,0.28,3.15,0.37,4.73,0.42 c0.72,0.02,1.45,0.03,2.17,0.03c0.86,0.01,1.72,0,2.58,0h26.95c0.86,0,1.72,0,2.58,0c0.72,0,1.45-0.01,2.17-0.03 c1.58-0.04,3.17-0.14,4.73-0.42c1.58-0.28,3.06-0.75,4.49-1.48c1.41-0.72,2.71-1.66,3.83-2.78c1.12-1.12,2.06-2.41,2.78-3.83 c0.73-1.44,1.2-2.91,1.48-4.5c0.28-1.56,0.37-3.15,0.42-4.73c0.02-0.72,0.03-1.45,0.03-2.17c0.01-0.86,0-1.72,0-2.58V22.52 C72,21.66,72,20.8,72,19.94z M52.71,46.85c0,0.91-0.01,1.74-0.2,2.65c-0.19,0.89-0.53,1.72-1.05,2.47 c-0.52,0.75-1.19,1.36-1.97,1.82c-0.79,0.47-1.62,0.73-2.5,0.91c-1.66,0.33-2.79,0.41-3.86,0.2c-1.03-0.21-1.9-0.68-2.6-1.32 c-1.03-0.95-1.68-2.23-1.82-3.56c-0.16-1.57,0.36-3.24,1.53-4.48c0.59-0.62,1.34-1.11,2.34-1.5c1.04-0.4,2.19-0.65,3.96-1 c0.47-0.09,0.93-0.19,1.4-0.28c0.61-0.12,1.14-0.28,1.56-0.8c0.43-0.52,0.43-1.16,0.43-1.78V24.32c0-1.21-0.54-1.54-1.7-1.32 c-0.83,0.16-18.62,3.75-18.62,3.75c-1,0.24-1.36,0.57-1.36,1.82v23.23c0,0.91-0.05,1.74-0.24,2.65c-0.19,0.89-0.53,1.72-1.05,2.47 c-0.52,0.75-1.19,1.36-1.97,1.82c-0.79,0.47-1.62,0.74-2.5,0.92c-1.66,0.33-2.79,0.41-3.86,0.2c-1.03-0.21-1.9-0.69-2.6-1.33 c-1.03-0.95-1.63-2.23-1.78-3.56c-0.16-1.57,0.31-3.24,1.49-4.48c0.59-0.62,1.34-1.11,2.34-1.5c1.04-0.4,2.19-0.65,3.96-1 c0.47-0.09,0.93-0.19,1.4-0.28c0.61-0.12,1.14-0.28,1.56-0.8c0.42-0.52,0.47-1.13,0.47-1.75c0-4.92,0-26.78,0-26.78 c0-0.36,0.03-0.6,0.05-0.72c0.09-0.56,0.31-1.05,0.72-1.39c0.34-0.28,0.78-0.48,1.33-0.6l0.01,0L49,11.33 c0.19-0.04,1.73-0.31,1.91-0.33c1.16-0.1,1.81,0.66,1.81,1.89L52.71,46.85L52.71,46.85z"></path></svg></a>
+
+</li>      <li class="spotify">
+          <a class="icon spotify" rel="noopener" target="_blank" title="https://open.spotify.com/artist/435PZFz4xSC8iJRYZ10nOr" data-stat-action="Click" data-event-category="My sites" href="https://open.spotify.com/artist/435PZFz4xSC8iJRYZ10nOr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class="icon"><path d="M9 0c1.242 0 2.414.234 3.516.703a8.832 8.832 0 012.865 1.934 9.3 9.3 0 011.916 2.847A8.885 8.885 0 0118 9a8.797 8.797 0 01-.703 3.48 8.832 8.832 0 01-1.934 2.866 9.185 9.185 0 01-2.883 1.916A8.28 8.28 0 019 18a8.28 8.28 0 01-3.48-.738 9.185 9.185 0 01-2.883-1.916A8.832 8.832 0 01.703 12.48 8.797 8.797 0 010 9c0-1.242.234-2.414.703-3.516a9.146 9.146 0 011.934-2.847A9.036 9.036 0 015.52.703 8.633 8.633 0 019 0zm-.053 10.898c-1.465-.164-3.052-.046-4.763.352a.477.477 0 00-.334.229.518.518 0 00-.053.439c.023.14.1.252.228.334.104.066.218.09.344.073l.096-.02c1.57-.352 3.017-.457 4.342-.317 1.324.14 2.513.54 3.568 1.196.14.07.281.087.422.052a.592.592 0 00.351-.263.528.528 0 00.053-.405.472.472 0 00-.299-.334c-1.172-.726-2.49-1.171-3.955-1.336zm.211-2.9c-1.863-.223-3.615-.088-5.256.404a.576.576 0 00-.369.334.74.74 0 00-.073.411l.02.1a.49.49 0 00.3.403c.175.082.357.1.544.053 1.406-.445 2.947-.568 4.623-.369 1.676.2 3.123.662 4.342 1.389.14.117.305.152.492.105a.78.78 0 00.457-.316.689.689 0 00.07-.528c-.046-.187-.14-.316-.28-.386-1.383-.844-3.007-1.377-4.87-1.6zm.07-3.094a21.718 21.718 0 00-3.146-.017c-1.008.093-1.91.258-2.707.492a.81.81 0 00-.475.404.83.83 0 00-.052.65c.07.188.199.34.386.458a.74.74 0 00.633.07c.68-.211 1.477-.363 2.39-.457a16.95 16.95 0 012.778.017c.961.083 1.899.24 2.813.475a9.645 9.645 0 012.46.984c.212.118.434.153.669.106.234-.047.398-.152.492-.316a.85.85 0 00.088-.65.798.798 0 00-.405-.51 10.987 10.987 0 00-2.777-1.16 16.84 16.84 0 00-3.146-.546z"></path></svg></a>
+
+</li>      <li class="pandora">
+          <a class="icon pandora" rel="noopener" target="_blank" title="https://pandora.com/artist/john-bartus/after-the-storm/ALmt5krVZJ7wblm" data-stat-action="Click" data-event-category="My sites" href="https://pandora.com/artist/john-bartus/after-the-storm/ALmt5krVZJ7wblm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 36" class="icon">
+<path d="M15.982 0H0V36H9.54179C10.4304 36 11.1505 35.2712 11.1505 34.3721V27.4567H13.5396C25.221 27.4567 30 20.7948 30 13.0031C30 3.3858 22.7786 0 15.982 0Z"></path>
+</svg></a>
+
+</li>      <li class="deezer">
+          <a class="icon deezer" rel="noopener" target="_blank" title="https://www.deezer.com/us/artist/4810780" data-stat-action="Click" data-event-category="My sites" href="https://www.deezer.com/us/artist/4810780"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 11" class="icon"><path d="M3.275 9.02v.995H0V9.02h3.275zm3.703 0v.995H3.704V9.02h3.274zm3.703 0v.995H7.407V9.02h3.274zm3.615 0v.995h-3.274V9.02h3.274zm3.704 0v.995h-3.275V9.02H18zM3.275 7.693v.995H0v-.995h3.275zm3.703 0v.995H3.704v-.995h3.274zm3.703 0v.995H7.407v-.995h3.274zm3.615 0v.995h-3.274v-.995h3.274zm3.704 0v.995h-3.275v-.995H18zM3.275 6.455v.995H0v-.995h3.275zm3.703 0v.995H3.704v-.995h3.274zm3.703 0v.995H7.407v-.995h3.274zm3.615 0v.995h-3.274v-.995h3.274zm3.704 0v.995h-3.275v-.995H18zM3.275 5.13v.995H0v-.995h3.275zm7.406 0v.995H7.407v-.995h3.274zm3.615 0v.995h-3.274v-.995h3.274zm3.704 0v.995h-3.275v-.995H18zM3.275 3.89v.995H0V3.89h3.275zm7.406 0v.995H7.407V3.89h3.274zm3.615 0v.995h-3.274V3.89h3.274zm3.704 0v.995h-3.275V3.89H18zm-7.319-1.327v.996H7.407v-.996h3.274zm7.319 0v.995h-3.275v-.995H18zm-7.319-1.326v.995H7.407v-.995h3.274zm7.319 0v.995h-3.275v-.995H18zM18 0v.995h-3.275V0H18z"></path></svg></a>
+
+</li>      <li class="youtube">
+          <a class="icon youtube" rel="noopener" target="_blank" title="https://www.youtube.com/channel/UCjyOlRvhV_L0y8MI3wv4jQw" data-stat-action="Click" data-event-category="My sites" href="https://www.youtube.com/channel/UCjyOlRvhV_L0y8MI3wv4jQw"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14" class="icon"><path d="M7.518.011l1.81-.01c.971.004 3.89.03 5.972.173l.355.05c.394.061.95.209 1.445.76.463.478.66 1.426.714 1.746l.017.108s.155 1.378.168 2.816L18 7.241c0 .654-.032 1.31-.068 1.84l-.1 1.172s-.17 1.274-.732 1.853c-.675.753-1.463.753-1.8.811l-.537.033c-2.11.12-4.778.138-5.547.14l-2.132-.03c-1.465-.029-3.372-.076-4.215-.143-.394-.116-1.294-.058-1.969-.81-.43-.444-.63-1.293-.7-1.668l-.031-.186S.014 8.875 0 7.437V5.654l.007-.39c.012-.45.035-.883.06-1.254l.1-1.172S.339 1.564.9.985C1.575.232 2.362.232 2.7.174l.75-.045C4.827.057 6.4.025 7.518.01zm-.973 3.262v6.545l6.546-3.273-6.546-3.272z"></path></svg></a>
+
+</li>      <li class="venmo">
+          <a class="icon venmo" rel="noopener" target="_blank" title="http://www.venmo.com/John-Bartus" data-stat-action="Click" data-event-category="My sites" href="http://www.venmo.com/John-Bartus"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 18" class="icon"><path d="M15.892 0c.652 1.08.947 2.194.947 3.6 0 4.484-3.82 10.31-6.92 14.4H2.84L0 .982l6.2-.59 1.5 12.11c1.403-2.291 3.135-5.89 3.135-8.345 0-1.343-.23-2.258-.589-3.012L15.892 0z"></path></svg></a>
+
+</li>      <li class="paypal">
+          <a class="icon paypal" rel="noopener" target="_blank" title="https://paypal.me/johnbartus" data-stat-action="Click" data-event-category="My sites" href="https://paypal.me/johnbartus"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 18" class="icon"><path d="M14.577 5.287c.675.788.788 1.913.507 3.207-.657 3.226-2.748 4.38-5.449 4.44l-.233.004h-.45c-.303 0-.562.227-.651.519l-.024.1-.056.168-.562 3.488-.057.168c-.05.355-.283.572-.575.612l-.1.007H4.565l1.125-7.031h1.462c4.05 0 6.638-1.969 7.425-5.682zM8.671 0c1.969 0 3.431.394 4.275 1.35.741.794.984 1.688.776 2.963l-.045.243s-.056.225-.056.338c-.713 3.731-3.14 5.054-6.235 5.116l-.234.003h-1.63a.79.79 0 00-.766.57l-.022.104v-.168L3.89 16.03H.459A.476.476 0 010 15.553l.009-.084L2.315.675a.786.786 0 01.682-.668L3.102 0h5.57z"></path></svg></a>
+
+</li></ul></section></div>
+</div>
+</div>
+    <div class="zoogle-columns-inner site-wrap">  <div class="injected-footer">
+  <footer id="page-footer" data-controller="session" data-session-url-value="/go/member/profile">
+      
+<div id="site-wide-header" class="site-wide-feature-area"><moda-sections class="zoogle-content" data-arrangement-id="3615530" data-controller="content-width"></moda-sections></div>
+
+
+
+    <div class="zoogle-feature block layout_full" data-block-id="595375" id="sitewide_block_595375"><section class="feature text_feature hostbaby" data-feature-id="2808296" data-controller="content-width" data-content-width-name="feature" id="text_feature_2808296"><div data-controller="zoogle-video" data-action="message@window->zoogle-video#handleVimeoPostMessage"><h3><strong>JOHN BARTUS TO PLAY 42nd ANNIVERSARY CONCERT IN KEY COLONY BEACH</strong></h3><div style='-webkit-text-stroke-width:0px;caret-color:rgb(29, 34, 40);color:rgb(29, 34, 40);font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:auto;outline:currentcolor !important;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;widows:auto;word-spacing:0px;' dir="ltr"> </div><div style='-webkit-text-stroke-width:0px;caret-color:rgb(29, 34, 40);color:rgb(29, 34, 40);font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:auto;outline:currentcolor !important;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;widows:auto;word-spacing:0px;' dir="ltr">MARATHON, FLORIDA KEYS - Local Florida Keys singer-songwriter and four-time Marathon Mayor John Bartus will play a special concert at Sunset Park in Key Colony Beach to celebrate the 42nd Anniversary of his first performance in the Keys. The concert happens Sunday, January 25, 2026, at 4:00 p.m., and is sponsored by the Key Colony Beach Community Association.</div><div style='-webkit-text-stroke-width:0px;caret-color:rgb(29, 34, 40);color:rgb(29, 34, 40);font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:auto;outline:currentcolor !important;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;widows:auto;word-spacing:0px;' dir="ltr"> </div><div style='-webkit-text-stroke-width:0px;caret-color:rgb(29, 34, 40);color:rgb(29, 34, 40);font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:auto;outline:currentcolor !important;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;widows:auto;word-spacing:0px;' dir="ltr">
+<div style="outline:currentcolor !important;"><div style="outline:currentcolor !important;">John's first show in the islands happened in February of 1984 at the old Compass Lounge at the old Marathon Holiday Inn. Since then, John's “Perpetual Island Tour” has encompassed more than 10,000 performances in those four decades. He has entertained multiple thousands of residents and visitors, and has opened for acts like Kansas, Rodney Crowell, 38 Special, Rick Derringer, Edgar Winter, and more. </div></div>
+<div style="outline:currentcolor !important;" dir="ltr"> </div>
+<div style="outline:currentcolor !important;" dir="ltr">John Bartus is celebrating the 42nd Anniversary of his arrival in the Florida Keys this month. His "Perpetual Island Tour" stops at various local Keys establishments each month, and he has released several albums, the most recent being the mostly acoustic <i>After The Storm</i>.</div>
+<div style="outline:currentcolor !important;" dir="ltr"> </div>
+<div style="outline:currentcolor !important;" dir="ltr">For more information, please visit <a class="no-pjax" href="https://www.kcbca.org/sunday-concerts-in-the-park" target="_blank" data-link-type="url">www.kcbca.org</a>
+</div>
+</div></div></section></div>
+
+
+    <p class="hide" data-controller="attributions">
+  Some images &copy; <span data-attributions-target="list"></span>
+</p>
+
+    <nav>
+  <ul>
+      <li class="if-logged-in"><a class="no-pjax link" data-turbo="false" rel="nofollow" data-method="delete" href="/user_sessions/logout">Log out</a></li>
+  </ul>
+</nav>
+
+    
+  </footer>
+</div>
+
+
+</div>
+</moda-section></moda-sections></footer>
+
+    </div>
+  
+</div>
+
+</div>
+
+		</div>
+		<script type="text/javascript">
+var _zaq = _zaq || [];
+var dntStatus = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+var dontTrack = dntStatus === true || dntStatus === "1";
+var inEditor = document.querySelector('.fieri') !== null;
+
+if (!dontTrack && !inEditor) {
+  _zaq.push(['_setWebsite', '422269']);
+  _zaq.push(['_setZone', 'Eastern Time (US &amp; Canada)']);
+  _zaq.push(['_setHash', '14bdce03eae7a6b278ca87d7e23534d5']);
+  _zaq.push(['_trackPage', '3007868']);
+
+  (function() {
+    var zs = document.createElement('script'); zs.type = 'text/javascript'; zs.async = true;
+    zs.src = "https://stats.zoogletools.net/stats.js?v=1";
+    zs.id = "zstats";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(zs, s);
+  })();
+}
+</script>
+
+		
+			
+		
+
+</div>  </div>
+</div></body></html>
