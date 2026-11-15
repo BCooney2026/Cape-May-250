@@ -28,6 +28,7 @@ const FAVORITES = [
   { name: 'Adam Lufkin (Luffkid)', match: /lufkin|luff\s*kid/i },
   { name: 'Dave Mininberg', match: /mininberg/i },
   { name: 'John Bartus', match: /bartus/i },
+  { name: 'Tony Baltimore', match: /tony\s*baltimore/i },
 ];
 const ISLAND_TOP = [
   { name: 'Caffeine Carl', match: /caffeine\s*carl/i, why: "Bubbas Best Local Musician; the forum's #1 pick" },

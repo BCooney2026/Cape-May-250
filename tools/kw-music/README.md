@@ -40,7 +40,7 @@ Caffeine Carl, the Durtbags), Brian uploads a screenshot and the lineup is typed
 
 ## Favorites Radar
 - **Your Favorites** (star): Raven, Joe the Show, Nick Brownell, Zach Lovering, Adam Lufkin
-  (Luffkid), Dave Mininberg, John Bartus.
+  (Luffkid), Dave Mininberg, John Bartus, Tony Baltimore.
 - **Island's Most Popular** (trophy): Caffeine Carl, The Durtbags, Cliff Cody. Picked from the
   Bubbas (Key West People's Choice Awards), the Key West Music Awards (Iggys) and the TripAdvisor
   Key West forum, Nov 2026. Revisit each summer after the Bubbas.
