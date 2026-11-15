@@ -18,7 +18,8 @@ const TZ = 'America/New_York';
 // FAVORITES: Brian's own picks (star, top score).
 // ISLAND_TOP: the island's 3 most popular acts, from Key West's people's-choice awards
 //   (the Bubbas), the Key West Music Awards (the Iggys) and the TripAdvisor Key West forum.
-//   Researched Nov 2026; revisit each summer after the Bubbas.
+//   Researched Nov 2026; revisit each summer after the Bubbas. Caffeine Carl (the forum's #1)
+//   passed away July 9, 2026; Nick Norman moved up from CHASE to take his place.
 // CHASE: well-loved locals worth a detour.
 const FAVORITES = [
   { name: 'Raven', match: /\braven\b/i },
@@ -31,13 +32,12 @@ const FAVORITES = [
   { name: 'Tony Baltimore', match: /tony\s*baltimore/i },
 ];
 const ISLAND_TOP = [
-  { name: 'Caffeine Carl', match: /caffeine\s*carl/i, why: "Bubbas Best Local Musician; the forum's #1 pick" },
   { name: 'The Durtbags', match: /durtbag/i, why: "Bubbas Best Local Band finalist; forum favorite at Durty Harry's" },
   { name: 'Cliff Cody', match: /cliff\s*cody/i, why: 'Iggy Entertainer, Songwriter and Country Act of the Year' },
+  { name: 'Nick Norman', match: /nick\s*norman/i, why: 'Former Bubbas Best Local Musician; one of the island\'s strongest draws' },
 ];
 const CHASE = [
   { name: 'Scott Kirby', match: /scott\s*kirby/i },
-  { name: 'Nick Norman', match: /nick\s*norman/i },
   { name: 'Joal Rush', match: /jo[ae]l\s*rush/i },
   { name: 'Drew Bear', match: /drew\s*bear|andrew\s*gordon/i },
 ];

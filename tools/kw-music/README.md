@@ -37,13 +37,13 @@ If a performer or bar sends a Google Calendar link, add one line to `CALENDAR_FE
 
 ## Screenshot lineups
 For acts that only post on Facebook or Instagram (Raven/Schooner Wharf, Hog's Breath, Nick Brownell,
-Caffeine Carl, the Durtbags), Brian uploads a screenshot and the lineup is typed into
+the Durtbags), Brian uploads a screenshot and the lineup is typed into
 `data/kw-music-manual.json`. The updater merges it every run; past dates drop off on their own.
 
 ## Favorites Radar
 - **Your Favorites** (star): Raven, Joe the Show, Nick Brownell, Zach Lovering, Adam Lufkin
   (Luffkid), Dave Mininberg, John Bartus, Tony Baltimore.
-- **Island's Most Popular** (trophy): Caffeine Carl, The Durtbags, Cliff Cody. Picked from the
+- **Island's Most Popular** (trophy): The Durtbags, Cliff Cody, Nick Norman. (Caffeine Carl held a spot until he passed away in July 2026.) Picked from the
   Bubbas (Key West People's Choice Awards), the Key West Music Awards (Iggys) and the TripAdvisor
   Key West forum, Nov 2026. Revisit each summer after the Bubbas.
 - **Worth Chasing**: Scott Kirby, Nick Norman, Joal Rush, Drew Bear.
