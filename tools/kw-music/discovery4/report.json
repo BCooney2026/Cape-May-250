@@ -1,0 +1,50 @@
+[
+ {
+  "url": "https://www.davemininberg.com/",
+  "status": 200,
+  "finalUrl": "https://www.davemininberg.com/",
+  "type": "text/html;charset=utf-8",
+  "bytes": 101132,
+  "file": "www_davemininberg_com_.txt",
+  "challenge": true,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.davemininberg.com/shows",
+  "status": 404,
+  "finalUrl": "https://www.davemininberg.com/shows",
+  "type": "text/html;charset=utf-8",
+  "bytes": 86802,
+  "file": "www_davemininberg_com_shows.txt",
+  "challenge": true,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.davemininberg.com/schedule",
+  "status": 404,
+  "finalUrl": "https://www.davemininberg.com/schedule",
+  "type": "text/html;charset=utf-8",
+  "bytes": 86802,
+  "file": "www_davemininberg_com_schedule.txt",
+  "challenge": true,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.davemininberg.com/calendar",
+  "status": 404,
+  "finalUrl": "https://www.davemininberg.com/calendar",
+  "type": "text/html;charset=utf-8",
+  "bytes": 86802,
+  "file": "www_davemininberg_com_calendar.txt",
+  "challenge": true,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ }
+]
