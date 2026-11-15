@@ -1,0 +1,157 @@
+// EDIT ME: each week is its own entry (Monday → Sunday), all Key West, FL.
+// Every week from Nov 9 through Dec 27 is its own page.
+// Nov 30–Dec 27 dictated. Dec 28–Jan 3 left out for now (only Dec 29 at Bali Bar is set).
+// Dec 28–Jan 3 left out (only Dec 29 at Bali Bar is set).
+const DAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const weeksData = [
+  {
+    start: [2026, 11, 9], // Nov 9–15, 2026 — dictated by Zach
+    shows: [
+      { day: "Monday",    venue: "Night off",                         time: "", off: true },
+      { day: "Tuesday",   venue: "Bali Bar at the Key West Hotel",    time: "7–11 PM" },
+      { day: "Wednesday", venue: "My New Joint",                      time: "6:30–9:30 PM", place: "Cudjoe Key, Florida" },
+      { day: "Thursday",  venue: "Halo Lounge at The Saint Hotel",    time: "8–11 PM" },
+      { day: "Friday",    venue: "General Horseplay",                 time: "10 PM–close", note: "Tequila Time Machine (with Daniel Clark on drums)" },
+      { day: "Saturday",  venue: "General Horseplay",                 time: "7–10 PM", note: "Solo" },
+      { day: "Sunday",    venue: "Portside Grill at the Perry Hotel", time: "3–6 PM" },
+    ]
+  },
+  {
+    start: [2026, 11, 16], // Nov 16–22, 2026 — dictated by Zach
+    shows: [
+      { day: "Monday",    venue: "Night off",                         time: "", off: true },
+      { day: "Tuesday",   venue: "Bali Bar at the Key West Hotel",    time: "7–11 PM" },
+      { day: "Wednesday", venue: "Smoking Tuna",                      time: "8–11 PM", note: "Tequila Time Machine (with Daniel Clark on drums)" },
+      { day: "Thursday",  venue: "Halo Lounge at The Saint Hotel",    time: "8–11 PM" },
+      { day: "Friday",    venue: "Smoking Tuna",                      time: "4–7 PM", note: "Solo" },
+      { day: "Friday",    venue: "General Horseplay",                 time: "10 PM–close", note: "Tequila Time Machine (with Daniel Clark on drums)" },
+      { day: "Saturday",  venue: "General Horseplay",                 time: "7–10 PM" },
+      { day: "Sunday",    venue: "Portside Grill at the Perry Hotel", time: "3–6 PM" },
+    ]
+  },
+  {
+    start: [2026, 11, 23], // Nov 23–29, 2026 — Zach said this week repeats Nov 9–15
+    shows: [
+      { day: "Monday",    venue: "Night off",                         time: "", off: true },
+      { day: "Tuesday",   venue: "Bali Bar at the Key West Hotel",    time: "7–11 PM" },
+      { day: "Wednesday", venue: "My New Joint",                      time: "6:30–9:30 PM", place: "Cudjoe Key, Florida" },
+      { day: "Thursday",  venue: "Halo Lounge at The Saint Hotel",    time: "8–11 PM" },
+      { day: "Friday",    venue: "General Horseplay",                 time: "10 PM–close", note: "Tequila Time Machine (with Daniel Clark on drums)" },
+      { day: "Saturday",  venue: "General Horseplay",                 time: "7–10 PM", note: "Solo" },
+      { day: "Sunday",    venue: "Portside Grill at the Perry Hotel", time: "3–6 PM" },
+    ]
+  },
+  {
+    start: [2026, 11, 30], // Nov 30–Dec 6, 2026 — dictated by Zach
+    shows: [
+      { day: "Monday",    venue: "Night off",                         time: "", off: true },
+      { day: "Tuesday",   venue: "Bali Bar at the Key West Hotel",    time: "7–11 PM" },
+      { day: "Wednesday", venue: "Island Exchange",                   time: "6–9 PM" },
+      { day: "Thursday",  venue: "Halo Lounge at The Saint Hotel",    time: "8–11 PM" },
+      { day: "Friday",    venue: "Smoking Tuna",                      time: "1–4 PM" },
+      { day: "Friday",    venue: "General Horseplay",                 time: "10 PM–close", note: "Tequila Time Machine (with Daniel Clark on drums)" },
+      { day: "Saturday",  venue: "General Horseplay",                 time: "7–10 PM" },
+      { day: "Sunday",    venue: "Portside Grill at the Perry Hotel", time: "3–6 PM" },
+    ]
+  },
+  {
+    start: [2026, 12, 7], // Dec 7–13, 2026 — dictated by Zach
+    shows: [
+      { day: "Monday",    venue: "Night off",                         time: "", off: true },
+      { day: "Tuesday",   venue: "Bali Bar at the Key West Hotel",    time: "7–11 PM" },
+      { day: "Wednesday", venue: "My New Joint",                      time: "6:30–9:30 PM", place: "Cudjoe Key, Florida" },
+      { day: "Thursday",  venue: "Island Exchange",                   time: "6–9 PM" },
+      { day: "Friday",    venue: "General Horseplay",                 time: "10 PM–close", note: "Tequila Time Machine (with Daniel Clark on drums)" },
+      { day: "Saturday",  venue: "General Horseplay",                 time: "7–10 PM" },
+      { day: "Sunday",    venue: "Portside Grill at the Perry Hotel", time: "3–6 PM" },
+    ]
+  },
+  {
+    start: [2026, 12, 14], // Dec 14–20, 2026 — dictated by Zach
+    shows: [
+      { day: "Monday",    venue: "Night off",                         time: "", off: true },
+      { day: "Tuesday",   venue: "Bali Bar at the Key West Hotel",    time: "7–11 PM" },
+      { day: "Wednesday", venue: "Island Exchange",                   time: "6–9 PM" },
+      { day: "Thursday",  venue: "Halo Lounge at The Saint Hotel",    time: "8–11 PM" },
+      { day: "Friday",    venue: "Smoking Tuna",                      time: "12–3 PM" },
+      { day: "Friday",    venue: "General Horseplay",                 time: "10 PM–close", note: "Tequila Time Machine (with Daniel Clark on drums)" },
+      { day: "Saturday",  venue: "General Horseplay",                 time: "7–10 PM" },
+      { day: "Sunday",    venue: "Portside Grill at the Perry Hotel", time: "3–6 PM" },
+    ]
+  },
+  {
+    start: [2026, 12, 21], // Dec 21–27, 2026 — dictated by Zach
+    shows: [
+      { day: "Monday",    venue: "Night off",                         time: "", off: true },
+      { day: "Tuesday",   venue: "Bali Bar at the Key West Hotel",    time: "7–11 PM" },
+      { day: "Wednesday", venue: "My New Joint",                      time: "6:30–9:30 PM", place: "Cudjoe Key, Florida" },
+      { day: "Thursday",  venue: "Halo Lounge at The Saint Hotel",    time: "8–11 PM" },
+      { day: "Friday",    venue: "General Horseplay",                 time: "10 PM–close", note: "Tequila Time Machine (with Daniel Clark on drums)" },
+      { day: "Saturday",  venue: "General Horseplay",                 time: "7–10 PM" },
+      { day: "Sunday",    venue: "Portside Grill at the Perry Hotel", time: "3–6 PM" },
+    ]
+  }
+];
+
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function utcDate(y, m, d) { return new Date(Date.UTC(y, m - 1, d)); }
+function addDays(d, n) { return new Date(d.getTime() + n * 864e5); }
+function todayKeyWest() {
+  const p = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", year: "numeric", month: "numeric", day: "numeric" }).formatToParts(new Date());
+  const g = t => +p.find(x => x.type === t).value;
+  return new Date(Date.UTC(g("year"), g("month") - 1, g("day")));
+}
+function buildWeeks() {
+  return weeksData.filter(w => w.shows && w.shows.length).map(w => {
+    const start = utcDate(...w.start);
+    return {
+      start,
+      end: addDays(start, 6),
+      days: w.shows.map(s => ({ ...s, date: addDays(start, DAYS.indexOf(s.day)) }))
+    };
+  });
+}
+function shortRange(a, b) {
+  if (a.getUTCMonth() === b.getUTCMonth()) return `${MON[a.getUTCMonth()]} ${a.getUTCDate()}–${b.getUTCDate()}`;
+  return `${MON[a.getUTCMonth()]} ${a.getUTCDate()} – ${MON[b.getUTCMonth()]} ${b.getUTCDate()}`;
+}
+function rangeLabel(a, b) {
+  const y = b.getUTCFullYear();
+  if (a.getUTCMonth() === b.getUTCMonth()) return `${MON[a.getUTCMonth()]} ${a.getUTCDate()} – ${b.getUTCDate()}, ${y}`;
+  return `${MON[a.getUTCMonth()]} ${a.getUTCDate()}${a.getUTCFullYear() !== y ? ", " + a.getUTCFullYear() : ""} – ${MON[b.getUTCMonth()]} ${b.getUTCDate()}, ${y}`;
+}
+function isThisWeek(wk, today) {
+  return today >= wk.start && today <= wk.end;
+}
+if (typeof document !== "undefined") {
+  const weeks = buildWeeks();
+  const today = todayKeyWest();
+  let cur = Math.max(0, weeks.findIndex(wk => today <= wk.end));
+  const $ = id => document.getElementById(id);
+  function render() {
+    const wk = weeks[cur];
+    const label = (isThisWeek(wk, today) || (today < weeks[0].start && cur === 0) ? "This week in Key West, FL · " : "Key West, FL · ") + rangeLabel(wk.start, wk.end);
+    $("week-label").textContent = label;
+    $("show-list").innerHTML = wk.days.map(s =>
+      `<li class="${s.off ? "off" : ""}"><div class="d">${s.day}<span>${MON[s.date.getUTCMonth()]} ${s.date.getUTCDate()}${s.time ? " · " + s.time : ""}</span></div><div class="v"><b>${s.venue}</b><span>${s.note ? s.note + " · " : ""}${s.place || "Key West, FL"}</span></div></li>`).join("");
+    $("week-prev").disabled = cur === 0;
+    $("week-next").disabled = cur === weeks.length - 1;
+    const strip = $("week-strip");
+    if (strip) {
+      strip.innerHTML = weeks.map((w, i) =>
+        `<button type="button" class="week-tab${i === cur ? " on" : ""}" data-week="${i}" aria-pressed="${i === cur}" aria-label="${rangeLabel(w.start, w.end)}">${shortRange(w.start, w.end)}</button>`
+      ).join("");
+    }
+  }
+  $("week-prev").addEventListener("click", () => { if (cur > 0) { cur--; render(); } });
+  $("week-next").addEventListener("click", () => { if (cur < weeks.length - 1) { cur++; render(); } });
+  const stripEl = $("week-strip");
+  if (stripEl) stripEl.addEventListener("click", e => {
+    const btn = e.target.closest("[data-week]");
+    if (!btn) return;
+    cur = +btn.getAttribute("data-week");
+    render();
+  });
+  render();
+  $("yr").textContent = new Date().getFullYear();
+} else if (typeof module !== "undefined") module.exports = { buildWeeks, rangeLabel, shortRange };

@@ -1,0 +1,74 @@
+[
+ {
+  "url": "https://www.zachlovering.com/shows.js",
+  "status": 200,
+  "finalUrl": "https://zachlovering.com/shows.js",
+  "type": "application/javascript; charset=UTF-8",
+  "bytes": 9686,
+  "file": "www_zachlovering_com_shows_js.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.zachlovering.com/styles.css",
+  "status": 200,
+  "finalUrl": "https://zachlovering.com/styles.css",
+  "type": "text/css; charset=UTF-8",
+  "bytes": 11491,
+  "file": "www_zachlovering_com_styles_css.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.hogfishbar.com/events",
+  "status": 200,
+  "finalUrl": "https://www.hogfishbar.com/events",
+  "type": "text/html; charset=UTF-8",
+  "bytes": 46144,
+  "file": "www_hogfishbar_com_events.txt",
+  "challenge": false,
+  "jsonld": 5,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://islanddogsbar.com/live-music/",
+  "status": 200,
+  "finalUrl": "https://islanddogsbar.com/live-music/",
+  "type": "text/html; charset=UTF-8",
+  "bytes": 184951,
+  "file": "islanddogsbar_com_live_music_.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://keywesttourist.com/event/2024-07-29-12-00-raven-cooper",
+  "status": 410,
+  "finalUrl": "https://www.keywesttourist.com/event/2024-07-29-12-00-raven-cooper/",
+  "type": "text/html; charset=utf-8",
+  "bytes": 203,
+  "file": "keywesttourist_com_event_2024_07_29_12_00_raven_cooper.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://www.keywesttourist.com/event/2024-03-28-19-00-nick-brownell/",
+  "status": 410,
+  "finalUrl": "https://www.keywesttourist.com/event/2024-03-28-19-00-nick-brownell/",
+  "type": "text/html; charset=utf-8",
+  "bytes": 203,
+  "file": "www_keywesttourist_com_event_2024_03_28_19_00_nick_brownell_.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ }
+]

@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Gone</title></head>
+<body>
+<p>This performance page is gone.</p>
+<p><a href="/live-music/">Live music calendar</a></p>
+</body>
+</html>
