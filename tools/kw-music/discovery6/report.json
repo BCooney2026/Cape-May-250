@@ -1,0 +1,62 @@
+[
+ {
+  "url": "https://calendar.google.com/calendar/ical/f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a%40group.calendar.google.com/public/basic.ics",
+  "status": 404,
+  "finalUrl": "https://calendar.google.com/calendar/ical/f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a%40group.calendar.google.com/public/basic.ics",
+  "type": "text/html; charset=utf-8",
+  "bytes": 1870,
+  "file": "calendar_google_com_calendar_ical_f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a_40group_calendar_google_com_public_basic_.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://calendar.google.com/calendar/ical/f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a@group.calendar.google.com/public/basic.ics",
+  "status": 404,
+  "finalUrl": "https://calendar.google.com/calendar/ical/f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a@group.calendar.google.com/public/basic.ics",
+  "type": "text/html; charset=utf-8",
+  "bytes": 1870,
+  "file": "calendar_google_com_calendar_ical_f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a_group_calendar_google_com_public_basic_ic.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://calendar.google.com/calendar/ical/f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a%40group.calendar.google.com/public/full.ics",
+  "status": 404,
+  "finalUrl": "https://calendar.google.com/calendar/ical/f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a%40group.calendar.google.com/public/full.ics",
+  "type": "text/html; charset=utf-8",
+  "bytes": 1870,
+  "file": "calendar_google_com_calendar_ical_f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a_40group_calendar_google_com_public_full_i.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://calendar.google.com/calendar/embed?src=f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a%40group.calendar.google.com&ctz=America%2FNew_York&mode=AGENDA",
+  "status": 401,
+  "finalUrl": "https://calendar.google.com/calendar/embed?src=f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a%40group.calendar.google.com&ctz=America%2FNew_York&mode=AGENDA",
+  "type": "text/html; charset=utf-8",
+  "bytes": 9254,
+  "file": "calendar_google_com_calendar_embed_src_f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a_40group_calendar_google_com_ctz_Amer.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ },
+ {
+  "url": "https://calendar.google.com/calendar/htmlembed?src=f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a%40group.calendar.google.com&ctz=America/New_York&mode=AGENDA",
+  "status": 404,
+  "finalUrl": "https://calendar.google.com/calendar/htmlembed?src=f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a%40group.calendar.google.com&ctz=America/New_York&mode=AGENDA",
+  "type": "text/html; charset=utf-8",
+  "bytes": 1870,
+  "file": "calendar_google_com_calendar_htmlembed_src_f7e6ccd58e61be3daa7c56b5e55bc4a39cabd41747e68f805d7e6759f597a68a_40group_calendar_google_com_ctz_.txt",
+  "challenge": false,
+  "jsonld": 0,
+  "tribe": false,
+  "ics": []
+ }
+]
