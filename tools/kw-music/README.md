@@ -33,6 +33,11 @@ If a performer or bar sends a Google Calendar link, add one line to `CALENDAR_FE
 `update.mjs`. For a Google Calendar, the feed address is:
 `https://calendar.google.com/calendar/ical/<calendar id>/public/basic.ics`
 
+## Screenshot lineups
+For acts that only post on Facebook or Instagram (Raven/Schooner Wharf, Hog's Breath, Nick Brownell,
+Caffeine Carl, the Durtbags), Brian uploads a screenshot and the lineup is typed into
+`data/kw-music-manual.json`. The updater merges it every run; past dates drop off on their own.
+
 ## Favorites Radar
 - **Your Favorites** (star): Raven, Joe the Show, Nick Brownell, Zach Lovering, Adam Lufkin
   (Luffkid), Dave Mininberg, John Bartus.

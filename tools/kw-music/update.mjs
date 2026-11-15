@@ -324,6 +324,16 @@ async function cliffCody(today) {
   return out;
 }
 
+// 10. Hand-entered lineups (from Brian's screenshots of Facebook / Instagram schedules).
+// Lives in data/kw-music-manual.json: { "events": [ { "date": "2026-12-31", "time": "19:00",
+// "act": "Raven Cooper", "venue": "Schooner Wharf Bar & Grill", "from": "Schooner FB, Dec 20" } ] }
+async function manualEntries(today) {
+  let doc;
+  try { doc = JSON.parse(await readFile('data/kw-music-manual.json', 'utf8')); } catch { return []; }
+  return (doc.events || []).filter(e => e.date && e.time && e.act && e.venue && e.date >= today)
+    .map(e => ({ date: e.date, time: e.time, act: e.act, venue: e.venue, ...(e.from ? { note: 'From ' + e.from } : {}) }));
+}
+
 const SOURCES = [
   { id: 'keywesttourist', name: 'KeyWestTourist (about 30 bars)', url: 'https://www.keywesttourist.com/live-music/', run: () => keyWestTourist() },
   { id: 'greenparrot', name: 'Green Parrot calendar', url: 'https://greenparrot.com/key-west-live-music', run: t => greenParrot(t) },
@@ -334,10 +344,11 @@ const SOURCES = [
   { id: 'scottkirby', name: 'Scott Kirby calendar', url: 'https://www.scottkirby.com/', run: t => tribeFeed({ url: 'https://www.scottkirby.com/wp-json/tribe/events/v1/events', performer: 'Scott Kirby' }, t) },
   { id: 'cliffcody', name: 'Cliff Cody shows', url: 'https://www.cliffcody.com/tour', run: t => cliffCody(t) },
   ...CALENDAR_FEEDS.map(f => ({ id: f.id, name: f.name, url: f.url, run: t => icsFeed(f, t) })),
+  { id: 'manual', name: 'Screenshot lineups (hand-entered)', url: 'data/kw-music-manual.json', run: t => manualEntries(t) },
 ];
 // When two sources list the same venue, date and time, the later one in this list wins
 // (direct venue and artist feeds beat the aggregator).
-const MERGE_ORDER = ['keywesttourist', 'irishkevins', 'greenparrot', 'joetheshow', 'scottkirby', 'zachlovering', 'mininberg', 'cliffcody', ...CALENDAR_FEEDS.map(f => f.id)];
+const MERGE_ORDER = ['keywesttourist', 'irishkevins', 'greenparrot', 'joetheshow', 'scottkirby', 'zachlovering', 'mininberg', 'cliffcody', ...CALENDAR_FEEDS.map(f => f.id), 'manual'];
 
 // ---------- Scoring ----------
 // Normalized performer name: strips set times, "w/ guests", "Duo", "Band", etc.
