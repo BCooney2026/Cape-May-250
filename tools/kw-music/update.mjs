@@ -114,18 +114,20 @@ function parseAggregator(html) {
 
 async function fetchTribe(src, today) {
   const out = [];
+  out.raw = 0; out.droppedNotKW = [];
   const end = new Date(Date.now() + 120 * 864e5).toISOString().slice(0, 10);
   let url = `${src.url}?per_page=50&start_date=${today}&end_date=${end}`;
   for (let page = 0; page < 6 && url; page++) {
     const data = JSON.parse(await getText(url));
     for (const e of data.events || []) {
+      out.raw++;
       const v = (e.venue && !Array.isArray(e.venue)) ? e.venue : {};
       const venue = decode(v.venue) || src.defaultVenue || '';
       const city = decode(v.city);
       const address = decode(v.address) || src.defaultAddress || '';
       // Key West only. A venue with no city is kept only if it's a known Key West bar.
       const isKW = /key\s*west/i.test(city) || (!city && (src.defaultVenue || VENUES.some(x => x.match.test(venue))));
-      if (!isKW) continue;
+      if (!isKW) { if (out.droppedNotKW.length < 5) out.droppedNotKW.push(`${venue || '?'} / ${city || '?'}`); continue; }
       const [d, t] = String(e.start_date || '').split(' ');
       if (!d || !t) continue;
       const title = decode(e.title);
@@ -173,6 +175,7 @@ for (const src of SOURCES) {
     const evs = src.kind === 'aggregator' ? parseAggregator(await getText(src.url)) : await fetchTribe(src, today);
     bySource[src.id] = evs.map(e => ({ ...e, source: src.id }));
     rec.ok = true; rec.count = evs.length;
+    if (evs.raw !== undefined) { rec.raw = evs.raw; if (evs.droppedNotKW.length) rec.droppedNotKW = evs.droppedNotKW; }
   } catch (e) {
     rec.error = String(e.message || e);
     // Keep this source's previous future events so one bad fetch doesn't blank the page.
@@ -180,7 +183,7 @@ for (const src of SOURCES) {
     rec.count = bySource[src.id].length; rec.keptPrevious = true;
   }
   report.push(rec);
-  console.log(`${rec.ok ? 'OK  ' : 'FAIL'} ${src.id}: ${rec.count} sets ${rec.error ? '(' + rec.error + ')' : ''}`);
+  console.log(`${rec.ok ? 'OK  ' : 'FAIL'} ${src.id}: ${rec.count} sets${rec.raw !== undefined ? ` (feed had ${rec.raw}; not Key West: ${(rec.droppedNotKW || []).join(' | ')})` : ''} ${rec.error ? '(' + rec.error + ')' : ''}`);
 }
 
 // Merge: direct venue/artist feeds win over the aggregator for the same venue + date + time.
