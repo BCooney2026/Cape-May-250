@@ -426,6 +426,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 .kwl-radar ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .kwl-radar li{font-weight:750;font-size:14px;line-height:1.35}
 .kwl-radar li b{color:#ffd166}
+.kwl-radar .kwl-warn{color:#ff9f7a;font-weight:800}
 .kwl-jump{cursor:pointer;border-radius:10px;padding:2px 4px;margin:0 -4px}.kwl-jump:hover{background:rgba(255,209,102,.14)}
 .kwl-sub{margin:10px 0 4px;font-size:11px;font-weight:1000;letter-spacing:.14em;text-transform:uppercase;color:#7fe3f2}
 .kwl-dim{font-weight:700;opacity:.65;font-size:12px}
@@ -1463,9 +1464,15 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 
   function radarRow(r, icon, extra) {
     var n = r.next;
-    var when = n ? esc(longDay(n.date) + ', ' + n.timeLabel + ' at ' + n.venue) : 'nothing posted yet';
+    // Never a hopeful "nothing posted yet" for someone who may be gone: verified warnings first,
+    // then the bot's 3-weeks-silent flag.
+    var warn = r.status ? r.status
+      : (!n && r.silent) ? 'No Key West gigs in 3+ weeks. Could have moved, retired, or worse. Verify before chasing.'
+      : (r.verifyDue ? 'Not re-verified since ' + r.checked + '. Check before chasing.' : '');
+    var when = n ? esc(longDay(n.date) + ', ' + n.timeLabel + ' at ' + n.venue) : (warn ? '' : 'nothing posted yet');
     return '<li' + (n ? ' class="kwl-jump" data-day="' + n.date + '" role="button" tabindex="0"' : '') + '><b>' + icon + esc(r.name) + ':</b> ' + when +
-      (extra ? ' <span class="kwl-dim">' + esc(extra) + '</span>' : '') + '</li>';
+      (warn ? ' <span class="kwl-warn">\u26A0\uFE0F ' + esc(warn) + '</span>' : '') +
+      (extra && !(warn && !n) ? ' <span class="kwl-dim">' + esc(extra) + '</span>' : '') + '</li>';
   }
   function renderRadar() {
     var r = state.data.radar;

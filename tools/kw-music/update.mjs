@@ -21,14 +21,20 @@ const TZ = 'America/New_York';
 //   Researched Nov 2026; revisit each summer after the Bubbas. Caffeine Carl (the forum's #1)
 //   passed away July 9, 2026; Nick Norman moved up from CHASE to take his place.
 // CHASE: well-loved locals worth a detour.
+//
+// THE RULE (learned the hard way: Caffeine Carl was recommended months after he died):
+// before adding anyone here, confirm they are alive AND playing Key West this month, and set
+// `checked` to that date. `status` is a human-verified warning shown on the Radar in place of
+// "nothing posted yet". The bot also flags anyone with no Key West gigs for 3 weeks, and anyone
+// whose `checked` date is over 4 months old.
 const FAVORITES = [
-  { name: 'Raven', match: /\braven\b/i },
+  { name: 'Raven', match: /\braven\b/i, checked: '2026-11-15', status: "Appears to have left Key West: off Schooner's calendar and playing the Tampa area (Dunedin) in 2026" },
   { name: 'Joe the Show', match: /joe\s*the\s*show/i },
   { name: 'Nick Brownell', match: /nick\s*brownw?ell/i }, // Schooner's calendar spells it Brownwell
   { name: 'Zach Lovering', match: /zach\s*lovering|tequila\s*time\s*machine/i },
   { name: 'Adam Lufkin (Luffkid)', match: /lufkin|luff\s*kid/i },
   { name: 'Dave Mininberg', match: /mininberg/i },
-  { name: 'John Bartus', match: /bartus/i },
+  { name: 'John Bartus', match: /bartus/i, checked: '2026-11-15', status: "Plays Marathon, not Key West: Sparky's Landing every Thursday 6:30 PM (an hour up US-1)" },
   { name: 'Tony Baltimore', match: /tony\s*baltimore/i },
 ];
 const ISLAND_TOP = [
@@ -38,9 +44,10 @@ const ISLAND_TOP = [
 ];
 const CHASE = [
   { name: 'Scott Kirby', match: /scott\s*kirby/i },
-  { name: 'Joal Rush', match: /jo[ae]l\s*rush/i },
+  { name: 'Joal Rush', match: /jo[ae]l\s*rush/i, checked: '2026-11-15', status: 'Visits Key West a week at a time now (last there late Oct 2026); a bonus if he shows up' },
   { name: 'Drew Bear', match: /drew\s*bear|andrew\s*gordon/i },
 ];
+for (const f of [...FAVORITES, ...ISLAND_TOP, ...CHASE]) f.checked = f.checked || '2026-11-15'; // all verified Nov 15, 2026
 const NAMED = [...FAVORITES, ...ISLAND_TOP, ...CHASE];
 // Plug-in calendar feeds. When a performer or bar shares a Google Calendar (or any .ics) link,
 // add it here: { id, name, url, performer?, defaultVenue? }. It is pulled every run.
@@ -490,11 +497,27 @@ function nextFor(test) {
   const n = hits[0];
   return { upcoming: hits.length, next: n ? { date: n.date, time: n.time, timeLabel: n.timeLabel, venue: n.venue, act: n.act } : null };
 }
+// Safety net: remember when each name's gigs dried up (carried over from the previous run), and
+// flag anyone silent for 3 weeks or not human-verified in 4 months. Never "nothing posted yet"
+// for someone who may be gone.
+const prevRadar = Object.fromEntries(['favorites', 'island', 'chase'].flatMap(k => ((previous.radar || {})[k] || []).map(r => [r.name, r])));
+function radarEntry(f, extra) {
+  const r = { name: f.name, ...extra, ...nextFor(e => f.match.test(e.act)) };
+  const prev = prevRadar[f.name] || {};
+  r.missingSince = r.upcoming ? null : (prev.missingSince || today);
+  r.checked = f.checked;
+  if (f.status) r.status = f.status;
+  r.silent = !r.upcoming && r.missingSince <= addDays(today, -21);
+  r.verifyDue = f.checked < addDays(today, -120);
+  return r;
+}
 const radar = {
-  favorites: FAVORITES.map(f => ({ name: f.name, ...nextFor(e => f.match.test(e.act)) })),
-  island: ISLAND_TOP.map(f => ({ name: f.name, why: f.why, ...nextFor(e => f.match.test(e.act)) })),
-  chase: CHASE.map(f => ({ name: f.name, ...nextFor(e => f.match.test(e.act)) })),
+  favorites: FAVORITES.map(f => radarEntry(f, {})),
+  island: ISLAND_TOP.map(f => radarEntry(f, { why: f.why })),
+  chase: CHASE.map(f => radarEntry(f, {})),
 };
+const flagged = Object.values(radar).flat().filter(r => r.silent || r.verifyDue).map(r => r.name);
+if (flagged.length) console.log('VERIFY THESE NAMES (silent 3+ weeks or not checked in 4 months): ' + flagged.join(', '));
 
 const dates = [...new Set(events.map(e => e.date))];
 const doc = {

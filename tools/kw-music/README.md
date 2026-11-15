@@ -43,6 +43,17 @@ the Durtbags), Brian uploads a screenshot and the lineup is typed into
 ## Favorites Radar
 - **Your Favorites** (star): Raven, Joe the Show, Nick Brownell, Zach Lovering, Adam Lufkin
   (Luffkid), Dave Mininberg, John Bartus, Tony Baltimore.
+## The verification rule (non-negotiable)
+
+Caffeine Carl was recommended on this page months after he passed away. Never again:
+
+1. Before adding anyone to FAVORITES, ISLAND_TOP or CHASE, confirm they are alive and playing
+   Key West this month (Google their name plus "Key West" and the current year), and set `checked`.
+2. If they've moved, retired or play elsewhere, give them a `status` note. The Radar shows it in
+   orange instead of "nothing posted yet".
+3. The bot flags anyone with no Key West gigs for 3 weeks, or not re-verified in 4 months, in
+   orange on the Radar, and prints "VERIFY THESE NAMES" in the run log. Treat that as a to-do.
+
 - **Island's Most Popular** (trophy): The Durtbags, Cliff Cody, Nick Norman. (Caffeine Carl held a spot until he passed away in July 2026.) Picked from the
   Bubbas (Key West People's Choice Awards), the Key West Music Awards (Iggys) and the TripAdvisor
   Key West forum, Nov 2026. Revisit each summer after the Bubbas.
