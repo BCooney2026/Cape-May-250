@@ -463,7 +463,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 <div class="kwl-crawl" id="kwlCrawl"></div>
 <div class="kwl-radar" id="kwlRadar"></div>
 <div class="kwl-list" id="kwlList"></div>
-<p class="kwl-fine">Lineups refresh automatically every 4 hours, all year, from bar, performer and Key West calendars. Schooner Wharf, Hog's Breath and Sloppy Joe's block automated checks, and some players (Raven, John Bartus) only post on Facebook, so they show up only when another listing has them.</p>
+<p class="kwl-fine">Lineups refresh automatically every 4 hours, all year, from bar, performer and Key West calendars. Island's Most Popular comes from the Bubbas, the Key West Music Awards and the TripAdvisor Key West forum. Raven and John Bartus only post on Facebook, so they show up only when a listing has them.</p>
 </section>
 <h2 class="section-title">The Anchors</h2>
 <section class="grid">
@@ -1405,8 +1405,8 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
   function eventsFor(day) { return state.data.events.filter(function (e) { return e.date === day; }); }
   function isBand(e) { return (e.tags || []).indexOf('not-a-band') === -1; }
   function isFav(e) { return (e.tags || []).indexOf('favorite') !== -1; }
-  function isHot(e) { return (e.tags || []).indexOf('hot') !== -1; }
-  function badge(e) { return isFav(e) ? '\u2B50 ' : (isHot(e) ? '\uD83D\uDD25 ' : ''); }
+  function isIsland(e) { return (e.tags || []).indexOf('island') !== -1; }
+  function badge(e) { return isFav(e) ? '\u2B50 ' : (isIsland(e) ? '\uD83C\uDFC6 ' : ''); }
 
   // Crawl: up to 3 stops, highest-scoring sets first, different venues and performers, spaced at least 90 minutes apart.
   function crawl(day, now) {
@@ -1472,8 +1472,8 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     if (!r) { $('kwlRadar').innerHTML = ''; return; }
     var html = '<h3>Favorites Radar</h3>' +
       '<p class="kwl-sub">Your Favorites</p><ul>' + r.favorites.map(function (x) { return radarRow(x, '⭐ ', x.upcoming > 1 ? '(+' + (x.upcoming - 1) + ' more)' : ''); }).join('') + '</ul>';
-    if (r.hot && r.hot.length) html += '<p class="kwl-sub">Hot Right Now <span class="kwl-dim">(most booked, next 2 weeks)</span></p><ul>' +
-      r.hot.map(function (x) { return radarRow(x, '🔥 ', x.venues + ' venues, ' + x.sets + ' sets'); }).join('') + '</ul>';
+    if (r.island && r.island.length) html += '<p class="kwl-sub">Island\'s Most Popular <span class="kwl-dim">(awards + forums)</span></p><ul>' +
+      r.island.map(function (x) { return radarRow(x, '\uD83C\uDFC6 ', x.why); }).join('') + '</ul>';
     html += '<p class="kwl-sub">Worth Chasing</p><ul>' + r.chase.map(function (x) { return radarRow(x, '', ''); }).join('') + '</ul>';
     $('kwlRadar').innerHTML = html;
   }

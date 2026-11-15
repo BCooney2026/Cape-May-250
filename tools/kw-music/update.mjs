@@ -13,12 +13,13 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 const OUT_FILE = 'data/kw-music.json';
 const UA = 'Mozilla/5.0 (compatible; CooneyVacationPortal/1.0; +https://vacation.cooneysparadise.com/)';
 const TZ = 'America/New_York';
-const HOT_WINDOW_DAYS = 14; // "Hot right now" looks at the next two weeks
-const HOT_COUNT = 3;
 
 // ---------- Who we care about ----------
-// FAVORITES get a star and the top score. CHASE names are well-loved locals worth a detour.
-// "Hot right now" (the 3 most-booked performers) is calculated from the data every run.
+// FAVORITES: Brian's own picks (star, top score).
+// ISLAND_TOP: the island's 3 most popular acts, from Key West's people's-choice awards
+//   (the Bubbas), the Key West Music Awards (the Iggys) and the TripAdvisor Key West forum.
+//   Researched Nov 2026; revisit each summer after the Bubbas.
+// CHASE: well-loved locals worth a detour.
 const FAVORITES = [
   { name: 'Raven', match: /\braven\b/i },
   { name: 'Joe the Show', match: /joe\s*the\s*show/i },
@@ -28,10 +29,24 @@ const FAVORITES = [
   { name: 'Dave Mininberg', match: /mininberg/i },
   { name: 'John Bartus', match: /bartus/i },
 ];
+const ISLAND_TOP = [
+  { name: 'Caffeine Carl', match: /caffeine\s*carl/i, why: "Bubbas Best Local Musician; the forum's #1 pick" },
+  { name: 'The Durtbags', match: /durtbag/i, why: "Bubbas Best Local Band finalist; forum favorite at Durty Harry's" },
+  { name: 'Cliff Cody', match: /cliff\s*cody/i, why: 'Iggy Entertainer, Songwriter and Country Act of the Year' },
+];
 const CHASE = [
   { name: 'Scott Kirby', match: /scott\s*kirby/i },
-  { name: 'Caffeine Carl', match: /caffeine\s*carl/i },
+  { name: 'Nick Norman', match: /nick\s*norman/i },
+  { name: 'Joal Rush', match: /jo[ae]l\s*rush/i },
   { name: 'Drew Bear', match: /drew\s*bear|andrew\s*gordon/i },
+];
+const NAMED = [...FAVORITES, ...ISLAND_TOP, ...CHASE];
+// Plug-in calendar feeds. When a performer or bar shares a Google Calendar (or any .ics) link,
+// add it here: { id, name, url, performer?, defaultVenue? }. It is pulled every run.
+const CALENDAR_FEEDS = [
+  // Example (the Durtbags' calendar is set to private right now, so it can't be read):
+  // { id: 'durtbags', name: 'The Durtbags calendar', performer: 'The Durtbags',
+  //   url: 'https://calendar.google.com/calendar/ical/<calendar id>/public/basic.ics' },
 ];
 // Venue weights: Brian's top venue first, then the ones already in the app.
 const VENUES = [
@@ -46,6 +61,7 @@ const VENUES = [
   { match: /sunset\s*tiki/i, weight: 15, why: "Sunset Tiki Bar: it's at the Galleon" },
   { match: /willie\s*t/i, weight: 15, why: "Willie T's: a regular stop" },
   { match: /general\s*horseplay/i, weight: 10, why: 'General Horseplay: looper central' },
+  { match: /durty\s*harry/i, weight: 15, why: "Durty Harry's: the Durtbags' home stage" },
   { match: /sloppy\s*joe/i, weight: 10, why: "Sloppy Joe's: always something on" },
   { match: /blue\s*heaven/i, weight: 10, why: 'Blue Heaven: courtyard music' },
   { match: /boat\s*house/i, weight: 10, why: 'Boat House: a regular lunch stop' },
@@ -256,6 +272,58 @@ async function daveMininberg(today) {
   return out;
 }
 
+// Convert a UTC instant to Key West date + 24h time.
+function kwParts(d) {
+  const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(d).map(x => [x.type, x.value]));
+  return { date: `${p.year}-${p.month}-${p.day}`, time: `${p.hour}:${p.minute}` };
+}
+const isKeyWest = s => /key\s*west|stock\s*island|3304[05]/i.test(s) || VENUES.some(v => v.match.test(s));
+const ymdT = v => `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6, 8)}`;
+
+// 8. Any public calendar feed (.ics), e.g. a Google Calendar a performer shares.
+async function icsFeed(src, today) {
+  const txt = (await getText(src.url)).replace(/\r?\n[ \t]/g, ''); // unfold long lines
+  if (!/BEGIN:VCALENDAR/.test(txt)) throw new Error('not a calendar feed');
+  const unesc = v => decode(String(v || '').replace(/\\n/g, ' ').replace(/\\([,;\\])/g, '$1'));
+  const out = [];
+  for (const block of txt.split('BEGIN:VEVENT').slice(1)) {
+    const field = name => { const m = block.match(new RegExp('^' + name + '(;[^:\\r\\n]*)?:(.*)$', 'm')); return m ? m[2].trim() : ''; };
+    const v = field('DTSTART');
+    const summary = unesc(field('SUMMARY'));
+    const location = unesc(field('LOCATION'));
+    if (!v || (!isKeyWest(location + ' ' + summary) && !src.defaultVenue)) continue;
+    let date, time;
+    if (/^\d{8}T\d{6}Z$/.test(v)) ({ date, time } = kwParts(new Date(`${ymdT(v)}T${v.slice(9, 11)}:${v.slice(11, 13)}:00Z`)));
+    else if (/^\d{8}T\d{6}$/.test(v)) { date = ymdT(v); time = `${v.slice(9, 11)}:${v.slice(11, 13)}`; } // local (TZID) time
+    else if (/^\d{8}$/.test(v)) { date = ymdT(v); time = '12:00'; }
+    else continue;
+    if (date < today) continue;
+    const venue = (location.split(',')[0] || '').trim() || summary || src.defaultVenue || 'Venue TBA';
+    const named = src.performer && new RegExp(src.performer.replace(/^the\s+/i, '').split(' ')[0], 'i').test(summary);
+    const act = src.performer ? (named || !summary || summary === venue ? src.performer : `${src.performer}: ${summary}`) : summary;
+    out.push({ date, time, act, venue, address: (location.split(',')[1] || '').trim() });
+  }
+  return out;
+}
+
+// 9. Cliff Cody: his shows page (Wix) carries an "add to Google Calendar" link per gig.
+async function cliffCody(today) {
+  const html = (await getText('https://www.cliffcody.com/tour')).replace(/\\\//g, '/').replace(/\\u0026/g, '&');
+  const links = [...new Set(html.match(/calendar\.google\.com\/calendar\/render\?action=TEMPLATE[^"'\s<\\]+/g) || [])];
+  if (!links.length) throw new Error('shows page loaded but no gigs found (layout may have changed)');
+  const out = [];
+  for (const l of links) {
+    const q = new URLSearchParams(l.split('?')[1]);
+    const m = (q.get('dates') || '').match(/^(\d{8})T(\d{6})Z/);
+    const where = q.get('location') || '';
+    const title = decode(q.get('text') || '');
+    if (!m || !isKeyWest(where + ' ' + title)) continue;
+    const { date, time } = kwParts(new Date(`${ymdT(m[1])}T${m[2].slice(0, 2)}:${m[2].slice(2, 4)}:00Z`));
+    if (date >= today) out.push({ date, time, act: 'Cliff Cody', venue: title || where.split(',')[0], address: where.split(',')[0] });
+  }
+  return out;
+}
+
 const SOURCES = [
   { id: 'keywesttourist', name: 'KeyWestTourist (about 30 bars)', url: 'https://www.keywesttourist.com/live-music/', run: () => keyWestTourist() },
   { id: 'greenparrot', name: 'Green Parrot calendar', url: 'https://greenparrot.com/key-west-live-music', run: t => greenParrot(t) },
@@ -264,13 +332,15 @@ const SOURCES = [
   { id: 'joetheshow', name: 'Joe the Show calendar', url: 'https://joetheshow.com/', run: t => tribeFeed({ url: 'https://joetheshow.com/wp-json/tribe/events/v1/events', performer: 'Joe the Show' }, t) },
   { id: 'irishkevins', name: "Irish Kevin's calendar", url: 'https://irishkevins.com/', run: t => tribeFeed({ url: 'https://irishkevins.com/wp-json/tribe/events/v1/events', defaultVenue: "Irish Kevin's", defaultAddress: '211 Duval St' }, t) },
   { id: 'scottkirby', name: 'Scott Kirby calendar', url: 'https://www.scottkirby.com/', run: t => tribeFeed({ url: 'https://www.scottkirby.com/wp-json/tribe/events/v1/events', performer: 'Scott Kirby' }, t) },
+  { id: 'cliffcody', name: 'Cliff Cody shows', url: 'https://www.cliffcody.com/tour', run: t => cliffCody(t) },
+  ...CALENDAR_FEEDS.map(f => ({ id: f.id, name: f.name, url: f.url, run: t => icsFeed(f, t) })),
 ];
 // When two sources list the same venue, date and time, the later one in this list wins
 // (direct venue and artist feeds beat the aggregator).
-const MERGE_ORDER = ['keywesttourist', 'irishkevins', 'greenparrot', 'joetheshow', 'scottkirby', 'zachlovering', 'mininberg'];
+const MERGE_ORDER = ['keywesttourist', 'irishkevins', 'greenparrot', 'joetheshow', 'scottkirby', 'zachlovering', 'mininberg', 'cliffcody', ...CALENDAR_FEEDS.map(f => f.id)];
 
 // ---------- Scoring ----------
-// Performer name used for "Hot right now": strips set times, "w/ guests", "Duo", "Band", etc.
+// Normalized performer name: strips set times, "w/ guests", "Duo", "Band", etc.
 function performerKey(act) {
   return act.toLowerCase()
     .replace(/^(joe the show|scott kirby|zach lovering|dave mininberg):.*$/, '$1')
@@ -280,15 +350,15 @@ function performerKey(act) {
 }
 const titleCase = s => s.replace(/(^|\s)[a-z]/g, c => c.toUpperCase());
 
-function score(ev, hotSet) {
+function score(ev) {
   let s = 0; const why = []; const tags = [];
   const fav = FAVORITES.find(f => f.match.test(ev.act));
+  const top = ISLAND_TOP.find(f => f.match.test(ev.act));
   const chase = CHASE.find(f => f.match.test(ev.act));
-  const hot = hotSet.get(performerKey(ev.act));
   const venue = VENUES.find(v => v.match.test(ev.venue));
   if (fav) { s += 100; why.push(`Favorite: ${fav.name}`); tags.push('favorite'); }
+  else if (top) { s += 90; why.push(`Island's most popular: ${top.name}`); tags.push('island'); }
   else if (chase) { s += 50; why.push(`One to chase: ${chase.name}`); tags.push('chase'); }
-  else if (hot) { s += 30; why.push(`Hot right now: ${hot}`); tags.push('hot'); }
   if (venue) { s += venue.weight; why.push(venue.why); }
   const h = Number(ev.time.slice(0, 2));
   if (h >= 13 && h <= 22) s += 5; // fits the noon-to-late day
@@ -309,9 +379,12 @@ const VENUE_ALIASES = [
 const canonVenue = v => (VENUE_ALIASES.find(([re]) => re.test(v)) || [null, v])[1];
 const venueKey = v => canonVenue(v).toLowerCase().replace(/[^a-z]/g, '').slice(0, 10);
 const key = ev => `${ev.date}|${ev.time}|${venueKey(ev.venue)}`;
-// Second dedupe key: the same performer at the same date and time is the same show,
-// even if two sources name the venue differently.
-const actKey = ev => { const f = FAVORITES.find(x => x.match.test(ev.act)); return `${ev.date}|${ev.time}|${f ? f.name : performerKey(ev.act)}`; };
+// Second dedupe key: a named act at the same venue on the same day is the same show (sources
+// often disagree on start time); any other act at the same date and time is the same show.
+const actKey = ev => {
+  const f = NAMED.find(x => x.match.test(ev.act));
+  return f ? `${ev.date}|${f.name}|${venueKey(ev.venue)}` : `${ev.date}|${ev.time}|${performerKey(ev.act)}`;
+};
 
 // ---------- Main ----------
 const today = keyWestToday();
@@ -350,24 +423,8 @@ for (const id of MERGE_ORDER) {
 }
 const base = [...merged.values()];
 
-// "Hot right now": performers booked at the most different venues in the next two weeks
-// (then most sets). Favorites and chase names are excluded since they're already featured.
-const windowEnd = addDays(today, HOT_WINDOW_DAYS);
-const tally = new Map();
-for (const ev of base) {
-  if (ev.date > windowEnd || NOT_A_BAND.test(ev.act) || ev.kind) continue;
-  if (FAVORITES.some(f => f.match.test(ev.act)) || CHASE.some(f => f.match.test(ev.act))) continue;
-  const k = performerKey(ev.act);
-  if (!k || k.length < 3) continue;
-  const t = tally.get(k) || { key: k, name: titleCase(k), venues: new Set(), sets: 0 };
-  t.venues.add(venueKey(ev.venue)); t.sets++;
-  tally.set(k, t);
-}
-const hotList = [...tally.values()].sort((a, b) => b.venues.size - a.venues.size || b.sets - a.sets).slice(0, HOT_COUNT);
-const hotSet = new Map(hotList.map(h => [h.key, h.name]));
-
 const events = base
-  .map(ev => ({ ...ev, timeLabel: label12(ev.time), ...score(ev, hotSet) }))
+  .map(ev => ({ ...ev, timeLabel: label12(ev.time), ...score(ev) }))
   .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time) || b.score - a.score);
 
 // Radar: next posted date for every name worth tracking.
@@ -378,7 +435,7 @@ function nextFor(test) {
 }
 const radar = {
   favorites: FAVORITES.map(f => ({ name: f.name, ...nextFor(e => f.match.test(e.act)) })),
-  hot: hotList.map(h => ({ name: h.name, venues: h.venues.size, sets: h.sets, ...nextFor(e => performerKey(e.act) === h.key) })),
+  island: ISLAND_TOP.map(f => ({ name: f.name, why: f.why, ...nextFor(e => f.match.test(e.act)) })),
   chase: CHASE.map(f => ({ name: f.name, ...nextFor(e => f.match.test(e.act)) })),
 };
 
@@ -389,11 +446,11 @@ const doc = {
   keyWestToday: today,
   range: { from: dates[0] || null, to: dates[dates.length - 1] || null },
   sources: report,
-  favorites: [...FAVORITES, ...CHASE].map(f => f.name),
+  favorites: NAMED.map(f => f.name),
   radar,
   events,
 };
 await mkdir('data', { recursive: true });
 await writeFile(OUT_FILE, JSON.stringify(doc, null, 1) + '\n');
-console.log(`Wrote ${events.length} sets, ${doc.range.from} to ${doc.range.to}. Hot: ${hotList.map(h => `${h.name} (${h.venues.size} venues, ${h.sets} sets)`).join('; ')}`);
+console.log(`Wrote ${events.length} sets, ${doc.range.from} to ${doc.range.to}. Island top: ${radar.island.map(r => `${r.name} (${r.upcoming})`).join('; ')}`);
 if (report.every(r => !r.ok)) { console.error('Every source failed.'); process.exitCode = 1; }
