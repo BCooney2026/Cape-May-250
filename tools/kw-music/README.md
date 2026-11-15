@@ -12,30 +12,39 @@ section at the top of `key_west.html` reads that file and shows:
 ## Sources
 | Source | What it covers |
 |---|---|
-| keywesttourist.com/live-music | About 30 bars, roughly 9 days ahead (Green Parrot, Smokin' Tuna, Rick's, Sloppy Joe's, Hank's, Irish Kevin's, Blue Heaven, Sunset Pier...) |
+| keywesttourist.com/live-music | About 30 bars, roughly 9 days ahead (Green Parrot, Smokin' Tuna, Rick's, Sloppy Joe's, Hank's, Irish Kevin's, Durty Harry's, Blue Heaven, Sunset Pier...) |
 | Green Parrot calendar widget | Every Green Parrot booking, usually 3+ months ahead |
+| The Durtbags Google Calendar | Every posted Durtbags gig (public calendar feed) |
+| cliffcody.com/tour | Cliff Cody's posted gigs (Key West only) |
 | zachlovering.com schedule file | Zach Lovering's week-by-week gigs (solo and Tequila Time Machine) |
 | davemininberg.com/upcoming | Dave Mininberg's posted shows (Key West only) |
 | joetheshow.com calendar feed | Every posted Joe the Show gig |
 | irishkevins.com calendar feed | Irish Kevin's stage, further ahead |
 | scottkirby.com calendar feed | Scott Kirby's Key West dates only |
 
-**Checked but blocked or not usable:** Schooner Wharf, Smokin' Tuna, Hog's Breath, Sloppy Joe's,
-General Horseplay and Luffkid's site all block automated checks. Bandsintown needs an approved
-API key. Raven, Nick Brownell, Adam Lufkin and John Bartus post their dates on Facebook or
-Instagram, which can't be read automatically. They still show up whenever a listing above has them.
+**Not used, on purpose:** Schooner Wharf, Smokin' Tuna, Hog's Breath, Sloppy Joe's, General
+Horseplay and Luffkid's site block automated visitors, and this updater respects that rather than
+disguising itself. Facebook and Instagram can't be read automatically either. Their gigs still
+appear whenever one of the sources above lists them.
+
+## Adding a calendar someone shares with you
+If a performer or bar sends a Google Calendar link, add one line to `CALENDAR_FEEDS` in
+`update.mjs`. For a Google Calendar, the feed address is:
+`https://calendar.google.com/calendar/ical/<calendar id>/public/basic.ics`
 
 ## Favorites Radar
-- **Your Favorites** (starred, top score): Raven, Joe the Show, Nick Brownell, Zach Lovering,
-  Adam Lufkin (Luffkid), Dave Mininberg, John Bartus.
-- **Hot Right Now** (fire icon): calculated every run. The 3 performers booked at the most
-  different venues over the next 2 weeks, across every source combined.
-- **Worth Chasing**: Scott Kirby, Caffeine Carl, Drew Bear.
+- **Your Favorites** (star): Raven, Joe the Show, Nick Brownell, Zach Lovering, Adam Lufkin
+  (Luffkid), Dave Mininberg, John Bartus.
+- **Island's Most Popular** (trophy): Caffeine Carl, The Durtbags, Cliff Cody. Picked from the
+  Bubbas (Key West People's Choice Awards), the Key West Music Awards (Iggys) and the TripAdvisor
+  Key West forum, Nov 2026. Revisit each summer after the Bubbas.
+- **Worth Chasing**: Scott Kirby, Nick Norman, Joal Rush, Drew Bear.
 
 ## Changing things
 All settings are at the top of `update.mjs`:
 - `FAVORITES` and `CHASE`: names to boost (favorites get a star).
-- `HOT_COUNT` / `HOT_WINDOW_DAYS`: how many "Hot right now" names, and how far ahead to count.
+- `ISLAND_TOP`: the island's most popular acts (edit after each year's awards).
+- `CALENDAR_FEEDS`: shared calendar links to pull.
 - `VENUE_ALIASES`: when two sources spell a bar differently, map both to one name.
 - `VENUES`: venue weights and the one-line reason shown on the card.
 - `SOURCES`: add another WordPress "The Events Calendar" site by copying a `tribe` line.
