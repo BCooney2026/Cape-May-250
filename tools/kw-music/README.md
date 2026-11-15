@@ -12,6 +12,9 @@ section at the top of `key_west.html` reads that file and shows:
 ## Sources
 | Source | What it covers |
 |---|---|
+| livemusiceveryday.com calendar feed | Island-wide calendar (40 to 70 shows a day), about 45 days ahead; Key West and Stock Island only |
+| schoonerwharf.com/entertainment.htm | Schooner Wharf's monthly calendar (Joe the Show Mondays, Nick Brownell, Tony Baltimore) |
+| hogsbreath.com/events | Hog's Breath, all three daily slots, about 2 weeks ahead |
 | keywesttourist.com/live-music | About 30 bars, roughly 9 days ahead (Green Parrot, Smokin' Tuna, Rick's, Sloppy Joe's, Hank's, Irish Kevin's, Durty Harry's, Blue Heaven, Sunset Pier...) |
 | Green Parrot calendar widget | Every Green Parrot booking, usually 3+ months ahead |
 | cliffcody.com/tour | Cliff Cody's posted gigs (Key West only) |

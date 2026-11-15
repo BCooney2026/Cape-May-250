@@ -23,7 +23,7 @@ const TZ = 'America/New_York';
 const FAVORITES = [
   { name: 'Raven', match: /\braven\b/i },
   { name: 'Joe the Show', match: /joe\s*the\s*show/i },
-  { name: 'Nick Brownell', match: /nick\s*brownell/i },
+  { name: 'Nick Brownell', match: /nick\s*brownw?ell/i }, // Schooner's calendar spells it Brownwell
   { name: 'Zach Lovering', match: /zach\s*lovering|tequila\s*time\s*machine/i },
   { name: 'Adam Lufkin (Luffkid)', match: /lufkin|luff\s*kid/i },
   { name: 'Dave Mininberg', match: /mininberg/i },
@@ -67,7 +67,7 @@ const VENUES = [
   { match: /blue\s*heaven/i, weight: 10, why: 'Blue Heaven: courtyard music' },
   { match: /boat\s*house/i, weight: 10, why: 'Boat House: a regular lunch stop' },
 ];
-const NOT_A_BAND = /karaoke|bingo|trivia|\bdj\b|comedy|tea dance|\btba\b|\btbd\b|closed|private event|drag|night off|ukulele night|open mic|jukebox/i;
+const NOT_A_BAND = /karaoke|bingo|trivia|\bdj\b|comedy|tea dance|\btba\b|\btbd\b|closed|private event|drag|night off|ukulele night|open mic|jukebox|\bmagic\b/i;
 
 // ---------- Helpers ----------
 const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
@@ -186,9 +186,9 @@ async function greenParrot(today) {
 // 3-5. WordPress "The Events Calendar" feeds (Joe the Show, Irish Kevin's, Scott Kirby).
 async function tribeFeed(src, today) {
   const out = []; out.raw = 0; out.droppedNotKW = [];
-  const end = addDays(today, 180);
+  const end = addDays(today, src.days || 180);
   let url = `${src.url}?per_page=50&start_date=${today}&end_date=${end}`;
-  for (let page = 0; page < 6 && url; page++) {
+  for (let page = 0; page < (src.maxPages || 6) && url; page++) {
     const data = JSON.parse(await getText(url));
     for (const e of data.events || []) {
       out.raw++;
@@ -199,7 +199,9 @@ async function tribeFeed(src, today) {
       if (!isKW) { if (out.droppedNotKW.length < 5) out.droppedNotKW.push(`${venue || '?'} / ${city || '?'}`); continue; }
       const [d, t] = String(e.start_date || '').split(' ');
       if (!d || !t) continue;
-      const title = decode(e.title).replace(/\s*[–—-]\s*Key West,?\s*(FL|Florida)\s*$/i, '');
+      let title = decode(e.title).replace(/\s*[–—-]\s*Key West,?\s*(FL|Florida)\s*$/i, '');
+      if (src.stripAt) title = title.replace(/\s*@\s*[^@]+$/, '').trim(); // "Aaron Blumer @Hog's Breath"
+      if (!title) continue;
       out.push({
         date: d, time: e.all_day ? '12:00' : t.slice(0, 5),
         act: src.performer && !new RegExp(src.performer.split(' ')[0], 'i').test(title) ? `${src.performer}: ${title}` : title,
@@ -335,7 +337,72 @@ async function manualEntries(today) {
     .map(e => ({ date: e.date, time: e.time, act: e.act, venue: e.venue, ...(e.from ? { note: 'From ' + e.from } : {}) }));
 }
 
+// 11. Schooner Wharf: a hand-built monthly calendar table (entertainment.htm). Rows alternate
+// between a row of day numbers and a row of acts; each act line is followed by its time range.
+function cellLines(html) {
+  return html.replace(/<br\s*\/?>|<\/p>|<\/div>/gi, '\n').split('\n').map(decode).filter(Boolean);
+}
+const fixCase = s => titleCase(s.toLowerCase()).replace(/\bBrownwell\b/, 'Brownell').replace(/\bO'm/, "O'M");
+function parseSchooner(html, today) {
+  const out = [];
+  let year = null, month = null, days = null;
+  for (const [, row] of html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)) {
+    const head = decode(row).match(/(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})\s+Entertainment Schedule/i);
+    if (head) { month = MONTHS[head[1].slice(0, 3).toLowerCase()]; year = Number(head[2]); days = null; continue; }
+    if (!month) continue;
+    const cells = [...row.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(m => cellLines(m[1]));
+    if (cells.length !== 7) continue;
+    const nums = cells.map(c => c.join(' ').match(/^(?:[A-Za-z]{3,9}\.?\s+)?(\d{1,2})$/));
+    if (cells.some(c => c.length) && cells.every((c, i) => !c.length || nums[i])) { days = nums.map(n => n && Number(n[1])); continue; }
+    if (!days) continue;
+    cells.forEach((lines, i) => {
+      if (!days[i]) return;
+      const date = `${year}-${pad(month)}-${pad(days[i])}`;
+      let name = [];
+      for (const line of lines) {
+        const t = line.replace(/\bnoon\b/i, '12pm');
+        if (/^\d{1,2}(:\d{2})?\s*([ap]m)?\s*[-–]\s*(late|midnight|close|\d)/i.test(t)) {
+          const time = rangeStart(t);
+          if (name.length && time && date >= today) out.push({ date, time, act: fixCase(name.join(' ')), venue: 'Schooner Wharf Bar & Grill', address: '202 William St' });
+          name = [];
+        } else name.push(line);
+      }
+    });
+    days = null;
+  }
+  return out;
+}
+async function schoonerWharf(today) {
+  const html = await getText('https://www.schoonerwharf.com/entertainment.htm');
+  if (!/Entertainment Schedule/i.test(html)) throw new Error('calendar page changed (no schedule heading)');
+  return parseSchooner(html, today); // can legitimately be empty on the last day of a month
+}
+
+// 12. Hog's Breath: event cards on hogsbreath.com/events/ ("November 15 @ ( 11:30 AM - 3:30 PM )").
+// The cards carry no year, so a month earlier than this month means next year.
+function parseHogs(html, today) {
+  const out = [];
+  const [ty, tm] = today.split('-').map(Number);
+  const re = /<h4[^>]*>([^<]+)<\/h4>\s*<span class="d-block date-time">\s*([A-Za-z]+)\s+(\d{1,2})\s*<b>@<\/b>\s*\(\s*([^)]*?)\s*\)/g;
+  for (const [, act, mon, day, range] of html.matchAll(re)) {
+    const m = MONTHS[mon.slice(0, 3).toLowerCase()];
+    const time = to24(range) || rangeStart(range);
+    if (!m || !time) continue;
+    const date = `${m < tm - 1 ? ty + 1 : ty}-${pad(m)}-${pad(Number(day))}`;
+    if (date >= today) out.push({ date, time, act: decode(act), venue: "Hog's Breath Saloon", address: '400 Front St' });
+  }
+  return out;
+}
+async function hogsBreath(today) {
+  const out = parseHogs(await getText('https://www.hogsbreath.com/events/'), today);
+  if (!out.length) throw new Error('schedule page loaded but no shows found (layout may have changed)');
+  return out;
+}
+
 const SOURCES = [
+  { id: 'livemusiceveryday', name: 'LiveMusicEveryDay (island-wide calendar)', url: 'https://livemusiceveryday.com/', run: t => tribeFeed({ url: 'https://livemusiceveryday.com/wp-json/tribe/events/v1/events', stripAt: true, days: 45, maxPages: 45 }, t) },
+  { id: 'schooner', name: 'Schooner Wharf music calendar', url: 'https://www.schoonerwharf.com/entertainment.htm', run: t => schoonerWharf(t) },
+  { id: 'hogsbreath', name: "Hog's Breath music schedule", url: 'https://www.hogsbreath.com/events/', run: t => hogsBreath(t) },
   { id: 'keywesttourist', name: 'KeyWestTourist (about 30 bars)', url: 'https://www.keywesttourist.com/live-music/', run: () => keyWestTourist() },
   { id: 'greenparrot', name: 'Green Parrot calendar', url: 'https://greenparrot.com/key-west-live-music', run: t => greenParrot(t) },
   { id: 'zachlovering', name: 'Zach Lovering schedule', url: 'https://www.zachlovering.com/', run: t => zachLovering(t) },
@@ -349,7 +416,7 @@ const SOURCES = [
 ];
 // When two sources list the same venue, date and time, the later one in this list wins
 // (direct venue and artist feeds beat the aggregator).
-const MERGE_ORDER = ['keywesttourist', 'irishkevins', 'greenparrot', 'joetheshow', 'scottkirby', 'zachlovering', 'mininberg', 'cliffcody', ...CALENDAR_FEEDS.map(f => f.id), 'manual'];
+const MERGE_ORDER = ['livemusiceveryday', 'keywesttourist', 'schooner', 'hogsbreath', 'irishkevins', 'greenparrot', 'joetheshow', 'scottkirby', 'zachlovering', 'mininberg', 'cliffcody', ...CALENDAR_FEEDS.map(f => f.id), 'manual'];
 
 // ---------- Scoring ----------
 // Normalized performer name: strips set times, "w/ guests", "Duo", "Band", etc.
