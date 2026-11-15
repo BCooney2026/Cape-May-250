@@ -426,6 +426,9 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 .kwl-radar ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .kwl-radar li{font-weight:750;font-size:14px;line-height:1.35}
 .kwl-radar li b{color:#ffd166}
+.kwl-jump{cursor:pointer;border-radius:10px;padding:2px 4px;margin:0 -4px}.kwl-jump:hover{background:rgba(255,209,102,.14)}
+.kwl-sub{margin:10px 0 4px;font-size:11px;font-weight:1000;letter-spacing:.14em;text-transform:uppercase;color:#7fe3f2}
+.kwl-dim{font-weight:700;opacity:.65;font-size:12px}
 .kwl-venue{border-top:1px solid rgba(255,255,255,.14);padding:10px 0}
 .kwl-venue-head{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
 .kwl-venue-head b{font-size:16px}
@@ -460,7 +463,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 <div class="kwl-crawl" id="kwlCrawl"></div>
 <div class="kwl-radar" id="kwlRadar"></div>
 <div class="kwl-list" id="kwlList"></div>
-<p class="kwl-fine">Lineups refresh automatically every 4 hours, all year. Schooner Wharf blocks automated checks, so Raven only shows up when another listing has her: check the board when you walk in.</p>
+<p class="kwl-fine">Lineups refresh automatically every 4 hours, all year, from bar, performer and Key West calendars. Schooner Wharf, Hog's Breath and Sloppy Joe's block automated checks, and some players (Raven, John Bartus) only post on Facebook, so they show up only when another listing has them.</p>
 </section>
 <h2 class="section-title">The Anchors</h2>
 <section class="grid">
@@ -1402,8 +1405,10 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
   function eventsFor(day) { return state.data.events.filter(function (e) { return e.date === day; }); }
   function isBand(e) { return (e.tags || []).indexOf('not-a-band') === -1; }
   function isFav(e) { return (e.tags || []).indexOf('favorite') !== -1; }
+  function isHot(e) { return (e.tags || []).indexOf('hot') !== -1; }
+  function badge(e) { return isFav(e) ? '\u2B50 ' : (isHot(e) ? '\uD83D\uDD25 ' : ''); }
 
-  // Crawl: up to 3 stops, highest-scoring sets first, different venues, spaced at least 90 minutes apart.
+  // Crawl: up to 3 stops, highest-scoring sets first, different venues and performers, spaced at least 90 minutes apart.
   function crawl(day, now) {
     var list = eventsFor(day).filter(isBand);
     if (day === now.date) list = list.filter(function (e) { return mins(e.time) + SET_LENGTH_MIN > now.mins; });
@@ -1413,7 +1418,10 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
     // Best sets first; add one only if it's a new venue and at least CRAWL_GAP_MIN from every other stop.
     for (var i = 0; i < sorted.length && picks.length < 3; i++) {
       var e = sorted[i];
-      var ok = picks.every(function (p) { return p.venue !== e.venue && Math.abs(mins(p.time) - mins(e.time)) >= CRAWL_GAP_MIN; });
+      var who = (e.why || [])[0] || e.act;
+      var ok = picks.every(function (p) {
+        return p.venue !== e.venue && ((p.why || [])[0] || p.act) !== who && Math.abs(mins(p.time) - mins(e.time)) >= CRAWL_GAP_MIN;
+      });
       if (ok) picks.push(e);
     }
     return picks.sort(function (a, b) { return a.time.localeCompare(b.time); });
@@ -1447,21 +1455,27 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
       picks.map(function (e, i) {
         return '<div class="kwl-stop' + (isFav(e) ? ' fav' : '') + '"><div class="kwl-num">' + (i + 1) + '</div><div>' +
           '<div class="kwl-when">' + esc(e.timeLabel) + ' • ' + esc(e.venue) + '</div>' +
-          '<b>' + (isFav(e) ? '⭐ ' : '') + esc(e.act) + '</b>' +
+          '<b>' + badge(e) + esc(e.act) + '</b>' + (e.note ? '<div class="kwl-why">' + esc(e.note) + '</div>' : '') +
           (e.why && e.why.length ? '<div class="kwl-why">' + esc(e.why.join(' • ')) + '</div>' : '') +
           '<a href="' + maps(e.venue) + '" target="_blank" rel="noopener">Map it &rarr;</a></div></div>';
       }).join('');
   }
 
-  function renderRadar(today) {
-    var names = state.data.favorites || [];
-    var rows = names.map(function (n) {
-      var hit = state.data.events.filter(function (e) {
-        return e.date >= today && (e.why || []).some(function (w) { return w.slice(-(n.length + 2)) === ': ' + n; });
-      })[0];
-      return '<li><b>' + esc(n) + ':</b> ' + (hit ? esc(longDay(hit.date) + ', ' + hit.timeLabel + ' at ' + hit.venue) : 'not on any posted calendar yet') + '</li>';
-    });
-    $('kwlRadar').innerHTML = '<h3>Favorites Radar</h3><ul>' + rows.join('') + '</ul>';
+  function radarRow(r, icon, extra) {
+    var n = r.next;
+    var when = n ? esc(longDay(n.date) + ', ' + n.timeLabel + ' at ' + n.venue) : 'nothing posted yet';
+    return '<li' + (n ? ' class="kwl-jump" data-day="' + n.date + '" role="button" tabindex="0"' : '') + '><b>' + icon + esc(r.name) + ':</b> ' + when +
+      (extra ? ' <span class="kwl-dim">' + esc(extra) + '</span>' : '') + '</li>';
+  }
+  function renderRadar() {
+    var r = state.data.radar;
+    if (!r) { $('kwlRadar').innerHTML = ''; return; }
+    var html = '<h3>Favorites Radar</h3>' +
+      '<p class="kwl-sub">Your Favorites</p><ul>' + r.favorites.map(function (x) { return radarRow(x, '⭐ ', x.upcoming > 1 ? '(+' + (x.upcoming - 1) + ' more)' : ''); }).join('') + '</ul>';
+    if (r.hot && r.hot.length) html += '<p class="kwl-sub">Hot Right Now <span class="kwl-dim">(most booked, next 2 weeks)</span></p><ul>' +
+      r.hot.map(function (x) { return radarRow(x, '🔥 ', x.venues + ' venues, ' + x.sets + ' sets'); }).join('') + '</ul>';
+    html += '<p class="kwl-sub">Worth Chasing</p><ul>' + r.chase.map(function (x) { return radarRow(x, '', ''); }).join('') + '</ul>';
+    $('kwlRadar').innerHTML = html;
   }
 
   function renderList(now) {
@@ -1479,7 +1493,7 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
         return '<div class="kwl-venue"><div class="kwl-venue-head"><b>' + esc(v) + '</b><a href="' + maps(v) + '" target="_blank" rel="noopener">Map</a></div>' +
           venues[v].map(function (e) {
             var past = state.day === now.date && mins(e.time) + SET_LENGTH_MIN <= now.mins;
-            return '<div class="kwl-set' + (isFav(e) ? ' fav' : '') + (past ? ' past' : '') + '"><span>' + esc(e.timeLabel) + '</span><span>' + (isFav(e) ? '⭐ ' : '') + esc(e.act) + '</span></div>';
+            return '<div class="kwl-set' + (isFav(e) ? ' fav' : '') + (past ? ' past' : '') + '"><span>' + esc(e.timeLabel) + '</span><span>' + badge(e) + esc(e.act) + (e.note ? ' <span class="kwl-dim">(' + esc(e.note) + ')</span>' : '') + '</span></div>';
           }).join('') + '</div>';
       }).join('');
     if (names.length > shown.length) html += '<button class="kwl-more" type="button" id="kwlMore">Show all ' + names.length + ' venues</button>';
@@ -1488,14 +1502,18 @@ button.card:focus-visible{outline:4px solid rgba(255,209,102,.85);outline-offset
 
   function render() {
     var now = kwNow();
-    renderStatus(); renderDays(now.date); renderCrawl(now); renderRadar(now.date); renderList(now);
+    renderStatus(); renderDays(now.date); renderCrawl(now); renderRadar(); renderList(now);
   }
 
   root.addEventListener('click', function (ev) {
+    var j = ev.target.closest('.kwl-jump');
+    if (j) { state.day = j.getAttribute('data-day'); state.showAll = false; render(); $('kwlDays').scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
     var b = ev.target.closest('.kwl-day');
     if (b) { state.day = b.getAttribute('data-day'); state.showAll = false; render(); return; }
     if (ev.target.id === 'kwlMore') { state.showAll = true; render(); }
   });
+
+  root.addEventListener('keydown', function (ev) { if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.closest('.kwl-jump')) { ev.preventDefault(); ev.target.click(); } });
 
   fetch(DATA_URL + '?v=' + Date.now(), { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
